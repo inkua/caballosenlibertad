@@ -9,7 +9,7 @@ const user = {
     name: 'Tom Cook',
     email: 'tom@example.com',
     imageUrl:
-        'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 }
 
 const navigation = [
@@ -18,7 +18,7 @@ const navigation = [
     { name: 'Productos', href: '/admin/products', current: false },
 ]
 const userNavigation = [
-    { name: 'Your Profile', href: '#' },
+    { name: 'Your Profile', href: '/admin/profile' },
     { name: 'Settings', href: '#' },
     { name: 'Sign out', href: '#' },
 ]
@@ -66,15 +66,6 @@ function AdminNav() {
                     </div>
                     <div className="hidden md:block">
                         <div className="ml-4 flex items-center md:ml-6">
-                            <button
-                                type="button"
-                                className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                            >
-                                <span className="absolute -inset-1.5" />
-                                <span className="sr-only">View notifications</span>
-                                <BellIcon aria-hidden="true" className="h-6 w-6" />
-                            </button>
-
                             {/* Profile dropdown */}
                             <Menu as="div" className="relative ml-3">
                                 <div>
@@ -140,14 +131,7 @@ function AdminNav() {
                             <div className="text-base font-medium leading-none text-white">{user.name}</div>
                             <div className="text-sm font-medium leading-none text-gray-400">{user.email}</div>
                         </div>
-                        <button
-                            type="button"
-                            className="relative ml-auto flex-shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                        >
-                            <span className="absolute -inset-1.5" />
-                            <span className="sr-only">View notifications</span>
-                            <BellIcon aria-hidden="true" className="h-6 w-6" />
-                        </button>
+                        
                     </div>
                     <div className="mt-3 space-y-1 px-2">
                         {userNavigation.map((item) => (
