@@ -1,25 +1,18 @@
-import {
-    collection,
-    doc,
-    getDocs,
-    addDoc,
-    updateDoc,
-    deleteDoc,
-    getDoc,
-} from "firebase/firestore";
+import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, updateDoc } from "firebase/firestore";
 
 import { db } from "./firebaseConfig";
 
-
 const addElement = async (element, collectionName) => {
     try {
-        return await addDoc(collection(db, collectionName), {
+        await addDoc(collection(db, collectionName), {
             ...element,
         });
+        return true
     } catch (e) {
-        console.log(e);
-    }
-}
+        console.error(`${collectionName}, addElement, container, DAO: `, e);
+        return false;
+    };
+};
 
 const getElementById = async (id, collectionName) => {
     try {
@@ -28,47 +21,62 @@ const getElementById = async (id, collectionName) => {
         const element = {
             id: response.id,
             data: response.data()
-        }
+        };
 
-        return element
-
-    } catch (error) {
-        console.log(error)
-        return false
-    }
-}
+        return element;
+    } catch (e) {
+        console.error(`${collectionName}, getElementById, container, DAO: `, e);
+        return false;
+    };
+};
 
 const deleteElement = async (id, collectionName) => {
     try {
         const docRef = doc(db, collectionName, id);
-        return await deleteDoc(docRef);
+        await deleteDoc(docRef);
     } catch (e) {
-        console.log(e);
-    }
-}
+        console.error(`${collectionName}, deleteElement, container, DAO: `, e);
+        return false;
+    };
+};
 
 const getAllElements = async (collectionName) => {
     try {
-        return await getDocs(collection(db, collectionName));
+        const data = await getDocs(collection(db, collectionName));
+        const elementList = formatList(data);
+        return elementList;
     } catch (e) {
-        console.log(e);
-    }
-}
+        console.error(`${collectionName}, getAllElements, container, DAO: `, e);
+        return false;
+    };
+};
 
 const updateElement = async (newData, id, collectionName) => {
     try {
         const docRef = doc(db, collectionName, id);
         const docBefore = await getDoc(docRef);
 
-        return await updateDoc(docRef, {
+        await updateDoc(docRef, {
             ...docBefore.data(),
             ...newData,
         });
+        return true
     } catch (e) {
-        console.log(e);
-    }
-}
+        console.error(`${collectionName}, updateElement, container, DAO: `, e);
+        return false;
+    };
+};
 
+const formatList = (elementList) => {
+    if (!elementList) {
+        return null;
+    };
+    const formattedList = elementList.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data(),
+    }));
+    return formattedList;
+};
 
 
 
@@ -78,4 +86,4 @@ export {
     addElement,
     updateElement,
     deleteElement,
-}
+};

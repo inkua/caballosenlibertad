@@ -6,17 +6,27 @@ export async function POST(req) {
         // Use token to validate request
 
         const res = await addProduct(data);
-        return Response.json({ status: 200, data: res });
+
+        if(res){
+            return Response.json({ status: 200, msg:"operación Exitosa", data: res });
+        }else{
+            return Response.json({ status: 500, msg:"No se pudo realizar la operación", data: res });
+        }
     } catch (e) {
         console.log(e);
-        return Response.json({ status: 403, data: e });
+        return Response.json({ status: 500, msg:"No se pudo realizar la operación", data: e });
     }
 }
+
 export async function GET() {
     try {
         const res = await getProducts()
-        return Response.json({ status: 200, data: res });
+        if(res){
+            return Response.json({ status: 200, msg:"operación Exitosa", data: res });
+        }else{
+            return Response.json({ status: 500, msg:"No se pudo realizar la operación", data: res });
+        }
     } catch (e) {
-        return Response.json({ msg: e });
+        return Response.json({  status: 500, msg: e });
     }
 }
