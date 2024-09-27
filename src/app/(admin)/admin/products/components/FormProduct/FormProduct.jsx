@@ -2,22 +2,27 @@
 
 import { useEffect, useState } from 'react'
 
-function FormProduct({ isOpen, setIsOpen, saveData, add = true }) {
+function FormProduct({ isOpen, setIsOpen, saveData, data, add = true }) {
     const [name, setName] = useState("")
     const [price, setPrice] = useState("")
     const [category, setCategory] = useState("")
     const [description, setDescription] = useState("")
+    const [id, setId] = useState("")
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        const newProduct = {
+        const newData = {
             name,
             price,
             category,
             description,
         }
 
-        saveData(newProduct)
+        if(add){
+            saveData(newData)
+        }else{
+            saveData({newData, id:id})
+        }
 
         setName('')
         setPrice('')
@@ -28,7 +33,13 @@ function FormProduct({ isOpen, setIsOpen, saveData, add = true }) {
     }
 
     useEffect(() => {
-        //cargar los datos si vamos a modificar
+        if(data){
+            setName(data.name)
+            setPrice(data.price)
+            setCategory(data.category)
+            setDescription(data.description)
+            setId(data.id)
+        }
     }, [])
 
 
@@ -125,7 +136,7 @@ function FormProduct({ isOpen, setIsOpen, saveData, add = true }) {
                                     type="submit"
                                     className="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                                 >
-                                    Guardar Producto
+                                    {add ? "Guardar Producto" : "Editar Producto"}
                                 </button>
                             </div>
                         </form>

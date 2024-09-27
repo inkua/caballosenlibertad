@@ -5,7 +5,7 @@ import SearchBar from "../componets/SearchBar/SearchBar"
 import BtnProduct from "./components/BtnProduct/BtnProduct"
 import TableProduct from "./components/TableProduct/TableProduct"
 
-async function Products () {
+async function Products() {
     let data = await getProducts(); //usando el servicio del DAO
 
     return (
@@ -22,7 +22,7 @@ async function Products () {
                     <SearchBar />
                 </div>
 
-                <TableProduct data={data}/>
+                <TableProduct data={data} />
 
                 <Pagination />
             </main>

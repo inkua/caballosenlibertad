@@ -1,4 +1,4 @@
-import { addProduct, getProducts } from "@/DAO/products.db";
+import { addProduct, getProducts, setProduct } from "@/DAO/products.db";
 
 export async function POST(req) {
     try {
@@ -7,26 +7,43 @@ export async function POST(req) {
 
         const res = await addProduct(data);
 
-        if(res){
-            return Response.json({ status: 200, msg:"operación Exitosa", data: res });
-        }else{
-            return Response.json({ status: 500, msg:"No se pudo realizar la operación", data: res });
+        if (res) {
+            return Response.json({ status: 200, msg: "operación Exitosa", data: res });
+        } else {
+            return Response.json({ status: 500, msg: "No se pudo realizar la operación", data: res });
         }
     } catch (e) {
         console.log(e);
-        return Response.json({ status: 500, msg:"No se pudo realizar la operación", data: e });
+        return Response.json({ status: 500, msg: "No se pudo realizar la operación", data: e });
+    }
+}
+export async function PUT(req) {
+    try {
+        const { token, data } = await req.json();
+        // Use token to validate request
+
+        const res = await setProduct(data.newData, data.id);
+
+        if (res) {
+            return Response.json({ status: 200, msg: "operación Exitosa", data: res });
+        } else {
+            return Response.json({ status: 500, msg: "No se pudo realizar la operación", data: res });
+        }
+    } catch (e) {
+        console.log(e);
+        return Response.json({ status: 500, msg: "No se pudo realizar la operación", data: e });
     }
 }
 
 export async function GET() {
     try {
         const res = await getProducts()
-        if(res){
-            return Response.json({ status: 200, msg:"operación Exitosa", data: res });
-        }else{
-            return Response.json({ status: 500, msg:"No se pudo realizar la operación", data: res });
+        if (res) {
+            return Response.json({ status: 200, msg: "operación Exitosa", data: res });
+        } else {
+            return Response.json({ status: 500, msg: "No se pudo realizar la operación", data: res });
         }
     } catch (e) {
-        return Response.json({  status: 500, msg: e });
+        return Response.json({ status: 500, msg: e });
     }
 }
