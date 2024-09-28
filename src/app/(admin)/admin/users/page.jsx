@@ -14,7 +14,7 @@ function Users() {
 
             <main className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="sm:flex sm:items-center sm:justify-between">
-                    <AddBtn />
+                    <AddBtn entity='users'/>
                     <SearchBar />
                 </div>
 

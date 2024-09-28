@@ -1,9 +1,13 @@
-import AddBtn from "../componets/AddBtn/AddBtn"
+import { getProducts } from "@/DAO/products.db";
+
 import Pagination from "../componets/Pagination/Pagination"
 import SearchBar from "../componets/SearchBar/SearchBar"
-import Table from "../componets/Table/Table"
+import BtnProduct from "./components/BtnProduct/BtnProduct"
+import TableProduct from "./components/TableProduct/TableProduct"
 
-function Products() {
+async function Products() {
+    let data = await getProducts(); //usando el servicio del DAO
+
     return (
         <>
             <header className="bg-white shadow">
@@ -14,11 +18,11 @@ function Products() {
 
             <main className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" >
                 <div className="sm:flex sm:items-center sm:justify-between">
-                    <AddBtn />
+                    <BtnProduct />
                     <SearchBar />
                 </div>
 
-                <Table />
+                <TableProduct data={data} />
 
                 <Pagination />
             </main>
