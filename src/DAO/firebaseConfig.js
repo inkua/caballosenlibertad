@@ -8,11 +8,11 @@ import { getFirestore } from "firebase/firestore"
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: process.env.FIREBASE,
-  authDomain: "plantilla-e9c8c.firebaseapp.com",
-  projectId: "plantilla-e9c8c",
-  storageBucket: "plantilla-e9c8c.appspot.com",
-  messagingSenderId: "628069291554",
-  appId: "1:628069291554:web:f6df8c4ef79ca454ea1c7b"
+  authDomain: "test-caballos-en-libertad.firebaseapp.com",
+  projectId: "test-caballos-en-libertad",
+  storageBucket: "test-caballos-en-libertad.appspot.com",
+  messagingSenderId: "1091894138986",
+  appId: "1:1091894138986:web:0eb98130c65889a4e3d213"
 };
 
 // Initialize Firebase
