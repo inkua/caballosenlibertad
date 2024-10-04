@@ -1,7 +1,9 @@
 import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, updateDoc } from "firebase/firestore";
+import { getStorage, ref, uploadBytes, getDownloadURL, deleteObject } from "firebase/storage";
 
-import { db } from "./firebaseConfig";
+import { db, storage } from "./firebaseConfig";
 
+//Firestore
 const addElement = async (element, collectionName) => {
     try {
         await addDoc(collection(db, collectionName), {
@@ -78,7 +80,24 @@ const formatList = (elementList) => {
     return formattedList;
 };
 
+//Storage
+const addImage = async (newImage, collectionName) => {
+    try {
+        const storageRef = ref(storage, `${collectionName}/${newImage.name + "_" + Date.now()}`);
+        await uploadBytes(storageRef, newImage);
+    } catch (e) {
+        console.error('Error al agregar la imagen: ', e);
+    }
+}
 
+const delImage = async (image) => {
+    try {
+        const storageRef = ref(storage, image)
+        await deleteObject(storageRef);
+    } catch (e) {
+        console.error("Error al eliminar la imagen: ", e);
+    }
+}
 
 export {
     getAllElements,
@@ -86,4 +105,6 @@ export {
     addElement,
     updateElement,
     deleteElement,
+    addImage,
+    delImage,
 };
