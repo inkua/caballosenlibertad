@@ -8,6 +8,7 @@ function FormProduct({ isOpen, setIsOpen, saveData, data, add = true }) {
     const [category, setCategory] = useState("")
     const [description, setDescription] = useState("")
     const [id, setId] = useState("")
+    const [url, setUrl] = useState("")
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -16,29 +17,32 @@ function FormProduct({ isOpen, setIsOpen, saveData, data, add = true }) {
             price,
             category,
             description,
+            url,
         }
 
-        if(add){
+        if (add) {
             saveData(newData)
-        }else{
-            saveData({newData, id:id})
+        } else {
+            saveData({ newData, id: id })
         }
 
         setName('')
         setPrice('')
         setCategory('')
         setDescription('')
+        setUrl('')
 
         setIsOpen(false)
     }
 
     useEffect(() => {
-        if(data){
+        if (data) {
             setName(data.name)
             setPrice(data.price)
             setCategory(data.category)
             setDescription(data.description)
             setId(data.id)
+            setUrl(data.url)
         }
     }, [])
 
@@ -122,6 +126,7 @@ function FormProduct({ isOpen, setIsOpen, saveData, data, add = true }) {
                                         className="mt-1 block w-full rounded-md text-black border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
                                     ></textarea>
                                 </div>
+                                <input type="file" onChange={(e) => setUrl(e.target.files[0])} />
                             </div>
 
                             <div className="flex justify-end space-x-4 p-6 border-t">

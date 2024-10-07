@@ -1,5 +1,5 @@
 import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, updateDoc } from "firebase/firestore";
-import { getStorage, ref, uploadBytes, getDownloadURL, deleteObject } from "firebase/storage";
+import { ref, uploadBytes, getDownloadURL, deleteObject, listAll } from "firebase/storage";
 
 import { db, storage } from "./firebaseConfig";
 
@@ -85,8 +85,9 @@ const addImage = async (newImage, collectionName) => {
     try {
         const storageRef = ref(storage, `${collectionName}/${newImage.name + "_" + Date.now()}`);
         await uploadBytes(storageRef, newImage);
+        return getDownloadURL(storageRef)
     } catch (e) {
-        console.error('Error al agregar la imagen: ', e);
+        console.error('Error adding image: ', e);
     }
 }
 
@@ -94,8 +95,24 @@ const delImage = async (image) => {
     try {
         const storageRef = ref(storage, image)
         await deleteObject(storageRef);
+        await getDownloadURL(storageRef)
     } catch (e) {
-        console.error("Error al eliminar la imagen: ", e);
+        console.error("Error deleting imagen: ", e);
+    }
+}
+
+const getImage = async (collectionName) => {
+    try {
+        const storageRef = ref(storage, collectionName)
+        const files = await listAll(storageRef)
+        const items = await Promise.all(
+            files.items.map(async (itemRef) => {
+                const url = await getDownloadURL(itemRef);
+                return { url, ref: itemRef };
+            }))
+        return items
+    } catch (e) {
+        console.error("Error getting files: ", e);
     }
 }
 
@@ -107,4 +124,5 @@ export {
     deleteElement,
     addImage,
     delImage,
+    getImage,
 };

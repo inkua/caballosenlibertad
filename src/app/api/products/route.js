@@ -1,10 +1,8 @@
-import { addProduct, getProducts, setProduct } from "@/DAO/products.db";
+import { addProduct, getProducts, setProduct, addProductImage, delProductImage } from "@/DAO/products.db";
 
 export async function POST(req) {
     try {
         const { token, data } = await req.json();
-        // Use token to validate request
-
         const res = await addProduct(data);
 
         if (res) {
@@ -17,6 +15,7 @@ export async function POST(req) {
         return Response.json({ status: 500, msg: "No se pudo realizar la operación", data: e });
     }
 }
+
 export async function PUT(req) {
     try {
         const { token, data } = await req.json();

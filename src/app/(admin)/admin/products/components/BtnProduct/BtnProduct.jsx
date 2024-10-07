@@ -3,12 +3,15 @@
 import { useState } from "react"
 import FormProduct from "../FormProduct/FormProduct"
 import { useRouter } from "next/navigation"
+import { addProductImage } from "@/DAO/products.db";
 
 function BtnProduct() {
     const [isOpen, setIsOpen] = useState(false)
     const router = useRouter()
 
     const saveProduct = async (product) => {
+        product.url = await addProductImage(product.url)
+
         const response = await fetch('http://localhost:3000/api/products', {
             method: 'POST',
             body: JSON.stringify({
