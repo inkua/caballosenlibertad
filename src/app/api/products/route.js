@@ -18,9 +18,9 @@ export async function POST(req) {
 
 export async function DELETE(req) {
     try {
-        const { token, data, url } = await req.json();
-        delProductImage(url)
-        const res = await delProduct(data)
+        const { token, id, url } = await req.json();
+        await delProductImage(url)
+        const res = await delProduct(id)
 
         if (res) {
             return Response.json({ status: 200, msg: "operación Exitosa", data: res });

@@ -10,7 +10,7 @@ function BtnDeleteProduct({data}) {
             method: 'DELETE',
             body: JSON.stringify({
                 token: '',
-                data: data.id,
+                id: data.id,
                 url: data.url,
             }),
         });
