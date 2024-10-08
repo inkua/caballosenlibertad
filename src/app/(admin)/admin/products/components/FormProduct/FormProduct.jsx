@@ -17,7 +17,7 @@ function FormProduct({ isOpen, setIsOpen, saveData, data, add = true }) {
       price,
       category,
       description,
-      image, // Asegúrate de incluir la imagen si es necesario
+      image,
     };
 
     if (add) {
@@ -26,12 +26,11 @@ function FormProduct({ isOpen, setIsOpen, saveData, data, add = true }) {
       saveData({ newData, id: id });
     }
 
-    // Limpiar los campos después de enviar
     setName("");
     setPrice("");
     setCategory("");
     setDescription("");
-    setImage(null); // Limpiar la imagen
+    setImage(null);
 
     setIsOpen(false);
   };
@@ -75,7 +74,7 @@ function FormProduct({ isOpen, setIsOpen, saveData, data, add = true }) {
               </button>
             </div>
 
-            {/* Contenedor del formulario con scroll */}
+            {/* Cuerpo del modal */}
             <div className="overflow-y-auto p-6 flex-grow">
               <form onSubmit={(e) => handleSubmit(e)}>
                 <div className="space-y-6">
