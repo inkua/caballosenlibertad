@@ -36,6 +36,7 @@ const deleteElement = async (id, collectionName) => {
     try {
         const docRef = doc(db, collectionName, id);
         await deleteDoc(docRef);
+        return true
     } catch (e) {
         console.error(`${collectionName}, deleteElement, container, DAO: `, e);
         return false;
@@ -93,9 +94,9 @@ const addImage = async (newImage, collectionName) => {
 
 const delImage = async (image) => {
     try {
-        const storageRef = ref(storage, image)
-        await deleteObject(storageRef);
-        await getDownloadURL(storageRef)
+        const filePath = decodeURIComponent(image.split('/o/')[1].split('?')[0]);
+        const storageRef = ref(storage, filePath)
+        await deleteObject(storageRef)
     } catch (e) {
         console.error("Error deleting imagen: ", e);
     }

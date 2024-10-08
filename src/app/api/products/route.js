@@ -1,4 +1,4 @@
-import { addProduct, getProducts, setProduct, addProductImage, delProductImage } from "@/DAO/products.db";
+import { addProduct, delProduct, getProducts, setProduct, addProductImage, delProductImage } from "@/DAO/products.db";
 
 export async function POST(req) {
     try {
@@ -16,10 +16,26 @@ export async function POST(req) {
     }
 }
 
+export async function DELETE(req) {
+    try {
+        const { token, data, url } = await req.json();
+        delProductImage(url)
+        const res = await delProduct(data)
+
+        if (res) {
+            return Response.json({ status: 200, msg: "operación Exitosa", data: res });
+        } else {
+            return Response.json({ status: 500, msg: "No se pudo realizar la operación", data: res });
+        }
+    } catch (e) {
+        console.log(e);
+        return Response.json({ status: 500, msg: "No se pudo realizar la operación", data: e });
+    }
+}
+
 export async function PUT(req) {
     try {
         const { token, data } = await req.json();
-        // Use token to validate request
 
         const res = await setProduct(data.newData, data.id);
 

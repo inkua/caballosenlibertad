@@ -1,7 +1,11 @@
-import { addElement, getAllElements, getElementById, updateElement, addImage, delImage } from "./container";
+import { addElement, deleteElement, getAllElements, getElementById, updateElement, addImage, delImage } from "./container";
 
 const addProduct = async (newProduct) => {
     return await addElement(newProduct, 'products')
+}
+
+const delProduct = async (Pid) => {
+    return await deleteElement(Pid, 'products')
 }
 
 const getProductById = async (Pid) => {
@@ -26,6 +30,7 @@ const delProductImage = async (image) => {
 
 export {
     addProduct,
+    delProduct,
     getProductById,
     getProducts,
     setProduct,

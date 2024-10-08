@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import BtnEditProduct from "../BtnEditProduct/BtnEditProduct"
+import BtnDeleteProduct from "../BtnDeleteProduct/BtnDeleteProduct"
 import Link from "next/link"
 
 function ActionDropdownProduct({ data }) {
@@ -25,7 +26,7 @@ function ActionDropdownProduct({ data }) {
                         <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:underline" role="menuitem" tabIndex="-1" id="menu-item-2">Settings</a>
                     </div>
                     <div className="py-1" role="none">
-                        <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:underline" role="menuitem" tabIndex="-1" id="menu-item-3">Delete</a>
+                        <BtnDeleteProduct data={data} />
                     </div>
                 </div>
             }
