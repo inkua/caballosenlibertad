@@ -4,14 +4,18 @@ import { useState } from "react"
 import { useRouter } from "next/navigation"
 
 import FormProduct from "../FormProduct/FormProduct"
+import { addProductImage, delProductImage } from "@/DAO/products.db";
 
 
 function BtnEditProduct({ data }) {
     const [open, setOpen] = useState(false)
-
     const router = useRouter()
+    const oldUrl = data.url
 
     const updateData = async (newData) => {
+        await delProductImage(oldUrl)
+        newData.newData.url = await addProductImage(newData.newData.url)
+
         const response = await fetch('http://localhost:3000/api/products', {
             method: 'PUT',
             body: JSON.stringify({
