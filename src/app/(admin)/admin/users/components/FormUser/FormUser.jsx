@@ -10,6 +10,7 @@ function FormUser({ isOpen, setIsOpen, saveUser, data, add = true }) {
     const [password, setPassword] = useState('')
     const [creation, setCreation] = useState('')
     const [lastMod, setLastMod] = useState('')
+    const [url, setUrl] = useState('')
     const [id, setId] = useState('')
 
 
@@ -22,6 +23,7 @@ function FormUser({ isOpen, setIsOpen, saveUser, data, add = true }) {
             password,
             creation: add ? Timestamp.now() : data.creation,
             lastMod: Timestamp.now(),
+            url,
         }
 
         if (add) {
@@ -35,6 +37,7 @@ function FormUser({ isOpen, setIsOpen, saveUser, data, add = true }) {
         setPassword('')
         setCreation('')
         setLastMod('')
+        setUrl('')
         setIsOpen(false)
     }
 
@@ -44,7 +47,8 @@ function FormUser({ isOpen, setIsOpen, saveUser, data, add = true }) {
             setMail(data.mail)
             setPassword(data.password)
             setCreation(data.creation)
-            setLastMod(Timestamp.now())
+            setLastMod(data.lastMod)
+            setUrl(data.url)
             setId(data.id)
         }
     }, [data])
@@ -84,6 +88,7 @@ function FormUser({ isOpen, setIsOpen, saveUser, data, add = true }) {
 
                                     id="passwordConfirmation" type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-200 dark:text-gray-800 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                             </div>
+                            <input type="file" onChange={(e) => setUrl(e.target.files[0])} />
                         </div>
 
                         <div className="flex justify-end space-x-4 pt-4">

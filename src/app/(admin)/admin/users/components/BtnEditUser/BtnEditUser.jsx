@@ -2,19 +2,19 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-
 import FormUser from "../FormUser/FormUser"
-//import { addProductImage, delProductImage } from "@/DAO/products.db";
-
+import { addUserImage, delUserImage } from "@/DAO/users.db";
 
 function BtnEditUser({ data }) {
     const [open, setOpen] = useState(false)
     const router = useRouter()
-    //const oldUrl = data.url
+    const oldUrl = data.url
 
     const updateData = async (newData) => {
-        //await delProductImage(oldUrl)
-        //newData.newData.url = await addProductImage(newData.newData.url)
+        if (newData.newData.url != oldUrl) {
+            await delUserImage(oldUrl)
+            newData.newData.url = await addUserImage(newData.newData.url)
+        }
 
         const response = await fetch('http://localhost:3000/api/users', {
             method: 'PUT',

@@ -11,7 +11,7 @@ function BtnDeleteUser({data}) {
             body: JSON.stringify({
                 token: '',
                 id: data.id,
-                //url: data.url,
+                url: data.url,
             }),
         });
 

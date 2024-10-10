@@ -1,9 +1,9 @@
 'use client'
 
 import { useState } from "react"
-import { addProduct } from "@/DAO/users.db"
 import FormUser from "../FormUser/FormUser"
 import { useRouter } from "next/navigation"
+import { addUserImage } from "@/DAO/users.db";
 
 function AddBtn() {
     const router = useRouter()
@@ -11,6 +11,7 @@ function AddBtn() {
 
 
     const saveUser = async (newData) => {
+        newData.url = await addUserImage(newData.url)
         const response = await fetch('http://localhost:3000/api/users', {
             method: 'POST',
             body: JSON.stringify({
