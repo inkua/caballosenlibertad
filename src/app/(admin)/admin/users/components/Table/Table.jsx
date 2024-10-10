@@ -1,15 +1,14 @@
 import ItemTable from "../ItemTable/ItemTable"
 
 const headers = [
-    {id:1, title:"filename"},
-    {id:2, title:"File size"},
-    {id:3, title:"Date uploaded"},
-    {id:4, title:"Last updated"},
-    {id:5, title:"Uploaded by"},
-    {id:6, title:"Actions"},
+    { id: 1, title: "Nombre" },
+    { id: 2, title: "Correo" },
+    { id: 3, title: "Fecha de creación" },
+    { id: 4, title: "Ultima modificación" },
+    { id: 5, title: "Actions" },
 ]
 
-function Table() {
+function Table({ data }) {
 
     return (
         <section className="flex flex-col mt-6 px-4 sm:px-6 md:px-0">
@@ -19,9 +18,9 @@ function Table() {
                         {/* Table */}
                         <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700 overflow-y-scroll">
                             <thead className="bg-gray-50 dark:bg-gray-800">
-                                <tr>
+                                <tr className='w-full'>
                                     {
-                                        headers.map((item)=>
+                                        headers.map((item) =>
                                             <th scope="col" key={item.id}
                                                 className="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
                                                 {item.title}
@@ -32,11 +31,11 @@ function Table() {
                             </thead>
 
                             <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
-
-                                {/* Item List */}
-                                <ItemTable />
-                                <ItemTable />
-
+                                {
+                                    data.map((item) =>
+                                        <ItemTable data={item} key={item.id} />
+                                    )
+                                }
                             </tbody>
                         </table>
                     </div>

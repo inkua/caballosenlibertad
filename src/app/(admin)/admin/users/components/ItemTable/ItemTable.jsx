@@ -1,6 +1,6 @@
 import ActionDropdown from "../ActionDropdown/ActionDropdown"
 
-function ItemTable() {
+function ItemTable({ data }) {
     return (
         <tr className="overflow-y-scroll">
             <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
@@ -13,18 +13,16 @@ function ItemTable() {
                         </div>
 
                         <div>
-                            <h2 className="font-normal text-gray-800 dark:text-white ">Dashboard screenshot.jpg</h2>
-                            <p className="text-xs font-normal text-gray-500 dark:text-gray-400">720 KB</p>
+                            <h2 className="font-normal text-gray-800 dark:text-white ">{data.name}</h2>
                         </div>
                     </div>
                 </div>
             </td>
-            <td className="px-12 py-4 text-sm font-normal text-gray-700 whitespace-nowrap">720 KB</td>
-            <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">Jan 4, 2022</td>
-            <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">Jan 4, 2022</td>
-            <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">Demi Wilkinson</td>
+            <td className="px-12 max-w-[20%] overflow-hidden py-4 text-sm font-normal text-gray-700">{data.mail}</td>
+            <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{new Date(data.creation.seconds * 1000).toLocaleDateString('en-GB')}</td>
+            <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{new Date(data.creation.seconds * 1000).toLocaleDateString('en-GB')}</td>
             <td className="px-4 py-4 text-sm whitespace-nowrap relative inline-block text-left">
-                <ActionDropdown />
+                <ActionDropdown data={data} />
             </td>
         </tr>
     )
