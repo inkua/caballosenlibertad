@@ -10,12 +10,12 @@ function AddBtn() {
     const [isOpen, setIsOpen] = useState(false)
 
 
-    const saveUser = async (user) => {
+    const saveUser = async (newData) => {
         const response = await fetch('http://localhost:3000/api/users', {
             method: 'POST',
             body: JSON.stringify({
                 token: '',
-                data: user,
+                data: newData,
             }),
         });
         const data = await response.json();
@@ -41,7 +41,7 @@ function AddBtn() {
                 </button>
             </div>
 
-            <FormUser isOpen={isOpen} setIsOpen={setIsOpen} saveUser={saveUser} />
+            <FormUser isOpen={isOpen} setIsOpen={setIsOpen} saveUser={saveUser} add={true} />
         </>
     )
 }

@@ -20,12 +20,12 @@ function FormUser({ isOpen, setIsOpen, saveUser, data, add = true }) {
             name,
             mail,
             password,
-            creation: Timestamp.now(),
-            lastMod: add ? Timestamp.now() : data.creation,
+            creation: add ? Timestamp.now() : data.creation,
+            lastMod: Timestamp.now(),
         }
 
         if (add) {
-            saveUser({ newData })
+            saveUser(newData)
         } else {
             saveUser({ newData, id: id })
         }
@@ -47,7 +47,7 @@ function FormUser({ isOpen, setIsOpen, saveUser, data, add = true }) {
             setLastMod(Timestamp.now())
             setId(data.id)
         }
-    }, [])
+    }, [data])
 
     return (
         <>
