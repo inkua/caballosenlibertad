@@ -1,7 +1,14 @@
 "use client";
+import { handleImageUpload, options } from "@/utils/imageCompressor";
 
 const UploadImages = (props) => {
   const { image, setImage } = props;
+
+  const handleUploadClick = async (event) => {
+    event.preventDefault();
+    const compressedFile = await handleImageUpload(event, options);
+    setImage(compressedFile);
+  };
   return (
     <>
       {/* Nuevo campo para subir imagen */}
@@ -16,7 +23,7 @@ const UploadImages = (props) => {
           id="productImage"
           name="productImage"
           accept="image/*"
-          onChange={(e) => setImage(e.target.files[0])}
+          onChange={handleUploadClick}
           className="mt-1 block w-full text-black border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
         />
       </div>
