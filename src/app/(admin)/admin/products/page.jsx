@@ -6,7 +6,7 @@ import BtnProduct from "./components/BtnProduct/BtnProduct"
 import TableProduct from "./components/TableProduct/TableProduct"
 
 async function Products() {
-    let data = await getProducts(); //usando el servicio del DAO
+    let data = await getProducts()
 
     return (
         <>

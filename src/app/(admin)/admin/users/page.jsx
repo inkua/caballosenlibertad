@@ -1,9 +1,13 @@
-import AddBtn from "../componets/AddBtn/AddBtn"
+import { getUsers } from "@/DAO/users.db";
+
+import AddBtn from "./components/AddBtn/AddBtn"
 import SearchBar from "../componets/SearchBar/SearchBar"
 import Pagination from "../componets/Pagination/Pagination"
-import Table from "../componets/Table/Table"
+import Table from "./components/Table/Table"
 
-function Users() {
+async function Users() {
+    let data = await getUsers();
+
     return (
         <>
             <header className="bg-white shadow">
@@ -14,11 +18,10 @@ function Users() {
 
             <main className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="sm:flex sm:items-center sm:justify-between">
-                    <AddBtn entity='users'/>
+                    <AddBtn />
                     <SearchBar />
                 </div>
-
-                <Table />
+                <Table data={data} />
 
                 <Pagination />
             </main>

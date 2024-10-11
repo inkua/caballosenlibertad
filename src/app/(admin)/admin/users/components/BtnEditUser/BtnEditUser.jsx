@@ -2,21 +2,21 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import FormProduct from "../FormProduct/FormProduct"
-import { addProductImage, delProductImage } from "@/DAO/products.db";
+import FormUser from "../FormUser/FormUser"
+import { addUserImage, delUserImage } from "@/DAO/users.db";
 
-function BtnEditProduct({ data }) {
+function BtnEditUser({ data }) {
     const [open, setOpen] = useState(false)
     const router = useRouter()
     const oldUrl = data.url
 
     const updateData = async (newData) => {
-        if (newData.newData.url != oldUrl) {
-            await delProductImage(oldUrl)
-            newData.newData.url = await addProductImage(newData.newData.url)
+        if (await newData.newData.url != oldUrl) {
+            await delUserImage(oldUrl)
+            newData.newData.url = await addUserImage(newData.newData.url)
         }
 
-        const response = await fetch('http://localhost:3000/api/products', {
+        const response = await fetch('http://localhost:3000/api/users', {
             method: 'PUT',
             body: JSON.stringify({
                 token: '',
@@ -39,9 +39,9 @@ function BtnEditProduct({ data }) {
         <>
             <button onClick={() => setOpen(true)} className="block px-4 py-2 text-sm text-gray-700 hover:underline" role="menuitem" tabIndex="-1" id="menu-item-0">Edit</button>
 
-            <FormProduct isOpen={open} setIsOpen={setOpen} saveData={updateData} data={data} add={false} />
+            <FormUser isOpen={open} setIsOpen={setOpen} saveUser={updateData} data={data} add={false} />
         </>
     )
 }
 
-export default BtnEditProduct
+export default BtnEditUser
