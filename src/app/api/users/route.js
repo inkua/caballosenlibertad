@@ -1,9 +1,9 @@
-import { addProduct, delProduct, getProducts, setProduct, addProductImage, delProductImage } from "@/DAO/products.db";
+import { addUser, delUser, getUsers, setUser, addUserImage, delUserImage } from "@/DAO/users.db";
 
 export async function POST(req) {
     try {
         const { token, data } = await req.json();
-        const res = await addProduct(data);
+        const res = await addUser(data);
 
         if (res) {
             return Response.json({ status: 200, msg: "operación Exitosa", data: res });
@@ -19,8 +19,8 @@ export async function POST(req) {
 export async function DELETE(req) {
     try {
         const { token, id, url } = await req.json();
-        await delProductImage(url)
-        const res = await delProduct(id)
+        await delUserImage(url)
+        const res = await delUser(id)
 
         if (res) {
             return Response.json({ status: 200, msg: "operación Exitosa", data: res });
@@ -37,7 +37,7 @@ export async function PUT(req) {
     try {
         const { token, data } = await req.json();
 
-        const res = await setProduct(data.newData, data.id);
+        const res = await setUser(data.newData, data.id);
 
         if (res) {
             return Response.json({ status: 200, msg: "operación Exitosa", data: res });
@@ -52,7 +52,7 @@ export async function PUT(req) {
 
 export async function GET() {
     try {
-        const res = await getProducts()
+        const res = await getUsers()
         if (res) {
             return Response.json({ status: 200, msg: "operación Exitosa", data: res });
         } else {

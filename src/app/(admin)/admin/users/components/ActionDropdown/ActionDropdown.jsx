@@ -1,8 +1,8 @@
 'use client'
 
 import { useState } from "react"
-import BtnEditProduct from "../BtnEditProduct/BtnEditProduct"
-import BtnDeleteProduct from "../BtnDeleteProduct/BtnDeleteProduct"
+import BtnEditUser from "../BtnEditUser/BtnEditUser"
+import BtnDeleteUser from "../BtnDeleteUser/BtnDeleteUser"
 import Link from "next/link"
 
 function ActionDropdownProduct({ data }) {
@@ -21,12 +21,12 @@ function ActionDropdownProduct({ data }) {
                 toggle &&
                 <div className="absolute right-0 z-10 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabIndex="-1">
                     <div className="py-1" role="none">
-                        <BtnEditProduct data={data} />
+                        <BtnEditUser data={data} />
                         <Link href={`/admin/products/${data.id}`} className="block px-4 py-2 text-sm text-gray-700 hover:underline" role="menuitem" tabIndex="-1" id="menu-item-1">Detail</Link>
                         <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:underline" role="menuitem" tabIndex="-1" id="menu-item-2">Settings</a>
                     </div>
                     <div className="py-1" role="none">
-                        <BtnDeleteProduct data={data} />
+                        <BtnDeleteUser data={data} />
                     </div>
                 </div>
             }

@@ -1,22 +1,22 @@
-"use client"
+'use client'
 
 import { useState } from "react"
-import FormProduct from "../FormProduct/FormProduct"
+import FormUser from "../FormUser/FormUser"
 import { useRouter } from "next/navigation"
-import { addProductImage } from "@/DAO/products.db";
+import { addUserImage } from "@/DAO/users.db";
 
-function BtnProduct() {
-    const [isOpen, setIsOpen] = useState(false)
+function AddBtn() {
     const router = useRouter()
+    const [isOpen, setIsOpen] = useState(false)
 
-    const saveProduct = async (product) => {
-        product.url = await addProductImage(product.url)
 
-        const response = await fetch('http://localhost:3000/api/products', {
+    const saveUser = async (newData) => {
+        newData.url = await addUserImage(newData.url)
+        const response = await fetch('http://localhost:3000/api/users', {
             method: 'POST',
             body: JSON.stringify({
                 token: '',
-                data: product,
+                data: newData,
             }),
         });
         const data = await response.json();
@@ -42,9 +42,9 @@ function BtnProduct() {
                 </button>
             </div>
 
-            <FormProduct isOpen={isOpen} setIsOpen={setIsOpen} saveData={saveProduct} />
+            <FormUser isOpen={isOpen} setIsOpen={setIsOpen} saveUser={saveUser} add={true} />
         </>
     )
 }
 
-export default BtnProduct
+export default AddBtn

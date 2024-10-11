@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import UploadImages from "../../../componets/UploadImages/UploadImages";
-function FormProduct({ isOpen, setIsOpen, saveData, data, add = true }) {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState("");
@@ -149,6 +148,7 @@ function FormProduct({ isOpen, setIsOpen, saveData, data, add = true }) {
                       className="mt-1 block w-full rounded-md text-black border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"></textarea>
                   </div>
                   <UploadImages image={image} setImage={setImage} />
+
                 </div>
               </form>
             </div>
