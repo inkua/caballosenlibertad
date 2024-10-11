@@ -22,7 +22,11 @@ export const compressImage = (image, configs) => {
 
 export const handleImageUpload = async (event, configs) => {
   const imageFile = event.target.files[0];
+  console.log(imageFile);
+
   if (!imageFile) return;
   const compressedFile = await compressImage(imageFile, configs);
-  return URL.createObjectURL(compressedFile);
+  console.log(compressedFile);
+
+  return compressedFile;
 };
