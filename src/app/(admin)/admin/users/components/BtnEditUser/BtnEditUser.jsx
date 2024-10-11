@@ -11,7 +11,7 @@ function BtnEditUser({ data }) {
     const oldUrl = data.url
 
     const updateData = async (newData) => {
-        if (newData.newData.url != oldUrl) {
+        if (await newData.newData.url != oldUrl) {
             await delUserImage(oldUrl)
             newData.newData.url = await addUserImage(newData.newData.url)
         }
