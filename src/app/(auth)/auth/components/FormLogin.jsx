@@ -35,7 +35,6 @@ function FormLogin() {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (validateForm()) {
-
             console.log("Formulario válido:", { email, password });
         }
     };
