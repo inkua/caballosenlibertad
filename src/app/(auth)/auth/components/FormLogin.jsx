@@ -45,7 +45,7 @@ function FormLogin() {
             <form>
                 <div>
                     <label htmlFor="email" className="block mb-2 text-sm text-gray-600 dark:text-gray-200">
-                        Dirección de correo electrónico
+                        Correo electrónico
                     </label>
                     <input 
                         type="email" 
