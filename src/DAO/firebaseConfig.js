@@ -3,12 +3,12 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: process.env.FIREBASE,
-  authDomain: "test-caballos-en-libertad.firebaseapp.com",
-  projectId: "test-caballos-en-libertad",
-  storageBucket: "test-caballos-en-libertad.appspot.com",
-  messagingSenderId: "1091894138986",
-  appId: "1:1091894138986:web:0eb98130c65889a4e3d213"
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE,
+  authDomain: process.env.NEXT_PUBLIC_AUTHDOMAIN,
+  projectId: process.env.NEXT_PUBLIC_PROJECTID,
+  storageBucket: process.env.NEXT_PUBLIC_STORAGEBUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_MESSAGINGSENDERID,
+  appId: process.env.NEXT_PUBLIC_APPID
 };
 
 const app = initializeApp(firebaseConfig);
