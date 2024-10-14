@@ -1,4 +1,4 @@
-import { getUsers } from "@/DAO/users.db";
+import { getEvents } from "@/DAO/events.db";
 
 import AddBtn from "./components/AddBtn/AddBtn"
 import SearchBar from "../componets/SearchBar/SearchBar"
@@ -6,7 +6,7 @@ import Pagination from "../componets/Pagination/Pagination"
 import Table from "./components/Table/Table"
 
 async function Users() {
-    let data = await getUsers();
+    let data = await getEvents();
 
     return (
         <>
