@@ -35,20 +35,18 @@ function FormLogin() {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (validateForm()) {
-
             console.log("Formulario válido:", { email, password });
         }
     };
     
     return (
-        <div className="mt-8">
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="email" className="block mb-2 text-sm text-gray-600 dark:text-gray-200">
-                        Dirección de correo electrónico
+                        Correo electrónico
                     </label>
                     <input 
-                        type="email" 
+                        type="text" 
                         name="email" 
                         id="email" 
                         placeholder="ejemplo@ejemplo.com" 
@@ -78,18 +76,12 @@ function FormLogin() {
                 </div>
 
                 <div className="mt-6">
-                    <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+                    <button type="submit" className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50">
                         Iniciar sesión
                     </button>
                 </div>
             </form>
-
-            <p className="mt-6 text-sm text-center text-gray-400">
-                ¿No tienes una cuenta aún? 
-                <a href="/auth/register" className="text-blue-500 focus:outline-none focus:underline hover:underline">Regístrate</a>.
-            </p>
-        </div>
-    );
+        );
 }
 
 export default FormLogin;

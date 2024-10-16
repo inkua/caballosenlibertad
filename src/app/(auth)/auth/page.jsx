@@ -1,5 +1,6 @@
 import React from 'react';
 import FormLogin from './components/FormLogin';
+import Link from 'next/link';
 
 function Login() {
     return (
@@ -30,8 +31,14 @@ function Login() {
                             <p className="mt-3 text-gray-500 dark:text-gray-300">Inicia sesión para acceder a tu cuenta</p>
                             
                         </div>
+                        <div className='mt-8'>
+                            <FormLogin />
+                        </div>
 
-                        <FormLogin />
+                        <p className="mt-6 text-sm text-center text-gray-400">
+                ¿No tienes una cuenta aún? 
+                <Link href="/auth/register" className="text-blue-500 focus:outline-none focus:underline hover:underline">Regístrate</Link>.
+            </p>
                     </div>
                 </div>
             </div>
