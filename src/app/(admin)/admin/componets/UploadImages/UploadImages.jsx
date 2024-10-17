@@ -1,5 +1,5 @@
 "use client";
-import { handleImageUpload, options } from "@/utils/imageCompressor";
+import { handleImageUpload, options } from "@/utils/imageCompressionFunctions";
 
 const UploadImages = (props) => {
   const { image, setImage } = props;
