@@ -4,6 +4,13 @@ import { handleImageUpload, options } from "@/utils/imageCompressionFunctions";
 const UploadImages = (props) => {
   const { image, setImage } = props;
 
+  const imageSrc = () => {
+    if (image instanceof File) {
+      return URL.createObjectURL(image)
+    }
+    return image
+  };
+
   const handleUploadClick = async (event) => {
     event.preventDefault();
     const compressedFile = await handleImageUpload(event, options);
@@ -33,7 +40,7 @@ const UploadImages = (props) => {
         <div className="mt-4">
           <p className="text-sm text-gray-700">Vista previa de la imagen:</p>
           <img
-            src={URL.createObjectURL(image)}
+            src={imageSrc()}
             alt="Vista previa"
             className="w-full h-auto mt-2 rounded-lg"
           />
