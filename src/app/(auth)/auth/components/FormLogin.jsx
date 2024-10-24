@@ -32,11 +32,24 @@ function FormLogin() {
         return isValid;
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
         if (validateForm()) {
-            console.log("Formulario válido:", { email, password });
-        }
+            const formData = new FormData();
+            formData.append('email', email);
+            formData.append('password', password);
+      
+            await fetch('/api/auth', {
+              method: 'POST',
+              body: formData,
+            }).then(response => {
+              if (response.ok) {
+                console.log('Login exitoso');
+              } else {
+                console.error('Error en la autenticación');
+              }
+            });
+          }
     };
     
     return (
