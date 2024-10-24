@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 const isLogged = true
-const isRoot = true
+const isRoot = false
 
 export function middleware(request) {
   
