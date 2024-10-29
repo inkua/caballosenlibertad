@@ -20,9 +20,26 @@ const setAdmin = async (newData, aid)=>{
     return await updateElement(newData, aid, 'admins')
 }
 
+// Get an admin by email | require the admin email
+const getAdminByEmail = async (email)=>{
+    try {
+        const admins = await getAdmins()
+        const result = admins.find((item)=> item.email===email )
+        if(result){
+            return result
+        }else{
+            return false
+        }
+    } catch (e) {
+        console.error('Error getting admin email: ', e);
+        return false
+    }
+}
+
 export {
     addAdmin,
     getAdmById,
     getAdmins,
     setAdmin,
+    getAdminByEmail,
 }

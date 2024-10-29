@@ -1,4 +1,5 @@
-import { SignJWT, jwtVerify } from "jose";
+import { getAdminByEmail } from "@/DAO/admins.db";
+import { jwtVerify, SignJWT } from "jose";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 
@@ -10,11 +11,11 @@ export async function encrypt(payload) {
   return await new SignJWT(payload)
     .setProtectedHeader({ alg: "HS256" })
     .setIssuedAt()
-    .setExpirationTime("1 min from now")
+    .setExpirationTime("1h")
     .sign(key);
 }
 
-//verifica el token
+//verifica el token y lo desencripta
 export async function decrypt(input) {
   const { payload } = await jwtVerify(input, key, {
     algorithms: ["HS256"],
@@ -27,7 +28,7 @@ export async function login(formData) {
   const user = { email: formData.get("email"), name: "Inkua" };
 
   // creacion de sesion
-  const expires = new Date(Date.now() + 10 * 6000);
+  const expires = new Date(Date.now() + 60 * 60 * 1000);
   const session = await encrypt({ user, expires });
 
   // guardo la sesion en una cookie
@@ -51,7 +52,7 @@ export async function updateSession(request) {
 
   // Refresco la sesión para que no expire
   const parsed = await decrypt(session);
-  parsed.expires = new Date(Date.now() + 10 * 1000);
+  parsed.expires = new Date(Date.now() + 60 * 60 * 1000);
   const res = NextResponse.next();
   res.cookies.set({
     name: "session",
@@ -60,4 +61,15 @@ export async function updateSession(request) {
     expires: parsed.expires,
   });
   return res;
+}
+
+export async function validateAdmin() {
+  try {
+    const session = await getSession()
+    const admin = await getAdminByEmail(session.user.email)
+    return admin
+  } catch (e) {
+    console.error('Error validateAdmin - lib: ', e);
+    return false
+  }
 }
