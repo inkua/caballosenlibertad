@@ -13,10 +13,17 @@
   --secondary: #D98729;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
 body {
   font-family: var(--font-poppins);
   background-color: var(--white-primary);
-  color: var(--dark-blue);
+  color: var(--background);
   width: 100vw;
   margin: 0;
   padding: 0;
