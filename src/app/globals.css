@@ -3,31 +3,124 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --font-poppins: 'Poppins', sans-serif;
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --white-primary: #F2F6F8;
+  --dark-blue: #03151F;
+  --primary: #00638C;
+  --primary2: #C6EAFF;
+  --secondary: #D98729;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background: #0a0a0a;
+    --foreground: #ededed;
   }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: var(--font-poppins);
+  background-color: var(--white-primary);
+  color: var(--background);
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+
+  .button-primary{
+    @apply bg-secondary;
+    @apply text-white;
+    @apply text-[13px];
+    @apply md:text-[15px];
+    @apply text-center;
+    @apply content-center;
+    @apply font-bold;
+    @apply py-2;
+    @apply px-8;
+    @apply rounded-full;
+    @apply transition-colors;
+    @apply duration-75;
+    @apply border-2;
+    @apply border-secondary;
+  }
+
+  .button-primary:hover, .button-primary:focus{
+    @apply bg-whitePrimary;
+    @apply text-secondary;
+    @apply border-secondary;
+  }
+
+  .button-secondary{
+    @apply bg-whitePrimary;
+    @apply text-primary;
+    @apply text-[13px];
+    @apply md:text-[15px];
+    @apply text-center;
+    @apply content-center;
+    @apply font-semibold;
+    @apply py-2;
+    @apply px-10;
+    @apply rounded-full;
+    @apply transition-colors;
+    @apply duration-75;
+    @apply border-2;
+    @apply border-whitePrimary;
+  }
+
+  .button-secondary:hover, .button-secondary:focus{
+    @apply bg-primary;
+    @apply text-whitePrimary;
+  }
+
+  .max-screen-layout{
+    @apply max-w-[1440px];
+    @apply mx-auto;
+  }
+
+  .max-screen-view{
+    @apply max-w-[1728px];
+    @apply mx-auto;
+  }
+}
+
+@keyframes fadeInDownBig {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animated-in-nav {
+  animation: fadeInDownBig .3s ease-out;
+}
+
+@keyframes fadeOutDownBig {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+.animated-out-nav {
+  animation: fadeOutDownBig .3s ease-out;
+}
+
+.socialAnimated {
+  transition: transform 0.25s ease;
+}
+
+.socialAnimated:hover {
+  transform: scale(1.1);
 }
