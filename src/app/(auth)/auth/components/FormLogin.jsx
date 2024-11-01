@@ -7,6 +7,7 @@ function FormLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({ email: "", password: "" });
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
   const validateForm = () => {
     const newErrors = { email: "", password: "" };
@@ -35,6 +36,7 @@ function FormLogin() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
+      setLoading(true);
       const formData = new FormData();
       formData.append("email", email);
       formData.append("password", password);
@@ -44,6 +46,7 @@ function FormLogin() {
         body: formData,
       }).then((response) => {
         if (response.ok) {
+          setLoading(false);
           console.log("Login exitoso");
           router.push("/admin");
         } else {
@@ -114,6 +117,7 @@ function FormLogin() {
           Iniciar sesión
         </button>
       </div>
+      {loading && <p className="text-center py-2">Conectando...</p>}
     </form>
   );
 }
