@@ -119,9 +119,8 @@ body {
 
 .socialAnimated {
   transition: transform 0.25s ease;
-  transform-style: preserve-3d;
 }
 
 .socialAnimated:hover {
-  transform: rotateX(10deg) rotateY(20deg) scale(1.1);
+  transform: scale(1.1);
 }
