@@ -4,8 +4,8 @@
 
 :root {
   --font-poppins: 'Poppins', sans-serif;
-  --background: #F2F6F8;
-  --foreground: #03151F;
+  --background: #0a0a0a;
+  --foreground: #ededed;
   --white-primary: #F2F6F8;
   --dark-blue: #03151F;
   --primary: #00638C;
@@ -27,7 +27,7 @@ body {
   width: 100vw;
   margin: 0;
   padding: 0;
-  overflow-x: hidden; 
+  overflow-x: hidden;
 }
 
 @layer utilities {
@@ -78,6 +78,16 @@ body {
   .button-secondary:hover, .button-secondary:focus{
     @apply bg-primary;
     @apply text-whitePrimary;
+  }
+
+  .max-screen-layout{
+    @apply max-w-[1440px];
+    @apply mx-auto;
+  }
+
+  .max-screen-view{
+    @apply max-w-[1728px];
+    @apply mx-auto;
   }
 }
 
