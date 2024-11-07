@@ -1,36 +1,42 @@
-"use client"
+"use client";
 
-import { useRouter } from "next/navigation"
+import { useRouter } from "next/navigation";
 
-function BtnDeleteUser({data}) {
-    const router = useRouter()
+function BtnDeleteUser({ data }) {
+  const router = useRouter();
 
-    const deleteData = async () => {
-        const response = await fetch(`http://localhost:3000/api/users/`, {
-            method: 'DELETE',
-            body: JSON.stringify({
-                token: '',
-                id: data.id,
-                url: data.url,
-            }),
-        });
+  const deleteData = async () => {
+    const response = await fetch(`http://localhost:3000/api/users/`, {
+      method: "DELETE",
+      body: JSON.stringify({
+        token: "",
+        id: data.id,
+        url: data.url,
+      }),
+    });
 
-        const responseData = await response.json();
+    const responseData = await response.json();
 
-        if (responseData.data) {
-            alert("Operación Exitosa!")
-            router.refresh()
-        } else {
-            alert("No se pudo realizar la operación!")
-        }
+    if (responseData.data) {
+      alert("Operación Exitosa!");
+      router.refresh();
+    } else {
+      alert("No se pudo realizar la operación!");
     }
+  };
 
-
-    return (
-        <>
-            <button onClick={deleteData} className="block px-4 py-2 text-sm text-gray-700 hover:underline" role="menuitem" tabIndex="-1" id="menu-item-0">Delete</button>
-        </>
-    )
+  return (
+    <>
+      <button
+        onClick={deleteData}
+        classNameName="block px-4 py-2 text-sm text-gray-700 hover:underline"
+        role="menuitem"
+        tabIndex="-1"
+        id="menu-item-0">
+        Delete
+      </button>
+    </>
+  );
 }
 
-export default BtnDeleteUser
+export default BtnDeleteUser;
