@@ -62,7 +62,7 @@ const SobreNosotros = () => {
           <h2 className="font-bold md:text-5xl text-center text-[#00638C]"> ¡Apostamos a un futuro con derechos e <br /> igualdad para todos los animales!</h2>
       </div>
 
-      <img className="hidden sm:block md:w-full md:h-auto lg:h-[480px] object-cover " src="assets/Img 6-Equipo.jpg" alt="Equipo de la ONG"/>
+      <img className="hidden sm:block md:w-full md:h-auto lg:h-[480px] object-cover" src="assets/Img 6-Equipo.jpg" alt="Equipo de la ONG"/>
       </section>
   );
 };
