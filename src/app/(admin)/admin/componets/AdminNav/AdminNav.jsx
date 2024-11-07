@@ -108,7 +108,7 @@ function AdminNav() {
                   ))}
                   <LogoutButton
                     classname={
-                      "w-full flex justify-start rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
+                      "block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100"
                     }
                   />
                 </MenuItems>
