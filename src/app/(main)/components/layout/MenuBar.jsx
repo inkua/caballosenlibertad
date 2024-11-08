@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { featuresLinks } from '../../links/links';
+import { Bars3Icon } from '@heroicons/react/24/outline';
 
 const MenuBar = () => {
     const [showMenu, setShowMenu] = useState(false)
@@ -14,7 +15,7 @@ const MenuBar = () => {
             setStartAnimation(false)
             setTimeout(() => {
                 return setShowMenu(false)
-            }, 270)
+            }, 570)
         }
         if (!showMenu) {
             setShowMenu(true)
@@ -31,16 +32,16 @@ const MenuBar = () => {
     <div className='flex lg:hidden'>
         <span
             onClick={() => menuSwitch()}
-            className='p-3 relative right-3 z-50'
+            className='p-3 z-50'
         >
-            Menu
+            <Bars3Icon strokeWidth={1.75} className='w-9 h-9 text-whitePrimary'/>
         </span>
         {
             showMenu && 
             <nav 
                 className={`absolute top-[68px] left-0 right-0 bg-primary pb-10 ${startAnimation ? 'animated-in-nav': 'animated-out-nav'}`}
             >
-                <ul className={`flex flex-col gap-4 items-center justify-start ${startAnimation ? 'opacity-100': 'opacity-0'}`}>
+                <ul className={`flex flex-col gap-4 items-center justify-start ${startAnimation ? 'animated-in-opacity': 'animated-out-opacity'}`}>
                     {
                         featuresLinks.map((link, index) => (
                             <li key={index} 
@@ -57,7 +58,7 @@ const MenuBar = () => {
                     }
                 </ul>
                 <div className='w-full flex items-center justify-center mt-8'>
-                    <button className={`button-primary text-[18px] ${startAnimation ? 'opacity-100': 'opacity-0'}`}>
+                    <button className={`button-primary text-[18px]  ${startAnimation ? 'animated-in-opacity': 'animated-out-opacity'}`}>
                         DONAR
                     </button>
                 </div>

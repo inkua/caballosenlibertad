@@ -101,7 +101,15 @@ body {
 }
 
 .animated-in-nav {
-  animation: fadeInDownBig .3s ease-out;
+  animation: fadeInDownBig .5s ease;
+}
+
+.animated-in-opacity{
+  transition: opacity 1s ease;
+
+  @starting-style{
+    opacity: 0;
+  }   
 }
 
 @keyframes fadeOutDownBig {
@@ -114,7 +122,16 @@ body {
 }
 
 .animated-out-nav {
-  animation: fadeOutDownBig .3s ease-out;
+  animation: fadeOutDownBig .6s ease;
+}
+
+.animated-out-opacity{
+  opacity: 0;
+  transition: opacity .4s ease;
+
+  @starting-style{
+    opacity: 1;
+  }   
 }
 
 .socialAnimated {
