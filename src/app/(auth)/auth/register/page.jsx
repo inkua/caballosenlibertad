@@ -1,5 +1,3 @@
-import React, { useEffect } from "react";
-import generarContrasenaSegura from "@/utils/crearCantraseñaAleatoria";
 function Register() {
   return (
     <section className="bg-white dark:bg-gray-900">
