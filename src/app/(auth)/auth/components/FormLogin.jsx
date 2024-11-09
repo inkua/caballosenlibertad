@@ -56,7 +56,7 @@ function FormLogin() {
       <div>
         <label
           htmlFor="email"
-          classNameName="block mb-2 text-sm text-gray-600 dark:text-gray-200">
+          className="block mb-2 text-sm text-gray-600 dark:text-gray-200">
           Correo electrónico
         </label>
         <input
@@ -66,23 +66,23 @@ function FormLogin() {
           placeholder="ejemplo@ejemplo.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          classNameName="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+          className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
         />
         {errors.email && (
-          <p classNameName="mt-1 text-sm text-red-500">{errors.email}</p>
+          <p className="mt-1 text-sm text-red-500">{errors.email}</p>
         )}
       </div>
 
-      <div classNameName="mt-6">
-        <div classNameName="flex justify-between mb-2">
+      <div className="mt-6">
+        <div className="flex justify-between mb-2">
           <label
             htmlFor="password"
-            classNameName="text-sm text-gray-600 dark:text-gray-200">
+            className="text-sm text-gray-600 dark:text-gray-200">
             Contraseña
           </label>
           <a
             href="#"
-            classNameName="text-sm text-gray-400 focus:text-blue-500 hover:text-blue-500 hover:underline">
+            className="text-sm text-gray-400 focus:text-blue-500 hover:text-blue-500 hover:underline">
             ¿Olvidaste tu contraseña?
           </a>
         </div>
@@ -94,17 +94,17 @@ function FormLogin() {
           placeholder="Tu contraseña"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          classNameName="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+          className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
         />
         {errors.password && (
-          <p classNameName="mt-1 text-sm text-red-500">{errors.password}</p>
+          <p className="mt-1 text-sm text-red-500">{errors.password}</p>
         )}
       </div>
 
-      <div classNameName="mt-6">
+      <div className="mt-6">
         <button
           type="submit"
-          classNameName="w-full px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+          className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50">
           Iniciar sesión
         </button>
       </div>

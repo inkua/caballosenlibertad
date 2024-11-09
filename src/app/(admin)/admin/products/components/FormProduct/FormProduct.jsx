@@ -50,20 +50,20 @@ function FormProduct({ isOpen, setIsOpen, saveData, data, add = true }) {
   return (
     <>
       {isOpen && (
-        <div classNameName="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-          <div classNameName="bg-white rounded-lg shadow-xl w-full max-w-md mx-auto">
-            <div classNameName="flex justify-between items-center p-6 border-b">
-              <h2 classNameName="text-xl font-semibold text-gray-900">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-lg shadow-xl w-full max-w-md mx-auto">
+            <div className="flex justify-between items-center p-6 border-b">
+              <h2 className="text-xl font-semibold text-gray-900">
                 {add ? "Agregar Producto" : "Modificar Producto"}
               </h2>
               <button
                 onClick={() => {
                   setIsOpen(false), setUrl("");
                 }}
-                classNameName="text-gray-400 hover:text-gray-500 focus:outline-none">
+                className="text-gray-400 hover:text-gray-500 focus:outline-none">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  classNameName="h-6 w-6"
+                  className="h-6 w-6"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor">
@@ -76,13 +76,13 @@ function FormProduct({ isOpen, setIsOpen, saveData, data, add = true }) {
                 </svg>
               </button>
             </div>
-            <div classNameName="max-h-[900px] overflow-y-auto">
-              <form classNameName="w-full" onSubmit={(e) => handleSubmit(e)}>
-                <div classNameName="p-6 space-y-6">
-                  <div classNameName="space-y-2">
+            <div className="max-h-[900px] overflow-y-auto">
+              <form className="w-full" onSubmit={(e) => handleSubmit(e)}>
+                <div className="p-6 space-y-6">
+                  <div className="space-y-2">
                     <label
                       htmlFor="productName"
-                      classNameName="block text-sm font-medium text-gray-700">
+                      className="block text-sm font-medium text-gray-700">
                       Nombre
                     </label>
                     <input
@@ -93,14 +93,14 @@ function FormProduct({ isOpen, setIsOpen, saveData, data, add = true }) {
                       onChange={(e) => setName(e.target.value)}
                       placeholder="Ingresa nombre del producto"
                       required
-                      classNameName="mt-1 block w-full rounded-md text-black border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+                      className="mt-1 block w-full rounded-md text-black border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
                     />
                   </div>
 
-                  <div classNameName="space-y-2">
+                  <div className="space-y-2">
                     <label
                       htmlFor="productPrice"
-                      classNameName="block text-sm font-medium text-gray-700">
+                      className="block text-sm font-medium text-gray-700">
                       Precio
                     </label>
                     <input
@@ -111,14 +111,14 @@ function FormProduct({ isOpen, setIsOpen, saveData, data, add = true }) {
                       onChange={(e) => setPrice(e.target.value)}
                       placeholder="0.00"
                       required
-                      classNameName="mt-1 block w-full rounded-md text-black border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+                      className="mt-1 block w-full rounded-md text-black border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
                     />
                   </div>
 
-                  <div classNameName="space-y-2">
+                  <div className="space-y-2">
                     <label
                       htmlFor="productCategory"
-                      classNameName="block text-sm font-medium text-gray-700">
+                      className="block text-sm font-medium text-gray-700">
                       Categoria
                     </label>
                     <input
@@ -129,14 +129,14 @@ function FormProduct({ isOpen, setIsOpen, saveData, data, add = true }) {
                       onChange={(e) => setCategory(e.target.value)}
                       placeholder="Ingresa categoria del producto"
                       required
-                      classNameName="mt-1 block w-full rounded-md text-black border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+                      className="mt-1 block w-full rounded-md text-black border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
                     />
                   </div>
 
-                  <div classNameName="space-y-2">
+                  <div className="space-y-2">
                     <label
                       htmlFor="productDescription"
-                      classNameName="block text-sm font-medium text-gray-700">
+                      className="block text-sm font-medium text-gray-700">
                       Descripción
                     </label>
                     <textarea
@@ -146,24 +146,24 @@ function FormProduct({ isOpen, setIsOpen, saveData, data, add = true }) {
                       value={description}
                       onChange={(e) => setDescription(e.target.value)}
                       placeholder="Ingresa descripción"
-                      classNameName="mt-1 block w-full rounded-md text-black border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"></textarea>
+                      className="mt-1 block w-full rounded-md text-black border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"></textarea>
                   </div>
 
                   <UploadImages image={url} setImage={setUrl} />
                 </div>
 
-                <div classNameName="flex justify-end space-x-4 p-6 border-t">
+                <div className="flex justify-end space-x-4 p-6 border-t">
                   <button
                     onClick={() => {
                       setIsOpen(false), setUrl("");
                     }}
                     type="button"
-                    classNameName="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                    className="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                     Cancelar
                   </button>
                   <button
                     type="submit"
-                    classNameName="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                    className="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                     {add ? "Guardar Producto" : "Editar Producto"}
                   </button>
                 </div>

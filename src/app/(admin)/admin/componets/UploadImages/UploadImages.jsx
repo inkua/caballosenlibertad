@@ -21,10 +21,10 @@ const UploadImages = (props) => {
   return (
     <>
       {/* Nuevo campo para subir imagen */}
-      <div classNameName="space-y-2">
+      <div className="space-y-2">
         <label
           htmlFor="productImage"
-          classNameName="block text-sm font-medium text-gray-700">
+          className="block text-sm font-medium text-gray-700">
           Imagen del Producto
         </label>
         <input
@@ -33,20 +33,18 @@ const UploadImages = (props) => {
           name="productImage"
           accept="image/*"
           onChange={handleUploadClick}
-          classNameName="mt-1 block w-full text-black border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+          className="mt-1 block w-full text-black border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
         />
       </div>
 
       {/* Vista previa de la imagen si está disponible */}
       {image && (
-        <div classNameName="mt-4">
-          <p classNameName="text-sm text-gray-700">
-            Vista previa de la imagen:
-          </p>
+        <div className="mt-4">
+          <p className="text-sm text-gray-700">Vista previa de la imagen:</p>
           <img
             src={imageSrc()}
             alt="Vista previa"
-            classNameName="w-full h-auto mt-2 rounded-lg"
+            className="w-full h-auto mt-2 rounded-lg"
             style={{
               maxWidth: "50%",
               maxHeight: "300px",

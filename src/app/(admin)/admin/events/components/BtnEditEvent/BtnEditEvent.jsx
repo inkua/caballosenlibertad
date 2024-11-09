@@ -38,7 +38,7 @@ function BtnEditEvent({ data }) {
     <>
       <button
         onClick={() => setOpen(true)}
-        classNameName="block px-4 py-2 text-sm text-gray-700 hover:underline"
+        className="block px-4 py-2 text-sm text-gray-700 hover:underline"
         role="menuitem"
         tabIndex="-1"
         id="menu-item-0">

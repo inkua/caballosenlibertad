@@ -11,7 +11,7 @@ function ActionDropdownProduct({ data }) {
   return (
     <>
       <button
-        classNameName="px-1 py-1 text-gray-500 transition-colors duration-200 rounded-lg dark:text-gray-300 hover:bg-gray-100"
+        className="px-1 py-1 text-gray-500 transition-colors duration-200 rounded-lg dark:text-gray-300 hover:bg-gray-100"
         onClick={() => SetToggle(!toggle)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -19,7 +19,7 @@ function ActionDropdownProduct({ data }) {
           viewBox="0 0 24 24"
           strokeWidth="1.5"
           stroke="currentColor"
-          classNameName="w-6 h-6">
+          className="w-6 h-6">
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -29,16 +29,16 @@ function ActionDropdownProduct({ data }) {
       </button>
       {toggle && (
         <div
-          classNameName="absolute right-0 z-10 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+          className="absolute right-0 z-10 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
           role="menu"
           aria-orientation="vertical"
           aria-labelledby="menu-button"
           tabIndex="-1">
-          <div classNameName="py-1" role="none">
+          <div className="py-1" role="none">
             <BtnEditUser data={data} />
             <Link
               href={`/admin/products/${data.id}`}
-              classNameName="block px-4 py-2 text-sm text-gray-700 hover:underline"
+              className="block px-4 py-2 text-sm text-gray-700 hover:underline"
               role="menuitem"
               tabIndex="-1"
               id="menu-item-1">
@@ -46,14 +46,14 @@ function ActionDropdownProduct({ data }) {
             </Link>
             <a
               href="#"
-              classNameName="block px-4 py-2 text-sm text-gray-700 hover:underline"
+              className="block px-4 py-2 text-sm text-gray-700 hover:underline"
               role="menuitem"
               tabIndex="-1"
               id="menu-item-2">
               Settings
             </a>
           </div>
-          <div classNameName="py-1" role="none">
+          <div className="py-1" role="none">
             <BtnDeleteUser data={data} />
           </div>
         </div>

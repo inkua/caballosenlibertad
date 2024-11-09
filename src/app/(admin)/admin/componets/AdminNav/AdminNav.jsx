@@ -32,7 +32,7 @@ const userNavigation = [
   { name: "Sign out", href: "#" },
 ];
 
-function classNameNames(...classNamees) {
+function classNames(...classNamees) {
   return classNamees.filter(Boolean).join(" ");
 }
 const isCurrentPath = (current, href) => {
@@ -44,19 +44,19 @@ function AdminNav() {
   const pathname = usePathname();
 
   return (
-    <Disclosure as="nav" classNameName="bg-gray-800">
-      <div classNameName="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div classNameName="flex h-16 items-center justify-between">
-          <div classNameName="flex items-center">
-            <div classNameName="flex-shrink-0">
+    <Disclosure as="nav" className="bg-gray-800">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex h-16 items-center justify-between">
+          <div className="flex items-center">
+            <div className="flex-shrink-0">
               <img
                 alt="Your Company"
                 src="/admin/inkuALogo.png"
-                classNameName="h-8 w-auto"
+                className="h-8 w-auto"
               />
             </div>
-            <div classNameName="hidden md:block">
-              <div classNameName="ml-10 flex items-baseline space-x-4">
+            <div className="hidden md:block">
+              <div className="ml-10 flex items-baseline space-x-4">
                 {navigation.map((item) => (
                   <a
                     key={item.name}
@@ -64,7 +64,7 @@ function AdminNav() {
                     aria-current={
                       isCurrentPath(pathname, item.href) ? "page" : undefined
                     }
-                    classNameName={classNameNames(
+                    className={classNames(
                       isCurrentPath(pathname, item.href)
                         ? "bg-gray-900 text-white"
                         : "text-gray-300 hover:bg-gray-700 hover:text-white",
@@ -76,29 +76,29 @@ function AdminNav() {
               </div>
             </div>
           </div>
-          <div classNameName="hidden md:block">
-            <div classNameName="ml-4 flex items-center md:ml-6">
+          <div className="hidden md:block">
+            <div className="ml-4 flex items-center md:ml-6">
               {/* Profile dropdown */}
-              <Menu as="div" classNameName="relative ml-3">
+              <Menu as="div" className="relative ml-3">
                 <div>
-                  <MenuButton classNameName="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                    <span classNameName="absolute -inset-1.5" />
-                    <span classNameName="sr-only">Open user menu</span>
+                  <MenuButton className="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                    <span className="absolute -inset-1.5" />
+                    <span className="sr-only">Open user menu</span>
                     <img
                       alt=""
                       src={user.imageUrl}
-                      classNameName="h-8 w-8 rounded-full"
+                      className="h-8 w-8 rounded-full"
                     />
                   </MenuButton>
                 </div>
                 <MenuItems
                   transition
-                  classNameName="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in">
+                  className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in">
                   {userNavigation.map((item) => (
                     <MenuItem key={item.name}>
                       <a
                         href={item.href}
-                        classNameName="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100">
+                        className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100">
                         {item.name}
                       </a>
                     </MenuItem>
@@ -107,26 +107,26 @@ function AdminNav() {
               </Menu>
             </div>
           </div>
-          <div classNameName="-mr-2 flex md:hidden">
+          <div className="-mr-2 flex md:hidden">
             {/* Mobile menu button */}
-            <DisclosureButton classNameName="group relative inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-              <span classNameName="absolute -inset-0.5" />
-              <span classNameName="sr-only">Open main menu</span>
+            <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+              <span className="absolute -inset-0.5" />
+              <span className="sr-only">Open main menu</span>
               <Bars3Icon
                 aria-hidden="true"
-                classNameName="block h-6 w-6 group-data-[open]:hidden"
+                className="block h-6 w-6 group-data-[open]:hidden"
               />
               <XMarkIcon
                 aria-hidden="true"
-                classNameName="hidden h-6 w-6 group-data-[open]:block"
+                className="hidden h-6 w-6 group-data-[open]:block"
               />
             </DisclosureButton>
           </div>
         </div>
       </div>
 
-      <DisclosurePanel classNameName="md:hidden">
-        <div classNameName="space-y-1 px-2 pb-3 pt-2 sm:px-3">
+      <DisclosurePanel className="md:hidden">
+        <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
           {navigation.map((item) => (
             <DisclosureButton
               key={item.name}
@@ -135,7 +135,7 @@ function AdminNav() {
               aria-current={
                 isCurrentPath(pathname, item.href) ? "page" : undefined
               }
-              classNameName={classNameNames(
+              className={classNames(
                 isCurrentPath(pathname, item.href)
                   ? "bg-gray-900 text-white"
                   : "text-gray-300 hover:bg-gray-700 hover:text-white",
@@ -145,31 +145,31 @@ function AdminNav() {
             </DisclosureButton>
           ))}
         </div>
-        <div classNameName="border-t border-gray-700 pb-3 pt-4">
-          <div classNameName="flex items-center px-5">
-            <div classNameName="flex-shrink-0">
+        <div className="border-t border-gray-700 pb-3 pt-4">
+          <div className="flex items-center px-5">
+            <div className="flex-shrink-0">
               <img
                 alt=""
                 src={user.imageUrl}
-                classNameName="h-10 w-10 rounded-full"
+                className="h-10 w-10 rounded-full"
               />
             </div>
-            <div classNameName="ml-3">
-              <div classNameName="text-base font-medium leading-none text-white">
+            <div className="ml-3">
+              <div className="text-base font-medium leading-none text-white">
                 {user.name}
               </div>
-              <div classNameName="text-sm font-medium leading-none text-gray-400">
+              <div className="text-sm font-medium leading-none text-gray-400">
                 {user.email}
               </div>
             </div>
           </div>
-          <div classNameName="mt-3 space-y-1 px-2">
+          <div className="mt-3 space-y-1 px-2">
             {userNavigation.map((item) => (
               <DisclosureButton
                 key={item.name}
                 as="a"
                 href={item.href}
-                classNameName="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">
+                className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">
                 {item.name}
               </DisclosureButton>
             ))}
