@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { cache, useState } from "react"
 import FormProduct from "../FormProduct/FormProduct"
 import { useRouter } from "next/navigation"
 import { addProductImage } from "@/DAO/products.db";
@@ -17,8 +17,9 @@ function BtnProduct() {
             body: JSON.stringify({
                 token: '',
                 data: product,
-            }),
+            })
         });
+
         const data = await response.json();
 
         if (data.data) {
@@ -26,7 +27,7 @@ function BtnProduct() {
             router.refresh()
         } else {
             alert("No se pudo realizar la operación!")
-        }
+        };
     }
 
     return (

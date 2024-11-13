@@ -4,11 +4,12 @@ import { handleImageUpload, options } from "@/utils/imageCompressionFunctions";
 const UploadImages = (props) => {
   const { image, setImage } = props;
 
+  // La función que comprime imágenes devuelve un archivo Blob.
   const imageSrc = () => {
-    if (image instanceof File) {
-      return URL.createObjectURL(image)
+    if (image instanceof File || image instanceof Blob) {
+      return URL.createObjectURL(image);
     }
-    return image
+    return image;
   };
 
   const handleUploadClick = async (event) => {
@@ -16,6 +17,7 @@ const UploadImages = (props) => {
     const compressedFile = await handleImageUpload(event, options);
     setImage(compressedFile);
   };
+
   return (
     <>
       {/* Nuevo campo para subir imagen */}
@@ -43,6 +45,10 @@ const UploadImages = (props) => {
             src={imageSrc()}
             alt="Vista previa"
             className="w-full h-auto mt-2 rounded-lg"
+            style={{
+              maxWidth: "50%",
+              maxHeight: "300px",
+            }}
           />
         </div>
       )}

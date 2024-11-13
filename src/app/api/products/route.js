@@ -1,15 +1,23 @@
+import { validateAdmin } from "@/app/(auth)/auth/lib";
 import { addProduct, delProduct, getProducts, setProduct, addProductImage, delProductImage } from "@/DAO/products.db";
 
 export async function POST(req) {
     try {
-        const { token, data } = await req.json();
-        const res = await addProduct(data);
+        const admin = await validateAdmin()//validar el admin con esta función
 
-        if (res) {
-            return Response.json({ status: 200, msg: "operación Exitosa", data: res });
+        if (admin) {
+            const { data } = await req.json();
+            const res = await addProduct(data);
+
+            if (res) {
+                return Response.json({ status: 200, msg: "operación Exitosa", data: res });
+            } else {
+                return Response.json({ status: 500, msg: "No se pudo realizar la operación", data: res });
+            }
         } else {
-            return Response.json({ status: 500, msg: "No se pudo realizar la operación", data: res });
+            return Response.json({ status: 401, msg: "Sin Permisos", data: null });
         }
+
     } catch (e) {
         console.log(e);
         return Response.json({ status: 500, msg: "No se pudo realizar la operación", data: e });
