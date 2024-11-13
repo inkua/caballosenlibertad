@@ -87,8 +87,14 @@ body {
 
   .max-screen-view{
     @apply max-w-[1728px];
-    @apply mx-auto;
+    @apply lg:mx-auto;
   }
+  .p-responsive{
+    @apply px-4;
+    @apply md:px-8;
+    @apply lg:px-10;
+  }
+
 }
 
 @keyframes fadeInDownBig {
