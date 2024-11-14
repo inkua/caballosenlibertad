@@ -1,11 +1,12 @@
 import Link from "next/link";
+
 import { Contribution } from "./components/home/Contribution";
 import { Statistics } from "./components/home/Statistics";
 import { TitleSection } from "./components/TitleSection";
 
 export default function Home() {
   return (
-    <main className="w-full max-screen-view">
+    <>
       <TitleSection 
         titleTextContent='Caballos en Libertad'
         spanTextContent='Protección, cuidado y rescate de equinos'
@@ -19,6 +20,6 @@ export default function Home() {
         <Statistics />
         <Contribution />
       </section>
-    </main>
+    </>
   );
 }

@@ -7,9 +7,9 @@ export default function MainLayout({
     return (
       <>
         <Header />
-          <div className='pt-[70px] lg:pt-[90px]'>
+          <main className='pt-[70px] lg:pt-[90px] w-full max-screen-view'>
             {children}
-          </div>
+          </main>
         <Footer />
       </>
     )
