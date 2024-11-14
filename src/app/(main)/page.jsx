@@ -10,7 +10,7 @@ export default function Home() {
         titleTextContent='Caballos en Libertad'
         spanTextContent='Protección, cuidado y rescate de equinos'
       >
-        <Link href={'/'} className='button-primary font-semibold self-start md:text-xl mt-4 lg:mt-8 md:w-[360px] md:h-[64px]'>
+        <Link href={'/sobrenosotros'} className='button-primary font-semibold self-start md:text-xl mt-4 lg:mt-8 md:w-[360px] md:h-[64px]'>
           CONOCENOS
         </Link>
       </TitleSection>
