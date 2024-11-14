@@ -7,14 +7,6 @@ const SendEmailTest = () => {
   const [message, setMessage] = useState("");
   const [isSending, setIsSending] = useState(false);
 
-  /**
-   * Handle the form submission to send an email.
-   *
-   * @param {React.FormEvent<HTMLFormElement>} e - The form event.
-   *
-   * @return {Promise<void>} - A promise that resolves when the email is sent.
-   */
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSending(true);
