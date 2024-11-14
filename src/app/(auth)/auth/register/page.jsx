@@ -1,31 +1,4 @@
-"use client";
-import { useEffect } from "react";
-
 function Register() {
-  const enviarNuevoCorreoContrasena = async (email, contrasena) => {
-    try {
-      const response = await fetch("/api/enviarCorreoContrasena", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, contrasena }),
-      });
-
-      if (response.ok) {
-        console.log("Correo enviado con éxito");
-      } else {
-        const errorData = await response.json(); // Captura el mensaje de error de la respuesta
-        console.error("Error en la respuesta:", errorData);
-      }
-    } catch (error) {
-      console.error("Error al enviar el correo:", error);
-    }
-  };
-
-  useEffect(() => {
-    enviarNuevoCorreoContrasena("garaycarlosmauricio17@gmail.com", "123456");
-  }, []);
   return (
     <section className="bg-white dark:bg-gray-900">
       <div className="flex justify-center min-h-screen">
