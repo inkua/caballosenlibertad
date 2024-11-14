@@ -20,6 +20,13 @@ module.exports = {
         primary2: "var(--primary2)",
         secondary: "var(--secondary)",
       },
+      backgroundImage: {
+        "hero-nosotros": "url('/assets/nosotros/hero.jpg')",
+      },
+      aspectRatio: {
+        'hero': '1440 / 670',
+      },
+
     },
   },
   plugins: [
