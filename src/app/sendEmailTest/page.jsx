@@ -1,18 +1,23 @@
 "use client";
 import React, { useState } from "react";
-import axios from "axios";
+
+import { sendEmail } from "../services/emailSender.service";
 
 const SendEmailTest = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [isSending, setIsSending] = useState(false);
 
+  const subject = "Prueba de Correo";
+  const text = "Este es un mensaje de prueba.";
+  const html = "<p>Este es un mensaje de prueba.</p>";
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSending(true);
-
     try {
-      const res = await axios.post("/api/correos", { email });
+      const response = await sendEmail(email, subject, html);
+      console.log(response);
+
       setMessage("Correo enviado con éxito");
     } catch (error) {
       setMessage("Error al enviar el correo");
