@@ -44,9 +44,18 @@ const MenuBar = () => {
                 <ul className={`flex flex-col gap-4 items-center justify-start ${startAnimation ? 'animated-in-opacity': 'animated-out-opacity'}`}>
                     {
                         featuresLinks.map((link, index) => (
-                            <li key={index} 
-                                className='whitespace-nowrap'
-                            >
+                            link.children ?
+                            link.children.map((childrenLink, index) => (
+                            <li key={`nav-id-${childrenLink.href}${index}`} className='whitespace-nowrap'>
+                                <Link 
+                                    href={childrenLink.href} 
+                                    className="font-semibold text-[16px] xl:text-[18px] px-4 py-1 hover:text-gray-300"
+                                >
+                                    {childrenLink.textContent}
+                                </Link>
+                            </li>
+                            )):
+                            <li key={`nav-id-${link.href}${index}`} className='whitespace-nowrap'>
                                 <Link
                                     href={link.href} 
                                     className="font-semibold text-[16px] xl:text-[18px] px-4 py-1 hover:text-gray-300"

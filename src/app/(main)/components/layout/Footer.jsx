@@ -42,8 +42,19 @@ export const Footer = () => {
                 <ul className="flex flex-col gap-4 items-center justify-center">
                     {
                         featuresLinks.map((link, index) => (
-                            <li key={index}>
+                            link.children ?
+                            link.children.map((childrenLink, index) => (
+                            <li key={`nav-id-${childrenLink}${index}`}>
                                 <Link 
+                                    href={childrenLink.href} 
+                                    className="font-semibold text-[16px] xl:text-[18px] px-4 py-1 hover:text-gray-300"
+                                >
+                                    {childrenLink.textContent}
+                                </Link>
+                            </li>
+                            )):
+                            <li key={`nav-id-${link.href}${index}`}>
+                                <Link
                                     href={link.href} 
                                     className="font-semibold text-[16px] xl:text-[18px] px-4 py-1 hover:text-gray-300"
                                 >
