@@ -8,7 +8,7 @@ export function useToast() {
     const toastFunction = validTypes.includes(type) ? toast[type] : toast
 
     toastFunction(message, {
-      position: "top-center",
+      position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
       closeOnClick: true,
