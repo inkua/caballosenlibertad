@@ -4,11 +4,12 @@ import { useState } from "react"
 import FormEvent from "../FormEvent/FormEvent"
 import { useRouter } from "next/navigation"
 import { addEventImage } from "@/DAO/events.db";
+import { useToast } from "@/utils/toast";
 
 function AddBtn() {
     const router = useRouter()
     const [isOpen, setIsOpen] = useState(false)
-
+    const { showToast } = useToast()
 
     const saveEvent = async (newData) => {
         newData.url = await addEventImage(newData.url)
@@ -22,10 +23,10 @@ function AddBtn() {
         const data = await response.json();
 
         if (data.data) {
-            alert("Operación Exitosa!")
+            showToast({type:'success', message:'Evento registrado!'})
             router.refresh()
         } else {
-            alert("No se pudo realizar la operación!")
+            showToast({type:'error', message:'No se pudo realizar la operación!'})
         }
     }
 
