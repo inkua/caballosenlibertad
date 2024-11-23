@@ -3,7 +3,7 @@ import Image from "next/image"
 
 function ItemTable({ data }) {
     return (
-        <tr className="overflow-y-scroll">
+        <tr>
             <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
                 <div className="inline-flex items-center gap-x-3">
                     <div className="flex items-center gap-x-2">
@@ -18,8 +18,8 @@ function ItemTable({ data }) {
                 </div>
             </td>
             <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{data.date ? new Date(data.date.seconds * 1000).toLocaleDateString('en-GB') : 'No Date Available'}</td>
-            <td className="px-12 max-w-[20%] overflow-hidden py-4 text-sm font-normal text-gray-700">{data.info}</td>
-            <td className="px-4 py-4 text-sm whitespace-nowrap relative inline-block text-left">
+            <td className="px-4 max-w-[20%] overflow-hidden py-4 text-sm font-normal text-gray-500 dark:text-gray-300">{data.info}</td>
+            <td className="px-4 py-4 text-sm whitespace-nowrap flex items-center justify-center">
                 <ActionDropdown data={data} />
             </td>
         </tr>

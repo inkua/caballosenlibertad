@@ -16,7 +16,7 @@ async function Users() {
                 </div>
             </header>
 
-            <main className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <main className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-6">
                 <div className="sm:flex sm:items-center sm:justify-between">
                     <AddBtn />
                     <SearchBar />
