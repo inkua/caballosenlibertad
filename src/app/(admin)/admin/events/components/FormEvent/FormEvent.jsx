@@ -148,7 +148,7 @@ function FormEvent({ isOpen, setIsOpen, saveEvent, data, add = true }) {
                       d="M12 4.5v15m7.5-7.5h-15"
                     />
                   </svg>
-                  <span className="mx-1">{add ? "Save" : "Edit"}</span>
+                  <span className="mx-1">{add ? "Guardar" : "Actualizar"}</span>
                 </button>
 
                 <button
@@ -170,7 +170,7 @@ function FormEvent({ isOpen, setIsOpen, saveEvent, data, add = true }) {
                       d="M6 18 18 6M6 6l12 12"
                     />
                   </svg>
-                  <span className="mx-1">Cancel</span>
+                  <span className="mx-1">Cancelar</span>
                 </button>
               </div>
             </form>
