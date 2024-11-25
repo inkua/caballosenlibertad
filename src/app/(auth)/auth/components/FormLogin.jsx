@@ -1,5 +1,8 @@
 "use client";
 
+
+import { useRouter } from "next/navigation";
+
 import { useState } from "react";
 
 function FormLogin() {
@@ -7,6 +10,8 @@ function FormLogin() {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({ email: "", password: "" });
 
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
   const validateForm = () => {
     const newErrors = { email: "", password: "" };
     let isValid = true;
@@ -34,16 +39,22 @@ function FormLogin() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
+      setLoading(true);
       const formData = new FormData();
       formData.append("email", email);
       formData.append("password", password);
+
 
       await fetch("/api/auth", {
         method: "POST",
         body: formData,
       }).then((response) => {
         if (response.ok) {
+
+          setLoading(false);
           console.log("Login exitoso");
+          router.push("/admin");
+
         } else {
           console.error("Error en la autenticación");
         }
@@ -56,7 +67,10 @@ function FormLogin() {
       <div>
         <label
           htmlFor="email"
-          className="block mb-2 text-sm text-gray-600 dark:text-gray-200">
+
+          className="block mb-2 text-sm text-gray-600 dark:text-gray-200"
+        >
+
           Correo electrónico
         </label>
         <input
@@ -77,12 +91,18 @@ function FormLogin() {
         <div className="flex justify-between mb-2">
           <label
             htmlFor="password"
-            className="text-sm text-gray-600 dark:text-gray-200">
+
+            className="text-sm text-gray-600 dark:text-gray-200"
+          >
+
             Contraseña
           </label>
           <a
             href="#"
-            className="text-sm text-gray-400 focus:text-blue-500 hover:text-blue-500 hover:underline">
+
+            className="text-sm text-gray-400 focus:text-blue-500 hover:text-blue-500 hover:underline"
+          >
+
             ¿Olvidaste tu contraseña?
           </a>
         </div>
@@ -104,10 +124,14 @@ function FormLogin() {
       <div className="mt-6">
         <button
           type="submit"
-          className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+
+          className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:bg-blue-400 focus:ring focus:ring-blue-300 focus:ring-opacity-50"
+        >
           Iniciar sesión
         </button>
       </div>
+      {loading && <p className="text-center py-2">Conectando...</p>}
+
     </form>
   );
 }

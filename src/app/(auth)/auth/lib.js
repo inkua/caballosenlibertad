@@ -23,6 +23,39 @@ export async function decrypt(input) {
   return payload;
 }
 
+// Get token from session
+export async function getToken() {
+  try {
+    const token = request.cookies.get("session")?.value;
+    if (token) {
+      return token
+    }
+    return false
+  } catch (e) {
+    console.error("couldn't get Token - lib", e)
+    return false
+  }
+}
+
+
+// Validate token
+export async function validateToken(token) {
+  try {
+    const { payload } = await jwtVerify(token, key, {
+      algorithms: ["HS256"],
+    });
+
+    if (!payload) {
+      return false
+    }
+    return true
+
+  } catch (e) {
+    console.error("Invalid token", e)
+    return false
+  }
+}
+
 export async function login(formData) {
   // verifico credenciales y obtengo el usuario
   const user = { email: formData.get("email"), name: "Inkua" };
@@ -68,6 +101,23 @@ export async function validateAdmin() {
     const session = await getSession()
     const admin = await getAdminByEmail(session.user.email)
     return admin
+  } catch (e) {
+    console.error('Error validateAdmin - lib: ', e);
+    return false
+  }
+}
+
+export async function isRootAdmin(token) {
+  try {
+    const data = await decrypt(token)
+    if (!data) { return false }
+
+    const admin = await getAdminByEmail(data.user.email)
+    if (!admin) { return false }
+
+    if (admin.type !== "root") { return false }
+
+    return true
   } catch (e) {
     console.error('Error validateAdmin - lib: ', e);
     return false
