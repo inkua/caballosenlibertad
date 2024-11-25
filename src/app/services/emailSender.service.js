@@ -6,7 +6,6 @@ export async function sendEmail(email, subject, text, html) {
       email,
       subject,
       text,
-      html,
     });
     return response.data;
   } catch (error) {
