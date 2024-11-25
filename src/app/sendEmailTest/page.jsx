@@ -15,7 +15,7 @@ const SendEmailTest = () => {
     e.preventDefault();
     setIsSending(true);
     try {
-      const response = await sendEmail(email, subject, html);
+      const response = await sendEmail(email, subject, text);
       console.log(response);
 
       setMessage("Correo enviado con éxito");
