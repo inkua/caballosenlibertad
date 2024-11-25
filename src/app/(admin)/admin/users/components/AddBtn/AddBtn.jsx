@@ -4,12 +4,25 @@ import { useState } from "react";
 import FormUser from "../FormUser/FormUser";
 import { useRouter } from "next/navigation";
 import { addUserImage } from "@/DAO/users.db";
+import generarContrasenaSegura from "@/utils/crearContraseñaAleatoria";
+import { sendEmail } from "@/app/services/emailSender.service";
 
 function AddBtn() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
 
   const saveUser = async (newData) => {
+    newData.password = generarContrasenaSegura();
+    newData.role = "admin";
+    const subject = "Bienvenido al equipo de Caballos en Libertad";
+    const text = `Hola ${newData.name}, tu contraseña es: ${newData.password} y podes cambiarla en {Link}`;
+
+    try {
+      await sendEmail(newData.mail, subject, text);
+    } catch (error) {
+      console.log(error.message);
+    }
+
     newData.url = await addUserImage(newData.url);
     const response = await fetch("http://localhost:3000/api/users", {
       method: "POST",

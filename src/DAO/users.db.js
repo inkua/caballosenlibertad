@@ -10,20 +10,6 @@ import {
 import generarContrasenaSegura from "@/utils/crearContraseñaAleatoria";
 import { sendEmail } from "@/app/services/emailSender.service";
 const addUser = async (newProduct) => {
-  newProduct.role = "admin";
-  newProduct.password = await generarContrasenaSegura();
-  const text = `Hola ${newProduct.name} ${newProduct.lastname}, bienvenido a Caballos en libertad. Tu contraseña es: ${newProduct.password}, podes cambiarla en {link}`;
-  try {
-    const res = await sendEmail(
-      newProduct.mail,
-      "Bienvenido a Caballos en Libertad",
-      text
-    );
-    console.log(res);
-  } catch (error) {
-    console.log(error.message);
-  }
-
   return await addElement(newProduct, "users");
 };
 
