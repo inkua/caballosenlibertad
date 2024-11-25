@@ -7,10 +7,25 @@ import UploadImages from "../../../componets/UploadImages/UploadImages";
 
 function FormEvent({ isOpen, setIsOpen, saveEvent, data, add = true }) {
   const [title, setTitle] = useState("");
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState(null);
   const [info, setInfo] = useState("");
   const [url, setUrl] = useState("");
   const [id, setId] = useState("");
+  const [location, setLocation] = useState("");
+
+  const formatDateForInput = (date) => {
+    if (date instanceof Timestamp) {
+      return date.toDate().toISOString().split("T")[0];
+    } else if (data && date) {
+      return new Date(date.seconds * 1000).toISOString().split("T")[0];
+    }
+    return "";
+  };
+
+  const parseDateFromInput = (inputValue) => {
+    const dateObject = new Date(inputValue + "T00:00:00");
+    return Timestamp.fromDate(dateObject);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,6 +35,7 @@ function FormEvent({ isOpen, setIsOpen, saveEvent, data, add = true }) {
       date,
       info,
       url,
+      location
     };
 
     if (add) {
@@ -32,6 +48,7 @@ function FormEvent({ isOpen, setIsOpen, saveEvent, data, add = true }) {
     setDate("");
     setInfo("");
     setUrl("");
+    setLocation("");
     setIsOpen(false);
   };
 
@@ -42,6 +59,7 @@ function FormEvent({ isOpen, setIsOpen, saveEvent, data, add = true }) {
       setInfo(data.info);
       setUrl(data.url);
       setId(data.id);
+      setLocation(data.location)
     }
   }, [data]);
 
@@ -58,7 +76,7 @@ function FormEvent({ isOpen, setIsOpen, saveEvent, data, add = true }) {
               <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
                 <div>
                   <label className="text-black " htmlFor="username">
-                    Título:
+                    Nombre del evento:
                   </label>
                   <input
                     onChange={(e) => setTitle(e.target.value)}
@@ -76,25 +94,34 @@ function FormEvent({ isOpen, setIsOpen, saveEvent, data, add = true }) {
                   <input
                     type="date"
                     id="fecha"
-                    onChange={(e) =>
-                      setDate(
-                        Timestamp.fromDate(
-                          new Date(e.target.value + "T00:00:00")
-                        )
-                      )
-                    }
+                    value={formatDateForInput(date)}
+                    onChange={(e) => setDate(parseDateFromInput(e.target.value))}
                     name="fecha"
+                    className="block px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-200 dark:text-gray-800 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
                   />
                 </div>
 
                 <div>
                   <label className="text-black " htmlFor="password">
-                    Info:
+                    Descripción:
                   </label>
-                  <input
+                  <textarea
                     onChange={(e) => setInfo(e.target.value)}
                     id="password"
                     value={info}
+                    type="text"
+                    className="block w-full px-4 py-2 mt-2 min-h-[60px] max-h-[160px] text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-200 dark:text-gray-800 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-black " htmlFor="location">
+                    Ciudad - dirección:
+                  </label>
+                  <input
+                    onChange={(e) => setLocation(e.target.value)}
+                    id="location"
+                    value={location}
                     type="text"
                     className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-200 dark:text-gray-800 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
                   />

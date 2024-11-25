@@ -4,27 +4,32 @@ import { useState } from "react";
 import FormEvent from "../FormEvent/FormEvent";
 import { useRouter } from "next/navigation";
 import { addEventImage } from "@/DAO/events.db";
+import { useToast } from "@/utils/toast";
 
 function AddBtn() {
-  const router = useRouter();
-  const [isOpen, setIsOpen] = useState(false);
 
-  const saveEvent = async (newData) => {
-    newData.url = await addEventImage(newData.url);
-    const response = await fetch("http://localhost:3000/api/events", {
-      method: "POST",
-      body: JSON.stringify({
-        token: "",
-        data: newData,
-      }),
-    });
-    const data = await response.json();
+    const router = useRouter()
+    const [isOpen, setIsOpen] = useState(false)
+    const { showToast } = useToast()
 
-    if (data.data) {
-      alert("Operación Exitosa!");
-      router.refresh();
-    } else {
-      alert("No se pudo realizar la operación!");
+    const saveEvent = async (newData) => {
+        newData.url = await addEventImage(newData.url)
+        const response = await fetch('http://localhost:3000/api/events', {
+            method: 'POST',
+            body: JSON.stringify({
+                token: '',
+                data: newData,
+            }),
+        });
+        const data = await response.json();
+
+        if (data.data) {
+            showToast({type:'success', message:'Evento registrado!'})
+            router.refresh()
+        } else {
+            showToast({type:'error', message:'No se pudo realizar la operación!'})
+        }
+
     }
   };
 
