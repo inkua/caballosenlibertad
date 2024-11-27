@@ -1,12 +1,13 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { useRouter } from "next/navigation"
-import FormUser from "../FormEvent/FormEvent"
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import FormUser from "../FormEvent/FormEvent";
 import { addEventImage, delEventImage } from "@/DAO/events.db";
 import { useToast } from "@/utils/toast";
 
 function BtnEditEvent({ data }) {
+
     const [open, setOpen] = useState(false)
     const router = useRouter()
     const oldUrl = data.url
@@ -34,16 +35,47 @@ function BtnEditEvent({ data }) {
         } else {
             showToast({type:'error', message:'No se pudo realizar la operación!'})
         }
+
     }
 
+    const response = await fetch("http://localhost:3000/api/events", {
+      method: "PUT",
+      body: JSON.stringify({
+        token: "",
+        data: newData,
+      }),
+    });
 
-    return (
-        <>
-            <button onClick={() => setOpen(true)} className="block px-4 py-2 text-sm text-gray-700 hover:underline" role="menuitem" tabIndex="-1" id="menu-item-0">Edit</button>
+    const data = await response.json();
 
-            <FormUser isOpen={open} setIsOpen={setOpen} saveEvent={updateData} data={data} add={false} />
-        </>
-    )
+    if (data.data) {
+      alert("Operación Exitosa!");
+      router.refresh();
+    } else {
+      alert("No se pudo realizar la operación!");
+    }
+  };
+
+  return (
+    <>
+      <button
+        onClick={() => setOpen(true)}
+        className="block px-4 py-2 text-sm text-gray-700 hover:underline"
+        role="menuitem"
+        tabIndex="-1"
+        id="menu-item-0">
+        Edit
+      </button>
+
+      <FormUser
+        isOpen={open}
+        setIsOpen={setOpen}
+        saveEvent={updateData}
+        data={data}
+        add={false}
+      />
+    </>
+  );
 }
 
-export default BtnEditEvent
+export default BtnEditEvent;

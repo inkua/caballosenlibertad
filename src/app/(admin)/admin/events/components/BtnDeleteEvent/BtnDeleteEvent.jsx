@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useToast } from "@/utils/toast"
@@ -39,6 +40,7 @@ function BtnDeleteEvent({data}) {
             <button onClick={handleConfirm} className="block px-4 py-2 text-sm text-gray-700 hover:underline" role="menuitem" tabIndex="-1" id="menu-item-0">Delete</button>
         </>
     )
+
 }
 
-export default BtnDeleteEvent
+export default BtnDeleteEvent;
