@@ -4,11 +4,13 @@ import { useState } from "react"
 import { useRouter } from "next/navigation"
 import FormUser from "../FormEvent/FormEvent"
 import { addEventImage, delEventImage } from "@/DAO/events.db";
+import { useToast } from "@/utils/toast";
 
 function BtnEditEvent({ data }) {
     const [open, setOpen] = useState(false)
     const router = useRouter()
     const oldUrl = data.url
+    const { showToast } = useToast()
 
     const updateData = async (newData) => {
         if (await newData.newData.url != oldUrl) {
@@ -27,10 +29,10 @@ function BtnEditEvent({ data }) {
         const data = await response.json();
 
         if (data.data) {
-            alert("Operación Exitosa!")
+            showToast({type:'success', message:'Datos actualizados!'})
             router.refresh()
         } else {
-            alert("No se pudo realizar la operación!")
+            showToast({type:'error', message:'No se pudo realizar la operación!'})
         }
     }
 
