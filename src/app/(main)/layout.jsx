@@ -7,9 +7,8 @@ export default function MainLayout({
     return (
       <>
         <Header />
-          <main className='pt-[70px] lg:pt-[90px] w-full max-screen-view'>
+          {/* <main className='pt-[70px] lg:pt-[90px] w-full max-screen-view'> */}
             {children}
-          </main>
         <Footer />
       </>
     )
