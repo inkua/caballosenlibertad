@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import BtnEditUser from "../BtnEditEvent/BtnEditEvent"
 import BtnDeleteUser from "../BtnDeleteEvent/BtnDeleteEvent"
@@ -31,4 +31,4 @@ function ActionDropdownProduct({ data }) {
     )
 }
 
-export default ActionDropdownProduct
+export default ActionDropdownProduct;

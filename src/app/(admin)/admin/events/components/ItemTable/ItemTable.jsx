@@ -1,5 +1,5 @@
-import ActionDropdown from "../ActionDropdown/ActionDropdown"
-import Image from "next/image"
+import ActionDropdown from "../ActionDropdown/ActionDropdown";
+import Image from "next/image";
 
 function ItemTable({ data }) {
     return (
@@ -17,7 +17,7 @@ function ItemTable({ data }) {
                     </div>
                 </div>
             </td>
-            <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{data.date ? new Date(data.date.seconds * 1000).toLocaleDateString('en-GB') : 'No Date Available'}</td>
+            <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{data.date ? new Date(data.date.seconds * 1000).toLocaleDateString('en-GB') : 'Fecho no disponible'}</td>
             <td className="px-4 max-w-[20%] overflow-hidden py-4 text-sm font-normal text-gray-500 dark:text-gray-300">{data.info}</td>
             <td className="px-4 py-4 text-sm whitespace-nowrap flex items-center justify-center">
                 <ActionDropdown data={data} />
@@ -26,4 +26,4 @@ function ItemTable({ data }) {
     )
 }
 
-export default ItemTable
+export default ItemTable;

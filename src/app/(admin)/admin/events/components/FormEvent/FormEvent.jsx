@@ -79,6 +79,7 @@ function FormEvent({ isOpen, setIsOpen, saveEvent, data, add = true }) {
                     Nombre del evento:
                   </label>
                   <input
+                    required
                     onChange={(e) => setTitle(e.target.value)}
                     id="username"
                     value={title}
@@ -92,6 +93,7 @@ function FormEvent({ isOpen, setIsOpen, saveEvent, data, add = true }) {
                     Fecha:
                   </label>
                   <input
+                    required
                     type="date"
                     id="fecha"
                     value={formatDateForInput(date)}
@@ -106,6 +108,7 @@ function FormEvent({ isOpen, setIsOpen, saveEvent, data, add = true }) {
                     Descripción:
                   </label>
                   <textarea
+                    required
                     onChange={(e) => setInfo(e.target.value)}
                     id="password"
                     value={info}
@@ -119,6 +122,7 @@ function FormEvent({ isOpen, setIsOpen, saveEvent, data, add = true }) {
                     Ciudad - dirección:
                   </label>
                   <input
+                    required
                     onChange={(e) => setLocation(e.target.value)}
                     id="location"
                     value={location}

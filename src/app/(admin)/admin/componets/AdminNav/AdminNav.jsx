@@ -12,7 +12,9 @@ import {
   MenuItems,
 } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+
 import LogoutButton from "../LogoutButton/LogoutButton";
+
 
 const user = {
   name: "Tom Cook",
@@ -30,10 +32,12 @@ const navigation = [
 const userNavigation = [
   { name: "Your Profile", href: "/admin/profile" },
   { name: "Settings", href: "#" },
+
 ];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
+
 }
 const isCurrentPath = (current, href) => {
   if (current == href) return true;
@@ -69,8 +73,10 @@ function AdminNav() {
                         ? "bg-gray-900 text-white"
                         : "text-gray-300 hover:bg-gray-700 hover:text-white",
                       "rounded-md px-3 py-2 text-sm font-medium"
+
                     )}
                   >
+
                     {item.name}
                   </a>
                 ))}
@@ -94,23 +100,29 @@ function AdminNav() {
                 </div>
                 <MenuItems
                   transition
+
                   className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
                 >
+
                   {userNavigation.map((item) => (
                     <MenuItem key={item.name}>
                       <a
                         href={item.href}
+
                         className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100"
                       >
+
                         {item.name}
                       </a>
                     </MenuItem>
                   ))}
+
                   <LogoutButton
                     classname={
                       "block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100"
                     }
                   />
+
                 </MenuItems>
               </Menu>
             </div>
@@ -148,8 +160,10 @@ function AdminNav() {
                   ? "bg-gray-900 text-white"
                   : "text-gray-300 hover:bg-gray-700 hover:text-white",
                 "block rounded-md px-3 py-2 text-base font-medium"
+
               )}
             >
+
               {item.name}
             </DisclosureButton>
           ))}
@@ -178,6 +192,7 @@ function AdminNav() {
                 key={item.name}
                 as="a"
                 href={item.href}
+
                 className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
               >
                 {item.name}
@@ -188,6 +203,7 @@ function AdminNav() {
                 "w-full flex justify-start rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
               }
             />
+
           </div>
         </div>
       </DisclosurePanel>
