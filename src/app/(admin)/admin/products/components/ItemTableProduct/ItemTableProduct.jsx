@@ -13,7 +13,7 @@ function ItemTableProduct({ data }) {
                         </div>
 
                         <div>
-                            <h2 className="font-normal text-gray-800 dark:text-white ">{data?.name}</h2>
+                            <h2 className="font-normal text-gray-800 dark:text-dark ">{data?.name}</h2>
                             <p className="text-xs font-normal text-gray-500 dark:text-gray-400">{data?.id}</p>
                         </div>
                     </div>
@@ -21,8 +21,8 @@ function ItemTableProduct({ data }) {
             </td>
 
             <td className="px-4 py-4 text-sm font-normal text-gray-700 whitespace-nowrap">{data?.category}</td>
-            <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{data?.description}</td>
-            <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{data?.price}</td>
+            <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-500 whitespace-nowrap">{data?.description}</td>
+            <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-500 whitespace-nowrap">{data?.price}</td>
             <td className="px-4 py-4 text-sm whitespace-nowrap relative inline-block text-left">
                 <ActionDropdownProduct data={data}/>
             </td>

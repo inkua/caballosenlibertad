@@ -16,6 +16,26 @@ const getEvents = async () => {
     return await getAllElements('events')
 }
 
+const getEventsPerPage = async (page = 1, pageSize = 5) => {
+    const allEvents = await getAllElements('events');
+
+    const startIndex = (page - 1) * pageSize;
+    const endIndex = page * pageSize;
+
+    const paginatedEvents = allEvents.slice(startIndex, endIndex);
+
+    const totalItems = allEvents.length;
+    const totalPages = Math.ceil(totalItems / pageSize);
+
+    return {
+        list: paginatedEvents,
+        currentPage: page,
+        totalPages: totalPages,
+        totalItems: totalItems,
+        pageSize: pageSize
+    };
+}
+
 const setEvent = async (newData, Pid) => {
     return await updateElement(newData, Pid, 'events')
 }
@@ -33,6 +53,7 @@ export {
     delEvent,
     getEventById,
     getEvents,
+    getEventsPerPage,
     setEvent,
     addEventImage,
     delEventImage,

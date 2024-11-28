@@ -12,14 +12,14 @@ function ItemTable({ data }) {
                         </div>
 
                         <div>
-                            <h2 className="font-normal text-gray-800 dark:text-white ">{data.name}</h2>
+                            <h2 className="font-normal text-gray-800 dark:text-dark ">{data.name}</h2>
                         </div>
                     </div>
                 </div>
             </td>
             <td className="px-12 max-w-[20%] overflow-hidden py-4 text-sm font-normal text-gray-700">{data.mail}</td>
-            <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{data.creation ? new Date(data.creation.seconds * 1000).toLocaleDateString('en-GB') : 'No Date Available'}</td>
-            <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{data.lastMod ? new Date(data.lastMod.seconds * 1000).toLocaleDateString('en-GB') : 'No Date Available'}</td>
+            <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-500 whitespace-nowrap">{data.creation ? new Date(data.creation.seconds * 1000).toLocaleDateString('en-GB') : 'No Date Available'}</td>
+            <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-500 whitespace-nowrap">{data.lastMod ? new Date(data.lastMod.seconds * 1000).toLocaleDateString('en-GB') : 'No Date Available'}</td>
             <td className="px-4 py-4 text-sm whitespace-nowrap relative inline-block text-left">
                 <ActionDropdown data={data} />
             </td>

@@ -1,12 +1,19 @@
-import { getEvents } from "@/DAO/events.db";
+import { getEventsPerPage } from "@/DAO/events.db";
 
 import AddBtn from "./components/AddBtn/AddBtn"
 import SearchBar from "../componets/SearchBar/SearchBar"
 import Pagination from "../componets/Pagination/Pagination"
 import Table from "./components/Table/Table"
 
-async function Users() {
-    let data = await getEvents();
+async function Events({searchParams}) {
+    const {page} = searchParams
+    let data = {}
+
+    if(page){
+        data = await getEventsPerPage(Number(page))
+    }else{
+        data = await getEventsPerPage()
+    }
 
     return (
         <>
@@ -16,17 +23,18 @@ async function Users() {
                 </div>
             </header>
 
-            <main className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <main className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" >
                 <div className="sm:flex sm:items-center sm:justify-between">
                     <AddBtn />
                     <SearchBar />
                 </div>
-                <Table data={data} />
 
-                <Pagination />
+                <Table data={data.list} />
+
+                <Pagination data={data}/>
             </main>
         </>
     )
 }
 
-export default Users
+export default Events

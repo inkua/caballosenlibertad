@@ -12,7 +12,7 @@ function ItemTable({ data }) {
                         </div>
 
                         <div>
-                            <h2 className="font-normal text-gray-800 dark:text-white ">{data.title}</h2>
+                            <h2 className="font-normal text-gray-800 dark:text-dark ">{data.title}</h2>
                         </div>
                     </div>
                 </div>
