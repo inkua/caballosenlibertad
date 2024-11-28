@@ -12,7 +12,6 @@ function AddBtn() {
   const [isOpen, setIsOpen] = useState(false);
 
   const saveUser = async (newData) => {
-    // Generar contraseña segura, agregarle rol admin y enviar mail
     newData.password = generarContrasenaSegura();
     newData.role = "admin";
     const subject = "Bienvenido al equipo de Caballos en Libertad";
