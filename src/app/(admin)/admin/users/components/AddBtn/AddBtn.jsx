@@ -12,6 +12,7 @@ function AddBtn() {
   const [isOpen, setIsOpen] = useState(false);
 
   const saveUser = async (newData) => {
+
     newData.password = generarContrasenaSegura();
     newData.role = "admin";
     const subject = "Bienvenido al equipo de Caballos en Libertad";
@@ -21,7 +22,6 @@ function AddBtn() {
       await sendEmail(newData.mail, subject, text);
     } catch (error) {
       console.log(error.message);
-    }
 
     newData.url = await addUserImage(newData.url);
     const response = await fetch("http://localhost:3000/api/users", {
@@ -38,6 +38,7 @@ function AddBtn() {
       router.refresh();
     } else {
       alert("No se pudo realizar la operación!");
+
     }
   };
 
@@ -64,6 +65,7 @@ function AddBtn() {
           <span>Nuevo</span>
         </button>
       </div>
+
 
       <FormUser
         isOpen={isOpen}

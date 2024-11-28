@@ -79,6 +79,7 @@ function FormEvent({ isOpen, setIsOpen, saveEvent, data, add = true }) {
                     Nombre del evento:
                   </label>
                   <input
+                    required
                     onChange={(e) => setTitle(e.target.value)}
                     id="username"
                     value={title}
@@ -92,6 +93,7 @@ function FormEvent({ isOpen, setIsOpen, saveEvent, data, add = true }) {
                     Fecha:
                   </label>
                   <input
+                    required
                     type="date"
                     id="fecha"
                     value={formatDateForInput(date)}
@@ -106,6 +108,7 @@ function FormEvent({ isOpen, setIsOpen, saveEvent, data, add = true }) {
                     Descripción:
                   </label>
                   <textarea
+                    required
                     onChange={(e) => setInfo(e.target.value)}
                     id="password"
                     value={info}
@@ -119,6 +122,7 @@ function FormEvent({ isOpen, setIsOpen, saveEvent, data, add = true }) {
                     Ciudad - dirección:
                   </label>
                   <input
+                    required
                     onChange={(e) => setLocation(e.target.value)}
                     id="location"
                     value={location}
@@ -148,7 +152,7 @@ function FormEvent({ isOpen, setIsOpen, saveEvent, data, add = true }) {
                       d="M12 4.5v15m7.5-7.5h-15"
                     />
                   </svg>
-                  <span className="mx-1">{add ? "Save" : "Edit"}</span>
+                  <span className="mx-1">{add ? "Guardar" : "Actualizar"}</span>
                 </button>
 
                 <button
@@ -170,7 +174,7 @@ function FormEvent({ isOpen, setIsOpen, saveEvent, data, add = true }) {
                       d="M6 18 18 6M6 6l12 12"
                     />
                   </svg>
-                  <span className="mx-1">Cancel</span>
+                  <span className="mx-1">Cancelar</span>
                 </button>
               </div>
             </form>

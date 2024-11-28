@@ -9,7 +9,9 @@ function imgClick() {
 
 function ProductDetail() {
   return (
-    <div className="container mx-auto max-w-7xl py-8 px-4 sm:px-6 lg:px-8 sm:py-12 lg:py-20">
+
+    <main className="container mx-auto max-w-7xl py-8 px-4 sm:px-6 lg:px-8 sm:py-12 lg:py-20">
+
       <div className="px-4 sm:px-0">
         <h3 className="text-base font-semibold leading-7 text-gray-900">
           Applicant Information
@@ -70,7 +72,9 @@ function ProductDetail() {
           </div>
         </dl>
       </div>
-    </div>
+
+    </main>
+
   );
 }
 

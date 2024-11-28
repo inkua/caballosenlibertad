@@ -1,10 +1,9 @@
-import React from 'react'
 
 function Index() {
     return (
-        <div >
+        <main >
             <h1>Admin Index</h1>
-        </div>
+        </main>
     )
 }
 
