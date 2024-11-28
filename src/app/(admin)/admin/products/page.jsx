@@ -1,5 +1,6 @@
 import { getProductsPerPage } from "@/DAO/products.db";
 
+
 import SearchBar from "../componets/SearchBar/SearchBar"
 import BtnProduct from "./components/BtnProduct/BtnProduct"
 import PaginationProduct from "./components/PaginationProduct/PaginationProduct";
@@ -14,6 +15,7 @@ async function Products({ searchParams }) {
   } else {
     data = await getProductsPerPage()
   }
+
 
   return (
     <>
@@ -31,12 +33,14 @@ async function Products({ searchParams }) {
           <SearchBar />
         </div>
 
+
         <TableProduct data={data.list} />
 
         <PaginationProduct data={data} />
       </main>
     </>
   )
+
 }
 
 export default Products;

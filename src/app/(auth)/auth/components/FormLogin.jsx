@@ -44,6 +44,7 @@ function FormLogin() {
       formData.append("email", email);
       formData.append("password", password);
 
+
       await fetch("/api/auth", {
         method: "POST",
         body: formData,

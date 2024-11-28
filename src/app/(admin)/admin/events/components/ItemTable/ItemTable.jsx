@@ -2,6 +2,7 @@ import ActionDropdown from "../ActionDropdown/ActionDropdown";
 import Image from "next/image";
 
 function ItemTable({ data }) {
+
     return (
         <tr>
             <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
@@ -24,6 +25,7 @@ function ItemTable({ data }) {
             </td>
         </tr>
     )
+
 }
 
 export default ItemTable;
