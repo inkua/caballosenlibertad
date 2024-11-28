@@ -1,12 +1,19 @@
-import { getProducts } from "@/DAO/products.db";
+import { getProductsPerPage } from "@/DAO/products.db";
 
-import Pagination from "../componets/Pagination/Pagination";
-import SearchBar from "../componets/SearchBar/SearchBar";
-import BtnProduct from "./components/BtnProduct/BtnProduct";
-import TableProduct from "./components/TableProduct/TableProduct";
+import SearchBar from "../componets/SearchBar/SearchBar"
+import BtnProduct from "./components/BtnProduct/BtnProduct"
+import PaginationProduct from "./components/PaginationProduct/PaginationProduct";
+import TableProduct from "./components/TableProduct/TableProduct"
 
-async function Products() {
-  let data = await getProducts();
+async function Products({ searchParams }) {
+  const { page } = searchParams
+  let data = {}
+
+  if (page) {
+    data = await getProductsPerPage(Number(page))
+  } else {
+    data = await getProductsPerPage()
+  }
 
   return (
     <>
@@ -24,12 +31,12 @@ async function Products() {
           <SearchBar />
         </div>
 
-        <TableProduct data={data} />
+        <TableProduct data={data.list} />
 
-        <Pagination />
+        <PaginationProduct data={data} />
       </main>
     </>
-  );
+  )
 }
 
 export default Products;

@@ -1,4 +1,4 @@
-import { addElement, deleteElement, getAllElements, getElementById, updateElement, addImage, delImage } from "./container";
+import { addElement, addImage, deleteElement, delImage, getAllElements, getElementById, updateElement } from "./container";
 
 const addProduct = async (newProduct) => {
     return await addElement(newProduct, 'products')
@@ -14,6 +14,26 @@ const getProductById = async (Pid) => {
 
 const getProducts = async () => {
     return await getAllElements('products')
+}
+
+const getProductsPerPage = async (page = 1, pageSize = 5) => {
+    const allProducts = await getAllElements('products');
+
+    const startIndex = (page - 1) * pageSize;
+    const endIndex = page * pageSize;
+
+    const paginatedProducts = allProducts.slice(startIndex, endIndex);
+
+    const totalItems = allProducts.length;
+    const totalPages = Math.ceil(totalItems / pageSize);
+
+    return {
+        list: paginatedProducts,
+        currentPage: page,
+        totalPages: totalPages,
+        totalItems: totalItems,
+        pageSize: pageSize
+    };
 }
 
 const setProduct = async (newData, Pid) => {
@@ -36,4 +56,5 @@ export {
     setProduct,
     addProductImage,
     delProductImage,
+    getProductsPerPage,
 }
