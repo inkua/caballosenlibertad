@@ -28,6 +28,7 @@ const UploadImages = (props) => {
           Imagen del Producto
         </label>
         <input
+          required
           type="file"
           id="productImage"
           name="productImage"

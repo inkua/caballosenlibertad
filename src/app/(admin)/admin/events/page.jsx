@@ -1,17 +1,17 @@
 import { getEventsPerPage } from "@/DAO/events.db";
 
-import AddBtn from "./components/AddBtn/AddBtn"
-import SearchBar from "../componets/SearchBar/SearchBar"
-import Pagination from "../componets/Pagination/Pagination"
-import Table from "./components/Table/Table"
+import Pagination from "../componets/Pagination/Pagination";
+import SearchBar from "../componets/SearchBar/SearchBar";
+import AddBtn from "./components/AddBtn/AddBtn";
+import Table from "./components/Table/Table";
 
-async function Events({searchParams}) {
-    const {page} = searchParams
+async function Events({ searchParams }) {
+    const { page } = searchParams
     let data = {}
 
-    if(page){
+    if (page) {
         data = await getEventsPerPage(Number(page))
-    }else{
+    } else {
         data = await getEventsPerPage()
     }
 
@@ -31,7 +31,7 @@ async function Events({searchParams}) {
 
                 <Table data={data.list} />
 
-                <Pagination data={data}/>
+                <Pagination data={data} />
             </main>
         </>
     )

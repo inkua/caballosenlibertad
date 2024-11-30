@@ -15,26 +15,34 @@ async function Products({searchParams}) {
         data = await getProductsPerPage()
     }
 
-    return (
-        <>
-            <header className="bg-white shadow">
-                <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-                    <h1 className="text-3xl font-bold tracking-tight text-gray-900">Caballos</h1>
-                </div>
-            </header>
+  if (page) {
+    data = await getProductsPerPage(Number(page))
+  } else {
+    data = await getProductsPerPage()
+  }
 
-            <main className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" >
-                <div className="sm:flex sm:items-center sm:justify-between">
-                    <BtnProduct />
-                    <SearchBar />
-                </div>
+  return (
+    <>
+      <header className="bg-white shadow">
+        <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+          <h1 className="text-3xl font-bold tracking-tight text-gray-900">
+            Caballos
+          </h1>
+        </div>
+      </header>
 
-                <TableProduct data={data.list} />
+      <main className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="sm:flex sm:items-center sm:justify-between">
+          <BtnProduct />
+          <SearchBar />
+        </div>
 
-                <PaginationProduct data={data}/>
-            </main>
-        </>
-    )
+        <TableProduct data={data.list} />
+
+        <PaginationProduct data={data} />
+      </main>
+    </>
+  )
 }
 
-export default Products
+export default Products;

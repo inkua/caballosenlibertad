@@ -1,17 +1,17 @@
 import { getUsersPerPage } from "@/DAO/users.db";
 
-import AddBtn from "./components/AddBtn/AddBtn"
-import SearchBar from "../componets/SearchBar/SearchBar"
-import Pagination from "../componets/Pagination/Pagination"
-import Table from "./components/Table/Table"
+import AddBtn from "./components/AddBtn/AddBtn";
+import SearchBar from "../componets/SearchBar/SearchBar";
+import Pagination from "../componets/Pagination/Pagination";
+import Table from "./components/Table/Table";
 
-async function Users({searchParams}) {
-    const {page} = searchParams
+async function Users({ searchParams }) {
+    const { page } = searchParams
     let data = {}
 
-    if(page){
+    if (page) {
         data = await getUsersPerPage(Number(page))
-    }else{
+    } else {
         data = await getUsersPerPage()
     }
 
@@ -31,10 +31,10 @@ async function Users({searchParams}) {
 
                 <Table data={data.list} />
 
-                <Pagination data={data}/>
+                <Pagination data={data} />
             </main>
         </>
     )
 }
 
-export default Users
+export default Users;

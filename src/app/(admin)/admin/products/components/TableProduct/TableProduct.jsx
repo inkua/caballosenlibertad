@@ -1,4 +1,4 @@
-import ItemTable from "../ItemTableProduct/ItemTableProduct"
+import ItemTable from "../ItemTableProduct/ItemTableProduct";
 
 const headers = [
     { id: 1, title: "Name" },
@@ -6,9 +6,8 @@ const headers = [
     { id: 3, title: "Description" },
     { id: 4, title: "Price" },
     { id: 5, title: "Actions" },
-]
+];
 function TableProduct({ data }) {
-
     return (
         <section className="flex flex-col mt-6 px-4 sm:px-6 md:px-0">
             <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 overflow-y-scroll">
@@ -34,9 +33,9 @@ function TableProduct({ data }) {
                                     data.length === 0 ?
                                         (<p className="text-black">Lista de productos vacía</p>)
                                         :
-                                        (   data.map((item) => (
-                                                <ItemTable key={item.id} data={item} />
-                                            ))
+                                        (data.map((item) => (
+                                            <ItemTable key={item.id} data={item} />
+                                        ))
                                         )
                                 }
                             </tbody>
@@ -48,4 +47,4 @@ function TableProduct({ data }) {
     )
 }
 
-export default TableProduct
+export default TableProduct;

@@ -26,6 +26,20 @@ module.exports = {
       aspectRatio: {
         'hero': '1440 / 670',
       },
+      margin:{
+        "mobile":"1rem",
+        "tablet":"4rem",
+        "desktop":"8rem",
+      },
+      padding:{
+        "mobile":"1rem",
+        "tablet":"4rem",
+        "desktop":"8rem",
+      },
+      maxWidth:{
+        "content":"1440px",
+        "banner": "1800px",
+      },
 
     },
   },

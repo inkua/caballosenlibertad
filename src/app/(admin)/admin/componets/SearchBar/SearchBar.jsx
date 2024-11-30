@@ -1,5 +1,3 @@
-
-
 function SearchBar() {
     return (
         <div className="relative flex items-center mt-4">
@@ -10,11 +8,11 @@ function SearchBar() {
             </span>
             <input
                 type="email"
-                placeholder="search"
+                placeholder="buscar"
                 className="block w-full py-2.5 text-black placeholder-gray-500 bg-white border border-gray-300 rounded-lg pl-11 pr-5 rtl:pr-11 rtl:pl-5 focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
         </div>
     )
 }
 
-export default SearchBar
+export default SearchBar;
