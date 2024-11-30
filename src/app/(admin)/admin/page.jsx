@@ -1,11 +1,10 @@
-import React from 'react'
 
 function Index() {
-  return (
-    <div>
-      <h1>Admin Index</h1>
-    </div>
-  )
+    return (
+        <main >
+            <h1>Admin Index</h1>
+        </main>
+    )
 }
 
 export default Index

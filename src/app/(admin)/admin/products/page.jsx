@@ -1,33 +1,48 @@
-import { getProducts } from "@/DAO/products.db";
+import { getProductsPerPage } from "@/DAO/products.db";
 
-import Pagination from "../componets/Pagination/Pagination"
 import SearchBar from "../componets/SearchBar/SearchBar"
 import BtnProduct from "./components/BtnProduct/BtnProduct"
+import PaginationProduct from "./components/PaginationProduct/PaginationProduct";
 import TableProduct from "./components/TableProduct/TableProduct"
 
-async function Products() {
-    let data = await getProducts(); //usando el servicio del DAO
+async function Products({searchParams}) {
+    const {page} = searchParams
+    let data = {}
 
-    return (
-        <>
-            <header className="bg-white shadow">
-                <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-                    <h1 className="text-3xl font-bold tracking-tight text-gray-900">Productos</h1>
-                </div>
-            </header>
+    if(page){
+        data = await getProductsPerPage(Number(page))
+    }else{
+        data = await getProductsPerPage()
+    }
 
-            <main className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" >
-                <div className="sm:flex sm:items-center sm:justify-between">
-                    <BtnProduct />
-                    <SearchBar />
-                </div>
+  if (page) {
+    data = await getProductsPerPage(Number(page))
+  } else {
+    data = await getProductsPerPage()
+  }
 
-                <TableProduct data={data} />
+  return (
+    <>
+      <header className="bg-white shadow">
+        <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+          <h1 className="text-3xl font-bold tracking-tight text-gray-900">
+            Caballos
+          </h1>
+        </div>
+      </header>
 
-                <Pagination />
-            </main>
-        </>
-    )
+      <main className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="sm:flex sm:items-center sm:justify-between">
+          <BtnProduct />
+          <SearchBar />
+        </div>
+
+        <TableProduct data={data.list} />
+
+        <PaginationProduct data={data} />
+      </main>
+    </>
+  )
 }
 
-export default Products
+export default Products;
