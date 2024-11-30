@@ -29,7 +29,7 @@ function Table({ data }) {
                                 </tr>
                             </thead>
 
-                            <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
+                            <tbody className="bg-white text-black divide-y divide-gray-200">
                                 {
                                     data.map((item) =>
                                         <ItemTable data={item} key={item.id} />

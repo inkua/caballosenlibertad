@@ -15,6 +15,25 @@ const getUserById = async (Pid) => {
 const getUsers = async () => {
     return await getAllElements('users')
 }
+const getUsersPerPage = async (page = 1, pageSize = 5) => {
+    const allUsers = await getAllElements('users');
+
+    const startIndex = (page - 1) * pageSize;
+    const endIndex = page * pageSize;
+
+    const paginatedUsers = allUsers.slice(startIndex, endIndex);
+
+    const totalItems = allUsers.length;
+    const totalPages = Math.ceil(totalItems / pageSize);
+
+    return {
+        list: paginatedUsers,
+        currentPage: page,
+        totalPages: totalPages,
+        totalItems: totalItems,
+        pageSize: pageSize
+    };
+}
 
 const setUser = async (newData, Pid) => {
     return await updateElement(newData, Pid, 'users')
@@ -33,6 +52,7 @@ export {
     delUser,
     getUserById,
     getUsers,
+    getUsersPerPage,
     setUser,
     addUserImage,
     delUserImage,
