@@ -5,9 +5,15 @@ import BtnProduct from "./components/BtnProduct/BtnProduct"
 import PaginationProduct from "./components/PaginationProduct/PaginationProduct";
 import TableProduct from "./components/TableProduct/TableProduct"
 
-async function Products({ searchParams }) {
-  const { page } = searchParams
-  let data = {}
+async function Products({searchParams}) {
+    const {page} = searchParams
+    let data = {}
+
+    if(page){
+        data = await getProductsPerPage(Number(page))
+    }else{
+        data = await getProductsPerPage()
+    }
 
   if (page) {
     data = await getProductsPerPage(Number(page))
