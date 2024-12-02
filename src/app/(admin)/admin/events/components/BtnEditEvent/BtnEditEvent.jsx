@@ -1,13 +1,11 @@
 "use client"
 
-import { useState } from "react"
 import { useRouter } from "next/navigation"
 import FormUser from "../FormEvent/FormEvent"
 import { addEventImage, delEventImage } from "@/DAO/events.db";
 import { useToast } from "@/utils/toast";
 
-function BtnEditEvent({ data }) {
-    const [open, setOpen] = useState(false)
+function BtnEditEvent({ data, open, setOpen }) {
     const router = useRouter()
     const oldUrl = data.url
     const { showToast } = useToast()
