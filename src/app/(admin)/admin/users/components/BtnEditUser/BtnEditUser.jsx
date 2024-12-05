@@ -1,12 +1,10 @@
 "use client";
 
-import { useState } from "react";
 import { useRouter } from "next/navigation";
 import FormUser from "../FormUser/FormUser";
 import { addUserImage, delUserImage } from "@/DAO/users.db";
 
-function BtnEditUser({ data }) {
-  const [open, setOpen] = useState(false);
+function BtnEditUser({ data, open, setOpen }) {
   const router = useRouter();
   const oldUrl = data.url;
 
@@ -42,7 +40,7 @@ function BtnEditUser({ data }) {
         role="menuitem"
         tabIndex="-1"
         id="menu-item-0">
-        Edit
+        Editar
       </button>
 
       <FormUser
