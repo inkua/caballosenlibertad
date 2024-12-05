@@ -1,9 +1,18 @@
 "use client";
 
+import { useToast } from "@/utils/toast";
 import { useRouter } from "next/navigation";
 
 function BtnDeleteProduct({ data }) {
   const router = useRouter();
+  const { showToast } = useToast()
+
+  const handleConfirm = () => {
+    if (confirm('Confirma eliminar el ítem seleccionado?')) {
+        return deleteData()
+    }
+    return 0
+}
 
   const deleteData = async () => {
     const response = await fetch(`http://localhost:3000/api/products/`, {
@@ -18,22 +27,22 @@ function BtnDeleteProduct({ data }) {
     const responseData = await response.json();
 
     if (responseData.data) {
-      alert("Operación Exitosa!");
-      router.refresh();
+      showToast({message:'Ítem eliminado!'})
+      router.refresh()
     } else {
-      alert("No se pudo realizar la operación!");
+      showToast({type:'error', message:'No se pudo realizar la operación!'})
     }
   };
 
   return (
     <>
       <button
-        onClick={deleteData}
+        onClick={handleConfirm}
         className="block px-4 py-2 text-sm text-gray-700 hover:underline"
         role="menuitem"
         tabIndex="-1"
         id="menu-item-0">
-        Delete
+        Eliminar
       </button>
     </>
   );
