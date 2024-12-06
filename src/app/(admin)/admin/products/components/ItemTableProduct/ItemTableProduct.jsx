@@ -3,7 +3,7 @@ import Image from "next/image";
 
 function ItemTableProduct({ data }) {
     return (
-        <tr className="overflow-y-scroll">
+        <tr>
             <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
                 <div className="inline-flex items-center gap-x-3">
                     <div className="flex items-center gap-x-2">
@@ -38,7 +38,7 @@ function ItemTableProduct({ data }) {
             <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
                 {data?.price}
             </td>
-            <td className="px-4 py-4 text-sm whitespace-nowrap relative inline-block text-left">
+            <td className="px-4 py-4 text-sm whitespace-nowrap flex items-center justify-center">
                 <ActionDropdownProduct data={data} />
             </td>
         </tr>
