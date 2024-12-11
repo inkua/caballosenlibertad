@@ -36,7 +36,15 @@ const deleteElement = async (id, collectionName) => {
     try {
         const docRef = doc(db, collectionName, id);
         await deleteDoc(docRef);
-        return true
+
+        const response = await getDoc(docRef);
+        const element = response.data();
+        
+        if(!element){
+            return true;
+        }else{
+            return false;
+        };
     } catch (e) {
         console.error(`${collectionName}, deleteElement, container, DAO: `, e);
         return false;
