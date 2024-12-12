@@ -1,0 +1,41 @@
+@keyframes sticky-parallax-header-move-and-size {
+	to {
+		height: 90px;
+	}
+}
+
+@keyframes move-and-fade-background {
+	to {
+		translate: -15% -10%;
+		scale: 1.1;
+        opacity: .6;
+	}
+}
+
+@keyframes move-and-fade-text-image {
+    from {
+		translate: -5% -10%;
+		scale: .7;
+        opacity: .85;
+    }
+	to {
+		scale: 1;
+        opacity: 1;
+	}
+}
+
+.dynamicHeader{
+    animation: sticky-parallax-header-move-and-size linear forwards;
+    animation-timeline: scroll();
+	animation-range: 0 150px;
+}
+
+.dynamicImage {
+    animation: move-and-fade-background .5s ease-in-out forwards;
+    animation-timeline: scroll();
+    animation-range: 0 100px;
+}
+
+.textImage {
+    animation: move-and-fade-text-image .4s ease-in-out forwards;
+}

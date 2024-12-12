@@ -27,14 +27,12 @@ export const Footer = () => {
     <footer className="w-full bg-primary text-whitePrimary flex flex-col">
         <div className='max-screen-layout w-full lg:grid lg:grid-cols-5 py-10 sm:py-12 md:py-14 items-center'>
             <figure className='hidden lg:block w-full col-span-2'>
-                <Image
-                    src="/next.svg"
-                    alt="Imagen logo next" 
-                    width={592}
-                    height={370}
-                    // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 300px"
-                    priority
-                    className={`hidden lg:block w-[148px] h-[92px] m-auto`}
+                <img
+                    src="/caballo-logo-.svg"
+                    alt="Imagen logo caballos en libertad"
+                    width={190}
+                    height={145}
+                    className={`hidden lg:block w-[210px] h-[158px] m-auto`}
                 />
             </figure>
 
@@ -47,7 +45,7 @@ export const Footer = () => {
                             <li key={`nav-id-${childrenLink}${index}`}>
                                 <Link 
                                     href={childrenLink.href} 
-                                    className="font-semibold text-[16px] xl:text-[18px] px-4 py-1 hover:text-gray-300"
+                                    className="font-semibold text-[16px] xl:text-[18px] px-4 py-1 hover:text-primary2"
                                 >
                                     {childrenLink.textContent}
                                 </Link>
@@ -56,7 +54,7 @@ export const Footer = () => {
                             <li key={`nav-id-${link.href}${index}`}>
                                 <Link
                                     href={link.href} 
-                                    className="font-semibold text-[16px] xl:text-[18px] px-4 py-1 hover:text-gray-300"
+                                    className="font-semibold text-[16px] xl:text-[18px] px-4 py-1 hover:text-primary2"
                                 >
                                     {link.textContent}
                                 </Link>
