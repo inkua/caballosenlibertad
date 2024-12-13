@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import emailjs from "@emailjs/browser";
 export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
@@ -49,7 +48,7 @@ export default function ContactForm() {
     }
     setError({})
 
-    const templateParams = {
+   /*  const templateParams = {
       to_name:name,
       to_email:email,
       to_phone:phone,
@@ -73,11 +72,11 @@ export default function ContactForm() {
       }),(error) =>{
         console.log("Error al enviar", error)
       }
-      ;
+      ; */
   };
 
   return (
-    <div className="w-full max-w-md p-mobile">
+    <div className="w-full bg-red-300 md:basis-1/2">
       <h2 className="font-extrabold text-primary text-[20px] md:text-[32px] duration-200">
         Consultanos
       </h2>
