@@ -1,6 +1,7 @@
 import { isRootAdmin } from '@/app/(auth)/auth/lib';
 import { headers } from 'next/headers'
 
+// verify if an admin is root type
 export async function GET() {
     try {
         const headersList = headers()
