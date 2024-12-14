@@ -1,7 +1,11 @@
 import { TitleSection } from "../components/TitleSection";
+import { AdopcionesCard } from "../components/adopciones/AdopcionesCard";
 import Image from "next/image";
 
 function Voluntariado() {
+  const textForContactCard =
+    "Si tenes conocimientos en marketing digital o veterinaria, posees experiencia en trabajo con caballos en el capo, tienes licencia de conducir, o posees cualquier otro conocimiento que aporte a alguna de las áreas mencionadas.";
+  const titleForContactCard = "Ponte en contacto";
   const items = [
     {
       image: (
@@ -158,59 +162,7 @@ function Voluntariado() {
       ],
     },
   ];
-  const contactItems = [
-    {
-      icon: (
-        <svg
-          width="18"
-          height="15"
-          viewBox="0 0 18 15"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M17.3077 0.40332H0.692308C0.508696 0.40332 0.332605 0.47626 0.202772 0.606093C0.0729393 0.735926 0 0.912017 0 1.09563V12.8649C0 13.2321 0.145879 13.5843 0.405544 13.8439C0.66521 14.1036 1.01739 14.2495 1.38462 14.2495H16.6154C16.9826 14.2495 17.3348 14.1036 17.5945 13.8439C17.8541 13.5843 18 13.2321 18 12.8649V1.09563C18 0.912017 17.9271 0.735926 17.7972 0.606093C17.6674 0.47626 17.4913 0.40332 17.3077 0.40332ZM9 7.77207L2.4724 1.78794H15.5276L9 7.77207ZM6.46529 7.3264L1.38462 11.983V2.66976L6.46529 7.3264ZM7.4899 8.26534L8.52837 9.22159C8.65609 9.33884 8.82316 9.40389 8.99654 9.40389C9.16992 9.40389 9.33699 9.33884 9.46471 9.22159L10.5032 8.26534L15.5224 12.8649H2.4724L7.4899 8.26534ZM11.5347 7.3264L16.6154 2.6689V11.9839L11.5347 7.3264Z"
-            fill="#00638C"
-          />
-        </svg>
-      ),
-      title: "Correo electrónico",
-      subTitle: "caballosenlibertad@hotmail.com.ar",
-    },
-    {
-      icon: (
-        <svg
-          width="12"
-          height="20"
-          viewBox="0 0 12 20"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M10 0.40332H2C1.46957 0.40332 0.960859 0.614034 0.585787 0.989107C0.210714 1.36418 0 1.87289 0 2.40332V17.07C0 17.6004 0.210714 18.1091 0.585787 18.4842C0.960859 18.8593 1.46957 19.07 2 19.07H10C10.5304 19.07 11.0391 18.8593 11.4142 18.4842C11.7893 18.1091 12 17.6004 12 17.07V2.40332C12 1.87289 11.7893 1.36418 11.4142 0.989107C11.0391 0.614034 10.5304 0.40332 10 0.40332ZM1.33333 4.40332H10.6667V15.07H1.33333V4.40332ZM2 1.73665H10C10.1768 1.73665 10.3464 1.80689 10.4714 1.93192C10.5964 2.05694 10.6667 2.22651 10.6667 2.40332V3.06999H1.33333V2.40332C1.33333 2.22651 1.40357 2.05694 1.5286 1.93192C1.65362 1.80689 1.82319 1.73665 2 1.73665ZM10 17.7367H2C1.82319 17.7367 1.65362 17.6664 1.5286 17.5414C1.40357 17.4164 1.33333 17.2468 1.33333 17.07V16.4033H10.6667V17.07C10.6667 17.2468 10.5964 17.4164 10.4714 17.5414C10.3464 17.6664 10.1768 17.7367 10 17.7367Z"
-            fill="#00638C"
-          />
-        </svg>
-      ),
-      title: "Teléfono",
-      subTitle: "+54 9 221 638-3686",
-    },
-    {
-      icon: (
-        <svg
-          width="16"
-          height="21"
-          viewBox="0 0 16 21"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M8 4.76696C7.2808 4.76696 6.57774 4.98023 5.97974 5.37979C5.38175 5.77936 4.91567 6.34729 4.64044 7.01174C4.36521 7.6762 4.2932 8.40735 4.43351 9.11274C4.57382 9.81812 4.92015 10.4661 5.4287 10.9746C5.93726 11.4832 6.5852 11.8295 7.29058 11.9698C7.99597 12.1101 8.72712 12.0381 9.39158 11.7629C10.056 11.4877 10.624 11.0216 11.0235 10.4236C11.4231 9.82558 11.6364 9.12252 11.6364 8.40332C11.6364 7.4389 11.2532 6.51397 10.5713 5.83202C9.88935 5.15007 8.96442 4.76696 8 4.76696ZM8 10.5851C7.56848 10.5851 7.14665 10.4572 6.78785 10.2174C6.42905 9.97769 6.1494 9.63694 5.98426 9.23827C5.81913 8.83959 5.77592 8.4009 5.86011 7.97767C5.94429 7.55444 6.15209 7.16567 6.45722 6.86054C6.76235 6.55541 7.15112 6.34761 7.57435 6.26342C7.99758 6.17924 8.43627 6.22245 8.83495 6.38758C9.23362 6.55272 9.57438 6.83237 9.81412 7.19117C10.0539 7.54996 10.1818 7.9718 10.1818 8.40332C10.1818 8.98197 9.95195 9.53693 9.54278 9.9461C9.13361 10.3553 8.57865 10.5851 8 10.5851ZM8 0.40332C5.87901 0.405726 3.84557 1.24935 2.3458 2.74912C0.846033 4.24889 0.00240612 6.28233 0 8.40332C0 11.2579 1.31909 14.2833 3.81818 17.1533C4.94111 18.4502 6.20496 19.618 7.58636 20.6351C7.70865 20.7208 7.85433 20.7668 8.00364 20.7668C8.15294 20.7668 8.29863 20.7208 8.42091 20.6351C9.79977 19.6176 11.0612 18.4498 12.1818 17.1533C14.6773 14.2833 16 11.2579 16 8.40332C15.9976 6.28233 15.154 4.24889 13.6542 2.74912C12.1544 1.24935 10.121 0.405726 8 0.40332ZM8 19.1306C6.49727 17.9488 1.45455 13.6079 1.45455 8.40332C1.45455 6.66736 2.14415 5.0025 3.37166 3.77498C4.59918 2.54747 6.26404 1.85787 8 1.85787C9.73596 1.85787 11.4008 2.54747 12.6283 3.77498C13.8558 5.0025 14.5455 6.66736 14.5455 8.40332C14.5455 13.606 9.50273 17.9488 8 19.1306Z"
-            fill="#00638C"
-          />
-        </svg>
-      ),
-      title: "Ubicación",
-      subTitle: "Zona Sur, La Plata, Buenos Aires",
-    },
-  ];
+
   return (
     <div className=" m-mobile p-mobile maxWidth-content pt-[70px] lg:pt-[90px]  ">
       <TitleSection
@@ -245,30 +197,10 @@ function Voluntariado() {
           Si quieres ser voluntario
         </h1>
 
-        <div className="flex flex-col items-center justify-center bg-primary2 rounded-[20px] p-[30px]">
-          <h1 className="text-[18px] w-[187px] leading-140 mb-[48px] font-extrabold  text-primary">
-            Ponte en contacto
-          </h1>
-          <p>
-            Si tenes conocimientos en marketing digital o veterinaria, posees
-            experiencia en trabajo con caballos en el capo, tienes licencia de
-            conducir, o posees cualquier otro conocimiento que aporte a alguna
-            de las áreas mencionadas.{" "}
-          </p>
-          <div className="flex gap-4">
-            <button className="button-primary">ENVIAR CORREO</button>
-            <button className="button-primary">CHATEAR</button>
-          </div>
-          {contactItems.map((item, index) => (
-            <div className="flex items-center gap-4" key={index}>
-              {item.icon}
-              <div>
-                <h2>{item.title}</h2>
-                <p>{item.subTitle}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+        <AdopcionesCard
+          cardContent={textForContactCard}
+          titleCard={titleForContactCard}
+        />
       </section>
     </div>
   );
