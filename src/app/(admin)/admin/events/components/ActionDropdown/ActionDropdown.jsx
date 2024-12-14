@@ -3,12 +3,9 @@
 import BtnEditUser from "../BtnEditEvent/BtnEditEvent"
 import BtnDeleteUser from "../BtnDeleteEvent/BtnDeleteEvent"
 import useDropdownBlur from "@/utils/useDropDownBlur";
-import { useState } from "react";
 
 function ActionDropdownProduct({ data }) {
-
-    const [open, setOpen] = useState(false)
-    const { toggle, setToggle, menuRef } = useDropdownBlur(false, open);
+    const { toggle, setToggle, menuRef } = useDropdownBlur();
 
     return (
         <div className="relative" ref={menuRef}>
@@ -23,7 +20,7 @@ function ActionDropdownProduct({ data }) {
                 toggle &&
                 <div className="absolute right-0  z-10 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none overflow-hidden" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabIndex="-1">
                     <div role="none">
-                        <BtnEditUser open={open} setOpen={setOpen} data={data} />
+                        <BtnEditUser data={data} />
                     </div>
                     <div role="none">
                         <BtnDeleteUser data={data} />

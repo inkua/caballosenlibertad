@@ -1,31 +1,23 @@
 import { useEffect, useRef, useState } from "react";
 
-function useDropdownBlur(initialState = false, modalOpen = false) {
-  const [toggle, setToggle] = useState(initialState);
-  const menuRef = useRef();
+function useDropdownBlur(initialState = false) {
+  const [toggle, setToggle] = useState(initialState)
+  const menuRef = useRef()
 
   useEffect(() => {
     const handleBlur = (event) => {
-      if (modalOpen) return;
-      if (
-        menuRef.current &&
-        event.relatedTarget &&
-        menuRef.current.contains(event.relatedTarget)
-      ) {
-        return;
+      if (menuRef.current && !menuRef.current.contains(event.relatedTarget)) {
+        setToggle(false)
       }
-
-      setToggle(false);
     };
-
-    menuRef.current?.addEventListener("blur", handleBlur, true);
+    menuRef.current?.addEventListener("blur", handleBlur, true)
 
     return () => {
-      menuRef.current?.removeEventListener("blur", handleBlur, true);
-    };
-  }, [modalOpen]);
+      menuRef.current?.removeEventListener("blur", handleBlur, true)
+    }
+  }, [])
 
-  return { toggle, setToggle, menuRef };
+  return { toggle, setToggle, menuRef }
 }
 
-export default useDropdownBlur;
+export default useDropdownBlur

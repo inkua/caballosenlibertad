@@ -1,20 +1,18 @@
 "use client";
 
+import { useState } from "react";
 import BtnEditProduct from "../BtnEditProduct/BtnEditProduct";
 import BtnDeleteProduct from "../BtnDeleteProduct/BtnDeleteProduct";
-import useDropdownBlur from "@/utils/useDropDownBlur";
-import { useState } from "react";
+import Link from "next/link";
 
 function ActionDropdownProduct({ data }) {
-
-  const [open, setOpen] = useState(false)
-  const { toggle, setToggle, menuRef } = useDropdownBlur(false, open);
+  const [toggle, SetToggle] = useState(false);
 
   return (
-    <div className="relative" ref={menuRef}>
+    <>
       <button
         className="px-1 py-1 text-gray-500 transition-colors duration-200 rounded-lg dark:text-gray-300 hover:bg-gray-100"
-        onClick={() => setToggle(!toggle)}>
+        onClick={() => SetToggle(!toggle)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -37,14 +35,30 @@ function ActionDropdownProduct({ data }) {
           aria-labelledby="menu-button"
           tabIndex="-1">
           <div className="py-1" role="none">
-            <BtnEditProduct open={open} setOpen={setOpen} data={data} />
+            <BtnEditProduct data={data} />
+            <Link
+              href={`/admin/products/${data.id}`}
+              className="block px-4 py-2 text-sm text-gray-700 hover:underline"
+              role="menuitem"
+              tabIndex="-1"
+              id="menu-item-1">
+              Detail
+            </Link>
+            <a
+              href="#"
+              className="block px-4 py-2 text-sm text-gray-700 hover:underline"
+              role="menuitem"
+              tabIndex="-1"
+              id="menu-item-2">
+              Settings
+            </a>
           </div>
           <div className="py-1" role="none">
             <BtnDeleteProduct data={data} />
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 }
 

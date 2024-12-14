@@ -67,9 +67,9 @@ function FormEvent({ isOpen, setIsOpen, saveEvent, data, add = true }) {
     <>
       {isOpen && (
         <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50 p-4">
-          <div className="bg-white text-black rounded-lg p-6 shadow-lg w-full md:w-[500px] lg:w-[900px] max-h-[95vh] overflow-y-auto">
+          <div className="bg-white text-black rounded-lg p-6 shadow-lg w-full md:w-[500px] lg:w-[900px]">
             <h2 className="text-xl font-bold mb-4 ">
-              {add ? "Registrar" : "Actualizar"}
+              {add ? "Añadir nuevo usuario" : "Editar usuario"}
             </h2>
 
             <form onSubmit={(e) => handleSubmit(e)}>

@@ -57,9 +57,9 @@ function FormUser({ isOpen, setIsOpen, saveUser, data, add = true }) {
     <>
       {isOpen && (
         <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50 p-4">
-          <div className="bg-white text-black rounded-lg p-6 shadow-lg w-full md:w-[500px] lg:w-[900px] max-h-[95vh] overflow-y-auto">
+          <div className="bg-white text-black rounded-lg p-6 shadow-lg w-full md:w-[500px] lg:w-[900px]">
             <h2 className="text-xl font-bold mb-4 ">
-              {add ? "Registrar nuevo usuario" : "Actualizar usuario"}
+              {add ? "Añadir nuevo usuario" : "Editar usuario"}
             </h2>
 
             <form onSubmit={(e) => handleSubmit(e)}>
@@ -104,7 +104,7 @@ function FormUser({ isOpen, setIsOpen, saveUser, data, add = true }) {
 
                 <div>
                   <label className="text-black " htmlFor="passwordConfirmation">
-                    Confirmar Contraseña:
+                    Password Confirmation:
                   </label>
                   <input
                     id="passwordConfirmation"
@@ -132,7 +132,7 @@ function FormUser({ isOpen, setIsOpen, saveUser, data, add = true }) {
                       d="M12 4.5v15m7.5-7.5h-15"
                     />
                   </svg>
-                  <span className="mx-1">{add ? "Guardar" : "Actualizar"}</span>
+                  <span className="mx-1">{add ? "Save" : "Edit"}</span>
                 </button>
 
                 <button
@@ -154,7 +154,7 @@ function FormUser({ isOpen, setIsOpen, saveUser, data, add = true }) {
                       d="M6 18 18 6M6 6l12 12"
                     />
                   </svg>
-                  <span className="mx-1">Cancelar</span>
+                  <span className="mx-1">Cancel</span>
                 </button>
               </div>
             </form>

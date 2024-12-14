@@ -1,10 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import FormProduct from "../FormProduct/FormProduct";
 import { addProductImage, delProductImage } from "@/DAO/products.db";
 
-function BtnEditProduct({ data, open, setOpen }) {
+function BtnEditProduct({ data }) {
+  const [open, setOpen] = useState(false);
   const router = useRouter();
   const oldUrl = data.url;
 
@@ -40,7 +42,7 @@ function BtnEditProduct({ data, open, setOpen }) {
         role="menuitem"
         tabIndex="-1"
         id="menu-item-0">
-        Editar
+        Edit
       </button>
 
       <FormProduct
