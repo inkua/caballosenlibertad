@@ -28,7 +28,7 @@ export default function ContactForm() {
     return phoneRegex.test(phone);
   };
 
-  const sendEmail = (e) => {
+  const sendEmail = async(e) => {
     e.preventDefault();
     const newErrors = {}
     const { name, phone, email, message } = formData;
@@ -48,35 +48,26 @@ export default function ContactForm() {
     }
     setError({})
 
-   /*  const templateParams = {
-      to_name:name,
-      to_email:email,
-      to_phone:phone,
-      to_message:message,
-    };
-    emailjs
-      .send(
-        "service_kpthywi",
-        "template_9ucv509",
-        templateParams,
-        "4OsPSznZkOVZOJgqV"
-      )
-      .then(() => {
-        console.log("Email enviado");
-        setFormData({
-          name:"",
-          phone:"",
-          email:"",
-          message:""
-        })
-      }),(error) =>{
-        console.log("Error al enviar", error)
-      }
-      ; */
+    try {
+      const response = await fetch('/api/contact',{
+        method:"POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      })
+
+      if (response.ok) {
+        setFormData({ name: '', phone: '', email: '', message: '' }); // Limpia el formulario
+        alert(`Mensaje enviado`);
+    } else {
+        alert(`Error`);
+    }
+    } catch (error) {
+      console.log(error)
+    }
   };
 
   return (
-    <div className="w-full bg-red-300 md:basis-1/2">
+    <div className="w-full md:basis-1/2">
       <h2 className="font-extrabold text-primary text-[20px] md:text-[32px] duration-200">
         Consultanos
       </h2>
