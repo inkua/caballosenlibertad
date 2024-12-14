@@ -4,7 +4,7 @@ export const ContactItem = ( { contact } ) => {
 
   return (
     <li className='flex items-start space-x-4'>
-        <figure className='min-w-8 w-8 h-8 flex items-center justify-center'>
+        <figure className='min-w-6 w-6 h-6 lg:w-8 lg:h-8 flex items-center justify-center'>
             <img 
                 src={contact.icon} 
                 alt={`${contact.itemName} icono`}
@@ -15,11 +15,10 @@ export const ContactItem = ( { contact } ) => {
             <span tabIndex={0} className='block text-sm lg:text-lg'>
                 {contact.itemName}
             </span>
-            <small tabIndex={0} className='block text-primary text-[12px] md:text-sm lg:text-base'>
+            <small tabIndex={0} className='block text-primary text-[12px] lg:text-sm '>
                 {contact.value}
             </small>
         </div>
-
     </li>
   )
 }
