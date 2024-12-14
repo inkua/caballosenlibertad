@@ -164,7 +164,7 @@ function Voluntariado() {
   ];
 
   return (
-    <div className=" m-mobile p-mobile maxWidth-content pt-[70px] lg:pt-[90px]  ">
+    <div className=" m-mobile p-mobile md:m-tablet md:p-tablet lg:m-desktop lg:p-desktop maxWidth-content pt-[70px] lg:pt-[90px]  ">
       <TitleSection
         titleTextContent="Convertite en voluntario"
         spanTextContent="Sumate a nuestro equipo. Dado que no contamos con ningún subsidio de parte del Estado, realizamos las tareas gracias al apoyo de nuestros voluntarios."
@@ -173,7 +173,7 @@ function Voluntariado() {
         <h1 className="text-[18px] font-extrabold text-primary ">
           ¿Qué tipo de voluntariado puedo realizar?{" "}
         </h1>
-        <div className=" flex flex-col  gap-10 my-16 ">
+        <div className=" flex flex-col md:flex-row  gap-10 my-16 ">
           {items.map((item, index) => (
             <div
               className="flex flex-col items-center justify-center gap-4 "
@@ -184,7 +184,7 @@ function Voluntariado() {
               </h3>
               <ul className="list-disc list-inside ">
                 {item.listItems.map((listItem, index) => (
-                  <li className="pl-4" key={index}>
+                  <li key={index} className="">
                     {listItem}
                   </li>
                 ))}
