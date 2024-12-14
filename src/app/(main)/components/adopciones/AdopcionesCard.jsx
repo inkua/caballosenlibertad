@@ -6,7 +6,7 @@ export const AdopcionesCard = () => {
 
   return (
     <article
-        className='w-[300px] mx-auto md:w-full bg-primary2 py-14 md:py-11 px-7 md:px-12 lg:p-14 rounded-2xl shadow-sm flex flex-col items-center justify-center md:grid grid-cols-2'
+        className='min-w-[300px] w-[75%] md:w-full mx-auto bg-primary2 pt-12 pb-14 px-8 md:px-12 lg:p-14 lg:pb-16 rounded-2xl shadow-sm flex flex-col items-center sm:items-start justify-center md:grid grid-cols-2'
     >
         <AdopcionesActions />
         <AdopcionesContacto />

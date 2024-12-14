@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react'
 export const ItemsGrid = () => {
 
   const [data, setData] = useState([])
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,24 +22,6 @@ export const ItemsGrid = () => {
     fetchData()
   }, [])
 
-  function divideDataInColumns(data) { 
-    const columns = [[], [], []]
-    let columnIndex = 0
-  
-    data.forEach((item) => {
-      if (columns[columnIndex].length < 2) {
-        columns[columnIndex].push(item)
-      } else {
-        columnIndex = (columnIndex + 1) % 3
-        columns[columnIndex].push(item)
-      }
-    })
-  
-    return columns
-  }
-
-  const columns = divideDataInColumns(data)
-
   return (
     <section
         aria-labelledby="items-grid"
@@ -51,29 +33,32 @@ export const ItemsGrid = () => {
         >
             Descubre a nuestros caballos rescatados en busca de un hogar
         </h2>
-
         <div className="mt-12 mx-auto flex">
-          <div className='grid grid-cols-2 lg:grid-cols-3 gap-8 max-w-[calc(3*325px+2*32px)]'>
-
-            {data.map((item, index) => ( 
-                <img key={item.id} src={item.url} alt={item.name} className={`rounded-2xl h-[540px] w-[325px] object-cover lg:hidden`} /> 
-            ))}
-
-            <div className={`hidden lg:flex flex-col gap-20 mt-6`}>
-              {columns[0].map((item, index) => ( 
-                <img key={item.id} src={item.url} alt={item.name} className={`rounded-2xl ${index === 0 ? 'h-[480px]' : 'h-[540px]'} w-[325px] object-cover`} /> 
+          <div className='w-full grid grid-cols-[repeat(auto-fill,_minmax(305px,_1fr))] gap-4 md:gap-8 max-w-content'>
+            { loading ?
+                Array.from({ length: 6 }).map((_, index) => (
+                  <div 
+                    key={index} 
+                    className="animate-pulse bg-gray-200 rounded-2xl w-full h-[540px] overflow-hidden"
+                  ></div>
+                )) :
+              data.map((item) => ( 
+                <div 
+                  key={item.id} 
+                  className="relative group rounded-2xl overflow-hidden w-full h-[540px]"
+                >
+                  <img 
+                    src={item.url} 
+                    alt={item.name} 
+                    className="w-full h-full object-cover" 
+                  /> 
+                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <span className="text-white text-lg font-semibold text-center px-2">
+                      {item.name}
+                    </span>
+                  </div>
+                </div>
               ))}
-            </div>
-            <div className={`hidden lg:flex flex-col gap-16`}>
-              {columns[1].map(item => ( 
-                <img key={item.id} src={item.url} alt={item.name} className="rounded-2xl h-[540px] w-[325px] object-cover" />
-              ))}
-            </div>
-            <div className={`hidden lg:flex flex-col gap-20 mt-6`}>
-              {columns[2].map((item, index) => ( 
-                <img key={item.id} src={item.url} alt={item.name} className={`rounded-2xl ${index === 0 ? 'h-[480px]' : 'h-[540px]'} w-[325px] object-cover`} />
-              ))}
-            </div>
           </div>
         </div>
     </section>
