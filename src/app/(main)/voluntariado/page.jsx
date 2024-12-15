@@ -148,7 +148,7 @@ function Voluntariado() {
             d="M164.104 129.249V130.749H165.604H171.479C172.64 130.749 173.752 131.21 174.573 132.031C175.393 132.851 175.854 133.964 175.854 135.125C175.854 136.285 175.393 137.398 174.573 138.219C173.752 139.039 172.639 139.5 171.479 139.5H6.97084C5.81044 139.5 4.69757 139.039 3.87705 138.219C3.05651 137.398 2.59555 136.285 2.59555 135.125C2.59555 133.964 3.05651 132.851 3.87705 132.031C4.69756 131.21 5.81043 130.749 6.97084 130.749H12.8461H14.3461V129.249V84.1345V79.5938L11.6413 83.241L10.503 84.7759L10.4754 84.8131L10.4501 84.852C10.128 85.3475 9.7089 85.7727 9.21799 86.1018C8.7271 86.4309 8.17462 86.6572 7.59387 86.7669C7.01313 86.8766 6.41618 86.8676 5.83905 86.7403C5.2619 86.6129 4.71654 86.37 4.23587 86.0262C3.75519 85.6823 3.34916 85.2446 3.04229 84.7395C2.73541 84.2344 2.53405 83.6724 2.45035 83.0873C2.36665 82.5023 2.40235 81.9063 2.55529 81.3354C2.70824 80.7645 2.97526 80.2306 3.34024 79.7657L3.36126 79.739L3.38105 79.7113L32.7528 38.5907C32.7535 38.5897 32.7543 38.5888 32.755 38.5878C33.0543 38.1741 33.4238 37.816 33.8467 37.5297L33.8467 37.5297L33.8578 37.5221L83.4967 3.2618L83.5049 3.25607L83.5641 3.21463C85.2457 2.09657 87.2201 1.5 89.2397 1.5C91.2592 1.5 93.2336 2.09655 94.9152 3.2146L94.9745 3.25618L94.9819 3.26127L144.547 37.5142L144.553 37.5183L144.559 37.5224C144.982 37.8086 145.352 38.1667 145.651 38.5804C145.652 38.5814 145.652 38.5824 145.653 38.5833L175.025 79.7039L175.045 79.7316L175.066 79.7584C175.431 80.2232 175.698 80.7572 175.851 81.3281C176.004 81.899 176.039 82.4949 175.956 83.08C175.872 83.665 175.67 84.2271 175.364 84.7322C175.057 85.2372 174.651 85.6749 174.17 86.0188C173.689 86.3627 173.144 86.6056 172.567 86.7329C171.99 86.8602 171.393 86.8693 170.812 86.7596C170.231 86.6498 169.679 86.4236 169.188 86.0945C168.697 85.7654 168.278 85.3402 167.956 84.8446L167.937 84.8162L167.917 84.7886L166.823 83.261L164.104 79.4648V84.1345V129.249ZM23.3761 66.8118L23.0967 67.203V67.6837V129.249V130.749H24.5967H42.2226H43.7226V129.249V76.3718C43.7226 75.2114 44.1836 74.0985 45.0041 73.278C45.8246 72.4574 46.9375 71.9965 48.0979 71.9965H130.352C131.512 71.9965 132.625 72.4574 133.446 73.278C134.266 74.0985 134.727 75.2114 134.727 76.3718V129.249V130.749H136.227H153.853H155.353V129.249V67.6837V67.2031L155.074 66.812L139.137 44.4932L138.985 44.2797L138.769 44.1306L90.0773 10.5092L89.2249 9.92062L88.3725 10.5093L39.681 44.138L39.4653 44.287L39.3129 44.5004L23.3761 66.8118ZM88.3524 99.7491L89.225 100.373L90.0975 99.7491L112.864 83.4672L116.668 80.7471H111.992H66.4582H61.7822L65.5856 83.4672L88.3524 99.7491ZM125.977 87.7919V84.8776L123.605 86.5712L98.4588 104.528L96.7496 105.748L98.4585 106.969L123.605 124.933L125.977 126.627V123.712V87.7919ZM79.9914 106.969L81.7003 105.748L79.9911 104.528L54.8449 86.5712L52.4732 84.8776V87.7919V123.712V126.627L54.8451 124.933L79.9914 106.969ZM90.0975 111.747L89.225 111.123L88.3524 111.747L65.5856 128.029L61.7822 130.749H66.4582H111.992H116.668L112.864 128.029L90.0975 111.747ZM73.0991 52.8706C73.0991 51.7102 73.5601 50.5973 74.3806 49.7768C75.2011 48.9563 76.314 48.4953 77.4744 48.4953H100.976C102.136 48.4953 103.249 48.9563 104.069 49.7768C104.89 50.5973 105.351 51.7102 105.351 52.8706C105.351 54.031 104.89 55.1439 104.069 55.9644C103.249 56.7849 102.136 57.2459 100.976 57.2459H77.4744C76.314 57.2459 75.2011 56.7849 74.3806 55.9644C73.5601 55.1439 73.0991 54.031 73.0991 52.8706Z"
             fill="#00638C"
             stroke="#F2F6F8"
-            stroke-width="3"
+            strokeWidth="3"
           />
         </svg>
       ),
@@ -164,27 +164,25 @@ function Voluntariado() {
   ];
 
   return (
-    <div className=" m-mobile p-mobile md:m-tablet md:p-tablet lg:m-desktop lg:p-desktop maxWidth-content pt-[70px] lg:pt-[90px]  ">
+    <main className="mx-mobile my-28 sm:m-tablet  lg:m-desktop">
       <TitleSection
         titleTextContent="Convertite en voluntario"
         spanTextContent="Sumate a nuestro equipo. Dado que no contamos con ningún subsidio de parte del Estado, realizamos las tareas gracias al apoyo de nuestros voluntarios."
       />
-      <section>
-        <h1 className="text-[18px] font-extrabold text-primary ">
-          ¿Qué tipo de voluntariado puedo realizar?{" "}
+      <section className=" m-auto max-w-content mt-6">
+        <h1 className="text-primary text-xl sm:text-[28px] md:text-[32px] lg:text-[40px] font-bold leading-120">
+          ¿Qué tipo de voluntariado puedo realizar?
         </h1>
-        <div className=" flex flex-col md:flex-row  gap-10 my-16 ">
+        <div className=" m-mobile my-[4rem] flex flex-col gap-[6rem] md:flex-row items-baseline ">
           {items.map((item, index) => (
-            <div
-              className="flex flex-col items-center justify-center gap-4 "
-              key={index}>
+            <div key={index} className="flex flex-col items-center">
               {item.image}
-              <h3 className="text-[18px] font-extrabold text-primary">
+              <h3 className="text-primary text-xl my-[2rem] sm:text-[28px] md:text-[32px] lg:text-[40px] font-bold leading-120 ">
                 {item.title}
               </h3>
-              <ul className="list-disc list-inside ">
+              <ul className="list-disc list-inside mx-10 md:mx-4 ">
                 {item.listItems.map((listItem, index) => (
-                  <li key={index} className="">
+                  <li key={index} className="indent-[-1.5rem]">
                     {listItem}
                   </li>
                 ))}
@@ -193,7 +191,7 @@ function Voluntariado() {
           ))}
         </div>
 
-        <h1 className="text-[18px] my-[50px] font-extrabold text-primary ">
+        <h1 className="text-primary text-xl my-[3rem] sm:text-[28px] md:text-[32px] lg:text-[40px] font-bold leading-120 ">
           Si quieres ser voluntario
         </h1>
 
@@ -202,7 +200,7 @@ function Voluntariado() {
           titleCard={titleForContactCard}
         />
       </section>
-    </div>
+    </main>
   );
 }
 
