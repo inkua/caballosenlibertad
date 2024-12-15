@@ -17,10 +17,8 @@ import LogoutButton from "../LogoutButton/LogoutButton";
 
 
 const user = {
-  name: "Tom Cook",
-  email: "tom@example.com",
   imageUrl:
-    "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+    "/admin/admin/user.svg",
 };
 
 const navigation = [
@@ -28,6 +26,7 @@ const navigation = [
   { name: "Usuarios", href: "/admin/users", current: false },
   { name: "Caballos", href: "/admin/products", current: false },
   { name: "Eventos", href: "/admin/events", current: false },
+  { name: "Administradores", href: "/admin/admins", current: false },
 ];
 const userNavigation = [
   { name: "Your Profile", href: "/admin/profile" },
@@ -54,8 +53,8 @@ function AdminNav() {
           <div className="flex items-center">
             <div className="flex-shrink-0">
               <img
-                alt="Your Company"
-                src="/admin/inkuALogo.png"
+                alt="Caballos En Libertad"
+                src="/logo-blanco.png"
                 className="h-8 w-auto"
               />
             </div>
@@ -92,9 +91,9 @@ function AdminNav() {
                     <span className="absolute -inset-1.5" />
                     <span className="sr-only">Open user menu</span>
                     <img
-                      alt=""
+                      alt="admin icon"
                       src={user.imageUrl}
-                      className="h-8 w-8 rounded-full"
+                      className="h-8 w-8 rounded-full bg-blue-200 "
                     />
                   </MenuButton>
                 </div>
@@ -169,23 +168,6 @@ function AdminNav() {
           ))}
         </div>
         <div className="border-t border-gray-700 pb-3 pt-4">
-          <div className="flex items-center px-5">
-            <div className="flex-shrink-0">
-              <img
-                alt=""
-                src={user.imageUrl}
-                className="h-10 w-10 rounded-full"
-              />
-            </div>
-            <div className="ml-3">
-              <div className="text-base font-medium leading-none text-white">
-                {user.name}
-              </div>
-              <div className="text-sm font-medium leading-none text-gray-400">
-                {user.email}
-              </div>
-            </div>
-          </div>
           <div className="mt-3 space-y-1 px-2">
             {userNavigation.map((item) => (
               <DisclosureButton

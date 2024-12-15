@@ -14,7 +14,7 @@ export async function middleware(request) {
         const validToken = await validateToken(token.value)
 
         // If the user is not a root admin and tries to access /admin/users, redirect them to /admin
-        if (validToken && pathname.startsWith("/admin/users")) {
+        if (validToken && pathname.startsWith("/admin/admins")) {
             const root = await isRootAdmin(token.value)
             if(!root){
                 return NextResponse.redirect(new URL("/admin", request.url));
