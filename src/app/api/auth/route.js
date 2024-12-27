@@ -1,10 +1,22 @@
 import { login, validateToken } from "@/app/(auth)/auth/lib";
+import { getAdminByEmail } from "@/DAO/admins.db";
 import { headers } from 'next/headers'
 
 export async function POST(request) {
-  const formData = await request.formData();
-  await login(formData);
-  return new Response(null, { status: 200 });
+  try {
+    const { email, password } = await request.json()
+    const admin = await getAdminByEmail(email)
+
+    if (!admin || admin.password !== password) {
+      return new Response(null, { status: 400 });
+    }
+
+    await login({ email: email, name: admin.name });
+    return new Response(null, { status: 200 });
+  }
+  catch (error) {
+    return new Response(null, { status: 500 });
+  }
 }
 
 export async function GET() {

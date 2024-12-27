@@ -1,6 +1,5 @@
 "use client";
 
-
 import { useRouter } from "next/navigation";
 
 import { useState } from "react";
@@ -44,20 +43,21 @@ function FormLogin() {
       formData.append("email", email);
       formData.append("password", password);
 
-      await fetch("/api/auth", {
-        method: "POST",
-        body: formData,
-      }).then((response) => {
-        if (response.ok) {
 
-          setLoading(false);
-          console.log("Login exitoso");
-          router.push("/admin");
-
-        } else {
-          console.error("Error en la autenticación");
-        }
+      const response = await fetch('/api/auth', {
+          method: 'POST',
+          body: JSON.stringify({
+              email:email, password:password,
+          }),
       });
+
+      if (response.ok) {
+        setLoading(false);
+        router.push("/admin");
+
+      } else {
+        console.error("Error en la autenticación");
+      }
     }
   };
 

@@ -56,9 +56,7 @@ export async function validateToken(token) {
   }
 }
 
-export async function login(formData) {
-  // verifico credenciales y obtengo el usuario
-  const user = { email: formData.get("email"), name: "Inkua" };
+export async function login(user) {
 
   // creacion de sesion
   const expires = new Date(Date.now() + 60 * 60 * 1000);
