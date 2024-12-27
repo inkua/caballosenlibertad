@@ -95,7 +95,7 @@ const deleteAdmin = async (aid) => {
     return await deleteElement(aid, 'admins');
 }
 
-// update a admin by id | require new data and the admin id
+// update a admin by email| require new password, current password and the admin email
 const updatePasswordAdmin = async (newPassword, currentPassword, email) => {
     const user = await getAdminByEmail(email);
     if (!user) {

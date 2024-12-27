@@ -1,6 +1,5 @@
 "use client";
-
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 import {
   Disclosure,
@@ -11,9 +10,10 @@ import {
   MenuItem,
   MenuItems,
 } from "@headlessui/react";
-import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 import LogoutButton from "../LogoutButton/LogoutButton";
+
 
 
 const user = {
@@ -30,7 +30,7 @@ const navigation = [
 ];
 const userNavigation = [
   { name: "Your Profile", href: "/admin/profile" },
-  { name: "Settings", href: "#" },
+  { name: "Contraseña", href: "/admin/settings" },
 
 ];
 
@@ -45,6 +45,14 @@ const isCurrentPath = (current, href) => {
 
 function AdminNav() {
   const pathname = usePathname();
+  const router = useRouter()
+
+  const buttonHandler = async (e) => {
+    e.preventDefault()
+    const response = await fetch('/api/admin/profile');
+    const result = await response.json();
+    router.push(`http://localhost:3000/admin/profile?user=${result.data}`)
+  }
 
   return (
     <Disclosure as="nav" className="bg-gray-800">
@@ -102,19 +110,24 @@ function AdminNav() {
 
                   className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
                 >
+                  <MenuItem>
+                    <button
+                      className="block w-full text-left px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100"
+                      onClick={(e) => buttonHandler(e)}
+                      onKeyDown={(e) => { (e.key === 'Enter' || e.key === ' ') && (buttonHandler(e)) }}>
+                      Perfil
+                    </button>
 
-                  {userNavigation.map((item) => (
-                    <MenuItem key={item.name}>
-                      <a
-                        href={item.href}
+                  </MenuItem>
 
-                        className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100"
-                      >
-
-                        {item.name}
-                      </a>
-                    </MenuItem>
-                  ))}
+                  <MenuItem >
+                    <a
+                      href={"/admin/settings"}
+                      className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100"
+                    >
+                      Contraseña
+                    </a>
+                  </MenuItem>
 
                   <LogoutButton
                     classname={
@@ -169,17 +182,21 @@ function AdminNav() {
         </div>
         <div className="border-t border-gray-700 pb-3 pt-4">
           <div className="mt-3 space-y-1 px-2">
-            {userNavigation.map((item) => (
-              <DisclosureButton
-                key={item.name}
-                as="a"
-                href={item.href}
+            <button
+              className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
+              onClick={(e) => buttonHandler(e)}
+              onKeyDown={(e) => { (e.key === 'Enter' || e.key === ' ') && (buttonHandler(e)) }}>
+              Perfil 3
+            </button>
+            
+            <DisclosureButton
+              as="a"
+              href="/admin/settings"
+              className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
+            >
+              Contraseña
+            </DisclosureButton>
 
-                className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
-              >
-                {item.name}
-              </DisclosureButton>
-            ))}
             <LogoutButton
               classname={
                 "w-full flex justify-start rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
