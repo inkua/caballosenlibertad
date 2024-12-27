@@ -28,7 +28,6 @@ function ResetPasswordForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (validateForm()) {
-
             const data = {
                 email: emailRef.current.value,
                 currentPass: currentPswRef.current.value,
@@ -36,15 +35,16 @@ function ResetPasswordForm() {
             }
             const response = await fetch('/api/admin/pass/change', {
                 method: 'POST',
-                body: JSON.stringify({
-                    data: data,
-                }),
+                body: JSON.stringify(data),
             });
-            
-            if(response.ok){
-                alert("Operación Exitosa, puedes ingresar a la plataforma desde el loguin con tu nueva contraseña")
+            const result = await response.json()
+
+            if (result.data) {
+                alert("Operación Exitosa, puedes ingresar a la plataforma desde el login con tu nueva contraseña")
+            } else {
+                alert("No se pudo cambiar la contraseña, verifique los campos")
             }
-            
+
         }
     };
 
