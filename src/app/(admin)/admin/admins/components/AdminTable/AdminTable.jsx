@@ -3,7 +3,6 @@ const headers = [
     { id: 1, title: "Nombre" },
     { id: 2, title: "Correo" },
     { id: 3, title: "Tipo" },
-    { id: 4, title: "Contraseña" },
     { id: 5, title: "Acciones" },
 ];
 

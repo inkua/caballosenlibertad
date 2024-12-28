@@ -26,9 +26,6 @@ function AdminItemTable({ data }) {
             <td className="px-12 max-w-[20%] overflow-hidden py-4 text-sm font-normal text-gray-700">
                 {data.type}
             </td>
-            <td className="px-12 max-w-[20%] overflow-hidden py-4 text-sm font-normal text-gray-700">
-                {data.password}
-            </td>
             <td className="px-4 py-4 text-sm whitespace-nowrap flex items-center justify-center">
                 <AdminActionDropdown data={data} />
             </td>

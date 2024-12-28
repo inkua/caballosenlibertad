@@ -45,13 +45,15 @@ const getAdmById = async (aid) => {
     return await getElementById(aid, "admins");
 };
 
-// get all admins
+// get all admins without passwords
 const getAdmins = async () => {
-    return await getAllElements("admins");
+    const admins = await getAllElements("admins");
+    const adminsWithoutPasswords = removePasswords(admins)
+    return adminsWithoutPasswords
 };
 
 const getAdminsPerPage = async (page = 1, pageSize = 5) => {
-    const allAdmins = await getAllElements("admins");
+    const allAdmins = await getAdmins()
 
     const startIndex = (page - 1) * pageSize;
     const endIndex = page * pageSize;
@@ -115,6 +117,14 @@ const generatePassword = () => Array.from(
         Math.floor(Math.random() * 77)
     ]
 ).join('');
+
+// delete each users' passwords from the user list
+const removePasswords = (users) => {
+    return users.map(user => {
+        const { password, ...userWithoutPassword } = user;
+        return userWithoutPassword;
+    });
+}
 
 export {
     addAdmin,

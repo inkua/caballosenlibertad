@@ -1,16 +1,19 @@
 'use client'
-import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useState, useRef } from "react";
 
 function PasswordForm() {
-    const [currentPassword, setCurrentPassword] = useState("");
+    const currentPswRef = useRef(null)
     const [newPassword, setNewPassword] = useState("");
     const [repeatPassword, setRepeatPassword] = useState("");
-
+    
     const [errors, setErrors] = useState({
         newPassword: "",
         repeatPassword: "",
     });
 
+    const router = useRouter();
+    
     const validatePassword = (password) => {
         const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
         return passwordRegex.test(password);
@@ -34,7 +37,7 @@ function PasswordForm() {
 
         if (Object.keys(validationErrors).length === 0) {
             const data = {
-                currentPass: currentPassword,
+                currentPass: currentPswRef.current.value,
                 newPass: newPassword,
             }
 
@@ -45,6 +48,7 @@ function PasswordForm() {
             const result = await response.json();
             if (result.data) {
                 alert("Contraseña cambiada con éxito");
+                router.push('/admin')
             } else {
                 alert("No se pudo cambiar la contraseña, verifique los campos");
             }
@@ -76,8 +80,8 @@ function PasswordForm() {
                     type="text"
                     className="block w-full px-10 py-3 text-xs md:text-base text-gray-700 bg-white border rounded-lg focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                     placeholder="Contraseña actual / Provisional"
-                    value={currentPassword}
-                    onChange={(e) => setCurrentPassword(e.target.value)}
+                    ref={currentPswRef}
+                    required
                 />
             </div>
 

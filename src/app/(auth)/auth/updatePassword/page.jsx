@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import ResetPasswordForm from "./components/ResetPasswordForm";
+import Image from "next/image";
 
 function UpdatePassword() {
     return (
@@ -14,12 +15,11 @@ function UpdatePassword() {
                     <div className="flex-1">
                         <div className="text-center">
                             <div className="flex justify-center mx-auto">
-                                <img className="w-auto h-7 sm:h-8" src="https://merakiui.com/images/logo.svg" alt=""
-                                />
+                                <Image className="w-auto h-7 sm:h-8" src={"/logo-blanco.png"} alt="logo" width={50} height={50}/>
                             </div>
 
                             <h2 className="mt-2 text-xl font-bold text-gray-700 dark:text-gray-300">
-                                Restablecer contraseña
+                                Actualiza tu contraseña
                             </h2>
                         </div>
                         <div className="mt-8">
