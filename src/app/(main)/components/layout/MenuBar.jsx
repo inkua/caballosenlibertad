@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { featuresLinks } from '../../links/links';
-import { Bars3Icon } from '@heroicons/react/24/outline';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 const MenuBar = () => {
     const [showMenu, setShowMenu] = useState(false)
@@ -34,7 +34,12 @@ const MenuBar = () => {
             onClick={() => menuSwitch()}
             className='p-3 z-50'
         >
-            <Bars3Icon strokeWidth={1.75} className='w-9 h-9 text-whitePrimary'/>
+            {
+                startAnimation ?
+                <XMarkIcon strokeWidth={1.75} className='w-9 h-9 text-whitePrimary'/>
+                :
+                <Bars3Icon strokeWidth={1.75} className='w-9 h-9 text-whitePrimary'/>
+            }
         </span>
         {
             showMenu && 
@@ -42,6 +47,14 @@ const MenuBar = () => {
                 className={`absolute top-[68px] left-0 right-0 bg-primary pb-10 ${startAnimation ? 'animated-in-nav': 'animated-out-nav'}`}
             >
                 <ul className={`flex flex-col gap-4 items-center justify-start ${startAnimation ? 'animated-in-opacity': 'animated-out-opacity'}`}>
+                    <li key={`home-inicio`} className='whitespace-nowrap'>
+                        <Link
+                            href={'/'} 
+                            className="font-semibold text-[16px] xl:text-[18px] px-4 py-1 hover:text-gray-300"
+                        >
+                            Inicio
+                        </Link>
+                    </li>
                     {
                         featuresLinks.map((link, index) => (
                             link.children ?
@@ -67,9 +80,9 @@ const MenuBar = () => {
                     }
                 </ul>
                 <div className='w-full flex items-center justify-center mt-8'>
-                    <button className={`button-primary text-[18px]  ${startAnimation ? 'animated-in-opacity': 'animated-out-opacity'}`}>
+                    <Link href={'/donar'} className={`button-primary text-[18px]  ${startAnimation ? 'animated-in-opacity': 'animated-out-opacity'}`}>
                         DONAR
-                    </button>
+                    </Link>
                 </div>
             </nav>
         }
