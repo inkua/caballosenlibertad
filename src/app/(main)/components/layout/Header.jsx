@@ -50,7 +50,7 @@ export const Header = () => {
     }, [isHomePage]);
 
   return (
-    <header className={`flex w-full items-center justify-start lg:justify-center bg-primary text-whitePrimary px-4 lg:px-10 z-50 fixed top-0 h-[70px] ${!onScroll && isHomePage ? 'lg:h-[170px]' : 'lg:h-[90px]'} shadow-lg shadow-[rgba(0,0,0,0.35)] transition-all duration-500`}>
+    <header className={`flex w-full items-center justify-start lg:justify-center bg-primary text-whitePrimary px-4 lg:px-10 z-50 fixed top-0 h-[70px] ${!onScroll && isHomePage ? 'lg:h-[130px]' : 'lg:h-[90px]'} shadow-lg shadow-[rgba(0,0,0,0.35)] transition-all duration-500`}>
         <MenuBar />
         <div className='hidden lg:flex max-screen-layout w-full items-center justify-between'>
             <Link href={'/'}>
@@ -70,7 +70,7 @@ export const Header = () => {
                                 alt="Imagen logo caballos en libertad"
                                 width={210}
                                 height={158}
-                                className={`block w-[190px] h-[143px] ${styles.dynamicImage} transition-all duration-500`}
+                                className={`block w-[152px] h-[115px] ${styles.dynamicImage} transition-all duration-500`}
                             />
                     ) :
                     (

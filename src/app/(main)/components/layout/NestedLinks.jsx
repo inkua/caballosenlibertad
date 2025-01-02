@@ -54,7 +54,7 @@ const NestedLinks = ({data, onScroll, isHomePage}) => {
             showNestedLinks &&
             <ul 
                 tabIndex={0}
-                className={`flex flex-col absolute ${isHomePage && !onScroll ? 'top-[115px]' : ' top-[90px]'} bg-[#00638C] shadow-lg shadow-[rgba(0,0,0,0.25)] rounded-sm overflow-hidden border-t-2 border-primary2 transition-all duration-500`}
+                className={`flex flex-col absolute ${isHomePage && !onScroll ? 'top-[130px]' : ' top-[90px]'} bg-[#00638C] shadow-lg shadow-[rgba(0,0,0,0.25)] rounded-sm overflow-hidden border-t-2 border-primary2 transition-all duration-500`}
             >
                 {
                     data.children.map((childrenLink, index) => (
