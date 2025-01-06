@@ -7,7 +7,7 @@
 @keyframes move-and-fade-background {
 	to {
 		translate: -15% -10%;
-		scale: 1.1;
+		scale: 1.05;
         opacity: .6;
 	}
 }
