@@ -50,7 +50,7 @@ body {
     @apply border-secondary;
   }
 
-  .button-primary:hover, .button-primary:focus{
+  .button-primary:hover{
     @apply bg-whitePrimary;
     @apply text-secondary;
     @apply border-secondary;
@@ -73,7 +73,7 @@ body {
     @apply border-whitePrimary;
   }
 
-  .button-secondary:hover, .button-secondary:focus{
+  .button-secondary:hover{
     @apply bg-primary;
     @apply text-whitePrimary;
   }

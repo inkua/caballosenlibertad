@@ -109,7 +109,7 @@ export const Header = () => {
                     }
                     <li key={'button-contribution'} className='ml-3 inline-flex'>
                         <Link 
-                            href={'/'}
+                            href={'/donar'}
                             className='button-primary xl:px-12 h-[37px] border-none'
                         >
                             DONAR

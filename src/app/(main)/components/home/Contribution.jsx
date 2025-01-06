@@ -19,7 +19,7 @@ export const Contribution = () => {
                     height={109}
                     className="w-[50px] h-[46px] md:w-[80px] md:h-[74px] lg:w-[117px] lg:h-[109px]"
                 />
-                <Link href={'/'} className='font-semibold button-primary !p-0 whitespace-nowrap w-[143px] h-[40px] md:w-[300px] md:h-[64px] md:text-xl'>
+                <Link href={'/donar'} className='font-semibold button-primary !p-0 whitespace-nowrap w-[143px] h-[40px] md:w-[300px] md:h-[64px] md:text-xl'>
                     QUIERO DONAR
                 </Link>
             </div>
