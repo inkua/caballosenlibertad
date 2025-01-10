@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Nosotros = () => {
+const Nosotros  = () => {
     return (
             <section className="w-full h-auto bg-[#00638C] md:bg-white items-center pt-[70px]">
                 <header className="hidden md:block bg-hero-nosotros bg-cover bg-no-repeat bg-center w-full" style={{ aspectRatio: '1440 / 670' }}>
