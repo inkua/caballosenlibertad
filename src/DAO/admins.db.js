@@ -1,13 +1,7 @@
-import {
-    addElement,
-    deleteElement,
-    getAllElements,
-    getElementById,
-    updateElement,
-} from "./container";
-
 import { sendEmail } from "@/app/api/send-email";
 import { passwordTemplate } from "@/utils/HTML_templates";
+
+import { addElement, deleteElement, getAllElements, getElementById, updateElement } from "./container";
 
 // add a new admin | require the data admin
 const addAdmin = async (newAdmin) => {
@@ -79,7 +73,7 @@ const setAdmin = async (newData, aid) => {
 // Get an admin by email | require the admin email
 const getAdminByEmail = async (email) => {
     try {
-        const admins = await getAdmins();
+        const admins = await getAllElements("admins");
         const result = admins.find((item) => item.email === email);
         if (result) {
             return result;
