@@ -17,7 +17,7 @@ const uploadImage = async (buffer, entity = "general") => {
     const uploadOptions = {
         public_id: imageName,
         asset_folder: entity,
-        format: "webp"
+        format: "webp",
     }
 
     const uploadResult = await new Promise((resolve, reject) => {
@@ -42,7 +42,7 @@ const updateImage = async (buffer, url, entity = "general") => {
     const uploadOptions = {
         public_id: imageName,
         asset_folder: entity,
-        format: "webp"
+        format: "webp",
     }
 
     const uploadResult = await new Promise((resolve, reject) => {

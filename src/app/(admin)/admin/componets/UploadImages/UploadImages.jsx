@@ -1,8 +1,8 @@
 "use client";
 import { handleImageUpload, options } from "@/utils/imageCompressionFunctions";
 
-const UploadImages = (props) => {
-  const { image, setImage } = props;
+const UploadImages = ({props}) => {
+  const { image, setImage, url, setUrl } = props;
 
   // La función que comprime imágenes devuelve un archivo Blob.
   const imageSrc = () => {
@@ -52,6 +52,21 @@ const UploadImages = (props) => {
             }}
           />
         </div>
+      )}
+      {(!url && !image )&&(
+        <div className="mt-4">
+          <p className="text-sm text-gray-700">Vista previa de la imagen:</p>
+          <img
+            src="https://res.cloudinary.com/diiavhlq4/image/upload/v1736874938/general-1736874938068.webp"
+            alt="Vista previa"
+            className="w-full h-auto mt-2 rounded-lg"
+            style={{
+              maxWidth: "50%",
+              maxHeight: "300px",
+            }}
+          />
+        </div>
+
       )}
     </>
   );

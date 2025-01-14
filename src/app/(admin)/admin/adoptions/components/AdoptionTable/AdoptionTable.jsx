@@ -1,12 +1,14 @@
-import AdminItemTable from "../AdminItemTable/AdminItemTable";
+import AdoptionItemTable from "../AdoptionItemTable/AdoptionItemTable";
+
 const headers = [
     { id: 1, title: "Nombre" },
-    { id: 2, title: "Correo" },
-    { id: 3, title: "Tipo" },
-    { id: 4, title: "Acciones" },
+    { id: 2, title: "Sexo" },
+    { id: 3, title: "Edad" },
+    { id: 4, title: "Estado" },
+    { id: 5, title: "Acciones" },
 ];
 
-function AdminTable({ data }) {
+function AdoptionTable({ data }) {
     return (
         <section className="flex flex-col mt-6 px-4 sm:px-6 md:px-0">
             <div className="-mx-4 -my-2 sm:-mx-6 lg:-mx-8">
@@ -28,7 +30,7 @@ function AdminTable({ data }) {
 
                             <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 ">
                                 {data.map((item) => (
-                                    <AdminItemTable data={item} key={item.id} />
+                                    <AdoptionItemTable data={item} key={item.id} />
                                 ))}
                             </tbody>
                         </table>
@@ -36,7 +38,7 @@ function AdminTable({ data }) {
                 </div>
             </div>
         </section>
-    );
+    )
 }
 
-export default AdminTable;
+export default AdoptionTable
