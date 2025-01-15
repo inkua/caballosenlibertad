@@ -6,6 +6,7 @@ function AdoptionImgModal({ data }) {
     const { open, setOpen, imgUrl, adoptionId } = data
     const [image, setImage] = useState(null)
     const [url, setUrl] = useState(imgUrl)
+    const [loading, setLoading] = useState(false)
 
 
     const handlerSubmit = async (e)=>{
@@ -22,14 +23,18 @@ function AdoptionImgModal({ data }) {
 
         if (response.status == 200) {
             const result = await response.json();
-            setImage(result.data)
+            setUrl(result.data)
             alert('Imagen añadida correctamente')
             console.log("url: ", result.data)
             setOpen(false)
         }else{
             alert('No se pudo realizar la operación')
         }
+    }
 
+    const onClose=()=>{
+        setImage(null)
+        setOpen(false)
     }
 
     return (
@@ -43,20 +48,22 @@ function AdoptionImgModal({ data }) {
                             </h2>
 
                             <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
-                                <UploadImages props={{ image, setImage, url, setUrl }} />
+                                <UploadImages props={{ image, setImage, url, loading, setLoading }} />
                             </div>
 
                             <div className="flex justify-end space-x-4 pt-4">
                                 <button
+                                    disabled={(loading || !image)}
                                     type="submit"
-                                    className="flex items-center px-4 py-2 font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-500">
+                                    className="flex items-center px-4 py-2 font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-500 disabled:opacity-50 ">
                                     <span className="mx-1">Actualizar</span>
                                 </button>
 
                                 <button
+                                    disabled={loading}
                                     type="button"
-                                    onClick={() => setOpen(false)}
-                                    className="flex items-center px-4 py-2 font-medium text-white bg-red-600 rounded-lg hover:bg-red-500">
+                                    onClick={() => onClose()}
+                                    className="flex items-center px-4 py-2 font-medium text-white bg-red-600 rounded-lg hover:bg-red-500 disabled:opacity-75 ">
                                     <span className="mx-1">Cancelar</span>
                                 </button>
                             </div>

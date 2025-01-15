@@ -21,15 +21,15 @@ const getAdoptions = async () => {
 
 const getAdoptionsPerPage = async (page = 1, pageSize = 5) => {
     const allAdoptions = await getAdoptions()
-
+    
     const startIndex = (page - 1) * pageSize;
     const endIndex = page * pageSize;
-
+    
     const paginatedAdoptions = allAdoptions.slice(startIndex, endIndex);
-
+    
     const totalItems = allAdoptions.length;
     const totalPages = Math.ceil(totalItems / pageSize);
-
+    
     return {
         list: paginatedAdoptions,
         currentPage: page,
@@ -38,14 +38,26 @@ const getAdoptionsPerPage = async (page = 1, pageSize = 5) => {
         pageSize: pageSize
     };
 }
+// get only active adoption list
+const getActiveAdoptions = async () => {
+    const adoptions = await getAllElements("adoptions");
+    const activeAdoptions = adoptions.filter(adoption => adoption.status === "Activo");
+    return activeAdoptions;
+};
 
 // update an adoption by id | require new data and the adoption id
 const setAdoption = async (newData, aid) => {
     return await updateElement(newData, aid, "adoptions");
 };
 
-// update an adoption by id | require the adoption id
+// delete an adoption by id and its image | require the adoption id
 const deleteAdoption = async (aid) => {
+    const adoption = await getAdoptionById(aid)
+
+    if(adoption.data.imgUrl){
+        await deleteAdoptionImg(adoption.data.imgUrl)
+    }
+
     return await deleteElement(aid, 'adoptions');
 }
 
@@ -65,11 +77,10 @@ const deleteAdoptionImg = async (imgUrl)=>{
     return result
 }
 
-
 export {
     addAdoption,
     getAdoptionById,
-    getAdoptions,//quitar
+    getActiveAdoptions,
     getAdoptionsPerPage,
     setAdoption,
     deleteAdoption,

@@ -1,5 +1,5 @@
 import { getSession } from "@/app/(auth)/auth/lib";
-import { setAdoption, uploadAdoptionImg } from "@/DAO/adoptions.db";
+import { setAdoptionImg, uploadAdoptionImg, getAdoptionById } from "@/DAO/adoptions.db";
 
 export async function POST(request) {
     const session = await getSession()
@@ -12,15 +12,21 @@ export async function POST(request) {
         const data = await request.formData()
         const image = data.get('file')
         const adoptionId = data.get('id')
-        
+        const adoption = await getAdoptionById(adoptionId)
 
-        if (!image) {
+        if (!image || !adoption) {
             return Response.json("No se pudo guardar la imagen", { status: 400, data: null });
         }
         const bytes = await image.arrayBuffer()
         const buffer = Buffer.from(bytes)
 
-        const response = await uploadAdoptionImg(buffer, adoptionId)
+        let response
+
+        if (adoption.data.imgUrl) {
+            response = await setAdoptionImg(buffer, adoption.data.imgUrl)
+        } else {
+            response = await uploadAdoptionImg(buffer, adoptionId)
+        }
 
         if (response) {
             return Response.json({ status: 200, msg: "operación Exitosa", data: response });
