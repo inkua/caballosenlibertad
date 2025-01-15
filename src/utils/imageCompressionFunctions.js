@@ -1,28 +1,32 @@
 import imageCompression from "browser-image-compression";
 
-export const options = {
-  maxSizeMB: 1,
-  maxWidthOrHeight: 1920,
-  useWebWorker: true,
-};
+// Configuraciones predeterminadas para la compresión
+const defaultOptions = {
+    maxSizeMB: 1,
+    maxWidthOrHeight: 1920,
+    useWebWorker: true,
+}
 
-export const compressImage = (image, configs) => {
-  try {
-    const compressedFile = imageCompression(image, configs);
-
-    if (compressedFile.size > image.size) {
-      return image;
-    } else {
-      return compressedFile;
+const compressImage = async (image) => {
+    try {
+        const compressedFile = await imageCompression(image, defaultOptions);
+        return compressedFile;
+    } catch (error) {
+        console.error("Error al comprimir la imagen:", error);
+        return image;
     }
-  } catch (error) {
-    console.error("Error al comprimir la imagen:", error);
-  }
 };
 
-export const handleImageUpload = async (event, configs) => {
-  const imageFile = event.target.files[0];
-  if (!imageFile) return;
-  const compressedFile = await compressImage(imageFile, configs);
-  return compressedFile;
+export const handleImageUpload = async (event) => {
+    const imageFile = event.target.files[0];
+    if (!imageFile) return null;
+
+    // Si la imagen excede el tamaño máximo definido en `defaultOptions`
+    if (imageFile.size / (1024 * 1024) > defaultOptions.maxSizeMB) {
+        const compressedFile = await compressImage(imageFile);
+        return compressedFile;
+    }
+
+    return imageFile;
 };
+
