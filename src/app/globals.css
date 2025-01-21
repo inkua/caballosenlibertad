@@ -51,7 +51,7 @@ body {
   }
 
   .button-primary:hover{
-    @apply bg-whitePrimary;
+    @apply bg-white;
     @apply text-secondary;
     @apply border-secondary;
   }
