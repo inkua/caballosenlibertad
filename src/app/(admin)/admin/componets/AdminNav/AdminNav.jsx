@@ -24,7 +24,7 @@ const user = {
 const navigation = [
   { name: "Dashboard", href: "/admin", current: true },
   { name: "Adopciones", href: "/admin/adoptions", current: false },
-  { name: "Caballos", href: "/admin/products", current: false },
+  { name: "Historias", href: "/admin/stories", current: false },
   { name: "Eventos", href: "/admin/events", current: false },
   { name: "Administradores", href: "/admin/admins", current: false },
 ];

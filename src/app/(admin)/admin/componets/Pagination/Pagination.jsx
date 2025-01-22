@@ -3,10 +3,9 @@
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid';
 import { usePathname, useRouter } from 'next/navigation';
 
-function Pagination({data}) {
 
-
-    const {currentPage, pageSize, totalPages} = data
+function Pagination({ data }) {
+    const { currentPage, pageSize, totalPages } = data
     const pathname = usePathname();
     const router = useRouter()
 
@@ -14,6 +13,7 @@ function Pagination({data}) {
         const newUrl = `${pathname}?page=${page}`
         router.push(newUrl)
     };
+
     return (
         <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6 mt-4 md:mt-8 rounded-lg">
             <div className="flex flex-1 justify-between sm:hidden">
@@ -51,11 +51,10 @@ function Pagination({data}) {
                         <button
                             key={index}
                             onClick={() => goToPage(index + 1)}
-                            className={`relative inline-flex items-center px-4 py-2 text-sm font-semibold ${
-                                index + 1 === currentPage
-                                    ? 'bg-indigo-600 text-white'
-                                    : 'text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50'
-                            } focus:z-20 focus:outline-offset-0`}
+                            className={`relative inline-flex items-center px-4 py-2 text-sm font-semibold ${index + 1 === currentPage
+                                ? 'bg-indigo-600 text-white'
+                                : 'text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50'
+                                } focus:z-20 focus:outline-offset-0`}
                         >
                             {index + 1}
                         </button>
@@ -71,6 +70,7 @@ function Pagination({data}) {
             </div>
         </div>
     );
+
 }
 
-export default Pagination;
+export default Pagination

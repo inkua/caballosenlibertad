@@ -1,14 +1,20 @@
-"use client";
+"use client"
+
 import useDropdownBlur from "@/utils/useDropDownBlur";
 import { useState } from "react";
-import AdoptionBtnEdit from "../AdoptionBtnEdit/AdoptionBtnEdit";
-import AdoptionBtnDelete from "../AdoptionBtnDelete/AdoptionBtnDelete";
-import AdoptionBtnImage from "../AdoptionBtnImage/AdoptionBtnImage";
+import StoryBtnEdit from "../StoryBtnEdit/StoryBtnEdit";
+import StoryBtnImage from "../StoryBtnImage/StoryBtnImage";
+import StoryBtnDelete from "../StoryBtnDelete/StoryBtnDelete";
 
-function AdoptionActionDropdown({ data }) {
+
+
+
+const StoryActionDropdown = ({ data }) => {
+
     const [open, setOpen] = useState(false)
     const [openImage, setOpenImage] = useState(false)
     const { toggle, setToggle, menuRef } = useDropdownBlur(false, open, openImage);
+
     return (
         <div className="relative" ref={menuRef}>
             <button
@@ -38,11 +44,12 @@ function AdoptionActionDropdown({ data }) {
 
 
                     <div className="py-1" role="none">
-                        <AdoptionBtnEdit open={open} setOpen={setOpen} data={data} />
-                        <AdoptionBtnImage imgUrl={data?.imgUrl} open={openImage} setOpen={setOpenImage} adoptionId={data.id} />
+                        <StoryBtnEdit open={open} setOpen={setOpen} data={data}/>
+                        <StoryBtnImage imgUrl={data?.imgUrl} open={openImage} setOpen={setOpenImage} adoptionId={data.id}/>
                     </div>
+                        
                     <div className="py-1" role="none">
-                        <AdoptionBtnDelete aid={data.id} />
+                        <StoryBtnDelete sid={data.id} />
                     </div>
 
                 </div>
@@ -51,4 +58,4 @@ function AdoptionActionDropdown({ data }) {
     )
 }
 
-export default AdoptionActionDropdown
+export default StoryActionDropdown

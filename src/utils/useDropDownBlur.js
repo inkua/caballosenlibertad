@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 
-function useDropdownBlur(initialState = false, modalOpen = false) {
+function useDropdownBlur(initialState = false, modalOpen = false, secondModalOpen = false) {
   const [toggle, setToggle] = useState(initialState);
   const menuRef = useRef();
 
   useEffect(() => {
     const handleBlur = (event) => {
-      if (modalOpen) return;
+      if (modalOpen || secondModalOpen) return;
       if (
         menuRef.current &&
         event.relatedTarget &&
@@ -23,7 +23,7 @@ function useDropdownBlur(initialState = false, modalOpen = false) {
     return () => {
       menuRef.current?.removeEventListener("blur", handleBlur, true);
     };
-  }, [modalOpen]);
+  }, [modalOpen, secondModalOpen]);
 
   return { toggle, setToggle, menuRef };
 }
