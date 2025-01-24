@@ -31,6 +31,9 @@ function ItemTable({ data }) {
             <td className="px-12 max-w-[20%] overflow-hidden py-4 text-sm font-normal text-gray-700">
                 {data.location}
             </td>
+            <td className="px-12 max-w-[20%] overflow-hidden py-4 text-sm font-normal text-gray-700">
+                {data.url?"si":"No"}
+            </td>
             <td className="px-4 py-4 text-sm whitespace-nowrap flex items-center justify-center">
                 <ActionDropdown data={data} />
             </td>
