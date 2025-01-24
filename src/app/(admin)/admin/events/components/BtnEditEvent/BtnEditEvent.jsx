@@ -1,22 +1,15 @@
 "use client"
 
 import { useRouter } from "next/navigation"
-import FormUser from "../FormEvent/FormEvent"
-import { addEventImage, delEventImage } from "@/DAO/events.db";
 import { useToast } from "@/utils/toast";
+import FormEvent from "../FormEvent/FormEvent";
 
 function BtnEditEvent({ data, open, setOpen }) {
     const router = useRouter()
-    const oldUrl = data.url
     const { showToast } = useToast()
 
     const updateData = async (newData) => {
-        if (await newData.newData.url != oldUrl) {
-            await delEventImage(oldUrl)
-            newData.newData.url = await addEventImage(newData.newData.url)
-        }
-
-        const response = await fetch('http://localhost:3000/api/events', {
+        const response = await fetch('/api/events', {
             method: 'PUT',
             body: JSON.stringify({
                 token: '',
@@ -34,12 +27,11 @@ function BtnEditEvent({ data, open, setOpen }) {
         }
     }
 
-
     return (
         <>
             <button onClick={() => setOpen(true)} className="inline-flex px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-100 w-full" role="menuitem" tabIndex="-1" id="menu-item-0">Editar</button>
 
-            <FormUser isOpen={open} setIsOpen={setOpen} saveEvent={updateData} data={data} add={false} />
+            <FormEvent isOpen={open} setIsOpen={setOpen} saveEvent={updateData} data={data} add={false} />
         </>
     )
 }

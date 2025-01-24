@@ -1,10 +1,16 @@
-import { addEvent, delEvent, getEvents, setEvent, addEventImage, delEventImage } from "@/DAO/events.db";
+import { getSession } from "@/app/(auth)/auth/lib";
+import { addEvent, deleteEvent, getEvents, setEvent } from "@/DAO/events.db";
 
 export async function POST(req) {
-    try {
-        const { token, data } = await req.json();
-        const res = await addEvent(data);
+    const session = await getSession()
 
+    if (!session) {
+        return Response.json({ status: 400, msg: "No se pudo realizar la operación", data: false });
+    }
+
+    try {
+        const { data } = await req.json();
+        const res = await addEvent(data);
         if (res) {
             return Response.json({ status: 200, msg: "operación Exitosa", data: res });
         } else {
@@ -17,10 +23,15 @@ export async function POST(req) {
 }
 
 export async function DELETE(req) {
+    const session = await getSession()
+
+    if (!session) {
+        return Response.json({ status: 400, msg: "No se pudo realizar la operación", data: false });
+    }
+
     try {
-        const { token, id, url } = await req.json();
-        await delEventImage(url)
-        const res = await delEvent(id)
+        const { id } = await req.json();
+        const res = await deleteEvent(id)
 
         if (res) {
             return Response.json({ status: 200, msg: "operación Exitosa", data: res });
@@ -34,8 +45,14 @@ export async function DELETE(req) {
 }
 
 export async function PUT(req) {
+    const session = await getSession()
+
+    if (!session) {
+        return Response.json({ status: 400, msg: "No se pudo realizar la operación", data: false });
+    }
+
     try {
-        const { token, data } = await req.json();
+        const { data } = await req.json();
 
         const res = await setEvent(data.newData, data.id);
 
