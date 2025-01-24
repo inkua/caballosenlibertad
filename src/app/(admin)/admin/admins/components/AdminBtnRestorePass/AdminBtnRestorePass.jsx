@@ -1,4 +1,3 @@
-import React from 'react'
 
 export default function AdminBtnRestorePass({ admin, disabled=false }) {
     const handlerClick = async () => {
