@@ -2,7 +2,7 @@ import { getAdoptionsPerPage } from "@/DAO/adoptions.db"
 import SearchBar from "../componets/SearchBar/SearchBar"
 import AdoptionAddBtn from "./components/AdoptionAddBtn/AdoptionAddBtn"
 import AdoptionTable from "./components/AdoptionTable/AdoptionTable"
-import AdoptionPagination from "./components/AdoptionPagination/AdoptionPagination"
+import Pagination from "../componets/Pagination/Pagination"
 
 async function Adoption({searchParams}) {
     const { page } = searchParams
@@ -27,7 +27,7 @@ async function Adoption({searchParams}) {
 
                 <AdoptionTable data={data.list} />
 
-                <AdoptionPagination data={data} />
+                <Pagination data={data} />
             </main>
         </>
     )

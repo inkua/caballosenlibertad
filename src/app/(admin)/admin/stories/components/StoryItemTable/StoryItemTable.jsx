@@ -1,5 +1,5 @@
+import ItemTableImg from "../../../componets/ItemTableImg/ItemTableImg"
 import StoryActionDropdown from "../StoryActionDropdown/StoryActionDropdown"
-import StoryItemTableImg from "../StoryItemTableImg/StoryItemTableImg"
 
 const StoryItemTable = ({ data }) => {
     return (
@@ -8,7 +8,7 @@ const StoryItemTable = ({ data }) => {
                 <div className="inline-flex items-center gap-x-3">
                     <div className="flex items-center gap-x-2">
                         <div className="flex items-center justify-center w-8 h-8 text-blue-500 bg-blue-100 rounded-full dark:bg-gray-800 overflow-hidden">
-                            <StoryItemTableImg data={data?.imgUrl} />
+                            <ItemTableImg data={data?.imgUrl} />
                         </div>
 
                         <div>
@@ -29,7 +29,7 @@ const StoryItemTable = ({ data }) => {
                 {data.status}
             </td>
             <td className="px-4 py-4 text-sm whitespace-nowrap flex items-center justify-center">
-                <StoryActionDropdown data={data} /> 
+                <StoryActionDropdown data={data} />
             </td>
         </tr>
     )

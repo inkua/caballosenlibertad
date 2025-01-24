@@ -1,25 +1,24 @@
+import ItemTableImg from "../../../componets/ItemTableImg/ItemTableImg"
 import AdoptionActionDropdown from "../AdoptionActionDropdown/AdoptionActionDropdown"
-import AdoptionItemTableImg from "../AdoptionItemTableImg/AdoptionItemTableImg"
 
-
-function AdoptionItemTable({data}) {
-  return (
-    <tr>
+function AdoptionItemTable({ data }) {
+    return (
+        <tr>
             <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
                 <div className="inline-flex items-center gap-x-3">
                     <div className="flex items-center gap-x-2">
                         <div className="flex items-center justify-center w-8 h-8 text-blue-500 bg-blue-100 rounded-full dark:bg-gray-800 overflow-hidden">
-                                                    <AdoptionItemTableImg data={data?.imgUrl}/>
-                                                </div>
-                        
-                                                <div>
-                                                    <h2 className="font-normal text-gray-800">
-                                                        {data?.name}
-                                                    </h2>
-                                                    <p className="text-xs font-normal text-gray-500">
-                                                        {data?.id}
-                                                    </p>
-                                                </div>
+                            <ItemTableImg data={data?.imgUrl} />
+                        </div>
+
+                        <div>
+                            <h2 className="font-normal text-gray-800">
+                                {data?.name}
+                            </h2>
+                            <p className="text-xs font-normal text-gray-500">
+                                {data?.id}
+                            </p>
+                        </div>
                     </div>
                 </div>
             </td>
@@ -36,7 +35,7 @@ function AdoptionItemTable({data}) {
                 <AdoptionActionDropdown data={data} />
             </td>
         </tr>
-  )
+    )
 }
 
 export default AdoptionItemTable
