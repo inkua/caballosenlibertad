@@ -5,7 +5,8 @@ const headers = [
     { id: 2, title: "Fecha" },
     { id: 3, title: "Descripción" },
     { id: 4, title: "Lugar" },
-    { id: 5, title: "Acciones" },
+    { id: 5, title: "Enlace" },
+    { id: 6, title: "Acciones" },
 ]
 
 function Table({ data }) {

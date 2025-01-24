@@ -26,7 +26,6 @@ export async function POST(req) {
     try {
         const { data } = await req.json();
         const res = await addAdoption(data);
-        console.log(res)
         if (res) {
             return Response.json({ status: 200, msg: "operación Exitosa", data: res });
         } else {

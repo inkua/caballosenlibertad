@@ -9,9 +9,7 @@ function AdminAddBtn() {
     const [isOpen, setIsOpen] = useState(false);
 
     const saveUser = async (newData) => {
-
-        const URL = `${process.env.NEXT_PUBLIC_URL}/api/admin`
-        const response = await fetch(URL, {
+        const response = await fetch("/api/admin", {
             method: "POST",
             body: JSON.stringify({
                 data: newData,

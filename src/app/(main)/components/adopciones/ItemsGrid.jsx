@@ -12,7 +12,6 @@ export const ItemsGrid = () => {
       try {
         const resData = await getProducts()
         setData(resData)
-        console.log(resData)
       } catch (error) {
         console.error('Error fetching products:', error)
       } finally {

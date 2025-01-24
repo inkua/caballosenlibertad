@@ -55,7 +55,6 @@ export async function PUT(request) {
 export async function DELETE(request) {
     try {
         const { url } = await request.json();
-        console.log(url)
         if (!url ) {
             return Response.json("No se pudo guardar la imagen", { status: 400, data: null });
         }

@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import React from 'react'
 
 function ProfileImage({ type }) {
     let imageUrl = "/admin/admin/admin.svg"

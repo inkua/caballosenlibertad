@@ -1,8 +1,8 @@
 import { getAdminsPerPage } from "@/DAO/admins.db"
 import SearchBar from "../componets/SearchBar/SearchBar"
 import AdminAddBtn from "./components/AdminAddBtn/AdminAddBtn"
-import AdminPagination from "./components/AdminPagination/AdminPagination"
 import AdminTable from "./components/AdminTable/AdminTable"
+import Pagination from "../componets/Pagination/Pagination"
 
 
 async function Administradores({searchParams}) {
@@ -29,7 +29,7 @@ async function Administradores({searchParams}) {
 
                 <AdminTable data={data.list} />
 
-                <AdminPagination data={data} />
+                <Pagination data={data} />
             </main>
         </>
     )
