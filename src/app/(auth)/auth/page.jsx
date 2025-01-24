@@ -1,4 +1,3 @@
-import React from "react";
 import FormLogin from "./components/FormLogin";
 import Link from "next/link";
 
@@ -15,7 +14,7 @@ function Login() {
           <div className="flex items-center h-full px-20 bg-gray-900 bg-opacity-40">
             <div>
               <h2 className="text-2xl font-bold text-white sm:text-3xl">
-                Inkua
+                Autenticación - Caballos En Libertad
               </h2>
 
               <p className="max-w-xl mt-3 text-gray-300">
