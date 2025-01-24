@@ -6,8 +6,8 @@ function AdoptionItemTableImg({ data }) {
         <Image
             src={imageUrl}
             alt="Caballo en adopción"
-            width={700}
-            height={700}
+            width={100}
+            height={100}
             className="w-auto h-full"
         />
     )
