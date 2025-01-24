@@ -1,18 +1,11 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { addUserImage, delUserImage } from "@/DAO/users.db";
 import AdminFrom from "../AdminForm/AdminForm";
 
 function AdminBtnEdit({ data, open, setOpen, disabled=false }) {
     const router = useRouter();
-    const oldUrl = data.url;
-
     const updateData = async (newData) => {
-        if ((await newData.newData.url) != oldUrl) {
-            await delUserImage(oldUrl);
-            newData.newData.url = await addUserImage(newData.newData.url);
-        }
 
         const response = await fetch("http://localhost:3000/api/admin", {
             method: "PUT",

@@ -1,18 +1,22 @@
 import { deleteImage, updateImage, uploadImage } from "./cloudinaryContainer";
 import { addElement, deleteElement, getAllElements, getElementById, updateElement } from "./container";
 
+// add a new event | requires event data | returns the added event response
 const addEvent = async (newProduct) => {
     return await addElement(newProduct, 'events')
 }
 
+// get an event by id | requires the event id | returns the event object
 const getEventById = async (eid) => {
     return await getElementById(eid, 'events')
 }
 
+// get all events | does not require parameters | returns a list of all events
 const getEvents = async () => {
     return await getAllElements('events')
 }
 
+// get events per page | requires page and pageSize (default: 1 and 5) | returns paginated events
 const getEventsPerPage = async (page = 1, pageSize = 5) => {
     const allEvents = await getAllElements('events');
 
@@ -33,16 +37,19 @@ const getEventsPerPage = async (page = 1, pageSize = 5) => {
     };
 }
 
+// get only active event list | does not require parameters | returns a list of active events
 const getActiveEvents = async () => {
     const events = await getAllElements("events");
     const activeEvents = events.filter(item => item.status === "Activo");
     return activeEvents;
 };
 
+// update an event by id | requires new data and the event id | returns the updated event response
 const setEvent = async (newData, eid) => {
     return await updateElement(newData, eid, 'events')
 }
 
+// delete an event by id and its image | requires the event id | returns the delete operation response
 const deleteEvent = async (eid) => {
     const event = await getEventById(eid)
 
@@ -53,6 +60,7 @@ const deleteEvent = async (eid) => {
     return await deleteElement(eid, 'events')
 }
 
+// upload an event image | requires the image buffer and event id | returns the uploaded image URL
 const uploadEventImg = async (buffer, eventId) => {
     const result = await uploadImage(buffer, "events")
     
@@ -62,11 +70,13 @@ const uploadEventImg = async (buffer, eventId) => {
     return result
 }
 
+// update an event image | requires the image buffer and existing image URL | returns the updated image URL
 const setEventImg = async (buffer, imgUrl) => {
     const result = await updateImage(buffer, imgUrl, "events")
     return result
 }
 
+// delete an event image | requires the image URL | returns the delete operation response
 const deleteEventImg = async (imgUrl) => {
     const result = await deleteImage(imgUrl)
     return result

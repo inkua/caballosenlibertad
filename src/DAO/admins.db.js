@@ -3,7 +3,7 @@ import { passwordTemplate } from "@/utils/HTML_templates";
 
 import { addElement, deleteElement, getAllElements, getElementById, updateElement } from "./container";
 
-// add a new admin | require the data admin
+// add a new admin | requires admin data | sends email with generated password and returns true if successful, otherwise false
 const addAdmin = async (newAdmin) => {
     newAdmin.type = "admin"
     newAdmin.password = generatePassword()
@@ -19,7 +19,7 @@ const addAdmin = async (newAdmin) => {
     return false
 };
 
-// set a new random password & send it by email | require the data admin
+// reset an admin's password | requires admin data | sends email with new password and returns true if successful, otherwise false
 const resetPasswordAdmin = async (admin) => {
     const password = generatePassword()
 
@@ -34,18 +34,19 @@ const resetPasswordAdmin = async (admin) => {
     return false
 };
 
-// get a admin by id | require the admin id
+// get an admin by ID | requires the admin ID | returns the admin object or false if not found
 const getAdmById = async (aid) => {
     return await getElementById(aid, "admins");
 };
 
-// get all admins without passwords
+// get all admins without passwords | does not require parameters | returns a list of admins without passwords
 const getAdmins = async () => {
     const admins = await getAllElements("admins");
     const adminsWithoutPasswords = removePasswords(admins)
     return adminsWithoutPasswords
 };
 
+// get admins per page | requires page number and page size (default: 1 and 5) | returns paginated admins
 const getAdminsPerPage = async (page = 1, pageSize = 5) => {
     const allAdmins = await getAdmins()
 
@@ -65,12 +66,13 @@ const getAdminsPerPage = async (page = 1, pageSize = 5) => {
         pageSize: pageSize
     };
 }
-// update a admin by id | require new data and the admin id
+
+// update an admin by ID | requires new data and admin ID | returns true if successful, otherwise false
 const setAdmin = async (newData, aid) => {
     return await updateElement(newData, aid, "admins");
 };
 
-// Get an admin by email | require the admin email
+// get an admin by email | requires the admin email | returns the admin object or false if not found
 const getAdminByEmail = async (email) => {
     try {
         const admins = await getAllElements("admins");
@@ -86,12 +88,12 @@ const getAdminByEmail = async (email) => {
     }
 };
 
-// update a admin by id | require new data and the admin id
+// delete an admin by ID | requires the admin ID | returns true if successful, otherwise false
 const deleteAdmin = async (aid) => {
     return await deleteElement(aid, 'admins');
 }
 
-// update a admin by email| require new password, current password and the admin email
+// update an admin's password | requires new password, current password, and admin email | returns true if successful, otherwise false
 const updatePasswordAdmin = async (newPassword, currentPassword, email) => {
     const user = await getAdminByEmail(email);
     if (!user) {
@@ -104,7 +106,7 @@ const updatePasswordAdmin = async (newPassword, currentPassword, email) => {
     return await updateElement(newData, user.id, 'admins');
 }
 
-// generate a random password
+// generate a random password | does not require parameters | returns a randomly generated password string
 const generatePassword = () => Array.from(
     { length: 10 },
     () => 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+[]{}|;:,.<>?'[
@@ -112,7 +114,7 @@ const generatePassword = () => Array.from(
     ]
 ).join('');
 
-// delete each users' passwords from the user list
+// remove passwords from a user list | requires the list of users | returns a list of users without passwords
 const removePasswords = (users) => {
     return users.map(user => {
         const { password, ...userWithoutPassword } = user;

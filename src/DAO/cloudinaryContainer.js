@@ -10,7 +10,7 @@ cloudinary.config({
 });
 
 
-// Upload an image to cloudinary
+// upload an image to Cloudinary | requires image buffer and optional entity name (default: "general") | returns the secure URL of the uploaded image
 const uploadImage = async (buffer, entity = "general") => {
     const imageName = `${entity}-${Date.now()}`
 
@@ -34,8 +34,7 @@ const uploadImage = async (buffer, entity = "general") => {
     return uploadResult
 }
 
-
-// Update an image with the same name and url
+// update an image in Cloudinary with the same name and URL | requires image buffer, existing URL, and optional entity name (default: "general") | returns the secure URL of the updated image
 const updateImage = async (buffer, url, entity = "general") => {
     const imageName = getPublic_id(url)
 
@@ -58,8 +57,7 @@ const updateImage = async (buffer, url, entity = "general") => {
     return uploadResult
 }
 
-
-// Delete an image from cloudinary
+// delete an image from Cloudinary | requires the image URL | returns the delete operation result or false if failed
 const deleteImage = async (url) => {
     const imageName = getPublic_id(url)
 
@@ -76,8 +74,7 @@ const deleteImage = async (url) => {
     return deleteResult
 }
 
-
-// Get an image's public_id from an image URL
+// extract the public_id of an image from its Cloudinary URL | requires the image URL | returns the public_id string
 const getPublic_id = (url) => {
     return url.split('/').pop().replace(/\.[^/.]+$/, '');
 }
