@@ -16,8 +16,6 @@ const SendEmailTest = () => {
     setIsSending(true);
     try {
       const response = await sendEmail(email, subject, text);
-      console.log(response);
-
       setMessage("Correo enviado con éxito");
     } catch (error) {
       setMessage("Error al enviar el correo");

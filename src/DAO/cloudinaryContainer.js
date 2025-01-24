@@ -69,7 +69,6 @@ const deleteImage = async (url) => {
                 console.error("cloudinaryContainer.js, uploadImage ", error)
                 reject(false)
             }
-            console.log(deleteResult)
             resolve(deleteResult)
         })
     })

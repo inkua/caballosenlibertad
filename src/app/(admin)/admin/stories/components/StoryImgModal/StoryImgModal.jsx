@@ -24,7 +24,6 @@ const StoryImgModal = ({ data }) => {
             const result = await response.json();
             setUrl(result.data)
             alert('Imagen añadida correctamente')
-            console.log("url: ", result.data)
             setOpen(false)
         } else {
             alert('No se pudo realizar la operación')
