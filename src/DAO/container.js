@@ -1,5 +1,5 @@
 import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, updateDoc } from "firebase/firestore";
-import { ref, uploadBytes, getDownloadURL, deleteObject, listAll } from "firebase/storage";
+import { deleteObject, getDownloadURL, listAll, ref, uploadBytes } from "firebase/storage";
 
 import { db, storage } from "./firebaseConfig";
 
@@ -20,6 +20,11 @@ const getElementById = async (id, collectionName) => {
     try {
         const docRef = doc(db, collectionName, id);
         const response = await getDoc(docRef);
+
+        if(!response.data()){
+            return false
+        }
+        
         const element = {
             id: response.id,
             data: response.data()

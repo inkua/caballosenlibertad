@@ -3,7 +3,6 @@
 import { useState } from "react"
 import FormEvent from "../FormEvent/FormEvent"
 import { useRouter } from "next/navigation"
-import { addEventImage } from "@/DAO/events.db";
 import { useToast } from "@/utils/toast";
 
 function AddBtn() {
@@ -12,7 +11,6 @@ function AddBtn() {
     const { showToast } = useToast()
 
     const saveEvent = async (newData) => {
-        newData.url = await addEventImage(newData.url)
         const response = await fetch('http://localhost:3000/api/events', {
             method: 'POST',
             body: JSON.stringify({
