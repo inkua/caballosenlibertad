@@ -1,6 +1,6 @@
 import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, updateDoc } from "firebase/firestore";
 
-import { db, storage } from "./firebaseConfig";
+import { db } from "./firebaseConfig";
 
 // add a new element to Firestore | requires the element data and collection name | returns true if successful, otherwise false
 const addElement = async (element, collectionName) => {
