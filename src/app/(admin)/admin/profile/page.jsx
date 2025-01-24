@@ -1,6 +1,6 @@
 import { getAdminByEmail } from "@/DAO/admins.db";
-import Link from "next/link";
 import ProfileImage from "./components/ProfileImage";
+import ChangePassword from "./components/ChangePassword";
 
 
 async function ProductDetail({ searchParams }) {
@@ -66,7 +66,7 @@ async function ProductDetail({ searchParams }) {
                             Cambiar contraseña
                         </dt>
                         <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                            <Link className="text-green-600" href='/admin/settings'>Cambiar</Link>
+                            <ChangePassword user={data}/>
                         </dd>
                     </div>
                 </dl>
