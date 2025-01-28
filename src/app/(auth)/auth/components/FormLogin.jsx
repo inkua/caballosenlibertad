@@ -87,7 +87,7 @@ function FormLogin() {
                         Contraseña
                     </label>
 
-                    <a href="#" className="text-sm text-gray-400 focus:text-blue-500 hover:text-blue-500 hover:underline" >
+                    <a onClick={(e)=>pswMessage(e)} className="text-sm text-gray-400 focus:text-blue-500 hover:text-blue-500 hover:underline" >
                         ¿Olvidaste tu contraseña?
                     </a>
                 </div>
@@ -119,6 +119,10 @@ function FormLogin() {
 
         </form>
     );
+}
+
+const pswMessage = ()=>{
+    alert("Por favor contáctate con el administrador de la plataforma para solicitar una contraseña provisional.")
 }
 
 export default FormLogin;

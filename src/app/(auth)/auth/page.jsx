@@ -49,13 +49,15 @@ function Login() {
             </div>
 
             <p className="mt-6 text-sm text-center text-gray-400">
-              ¿No tienes una cuenta aún?
+              ¿Quieres ser parte de nuestra familia?
+            </p>
+            <p className="text-center">
               <Link
-                href="/auth/register"
+                href="/voluntariado"
                 className="text-blue-500 focus:outline-none focus:underline hover:underline">
-                Regístrate
+                Sé voluntario
               </Link>
-              .
+
             </p>
           </div>
         </div>
