@@ -23,7 +23,7 @@ const addAdmin = async (newAdmin) => {
 const resetPasswordAdmin = async (admin) => {
     const password = generatePassword()
 
-    const response = await updateElement(password, admin.id, 'admins')
+    const response = await updateElement({password:password}, admin.id, 'admins')
 
     if (response) {
         const { subject, message } = passwordTemplate(admin.name, password)

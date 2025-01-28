@@ -1,4 +1,4 @@
-import { isRootAdmin } from '@/app/(auth)/auth/lib';
+import { isRootAdmin } from '@/app/(auth)/auth/lib'
 import { headers } from 'next/headers'
 
 // verify if an admin is root type
@@ -8,6 +8,7 @@ export async function GET() {
         const token = headersList.get('Authorization').replace("Bearer ", "");
 
         const isRoot = await isRootAdmin(token)
+        console.log("isRoot: ", isRoot)
 
         if (isRoot) {
             return Response.json({ status: 200, msg: "operación Exitosa", data: isRoot });
