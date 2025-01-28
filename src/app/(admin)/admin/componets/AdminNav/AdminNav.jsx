@@ -28,11 +28,6 @@ const navigation = [
   { name: "Eventos", href: "/admin/events", current: false },
   { name: "Administradores", href: "/admin/admins", current: false },
 ];
-const userNavigation = [
-  { name: "Your Profile", href: "/admin/profile" },
-  { name: "Contraseña", href: "/admin/settings" },
-
-];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -51,7 +46,7 @@ function AdminNav() {
     e.preventDefault()
     const response = await fetch('/api/admin/profile');
     const result = await response.json();
-    router.push(`http://localhost:3000/admin/profile?user=${result.data}`)
+    router.push(`/admin/profile?user=${result.data}`)
   }
 
   return (
@@ -186,7 +181,7 @@ function AdminNav() {
               className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
               onClick={(e) => buttonHandler(e)}
               onKeyDown={(e) => { (e.key === 'Enter' || e.key === ' ') && (buttonHandler(e)) }}>
-              Perfil 3
+              Perfil
             </button>
             
             <DisclosureButton
