@@ -4,12 +4,12 @@ const URL = process.env.NEXT_PUBLIC_URL
 
 export async function middleware(request) {
     const token = request.cookies.get("session");
-    const { pathname } = request.nextUrl;
+    const { pathname, origin } = request.nextUrl;
 
     
     // If a user doesn't have a token and tries to access /admin, redirect them to /auth
     if (!token && pathname.startsWith("/admin")) {
-        return NextResponse.redirect(new URL("/auth", request.url));
+        return NextResponse.redirect(`${origin}/auth`);
     }
     
     
@@ -18,19 +18,19 @@ export async function middleware(request) {
         
         // If a user doesn't have a token and tries to access /admin, redirect them to /auth
         if (!validToken && pathname.startsWith("/admin")) {
-            return NextResponse.redirect(new URL("/auth", request.url));
+            return NextResponse.redirect(`${origin}/auth`);
         }
 
         // If the user is not a root admin and tries to access /admin/users, redirect them to /admin
         if (validToken && pathname.startsWith("/admin/admins")) {
             if (!rootAdmin) {
-                return NextResponse.redirect(new URL("/admin", request.url));
+                return NextResponse.redirect(`${origin}/admin`);
             }
         }
 
         // If the user has a token and tries to access /auth, redirect them to /admin
         if (validToken && pathname.startsWith("/auth")) {
-            return NextResponse.redirect(new URL("/admin", request.url));
+            return NextResponse.redirect(`${origin}/admin`);
         }
     }
 
@@ -57,7 +57,7 @@ const getAuthStatus = async (token)=>{
         return data
         
     } catch (e) {
-        console.log("middleware fetch error")
+        console.error("middleware fetch error")
         return {
             validToken: false,
             rootAdmin: false,
