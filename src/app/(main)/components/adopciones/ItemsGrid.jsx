@@ -49,7 +49,7 @@ export const ItemsGrid = () => {
                       className="relative group rounded-2xl overflow-hidden w-full h-[540px]"
                     >
                       <img
-                        src={item.url}
+                        src={item.imgUrl || "https://res.cloudinary.com/diiavhlq4/image/upload/v1736874938/general-1736874938068.webp"}
                         alt={item.name}
                         className="w-full h-full object-cover"
                       />
