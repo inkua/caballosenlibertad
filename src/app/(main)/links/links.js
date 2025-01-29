@@ -3,12 +3,12 @@ export const featuresLinks = [
   {
     textContent: 'Caballos',
     children: [
-      { textContent: 'Historias de éxito', href: '/' },
-      { textContent: 'En adopción', href: '/' },
+      { textContent: 'Historias de éxito', href: '/historias' },
+      { textContent: 'En adopción', href: '/adopciones' },
     ],
   },
-  { textContent: 'Voluntariado', href: '/' },
-  { textContent: 'Novedades', href: '/' },
-  { textContent: 'Denuncias', href: '/' },
-  { textContent: 'Contacto', href: '/' },
+  { textContent: 'Voluntariado', href: '/voluntariado' },
+  { textContent: 'Novedades', href: '/novedades' },
+  { textContent: 'Denuncias', href: '/denuncias' },
+  { textContent: 'Contacto', href: '/contacto' },
 ];
