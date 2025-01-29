@@ -97,10 +97,13 @@ const deleteAdmin = async (aid) => {
 const updatePasswordAdmin = async (newPassword, currentPassword, email) => {
     const user = await getAdminByEmail(email);
     if (!user) {
-        return false;
+        return false
     } else if (user.password !== currentPassword) {
+        return false
+    } 
+    if (user.type == "root") {
         return false;
-    };
+    }
 
     const newData = { password: newPassword };
     return await updateElement(newData, user.id, 'admins');
