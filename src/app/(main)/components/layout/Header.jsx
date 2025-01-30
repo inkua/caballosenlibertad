@@ -54,7 +54,7 @@ export const Header = () => {
         <MenuBar />
         <div className='hidden lg:flex max-screen-layout w-full items-center justify-between'>
             <Link href={'/'}>
-                {
+                { 
                     isHomePage ?
                     (
                         onScroll ?
@@ -70,7 +70,7 @@ export const Header = () => {
                                 alt="Imagen logo caballos en libertad"
                                 width={210}
                                 height={158}
-                                className={`block w-[152px] h-[115px] ${styles.dynamicImage} transition-all duration-500`}
+                                className={`block w-[152px] min-h-[115px] transition-all duration-500`}
                             />
                     ) :
                     (

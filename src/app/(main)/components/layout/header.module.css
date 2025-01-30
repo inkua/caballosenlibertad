@@ -8,15 +8,14 @@
 	to {
 		translate: -15% -10%;
 		scale: 1.05;
-        opacity: .6;
 	}
 }
 
 @keyframes move-and-fade-text-image {
     from {
-		translate: -5% -10%;
+		translate: 10% -15%;
 		scale: .7;
-        opacity: .85;
+        opacity: 1;
     }
 	to {
 		scale: 1;
@@ -36,6 +35,6 @@
     animation-range: 0 100px;
 }
 
-.textImage {
+/* .textImage {
     animation: move-and-fade-text-image .4s ease-in-out forwards;
-}
+} */

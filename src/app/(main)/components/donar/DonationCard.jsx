@@ -11,15 +11,20 @@ export const DonationCard = () => {
   const [tab, setTab] = useState(EXTERIOR);
 
   return (
-    <div className='flex flex-col items-center justify-start mt-4 lg:mt-0 mx-auto mb-auto bg-white p-8 py-10 sm:p-12 xl:px-14 rounded-2xl sm:rounded-[20px] gap-6 w-full lg:min-w-[420px] max-w-[480px] lg:max-w-[520px]'>
+    <div className='flex flex-col items-center justify-start mx-auto bg-white p-8 py-10 sm:p-12 xl:px-14 rounded-2xl sm:rounded-[20px] gap-6 w-full lg:min-w-[420px] max-w-[480px] lg:max-w-[520px]'>
       <h3 className='text-primary text-[28px] lg:text-[35px] font-bold text-start w-full'>¡Haz tu aporte!</h3>
-      <div
+
+      <SelectForm />
+
+      {/* <div
         role='tablist'
         aria-labelledby='Opciones de visualización'
         className='flex justify-between mb-1 md:mb-4 w-full gap-4 border-b-2 border-secondary'
       >
         <DonationTabs tab={ tab } setTab={ setTab } />
       </div>
+
+      
       {
         tab === ARGENTINA && (
           <div className='flex flex-col text-[14px] md:text-[18px] lg:text-[22px] my-6'>
@@ -39,7 +44,8 @@ export const DonationCard = () => {
         tab === EXTERIOR && (
           <SelectForm />
         )
-      }
+      } */}
+
     </div>
   )
 }

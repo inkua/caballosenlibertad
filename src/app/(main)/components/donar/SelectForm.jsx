@@ -11,64 +11,49 @@ const amountOptions = [
 
 const temporalityOptions = [
     { value: "MENSUAL", label: "Mensual" },
-    { value: "UNICA", label: "Donación única" },
+    { value: "UNICA", label: "Suscripción única" },
 ];
 
 const methodOfPayment = [
-    { value: "PAYPAL", image: "/assets/donar/InternationalPAYPAL.svg" },        
-    { value: "MercadoPago", image: "/assets/donar/MPago.svg" },        
+    { value: "MercadoPago", image: "/assets/donar/MPago.svg" },
+    { value: "PAYPAL", image: "/assets/donar/InternationalPAYPAL.svg" },
 ];
 
 export const SelectForm = () => {
 
     const [selectedAmount, setSelectedAmount] = useState("$ 1000");
     const [selectedTemporality, setSelectedTemporality] = useState("MENSUAL");
-    const [selectedMethod, setSelectedMethod] = useState("PAYPAL");
+    const [selectedMethod, setSelectedMethod] = useState("MercadoPago");
 
     const submitForm = (e) => {
         e.preventDefault()
-        confirm(`Monto seleccionado: ${selectedAmount}\nTipo de donación: ${selectedTemporality}\nMétodo de pago: ${selectedMethod}`)
+        confirm(`Método de pago: ${selectedMethod}\nTipo de donación: ${selectedTemporality}\nMonto seleccionado: ${selectedAmount}`)
     }
 
   return (
     <form 
         onSubmit={submitForm}
         className='w-full flex flex-col my-4'
-    >
-        <fieldset>
-            <LegendElement label={'Elige el monto'} image={"/assets/donar/Group1.svg"} />
-            <div className="grid grid-cols-2 gap-2 mt-6">
-            {amountOptions.map((option) => (
-                <button
-                    type='button'
-                    key={option.value}
-                    onClick={ () => setSelectedAmount(option.value) }
-                    className={`text[14px] lg:text-[15px] font-semibold w-full rounded-full py-2 border-2 border-primary ${selectedAmount === option.value ? 'bg-primary text-white' : 'text-primary bg-white'} hover:bg-primary hover:text-white transition-colors duration-75`}
-                >
-                    {option.label}
-                </button>
-            ))}
+    >        
+        <fieldset className='mt-3'>
+            <LegendElement label={'Medio de pago'} image={"/assets/donar/Group1.svg"} />
+            <div className='grid grid-cols-2 place-items-center border-t-2 border-secondary mt-6'>
+                <Image 
+                    src={'/svg/Polygon_1.svg'}
+                    alt='selección decorativa'
+                    width={14}
+                    height={9}
+                    className='relative -top-[2px]'
+                />
+                <Image 
+                    src={'/svg/Polygon_1.svg'}
+                    alt='selección decorativa'
+                    width={14}
+                    height={9}
+                    className='relative -top-[2px]'
+                />
             </div>
-        </fieldset>
-        <small className='text-[14px] lg:text-[15px] text-end mt-3 text-primary'>Seleccionado: {selectedAmount}</small>
-        <fieldset className='mt-12'>
-            <LegendElement label={'Cómo será tu aporte'} image={"/assets/donar/Group2.svg"} />
-            <div className="grid grid-cols-2 gap-2 mt-6">
-                {temporalityOptions.map((option) => (
-                    <DonationOption
-                        key={option.value}
-                        value={option.value}
-                        label={option.label}
-                        name='tempotality'
-                        selectedOption={selectedTemporality}
-                        onChange={(e) => setSelectedTemporality(e.target.value)}
-                    />
-                ))}
-            </div>
-        </fieldset>
-        <fieldset className='mt-14'>
-            <LegendElement label={'Medio de pago'} image={"/assets/donar/Group3.svg"} />
-            <div className="grid grid-cols-2 gap-2 xl:gap-6 mt-10">
+            <div className="grid grid-cols-2 gap-2 xl:gap-6 mt-8">
                 {methodOfPayment.map((option) => (
                     <DonationOption
                         key={option.value}
@@ -81,6 +66,39 @@ export const SelectForm = () => {
                 ))}
             </div>
         </fieldset>
+
+        <fieldset className='my-14'>
+            <LegendElement label={'Cómo será tu aporte'} image={"/assets/donar/Group2.svg"} />
+            <div className="flex items-center justify-between mt-6">
+                {temporalityOptions.map((option) => (
+                    <DonationOption
+                        key={option.value}
+                        value={option.value}
+                        label={option.label}
+                        name='tempotality'
+                        selectedOption={selectedTemporality}
+                        onChange={(e) => setSelectedTemporality(e.target.value)}
+                    />
+                ))}
+            </div>
+        </fieldset>
+        <fieldset>
+            <LegendElement label={'Elige el monto'} image={"/assets/donar/Group3.svg"} />
+            <div className="grid grid-cols-2 gap-2 mt-8">
+            {amountOptions.map((option) => (
+                <button
+                    type='button'
+                    key={option.value}
+                    onClick={ () => setSelectedAmount(option.value) }
+                    className={`text[14px] lg:text-[15px] font-semibold w-full rounded-full py-2 border-2 border-primary ${selectedAmount === option.value ? 'bg-primary text-white' : 'text-primary bg-white'} hover:bg-primary hover:text-white transition-colors duration-75`}
+                >
+                    {option.label}
+                </button>
+            ))}
+            </div>
+        </fieldset>
+        <small className='text-[14px] lg:text-[15px] text-end mt-4 text-primary'>Seleccionado: {selectedAmount}</small>
+
         <button 
             type='submit'
             className='button-primary mt-14 text-[16px] lg:text-[20px] h-[40px] lg:h-[50px]'
