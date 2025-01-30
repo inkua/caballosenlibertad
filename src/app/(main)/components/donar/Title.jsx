@@ -16,15 +16,6 @@ export const Title = () => {
             Doná hoy, tu contribución puede marcar la diferencia en la vida de nuestros rescatados
             </span>
         </div>
-        <figure className='hidden lg:block lg:col-span-2 relative -top-6 xl:-top-10'>
-            <Image 
-                src={'/assets/donar/IMG_title_2.png'}
-                alt='imagen de caballo representativa de la sección'
-                width={463}
-                height={720}
-                className=''
-            />
-        </figure>
     </section>
   )
 }
