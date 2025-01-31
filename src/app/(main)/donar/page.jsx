@@ -1,8 +1,6 @@
-
 import { Gallery } from "../components/donar/Gallery";
 import { HowToHelp } from "../components/donar/HowToHelp";
 import { Title } from "../components/donar/Title";
-import { TitleSection } from "../components/TitleSection";
 
 export const metadata = {
   title: "Donar"
