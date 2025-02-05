@@ -1,6 +1,6 @@
-import { Gallery } from "../components/donar/Gallery";
-import { HowToHelp } from "../components/donar/HowToHelp";
-import { Title } from "../components/donar/Title";
+import { Gallery } from "./components/Gallery";
+import { HowToHelp } from "./components/HowToHelp";
+import { Title } from "./components/Title";
 
 export const metadata = {
   title: "Donar"

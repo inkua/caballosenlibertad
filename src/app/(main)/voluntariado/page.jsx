@@ -1,5 +1,5 @@
 import { TitleSection } from "../components/TitleSection";
-import { AdopcionesCard } from "../components/adopciones/AdopcionesCard";
+import { AdopcionesCard } from "../adopciones/components/AdopcionesCard";
 
 function Voluntariado() {
   const textForContactCard =
