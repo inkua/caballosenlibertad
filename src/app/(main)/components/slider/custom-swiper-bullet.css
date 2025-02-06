@@ -1,0 +1,34 @@
+.swiper-button-next,
+.swiper-button-prev {
+    @apply !w-8 !h-8 rounded-full border-[1px] border-primary text-primary bg-green-100;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    @apply text-[0.8rem]
+}
+
+.swiper-button-next {
+    @apply right-0;
+}
+
+.swiper-button-prev {
+    @apply left-0;
+}
+
+.swiper-button-next:active,
+.swiper-button-prev:active {
+    @apply bg-primary text-white;
+}
+
+.swiper-pagination {
+    @apply bottom-0;
+}
+
+.swiper-pagination-bullet-active {
+    @apply rounded-full w-4 h-4 border-2 border-primary !bg-primary;
+}
+
+.swiper-pagination-bullet {
+    @apply rounded-full w-4 h-4 border-2 border-primary bg-white opacity-100;
+}
