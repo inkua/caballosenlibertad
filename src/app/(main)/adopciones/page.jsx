@@ -1,5 +1,5 @@
-import { AdopcionesCard } from "../components/adopciones/AdopcionesCard";
-import { ItemsGrid } from "../components/adopciones/ItemsGrid";
+import { AdopcionesCard } from "./components/AdopcionesCard";
+import { ItemsGrid } from "./components/ItemsGrid";
 import { TitleSection } from "../components/TitleSection";
 
 export const metadata = {

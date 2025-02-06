@@ -12,15 +12,14 @@ export const HelpDonation = () => {
   }
 
   return (
-    <div className=''>
-      <div>
-        <HelpItem 
-          priority={true} 
-          text={`Donación \nmonetaria`} 
-          image={'/assets/donar/Aporte-monetario.svg'} 
-          handleItemClick={handleItemClick}
-        />
-      </div>
-    </div>
+    <>
+      <HelpItem 
+        priority={true} 
+        text={`Donación \nmonetaria`} 
+        image={'/assets/donar/Aporte-monetario.svg'}
+        buttonText={'Haz tu aporte'}
+        handleItemClick={handleItemClick}
+      />
+    </>
   )
 }
