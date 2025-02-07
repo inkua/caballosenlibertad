@@ -2,7 +2,7 @@ import React from 'react'
 
 export const TitleSection = ({titleTextContent, spanTextContent, children}) => {
   return (
-    <section className='grid grid-cols-4 md:grid-cols-12 w-full mx-auto items-start gap-4 py-6 md:py-12 lg:py-14 px-mobile md:px-tablet lg:px-desktop max-w-content'>
+    <section className='grid grid-cols-4 md:grid-cols-12 w-full mx-auto items-start gap-4 py-6 md:py-12 lg:py-14 max-w-content'>
       <h1
         className='text-[40px] sm:text-[56px] md:text-[86px] lg:text-[112px] xl:text-[120px] leading-120 font-extrabold text-primary col-span-full md:mb-4 lg:mb-6'
       >
