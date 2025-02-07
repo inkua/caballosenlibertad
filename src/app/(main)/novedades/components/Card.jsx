@@ -2,8 +2,8 @@ import Image from "next/image";
 
 function Card() {
     return (
-        <div className="flex bg-white rounded-2xl p-16 gap-14">
-            <div className="aspect-[8/10] overflow-hidden rounded-2xl w-[40%]">
+        <div className="flex flex-col lg:flex-row bg-white rounded-2xl p-8 lg:p-16 gap-14">
+            <div className="aspect-[8/10] overflow-hidden rounded-2xl w-full lg:w-[40%]">
                 <Image
                     src={"/assets/caballos_rescatados.jpg"}
                     alt={"No disponible"}
@@ -13,7 +13,7 @@ function Card() {
                     loading="eager"
                 />
             </div>
-            <div className="flex flex-col justify-between w-[60%]">
+            <div className="flex flex-col gap-8 justify-between w-full lg:w-[60%]">
                 <h2 className="text-primary text-h2 font-bold leading-120">Mate-Bingo</h2>
                 <p className="text-p2">
                     ¡Te traemos la mejor propuesta para un domingo de fin de año! Vení al Mate-Bingo y disfruta de una hermosa tarde!
@@ -29,7 +29,7 @@ function Card() {
                 </div>
 
 
-                <button className="button-primary !w-[70%]">VER PUBLICACIÓN</button>
+                <button className="button-primary lg:!w-[50%]">VER PUBLICACIÓN</button>
             </div>
 
         </div>
