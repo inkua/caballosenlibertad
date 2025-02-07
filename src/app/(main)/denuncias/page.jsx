@@ -1,29 +1,6 @@
 import { TitleSection } from "../components/TitleSection"
 import Image from "next/image";
 
-const items = [
-    {
-        data: '/assets/caballos_atardecer.jpg',
-        alt: '',
-        url: '',
-    },
-    {
-        data: '/assets/caballos_rescatados.jpg',
-        alt: '',
-        url: '',
-    },
-    {
-        data: '/assets/doctor_veterinario.jpg',
-        alt: '',
-        url: '',
-    },
-    {
-        data: '/assets/equipo_ong_caballos.jpg',
-        alt: '',
-        url: '',
-    },
-]
-
 function Denuncias() {
     return (
         <main className="mx-mobile my-28 sm:m-tablet  lg:m-desktop">
