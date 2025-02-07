@@ -21,7 +21,7 @@ function Slider({ items, type = 0, def, lg, md, nav = true, loop = false }) {
             breakpoints={{ 1024: { slidesPerView: lg }, 768: { slidesPerView: md } }}
             spaceBetween={type == 0 ? 10 : 100}
             loop={loop}
-            className={`!relative w-full lg:w-[75%] cursor-grab h-auto ${type == 0 ? '!pb-0 !px-4' : '!pb-12 !px-16'}`} >
+            className={`!relative w-full cursor-grab h-auto ${type == 0 ? '!pb-0 !px-4' : '!pb-12 !px-16'}`} >
             {items.map((item) => (
                 <SwiperSlide key={item.id} className={`!h-auto overflow-hidden ${type == 0 ? 'rounded-none' + ' aspect-[3/2]' : 'rounded-2xl' + ' aspect-square'}`}>
                     {item.url ?
