@@ -16,8 +16,8 @@ const sendEmail = async (email, subject, message) => {
             subject:subject,
             html:message,
         })
-
-        if(info.rejected.length === 0){
+        
+        if(info.rejected.length != 0){
             return false
         }
         return true
