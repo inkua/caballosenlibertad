@@ -51,14 +51,21 @@ export default function ContactForm() {
         setError({})
 
         try {
-            const response = await fetch('/api/contact', {
+            const data = {
+                name: formData.name,
+                phone: formData.phone,
+                email: formData.email,
+                content: formData.message,
+            }
+
+            const response = await fetch('/api/mail', {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(formData),
+                body: JSON.stringify({data: data}),
             })
 
             if (response.ok) {
-                setFormData({ name: '', phone: '', email: '', message: '' }); // Limpia el formulario
+                //setFormData({ name: '', phone: '', email: '', message: '' }); // Limpia el formulario
                 alert(`Mensaje enviado`);
             } else {
                 alert(`Error`);
@@ -76,7 +83,7 @@ export default function ContactForm() {
             <h2 htmlFor="name" className="block text-primary text-p3">
                 Nombre
             </h2>
-            <form className="flex flex-col gap-4 h-auto">
+            <form className="flex flex-col gap-4 h-auto" onSubmit={(e)=>sendEmail(e)}>
                 <div className="flex flex-col w-full h-full lg:aspect-square gap-4">
                     <div className="flex flex-col gap-4">
                         <label htmlFor="name" className="text-primary text-p3 hidden">
