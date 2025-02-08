@@ -1,6 +1,6 @@
 export default function ContactMap({ ubication, phone }) {
     return (
-        <div className='flex flex-col justify-between gap-3 w-full md:w-[50%]'>
+        <div className='flex flex-col justify-between gap-4 w-full md:w-[50%]'>
             <h2 className='font-extrabold text-primary text-h2 duration-200'>¿Dónde estamos?</h2>
             <p className='text-primary text-p3 duration-200'>{ubication}</p>
             <div className='w-full aspect-square'>

@@ -69,16 +69,16 @@ export default function ContactForm() {
     };
 
     return (
-        <div className="flex flex-col w-full md:w-[50%] gap-3">
+        <div className="flex flex-col w-full md:w-[50%] gap-4">
             <h2 className="font-extrabold text-primary text-h2 duration-200">
                 Consultanos
             </h2>
             <h2 htmlFor="name" className="block text-primary text-p3">
                 Nombre
             </h2>
-            <form className="flex flex-col gap-3 h-auto ">
-                <div className="flex flex-col w-full h-full lg:aspect-square justify-between gap-3">
-                    <div className="flex flex-col gap-3">
+            <form className="flex flex-col gap-4 h-auto">
+                <div className="flex flex-col w-full h-full lg:aspect-square gap-4">
+                    <div className="flex flex-col gap-4">
                         <label htmlFor="name" className="text-primary text-p3 hidden">
                             Nombre
                         </label>
@@ -94,7 +94,7 @@ export default function ContactForm() {
                         />
                         {error.name && <span className="text-red-500">{error.name}</span>}
                     </div>
-                    <div className="flex flex-col gap-3">
+                    <div className="flex flex-col gap-4">
                         <label htmlFor="phone" className="block text-primary text-p3">
                             Número de teléfono
                         </label>
@@ -111,7 +111,7 @@ export default function ContactForm() {
                         />
                         {error.phone && <span className="text-red-500">{error.phone}</span>}
                     </div>
-                    <div className="flex flex-col gap-3">
+                    <div className="flex flex-col gap-4">
                         <label htmlFor="email" className="block text-primary text-p3">
                             Correo electrónico
                         </label>
@@ -127,7 +127,7 @@ export default function ContactForm() {
                         />
                         {error.email && <span className="text-red-500">{error.email}</span>}
                     </div>
-                    <div className="flex flex-col gap-3">
+                    <div className="flex flex-col gap-4 flex-1">
                         <label htmlFor="message" className="block text-primary text-p3">
                             Déjanos tu consulta
                         </label>
@@ -136,7 +136,7 @@ export default function ContactForm() {
                             placeholder="Consulta..."
                             id="message"
                             name="message"
-                            className="w-full h-56 rounded-md border-2 text-primary border-input placeholder-input resize-none"
+                            className="w-full md:flex-1 h-36 md:h-auto rounded-md border-2 text-primary border-input placeholder-input resize-none"
                             onChange={handleChange}
                             value={formData.message}
                         ></textarea>
@@ -144,7 +144,7 @@ export default function ContactForm() {
                     </div>
                 </div>
 
-                <button className="button-primary !w-[60%] duration-200 mt-6">
+                <button type="submit" className="button-primary !w-[60%] duration-200 mt-6">
                     ENVIAR CONSULTA
                 </button>
             </form>
