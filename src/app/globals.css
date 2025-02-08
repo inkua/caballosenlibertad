@@ -10,6 +10,7 @@
   --primary: #00638C;
   --primary2: #C6EAFF;
   --secondary: #D98729;
+  --input: #87b6cb;
 }
 
 @media (prefers-color-scheme: dark) {

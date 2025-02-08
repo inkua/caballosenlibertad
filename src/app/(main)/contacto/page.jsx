@@ -3,11 +3,13 @@ import ContactMap from "./components/ContactMap";
 
 export default function page() {
     return (
-        <main className='pb-10 pt-[70px] lg:pt-[170px] lg:mx-auto '>
-            <div className='flex flex-col md:flex-row justify-center gap-[70px] px-mobile md:px-tablet xl:px-mobile max-w-content mx-auto'>
-                <ContactMap phone={"+54 9 221 638-3686"} ubication={"Zona Sur, La Plata, Buenos Aires"} />
-                <ContactForm />
-            </div>
+        <main className='mx-mobile my-28 sm:m-tablet  lg:m-desktop'>
+            <section className="m-auto max-w-content">
+                <div className='flex flex-col md:flex-row justify-center items-start gap-8 md:gap-16'>
+                    <ContactMap phone={"+54 9 221 638-3686"} ubication={"Zona Sur, La Plata, Buenos Aires"} />
+                    <ContactForm />
+                </div>
+            </section>
         </main>
     )
 }

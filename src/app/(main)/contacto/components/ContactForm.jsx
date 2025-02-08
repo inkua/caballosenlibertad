@@ -69,13 +69,16 @@ export default function ContactForm() {
     };
 
     return (
-        <div className="w-full md:basis-1/2">
-            <h2 className="font-extrabold text-primary text-[20px] md:text-[32px] duration-200">
+        <div className="flex flex-col w-full md:w-[50%] gap-3">
+            <h2 className="font-extrabold text-primary text-h2 duration-200">
                 Consultanos
             </h2>
-            <form className="flex flex-col gap-4">
-                <div>
-                    <label htmlFor="name" className="block text-primary">
+            <h2 htmlFor="name" className="block text-primary text-p3">
+                Nombre
+            </h2>
+            <form className="flex flex-col gap-3 h-auto w-full lg:aspect-square justify-between">
+                <div className="flex flex-col gap-3">
+                    <label htmlFor="name" className="text-primary text-p3 hidden">
                         Nombre
                     </label>
                     <input
@@ -84,30 +87,31 @@ export default function ContactForm() {
                         id="name"
                         name="name"
                         placeholder="Nombre y apellido"
-                        className="w-full rounded-md border-primary placeholder-primary"
+                        className="w-full h-12 rounded-md border-2 text-primary border-input placeholder-input"
                         onChange={handleChange}
                         value={formData.name}
                     />
                     {error.name && <span className="text-red-500">{error.name}</span>}
                 </div>
-                <div>
-                    <label htmlFor="phone" className="block text-primary">
+                <div className="flex flex-col gap-3">
+                    <label htmlFor="phone" className="block text-primary text-p3">
                         Número de teléfono
                     </label>
                     <input
                         required
-                        type="number"
+                        type="text"
                         id="phone"
                         name="phone"
                         placeholder="Teléfono"
-                        className="w-full rounded-md border-primary placeholder-primary"
+                        className="w-full h-12 rounded-md border-2 text-primary border-input placeholder-input appearance-none"
                         onChange={handleChange}
+                        onInput={(e) => (e.target.value = e.target.value.replace(/\D/g, ""))}
                         value={formData.phone}
                     />
                     {error.phone && <span className="text-red-500">{error.phone}</span>}
                 </div>
-                <div>
-                    <label htmlFor="email" className="block text-primary">
+                <div className="flex flex-col gap-3">
+                    <label htmlFor="email" className="block text-primary text-p3">
                         Correo electrónico
                     </label>
                     <input
@@ -116,14 +120,14 @@ export default function ContactForm() {
                         id="email"
                         name="email"
                         placeholder="Correo electrónico"
-                        className="w-full rounded-md border-primary placeholder-primary"
+                        className="w-full h-12 rounded-md border-2 text-primary border-input placeholder-input"
                         onChange={handleChange}
                         value={formData.email}
                     />
                     {error.email && <span className="text-red-500">{error.email}</span>}
                 </div>
-                <div>
-                    <label htmlFor="message" className="block text-primary">
+                <div className="flex flex-col gap-3">
+                    <label htmlFor="message" className="block text-primary text-p3">
                         Déjanos tu consulta
                     </label>
                     <textarea
@@ -131,7 +135,7 @@ export default function ContactForm() {
                         placeholder="Consulta..."
                         id="message"
                         name="message"
-                        className="w-full rounded-md border-primary placeholder-primary"
+                        className="w-full h-40 rounded-md border-2 text-primary border-input placeholder-input resize-none"
                         onChange={handleChange}
                         value={formData.message}
                     ></textarea>

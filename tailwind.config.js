@@ -19,6 +19,7 @@ module.exports = {
         primary: "var(--primary)",
         primary2: "var(--primary2)",
         secondary: "var(--secondary)",
+        input: "var(--input)",
       },
       backgroundImage: {
         "hero-nosotros": "url('/assets/nosotros/hero.jpg')",
