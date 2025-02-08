@@ -76,72 +76,75 @@ export default function ContactForm() {
             <h2 htmlFor="name" className="block text-primary text-p3">
                 Nombre
             </h2>
-            <form className="flex flex-col gap-3 h-auto w-full lg:aspect-square justify-between">
-                <div className="flex flex-col gap-3">
-                    <label htmlFor="name" className="text-primary text-p3 hidden">
-                        Nombre
-                    </label>
-                    <input
-                        required
-                        type="text"
-                        id="name"
-                        name="name"
-                        placeholder="Nombre y apellido"
-                        className="w-full h-12 rounded-md border-2 text-primary border-input placeholder-input"
-                        onChange={handleChange}
-                        value={formData.name}
-                    />
-                    {error.name && <span className="text-red-500">{error.name}</span>}
+            <form className="flex flex-col gap-3 h-auto ">
+                <div className="flex flex-col w-full h-full lg:aspect-square justify-between gap-3">
+                    <div className="flex flex-col gap-3">
+                        <label htmlFor="name" className="text-primary text-p3 hidden">
+                            Nombre
+                        </label>
+                        <input
+                            required
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Nombre y apellido"
+                            className="w-full h-12 rounded-md border-2 text-primary border-input placeholder-input"
+                            onChange={handleChange}
+                            value={formData.name}
+                        />
+                        {error.name && <span className="text-red-500">{error.name}</span>}
+                    </div>
+                    <div className="flex flex-col gap-3">
+                        <label htmlFor="phone" className="block text-primary text-p3">
+                            Número de teléfono
+                        </label>
+                        <input
+                            required
+                            type="text"
+                            id="phone"
+                            name="phone"
+                            placeholder="Teléfono"
+                            className="w-full h-12 rounded-md border-2 text-primary border-input placeholder-input appearance-none"
+                            onChange={handleChange}
+                            onInput={(e) => (e.target.value = e.target.value.replace(/\D/g, ""))}
+                            value={formData.phone}
+                        />
+                        {error.phone && <span className="text-red-500">{error.phone}</span>}
+                    </div>
+                    <div className="flex flex-col gap-3">
+                        <label htmlFor="email" className="block text-primary text-p3">
+                            Correo electrónico
+                        </label>
+                        <input
+                            required
+                            type="text"
+                            id="email"
+                            name="email"
+                            placeholder="Correo electrónico"
+                            className="w-full h-12 rounded-md border-2 text-primary border-input placeholder-input"
+                            onChange={handleChange}
+                            value={formData.email}
+                        />
+                        {error.email && <span className="text-red-500">{error.email}</span>}
+                    </div>
+                    <div className="flex flex-col gap-3">
+                        <label htmlFor="message" className="block text-primary text-p3">
+                            Déjanos tu consulta
+                        </label>
+                        <textarea
+                            required
+                            placeholder="Consulta..."
+                            id="message"
+                            name="message"
+                            className="w-full h-56 rounded-md border-2 text-primary border-input placeholder-input resize-none"
+                            onChange={handleChange}
+                            value={formData.message}
+                        ></textarea>
+                        {error.message && <span className="text-red-500">{error.message}</span>}
+                    </div>
                 </div>
-                <div className="flex flex-col gap-3">
-                    <label htmlFor="phone" className="block text-primary text-p3">
-                        Número de teléfono
-                    </label>
-                    <input
-                        required
-                        type="text"
-                        id="phone"
-                        name="phone"
-                        placeholder="Teléfono"
-                        className="w-full h-12 rounded-md border-2 text-primary border-input placeholder-input appearance-none"
-                        onChange={handleChange}
-                        onInput={(e) => (e.target.value = e.target.value.replace(/\D/g, ""))}
-                        value={formData.phone}
-                    />
-                    {error.phone && <span className="text-red-500">{error.phone}</span>}
-                </div>
-                <div className="flex flex-col gap-3">
-                    <label htmlFor="email" className="block text-primary text-p3">
-                        Correo electrónico
-                    </label>
-                    <input
-                        required
-                        type="text"
-                        id="email"
-                        name="email"
-                        placeholder="Correo electrónico"
-                        className="w-full h-12 rounded-md border-2 text-primary border-input placeholder-input"
-                        onChange={handleChange}
-                        value={formData.email}
-                    />
-                    {error.email && <span className="text-red-500">{error.email}</span>}
-                </div>
-                <div className="flex flex-col gap-3">
-                    <label htmlFor="message" className="block text-primary text-p3">
-                        Déjanos tu consulta
-                    </label>
-                    <textarea
-                        required
-                        placeholder="Consulta..."
-                        id="message"
-                        name="message"
-                        className="w-full h-40 rounded-md border-2 text-primary border-input placeholder-input resize-none"
-                        onChange={handleChange}
-                        value={formData.message}
-                    ></textarea>
-                    {error.message && <span className="text-red-500">{error.message}</span>}
-                </div>
-                <button className="bg-secondary text-white font-bold py-2 px-10 rounded-full text hover:bg-white hover:text-secondary border-4 border-secondary duration-200">
+
+                <button className="button-primary !w-[60%] duration-200 mt-6">
                     ENVIAR CONSULTA
                 </button>
             </form>
