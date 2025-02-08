@@ -148,6 +148,9 @@ export default function ContactForm() {
                     ENVIAR CONSULTA
                 </button>
             </form>
+
+            <h2 className='font-extrabold text-primary text-h2 duration-200 mt-8 md:mt-4 md:hidden block'>Teléfono</h2>
+            <p className='text-primary text-p3 duration-200 md:hidden block'>+54 9 221 638-3686</p>
         </div>
     );
 }
