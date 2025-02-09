@@ -11,7 +11,7 @@ import Link from "next/link";
 
 function Slider({ items, type = 0, def, lg, md, nav = true, loop = false }) {
     const customBar = type == 0 ? import("./custom-bar-0.css") : import("./custom-bar-1.css");
-
+    console.log(items)
     return (
         <Swiper
             modules={[Navigation, Pagination]}
@@ -24,11 +24,11 @@ function Slider({ items, type = 0, def, lg, md, nav = true, loop = false }) {
             className={`!relative w-full cursor-grab h-auto ${type == 0 ? '!pb-0 !px-4' : '!pb-12 !px-16'}`} >
             {items.map((item) => (
                 <SwiperSlide key={item.id} className={`!h-auto overflow-hidden ${type == 0 ? 'rounded-none' + ' aspect-[3/2]' : 'rounded-2xl' + ' aspect-square'}`}>
-                    {item.url ?
+                    {item.imgUrl ?
                         <Link href={item.url} target="_blank" rel="noopener noreferrer">
                             <Image
-                                src={item.data}
-                                alt={item.alt}
+                                src={item.imgUrl}
+                                alt={item.alt ? item.alt : 'Evento'}
                                 width={700}
                                 height={700}
                                 className="absolute w-full h-full object-cover"
@@ -37,8 +37,8 @@ function Slider({ items, type = 0, def, lg, md, nav = true, loop = false }) {
                         </Link>
                         :
                         <Image
-                            src={item.data}
-                            alt={item.alt}
+                            src={item.imgUrl}
+                            alt={item.alt ? item.alt : 'Evento'}
                             width={700}
                             height={700}
                             className="absolute w-full h-full object-cover"

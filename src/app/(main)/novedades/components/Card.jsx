@@ -5,7 +5,7 @@ function Card() {
         <div className="flex flex-col lg:flex-row bg-white rounded-2xl p-8 lg:p-16 gap-14">
             <div className="aspect-[8/10] overflow-hidden rounded-2xl w-full lg:w-[40%]">
                 <Image
-                    src={"/assets/caballos_rescatados.jpg"}
+                    src={"/assets/eventos/eventos_004.jpg"}
                     alt={"No disponible"}
                     width={700}
                     height={700}

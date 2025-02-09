@@ -1,31 +1,11 @@
 import { TitleSection } from "../components/TitleSection";
 import Card from "./components/Card";
 import Slider from "../components/slider/Slider";
+import { getEvents } from "@/DAO/events.db";
 
-const items = [
-    {
-        data: '/assets/caballos_atardecer.jpg',
-        alt: '',
-        url: '',
-    },
-    {
-        data: '/assets/caballos_rescatados.jpg',
-        alt: '',
-        url: '',
-    },
-    {
-        data: '/assets/doctor_veterinario.jpg',
-        alt: '',
-        url: '',
-    },
-    {
-        data: '/assets/equipo_ong_caballos.jpg',
-        alt: '',
-        url: '',
-    },
-]
+async function Novedades() {
+    const data = await getEvents()
 
-function Novedades() {
     return (
         <main className="mx-mobile my-28 sm:m-tablet  lg:m-desktop">
             <section className="m-auto max-w-content">
@@ -41,7 +21,7 @@ function Novedades() {
 
                 <div className="w-full">
                     <h2 className="text-primary text-h2 font-bold leading-120 mt-12 mb-12">Eventos anteriores</h2>
-                    <Slider items={items} type={1} def={1} lg={3} md={2} loop={true} />
+                    <Slider items={data} type={1} def={1} lg={3} md={2} loop={true} />
                 </div>
             </section>
         </main>
