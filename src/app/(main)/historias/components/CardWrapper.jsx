@@ -23,7 +23,7 @@ function CardWrapper() {
     return (
         <div className="masonry columns-2 gap-4">
             {items && items.map((item) => (
-                <Card key={item.id} name={item.name} data={item.data} alt={item.alt} info={item.info} />
+                <Card key={item.id} name={item.name} data={item.imgUrl} alt={item.alt} info={item.text} />
             ))}
         </div>
     );

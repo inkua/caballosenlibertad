@@ -5,6 +5,7 @@ const StoryForm = ({ isOpen, setIsOpen, saveStory, data, add = true }) => {
         name: "",
         text: "",
         status: "Activo",
+        alt: "",
     });
 
     const [id, setId] = useState("");
@@ -22,6 +23,7 @@ const StoryForm = ({ isOpen, setIsOpen, saveStory, data, add = true }) => {
         const newData = { ...formValues };
 
         if (add) {
+            newData.alt = 'Imagen de ' + newData.name
             saveStory(newData);
         } else {
             saveStory({ newData, id: id });
