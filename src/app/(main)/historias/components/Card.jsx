@@ -38,7 +38,7 @@ function Card({ name, data, alt, info }) {
                                 />
                             </div>
 
-                            <div className="flex h-full flex-col gap-4">
+                            <div className="flex h-full flex-col gap-6">
                                 <h1 className="font-bold text-h2">{name}</h1>
                                 <p className="!font-bold par-1 text-primary">
                                     {info}
