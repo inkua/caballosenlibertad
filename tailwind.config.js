@@ -35,11 +35,11 @@ module.exports = {
       padding:{
         "mobile":"1rem",
         "tablet":"4rem",
-        "desktop":"8rem",
+        "desktop":"44",
       },
       maxWidth:{
-        "content":"1440px",
-        "banner": "1800px",
+        "content":"1280px",
+        "banner": "1920px",
       },
       fontSize: {
         "h1-w": "120px",

@@ -37,7 +37,7 @@ const NestedLinks = ({data, onScroll, isHomePage}) => {
         <div
             onClick={ handleClickSwitchState }
             onKeyDown={ (e) => e.key === 'Enter' && setShowNestedLinks(!showNestedLinks) }
-            className={`font-semibold lg:font-medium xl:font-semibold cursor-pointer text-[16px] xl:text-[18px] px-4 lg:px-2 xl:px-3 gap-2 rounded-sm flex items-center hover:text-primary2`}
+            className={`font-semibold lg:font-medium xl:font-semibold cursor-pointer lg:text-sm 2xl:text-lg px-4 lg:px-2 2xl:px-3 gap-1 2xl:gap-2 rounded-sm flex items-center hover:text-primary2`}
             tabIndex={0}
             role="button"
             aria-expanded={showNestedLinks}

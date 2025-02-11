@@ -6,12 +6,13 @@ async function Historias() {
     const data = await getActiveStories()
     
     return (
-        <main className="mx-mobile my-28 sm:m-tablet  lg:m-desktop">
-            <section className="m-auto max-w-content">
+        <main className="">
                 <TitleSection
                     titleTextContent="Historias de nuestros rescatados"
                     spanTextContent="Conocé las historias de nuestros rescatados"
                 />
+
+            <section className="m-auto max-w-content px-mobile md:px-tablet lg:px-desktop">
 
                 <CardWrapper items={data} />
 
