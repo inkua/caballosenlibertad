@@ -27,13 +27,13 @@ const items = [
 
 function Novedades() {
     return (
-        <main className="mx-mobile my-28 sm:m-tablet  lg:m-desktop">
-            <section className="m-auto max-w-content">
+        <main className="my-28">
                 <TitleSection
                     titleTextContent="Novedades"
                     spanTextContent="Conocé todas las actividades y concursos que nos ayudan a seguir creciendo."
                 />
 
+            <section className="m-auto max-w-content px-mobile md:px-tablet lg:px-desktop">
                 <div>
                     <h2 className="text-primary text-h2 font-bold leading-120 mt-12 mb-12">Proximos eventos</h2>
                     <Card />

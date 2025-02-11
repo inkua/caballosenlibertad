@@ -163,12 +163,12 @@ function Voluntariado() {
   ];
 
   return (
-    <main className="mx-mobile my-28 sm:m-tablet  lg:m-desktop">
+    <main className="my-28">
       <TitleSection
         titleTextContent="Convertite en voluntario"
         spanTextContent="Sumate a nuestro equipo. Dado que no contamos con ningún subsidio de parte del Estado, realizamos las tareas gracias al apoyo de nuestros voluntarios."
       />
-      <section className=" m-auto max-w-content mt-6">
+      <section className=" m-auto max-w-content mt-6 px-mobile md:px-tablet lg:px-desktop">
         <h1 className="text-primary text-xl sm:text-[28px] md:text-[32px] lg:text-[40px] font-bold leading-120">
           ¿Qué tipo de voluntariado puedo realizar?
         </h1>

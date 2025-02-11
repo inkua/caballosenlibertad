@@ -6,7 +6,7 @@ import { TitleSection } from "./components/TitleSection";
 
 export default function Home() {
   return (
-    <main className='pt-[70px] lg:pt-[130px]'>
+    <main className='pt-[70px] lg:pt-[130px] '>
       <TitleSection 
         titleTextContent='Caballos en Libertad'
         spanTextContent='Protección, cuidado y rescate de equinos'

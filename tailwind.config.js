@@ -35,7 +35,7 @@ module.exports = {
       padding:{
         "mobile":"1rem",
         "tablet":"4rem",
-        "desktop":"44",
+        "desktop":"8rem",
       },
       maxWidth:{
         "content":"1280px",
