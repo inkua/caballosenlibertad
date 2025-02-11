@@ -38,8 +38,8 @@ module.exports = {
         "desktop":"8rem",
       },
       maxWidth:{
-        "content":"1440px",
-        "banner": "1800px",
+        "content":"1280px",
+        "banner": "1920px",
       },
       fontSize: {
         "h1-w": "120px",

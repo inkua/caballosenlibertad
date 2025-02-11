@@ -49,7 +49,7 @@ export const Gallery = () => {
   
 
   return (
-    <div className='px-mobile py-6 md:py-10 lg:py-12 xl:pt-16 lg:px-tablet'>
+    <div className='py-6 md:py-10 lg:py-12 xl:pt-16'>
       <ImageGallery 
         items={images}
         showThumbnails={false}

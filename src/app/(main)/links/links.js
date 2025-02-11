@@ -1,5 +1,5 @@
 export const featuresLinks = [
-  { textContent: 'Sobre Nosotros', href: '/nosotros' },
+  { textContent: 'Nosotros', href: '/nosotros' },
   {
     textContent: 'Caballos',
     children: [
