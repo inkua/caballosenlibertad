@@ -11,7 +11,7 @@ function AddBtn() {
     const { showToast } = useToast()
 
     const saveEvent = async (newData) => {
-        const response = await fetch('http://localhost:3000/api/events', {
+        const response = await fetch('/api/events', {
             method: 'POST',
             body: JSON.stringify({
                 token: '',

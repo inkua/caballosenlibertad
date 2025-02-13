@@ -44,7 +44,6 @@ export const Gallery = () => {
   
       setImages(newImages);
     }
-    console.log(data);
   }, [data]);
   
 

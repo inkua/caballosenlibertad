@@ -1,5 +1,6 @@
 "use client";
 
+import { useToast } from "@/utils/toast";
 import { useState } from "react";
 
 export default function ContactForm() {
@@ -15,6 +16,8 @@ export default function ContactForm() {
         email: "",
         message: ""
     });
+    const { showToast } = useToast()
+    const [pending, setPending] = useState(false);
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -37,9 +40,9 @@ export default function ContactForm() {
         if (name.trim().length < 3) {
             newErrors.name = "El nombre debe tener minimo 3 caracteres"
         } else if (!isValidPhone(phone)) {
-            newErrors.email = "Telefono invalido"
+            newErrors.email = "Email invalido"
         } else if (!isValidEmail(email)) {
-            newErrors.phone = "Email invalido"
+            newErrors.phone = "Teléfono invalido"
         } else if (message.trim().length < 10) {
             newErrors.message = "La consulta debe tener minimo 10 caracteres"
         }
@@ -49,6 +52,7 @@ export default function ContactForm() {
             return
         }
         setError({})
+        setPending(true)
 
         try {
             const data = {
@@ -61,17 +65,20 @@ export default function ContactForm() {
             const response = await fetch('/api/mail', {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({data: data}),
+                body: JSON.stringify({ data: data }),
             })
 
             if (response.ok) {
-                //setFormData({ name: '', phone: '', email: '', message: '' }); // Limpia el formulario
-                alert(`Mensaje enviado`);
+                setFormData({ name: '', phone: '', email: '', message: '' }); 
+                showToast({ type: 'success', message: '¡Tu consulta ha sido enviada con éxito!' })
             } else {
-                alert(`Error`);
+                showToast({ type: 'error', message: 'No pudimos enviar tu consulta. Inténtalo nuevamente.' })
             }
         } catch (error) {
-            console.log(error)
+            console.log(error);
+            showToast({ type: 'error', message: 'No pudimos enviar tu consulta. Inténtalo nuevamente.' });
+        } finally {
+            setPending(false);
         }
     };
 
@@ -83,7 +90,7 @@ export default function ContactForm() {
             <h2 htmlFor="name" className="block text-primary text-p3">
                 Nombre
             </h2>
-            <form className="flex flex-col gap-4 h-auto" onSubmit={(e)=>sendEmail(e)}>
+            <form className="flex flex-col gap-4 h-auto" onSubmit={(e) => sendEmail(e)}>
                 <div className="flex flex-col w-full h-full lg:aspect-square gap-4">
                     <div className="flex flex-col gap-4">
                         <label htmlFor="name" className="text-primary text-p3 hidden">
@@ -151,8 +158,8 @@ export default function ContactForm() {
                     </div>
                 </div>
 
-                <button type="submit" className="button-primary !w-[60%] duration-200 mt-6">
-                    ENVIAR CONSULTA
+                <button type="submit" disabled={pending} className="button-primary !w-[60%] duration-200 mt-6 disabled:hover:cursor-not-allowed disabled:hover:bg-secondary disabled:hover:text-white">
+                    {pending ? 'Enviando...' : 'ENVIAR CONSULTA'}
                 </button>
             </form>
 

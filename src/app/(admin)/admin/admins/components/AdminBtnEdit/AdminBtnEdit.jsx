@@ -7,7 +7,7 @@ function AdminBtnEdit({ data, open, setOpen, disabled=false }) {
     const router = useRouter();
     const updateData = async (newData) => {
 
-        const response = await fetch("http://localhost:3000/api/admin", {
+        const response = await fetch("/api/admin", {
             method: "PUT",
             body: JSON.stringify({
                 data: newData,
