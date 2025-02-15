@@ -1,7 +1,7 @@
 import { TitleSection } from "../components/TitleSection";
-import Card from "./components/Card";
 import Slider from "../components/slider/Slider";
 import { getEvents } from "@/DAO/events.db";
+import CardWrapper from "./components/CardWrapper";
 
 async function Novedades() {
     const data = await getEvents()
@@ -14,9 +14,17 @@ async function Novedades() {
                     spanTextContent="Conocé todas las actividades y concursos que nos ayudan a seguir creciendo."
                 />
 
-                <div>
+                <div className="flex flex-col gap-8">
                     <h2 className="text-primary text-h2 font-bold leading-120 mt-12 mb-12">Proximos eventos</h2>
-                    <Card />
+                    <div className="flex flex-col gap-8">
+                        <div className='block md:hidden'>
+                            <Slider items={data} type={2} def={1} lg={1} md={1} loop={true} />
+                        </div>
+
+                        <div className='hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-8'>
+                            <CardWrapper items={data} />
+                        </div>
+                    </div>
                 </div>
 
                 <div className="w-full">
