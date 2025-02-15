@@ -3,13 +3,13 @@ import Image from "next/image";
 
 function Denuncias() {
     return (
-        <main className="mx-mobile my-28 sm:m-tablet  lg:m-desktop">
-            <section className="m-auto max-w-content">
-                <TitleSection
-                    titleTextContent="Denuncias"
-                    spanTextContent="Enterate de como actuar si ves una situación de maltrato animal."
-                />
+        <main className="">
+            <TitleSection
+                titleTextContent="Denuncias"
+                spanTextContent="Enterate de como actuar si ves una situación de maltrato animal."
+            />
 
+            <section className="m-auto max-w-content px-mobile md:px-tablet lg:px-desktop">
                 <div>
                     <h2 className="text-primary text-h2 font-bold leading-120 mt-12 mb-12">¿Cómo reportar situación de maltrato?</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-32 lg:gap-x-72 gap-y-24 md:gap-y-24 lg:gap-y-32 items-start">
@@ -31,8 +31,8 @@ function Denuncias() {
                         </div>
 
                         <div className="flex flex-col w-full justify-center items-center gap-8">
-                        <div className="flex justify-center items-center w-[60%] aspect-square bg-primary2 rounded-full overflow-hidden">
-                        <Image
+                            <div className="flex justify-center items-center w-[60%] aspect-square bg-primary2 rounded-full overflow-hidden">
+                                <Image
                                     src={'/assets/denuncias/denuncia_02.png'}
                                     alt={'No disponible'}
                                     width={700}
@@ -48,8 +48,8 @@ function Denuncias() {
                         </div>
 
                         <div className="flex flex-col w-full justify-center items-center gap-8">
-                        <div className="flex justify-center items-center w-[60%] aspect-square bg-primary2 rounded-full overflow-hidden">
-                        <Image
+                            <div className="flex justify-center items-center w-[60%] aspect-square bg-primary2 rounded-full overflow-hidden">
+                                <Image
                                     src={'/assets/denuncias/denuncia_03.png'}
                                     alt={'No disponible'}
                                     width={700}
@@ -65,8 +65,8 @@ function Denuncias() {
                         </div>
 
                         <div className="flex flex-col w-full justify-center items-center gap-8">
-                        <div className="flex justify-center items-center w-[60%] aspect-square bg-primary2 rounded-full overflow-hidden">
-                        <Image
+                            <div className="flex justify-center items-center w-[60%] aspect-square bg-primary2 rounded-full overflow-hidden">
+                                <Image
                                     src={'/assets/denuncias/denuncia_04.png'}
                                     alt={'No disponible'}
                                     width={700}

@@ -16,7 +16,7 @@ function BtnDeleteEvent({data}) {
     }
 
     const deleteData = async () => {
-        const response = await fetch(`http://localhost:3000/api/events/`, {
+        const response = await fetch(`/api/events/`, {
             method: 'DELETE',
             body: JSON.stringify({
                 token: '',

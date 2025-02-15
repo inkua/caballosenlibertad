@@ -7,14 +7,14 @@ async function Novedades() {
     const data = await getEvents()
 
     return (
-        <main className="mx-mobile my-28 sm:m-tablet  lg:m-desktop">
-            <section className="m-auto max-w-content">
+        <main className="my-28">
                 <TitleSection
                     titleTextContent="Novedades"
                     spanTextContent="Conocé todas las actividades y concursos que nos ayudan a seguir creciendo."
                 />
 
-                <div className="flex flex-col gap-8">
+            <section className="m-auto max-w-content px-mobile md:px-tablet lg:px-desktop">
+                <div>
                     <h2 className="text-primary text-h2 font-bold leading-120 mt-12 mb-12">Proximos eventos</h2>
                     <div className="flex flex-col gap-8">
                         <div className='block md:hidden'>
