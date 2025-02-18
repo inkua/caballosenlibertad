@@ -16,7 +16,7 @@ export const ItemsGrid = async () => {
     return (
         <section
             aria-labelledby="items-grid"
-            className='w-full mx-auto py-6 md:py-12 lg:py-14 px-mobile md:px-tablet lg:px-desktop max-w-content'
+            className='w-full mx-auto pb-6 md:pb-12 lg:pb-14 px-mobile md:px-tablet lg:px-desktop max-w-content'
         >
             <h2
                 id="items-grid"
