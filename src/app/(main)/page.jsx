@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Contribution } from "./components/home/Contribution";
 import { Statistics } from "./components/home/Statistics";
 import { TitleSection } from "./components/TitleSection";
+import VideoThumbnail from "./components/home/VideoThumbnail";
 
 export default function Home() {
     return (
@@ -17,16 +18,7 @@ export default function Home() {
             </TitleSection>
 
             <section className="w-full mt-4 max-w-banner mx-auto">
-                <iframe
-                    width="100%"
-                    height="400"
-                    src="https://www.youtube.com/embed/nzJ-2DWM84M"
-                    frameBorder="0"
-                    allowFullScreen
-                    title="Video institucional, Caballos en Libertad"
-                    className="w-full h-full max-h-[670px] aspect-[360/168] md:aspect-[1440/670]"
-                >
-                </iframe>
+                <VideoThumbnail />
             </section>
 
             <section className='flex flex-col w-full box-border items-start justify-between gap-20 lg:gap-40 py-20 md:py-24 lg:py-32 xl:py-40 px-mobile md:px-tablet lg:px-desktop max-w-content mx-auto'>
