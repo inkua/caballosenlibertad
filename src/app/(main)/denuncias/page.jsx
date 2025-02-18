@@ -12,10 +12,10 @@ function Denuncias() {
 
             <section className="m-auto max-w-content px-mobile md:px-tablet lg:px-desktop">
                 <div>
-                    <h2 className="text-primary text-h2 font-bold leading-120 mt-12 mb-12">¿Cómo reportar situación de maltrato?</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-32 lg:gap-x-72 gap-y-24 md:gap-y-24 lg:gap-y-32 items-start">
-                        <div className="flex flex-col w-full justify-center items-center gap-8">
-                            <div className="flex justify-center items-center w-[60%] aspect-square bg-primary2 rounded-full overflow-hidden">
+                    <h2 className="text-primary text-h2 font-bold leading-120 mt-12 mb-12">¿Cómo reportar una situación de maltrato?</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-20 gap-y-20 md:gap-y-24 items-start">
+                        <div className="flex flex-col w-full justify-center items-center gap-5 lg:gap-8">
+                            <div className="flex justify-center items-center w-[45%] lg:w-[38%] aspect-square bg-primary2 rounded-full overflow-hidden">
                                 <Image
                                     src={'/assets/denuncias/denuncia_01.png'}
                                     alt={'No disponible'}
@@ -32,7 +32,7 @@ function Denuncias() {
                         </div>
 
                         <div className="flex flex-col w-full justify-center items-center gap-8">
-                            <div className="flex justify-center items-center w-[60%] aspect-square bg-primary2 rounded-full overflow-hidden">
+                            <div className="flex justify-center items-center w-[45%] lg:w-[38%] aspect-square bg-primary2 rounded-full overflow-hidden">
                                 <Image
                                     src={'/assets/denuncias/denuncia_02.png'}
                                     alt={'No disponible'}
@@ -44,12 +44,12 @@ function Denuncias() {
                             </div>
                             <h2 className="text-h2 text-primary font-bold text-center">Si no quieren tomar la denuncia</h2>
                             <p className="text-p2 text-center">
-                                Dirigete a la Fiscalía para realizar la misma. Tambien <span className="font-bold">se puede denunciar a los oficiales con nombre y apellido</span> que no quisieron tomarla o, en su defecto, el número del operador del <span className="font-bold">911</span>.
+                                Dirigite a la Fiscalía o también podés <span className="font-bold">denunciar a los oficiales por nombre y apellido</span> al operador del <span className="font-bold">911</span>.
                             </p>
                         </div>
 
                         <div className="flex flex-col w-full justify-center items-center gap-8">
-                            <div className="flex justify-center items-center w-[60%] aspect-square bg-primary2 rounded-full overflow-hidden">
+                            <div className="flex justify-center items-center w-[45%] lg:w-[38%] aspect-square bg-primary2 rounded-full overflow-hidden">
                                 <Image
                                     src={'/assets/denuncias/denuncia_03.png'}
                                     alt={'No disponible'}
@@ -66,7 +66,7 @@ function Denuncias() {
                         </div>
 
                         <div className="flex flex-col w-full justify-center items-center gap-8">
-                            <div className="flex justify-center items-center w-[60%] aspect-square bg-primary2 rounded-full overflow-hidden">
+                            <div className="flex justify-center items-center w-[45%] lg:w-[38%] aspect-square bg-primary2 rounded-full overflow-hidden">
                                 <Image
                                     src={'/assets/denuncias/denuncia_04.png'}
                                     alt={'No disponible'}
@@ -78,7 +78,7 @@ function Denuncias() {
                             </div>
                             <h2 className="text-h2 text-primary font-bold text-center">Cuándo puedo denunciar</h2>
                             <p className="text-p2 text-center">
-                                Todas las leyes se aplican cuando el delito fue cometido. No se puede denunciar de forma «preventiva» y sin pruebas concretas.                            </p>
+                                Todas las leyes se aplican cuando el delito fue cometido. <span className="font-bold">No se puede denunciar de forma preventiva</span> y sin pruebas concretas.                            </p>
                         </div>
                     </div>
                 </div>

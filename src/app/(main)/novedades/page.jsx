@@ -1,12 +1,20 @@
 import Slider from "../components/slider/Slider";
 import { TitleSection } from "../components/TitleSection";
-
-import Slider from "../components/slider/Slider";
-import { getEvents } from "@/DAO/events.db";
 import CardWrapper from "./components/CardWrapper";
 
+const getData = async()=>{
+    const url = `${process.env.NEXT_PUBLIC_URL}/api/events`
+    const response = await fetch(url,{
+        next:{
+            revalidate:60
+        }
+    });
+    const result = await response.json();
+    return result.data
+}  
+
 async function Novedades() {
-    const data = await getEvents()
+    const data = await getData()
 
     return (
         <main className="py-[70px] lg:py-[90px]">

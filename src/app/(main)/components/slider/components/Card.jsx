@@ -4,7 +4,7 @@ import Card from "../../../novedades/components/Card"
 
 export function Type0({ item }) {
     return (
-        <Link href={item.url} target="_blank" rel="noopener noreferrer">
+        <Link href="/historias" alt="página de historias" >
             <Image
                 src={item.imgUrl}
                 alt={item.alt ? item.alt : 'Evento'}
