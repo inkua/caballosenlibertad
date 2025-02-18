@@ -10,6 +10,7 @@ function FormEvent({ isOpen, setIsOpen, saveEvent, data, add = true }) {
     const [url, setUrl] = useState("");
     const [id, setId] = useState("");
     const [location, setLocation] = useState("");
+    const [status, setStatus] = useState("");
 
     const formatDateForInput = (date) => {
         if (date instanceof Timestamp) {
