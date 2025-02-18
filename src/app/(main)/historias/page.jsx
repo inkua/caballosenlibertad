@@ -1,10 +1,19 @@
-import { getActiveStories } from "@/DAO/stories.db";
 
 import { TitleSection } from "../components/TitleSection";
 import CardWrapper from "./components/CardWrapper";
+const getData = async()=>{
+    const url = `${process.env.NEXT_PUBLIC_URL}/api/stories`
+    const response = await fetch(url,{
+        next:{
+            revalidate:60
+        }
+    });
+    const result = await response.json();
+    return result.data
+}   
 
 async function Historias() {
-    const data = await getActiveStories()
+    const stories = await getData()
 
     return (
         <main className="py-[70px] lg:py-[90px]">
@@ -15,7 +24,7 @@ async function Historias() {
 
             <section className="m-auto max-w-content px-mobile md:px-tablet lg:px-desktop">
 
-                <CardWrapper items={data} />
+                <CardWrapper items={stories} />
 
                 <div>
                     <h2 className="text-primary text-h2 font-bold leading-120 mt-12 mb-12 text-center">¡Esto no sería posible sin tu ayuda y la de nuestros voluntarios!</h2>

@@ -5,7 +5,18 @@ import { HowToHelp } from "./components/HowToHelp";
 export const metadata = {
     title: "Donar"
 }
-function Donar() {
+const getData = async()=>{
+    const url = `${process.env.NEXT_PUBLIC_URL}/api/stories`
+    const response = await fetch(url,{
+        next:{
+            revalidate:60
+        }
+    });
+    const result = await response.json();
+    return result.data
+}   
+async function Donar() {
+    const stories = await getData()
 
     return (
         <main className="py-[70px] lg:py-[90px]">
@@ -22,16 +33,14 @@ function Donar() {
                 </div>
             </section>
             <section className="m-auto max-w-banner mt-6 px-mobile md:px-tablet lg:px-desktop">
-                    {/* <Gallery /> */}
-                    {/* <Slider 
-                    items={imagesBase}
+                    <Slider 
+                    items={stories}
                     type={0}
                     def={1}
                     lg={2}
                     md={2}
                     loop={true}
-                    /> */}
-
+                    />
             </section>
             
         </main>
