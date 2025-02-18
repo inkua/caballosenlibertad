@@ -1,9 +1,10 @@
-import { TitleSection } from "../components/TitleSection"
 import Image from "next/image";
+
+import { TitleSection } from "../components/TitleSection"
 
 function Denuncias() {
     return (
-        <main className="">
+        <main className="py-[70px] lg:py-[90px]">
             <TitleSection
                 titleTextContent="Denuncias"
                 spanTextContent="Enterate de como actuar si ves una situación de maltrato animal."

@@ -1,16 +1,17 @@
 import { getActiveStories } from "@/DAO/stories.db";
+
 import { TitleSection } from "../components/TitleSection";
 import CardWrapper from "./components/CardWrapper";
 
 async function Historias() {
     const data = await getActiveStories()
-    
+
     return (
-        <main className="">
-                <TitleSection
-                    titleTextContent="Historias de nuestros rescatados"
-                    spanTextContent="Conocé las historias de nuestros rescatados"
-                />
+        <main className="py-[70px] lg:py-[90px]">
+            <TitleSection
+                titleTextContent="Historias de nuestros rescatados"
+                spanTextContent="Conocé las historias de nuestros rescatados"
+            />
 
             <section className="m-auto max-w-content px-mobile md:px-tablet lg:px-desktop">
 

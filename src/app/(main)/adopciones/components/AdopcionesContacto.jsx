@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { ContactItem } from './ContactItem'
 
 const Contactos = [
@@ -22,7 +23,7 @@ const Contactos = [
 export const AdopcionesContacto = () => {
 
   return (
-    <ul className='space-y-6 md:pl-8 md:pt-2'>
+    <ul className='space-y-6 md:pl-8 md:pt-2 w-full'>
         {
             Contactos.map((contact) => (
                 <ContactItem contact={contact} key={`item-id-${contact.itemName}`}/>

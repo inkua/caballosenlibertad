@@ -1,33 +1,37 @@
+import Slider from "../components/slider/Slider";
 import { TitleSection } from "../components/TitleSection";
 import Card from "./components/Card";
-import Slider from "../components/slider/Slider";
 
 const items = [
     {
         data: '/assets/caballos_atardecer.jpg',
         alt: '',
         url: '',
+        id:1,
     },
     {
         data: '/assets/caballos_rescatados.jpg',
         alt: '',
         url: '',
+        id:2,
     },
     {
         data: '/assets/doctor_veterinario.jpg',
         alt: '',
         url: '',
+        id:3,
     },
     {
         data: '/assets/equipo_ong_caballos.jpg',
         alt: '',
         url: '',
+        id:4,
     },
 ]
 
 function Novedades() {
     return (
-        <main className="my-28">
+        <main className="py-[70px] lg:py-[90px]">
                 <TitleSection
                     titleTextContent="Novedades"
                     spanTextContent="Conocé todas las actividades y concursos que nos ayudan a seguir creciendo."
