@@ -6,7 +6,7 @@ import { TitleSection } from "./components/TitleSection";
 
 export default function Home() {
     return (
-        <main className='pt-[70px] lg:pt-[130px] '>
+        <main className='pt-[70px] lg:pt-[90px] '>
             <TitleSection
                 titleTextContent='Caballos en Libertad'
                 spanTextContent='Protección, cuidado y rescate de equinos'
@@ -16,7 +16,7 @@ export default function Home() {
                 </Link>
             </TitleSection>
 
-            <section className="w-full my-20 lg:my40 max-w-banner mx-auto">
+            <section className="w-full mt-4 max-w-banner mx-auto">
                 <iframe
                     width="100%"
                     height="400"

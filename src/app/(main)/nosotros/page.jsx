@@ -19,7 +19,7 @@ const Nosotros = () => {
                         Rescatamos, rehabilitamos y reubicamos caballos
                     </h1>
 
-                    <div className="h-auto mt-[1rem] md:hidden">
+                    <div className="h-auto md:hidden">
 
 
                         <article className="md:h-[390px] flex flex-col md:flex-row items-center justify-center mb-24 relative max-w-[1440px] mx-auto py-[1rem] md:py-[4rem] lg:py-[8rem]">
@@ -33,7 +33,7 @@ const Nosotros = () => {
                             </div>
                         </article>
 
-                        <article className="md:h-[390px] bg-white flex flex-col md:flex-row-reverse items-center justify-center py-24 relative max-w-[1440px] mx-auto p-[1rem] md:p-[4rem] lg:p-[8rem]">
+                        <article className="md:h-[390px] bg-white flex flex-col md:flex-row-reverse items-center justify-center relative max-w-[1440px] mx-auto p-[1rem] md:p-[4rem] lg:p-[8rem] rounded-[10px]">
                             <div className="md:bg-[#00638C] text-black md:text-white content-center md:rounded-[60px] flex-1 mt-4 md:mt-0 md:mr-10 lg:mr-6 md:h-[280px]">
                                 <img className="md:hidden aspect-square w-full md:w-auto md:h-auto mx-auto rounded-full object-cover mb-8 max-w-[390px]" src="/assets/ubicación_mapa.png" alt="Ubicación La Plata" />
                                 <p className=" md:text-[20px] md:mr-64 lg:mr-80 py-4 leading-relaxed md:font-light">
@@ -55,7 +55,7 @@ const Nosotros = () => {
                             </div>
                         </article>
 
-                        <article className="md:h-auto bg-white flex flex-col md:flex-row-reverse items-center justify-center py-24 relative max-w-[1440px] mx-auto p-[1rem] md:p-[4rem] lg:p-[8rem]">
+                        <article className="md:h-auto bg-white flex flex-col md:flex-row-reverse items-center justify-center pb-16 relative max-w-[1440px] mx-auto p-[1rem] md:p-[4rem] lg:p-[8rem] rounded-[10px]">
                             <div className="md:bg-[#00638C] text-black md:text-white content-center md:rounded-[60px] flex-1 mt-4 md:mt-0 md:mr-10 lg:mr-6 md:h-[280px]">
                                 <img className="md:hidden aspect-square w-full mx-auto rounded-full object-cover mb-8 max-w-[390px]" src="/assets/caballos_atardecer.jpg" alt="Esperanza de libertad para los caballos" />
                                 <p className=" md:text-[20px] md:mr-64 lg:mr-80 py-4 leading-relaxed md:font-light">
@@ -145,7 +145,7 @@ const Nosotros = () => {
                         </article>
 
                     </div>
-                    <h2 className="text-center text-[25px] md:mt-mobile lg:mt-tablet font-extrabold text-[#00638C] md:text-3xl lg:text-4xl max-w-content !leading-140">
+                    <h2 className="hidden md:block text-center text-[25px] md:mt-mobile lg:mt-tablet font-extrabold text-[#00638C] md:text-3xl lg:text-4xl max-w-content !leading-140">
                         ¡Apostamos a un futuro con derechos e igualdad para todos los animales!
                     </h2>
                 </div>

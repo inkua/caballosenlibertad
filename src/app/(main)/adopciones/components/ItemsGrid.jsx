@@ -34,7 +34,7 @@ export const ItemsGrid = () => {
             Descubre a nuestros caballos rescatados en busca de un hogar
         </h2>
         <div className="mt-12 mx-auto flex">
-          <div className='w-full grid grid-cols-[repeat(auto-fill,_minmax(305px,_1fr))] gap-4 md:gap-8 max-w-content'>
+          <div className='w-full grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 max-w-content'>
             { loading ?
                 Array.from({ length: 6 }).map((_, index) => (
                   <div 
@@ -46,12 +46,12 @@ export const ItemsGrid = () => {
                   data.map((item) => (
                     <div
                       key={item.id}
-                      className="relative group rounded-2xl overflow-hidden w-full h-[540px]"
+                      className="relative group rounded-sm overflow-hidden w-full aspect-[4/6] "
                     >
                       <img
                         src={item.imgUrl || "https://res.cloudinary.com/diiavhlq4/image/upload/v1736874938/general-1736874938068.webp"}
                         alt={item.name}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover object-center"
                       />
                       <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <span className="text-white text-lg font-semibold text-center px-2">

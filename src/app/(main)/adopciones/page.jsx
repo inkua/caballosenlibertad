@@ -1,6 +1,6 @@
+import { TitleSection } from "../components/TitleSection";
 import { AdopcionesCard } from "./components/AdopcionesCard";
 import { ItemsGrid } from "./components/ItemsGrid";
-import { TitleSection } from "../components/TitleSection";
 
 export const metadata = {
   title: "Adopciones"
@@ -9,14 +9,14 @@ export const metadata = {
 function Adopciones() {
 
   return (
-    <main className="pt-[70px] lg:pt-[90px]">
+    <main className="py-[70px] lg:py-[90px]">
         <TitleSection
             titleTextContent="Dales una segunda oportunidad"
             spanTextContent="Adoptá un caballo rescatado y transformá vidas"
         />
         <ItemsGrid />
         <div
-            className="w-full mx-auto py-6 md:py-12 lg:py-14 mb-14 px-mobile md:px-tablet lg:px-desktop max-w-content"
+            className="w-full mx-auto py-6 md:py-12 lg:py-14 px-mobile md:px-tablet lg:px-desktop max-w-content"
         >
             <AdopcionesCard />            
         </div>
