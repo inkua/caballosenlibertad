@@ -1,4 +1,6 @@
+import Slider from "../components/slider/Slider";
 import { TitleSection } from "../components/TitleSection";
+
 import Slider from "../components/slider/Slider";
 import { getEvents } from "@/DAO/events.db";
 import CardWrapper from "./components/CardWrapper";
@@ -7,7 +9,7 @@ async function Novedades() {
     const data = await getEvents()
 
     return (
-        <main className="my-28">
+        <main className="py-[70px] lg:py-[90px]">
                 <TitleSection
                     titleTextContent="Novedades"
                     spanTextContent="Conocé todas las actividades y concursos que nos ayudan a seguir creciendo."

@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import React from 'react'
 
 export const HelpItem = ( { text, image, handleItemClick, buttonText, priority } ) => {
 
@@ -10,7 +9,7 @@ export const HelpItem = ( { text, image, handleItemClick, buttonText, priority }
           width={200}
           height={200}
           alt={`imagen representativa de ${text}`} 
-          className="w-[100px] h-[100px] md:w-[150px] md:h-[150px] lg:max-w-[200px] lg:max-h-[200px] object-contain"
+          className="w-[100px] h-[100px] lg:max-w-[200px] lg:max-h-[200px] object-contain"
       />
       <span 
         className={`text-[20px] font-bold text-primary leading-120 md:text-[26px] lg:text[35px] whitespace-pre-line text-center`}

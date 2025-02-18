@@ -23,6 +23,7 @@ module.exports = {
       },
       backgroundImage: {
         "hero-nosotros": "url('/assets/nosotros/hero.jpg')",
+        "arrow": "url('/assets/voluntariado/arrow.png')",
       },
       aspectRatio: {
         'hero': '1440 / 670',
