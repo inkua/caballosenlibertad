@@ -24,29 +24,30 @@ function Card({ name, data, alt, info }) {
             {/* Modal */}
             {modal && (
                 <div
-                    className="flex fixed inset-0 w-full h-full bg-black bg-opacity-50 backdrop-blur-sm z-50"
+                    className=" fixed inset-0 w-full h-full bg-black bg-opacity-50 backdrop-blur-sm z-50"
                 >
                     <div className="flex fixed inset-0 mx-mobile sm:mx-tablet lg:mx-desktop justify-center items-center gap-8" role="dialog" aria-modal="true">
-                        <div className="w-full m-auto max-w-content max-h-[95%] overflow-hidden overflow-y-auto no-scrollbar grid grid-cols-1 md:grid-cols-[50%_1fr] lg:grid-cols-[30%_1fr] items-center gap-4 lg:gap-14 px-6 py-8 lg:px-16 bg-white rounded-3xl shadow-lg relative">
-                            <div className="flex w-[50%] md:w-full !aspect-square overflow-hidden relative">
+                        
+                        <div className="w-full m-auto max-w-[1280px] h-[550px] md:max-h-[409px] p-8 flex flex-col md:flex-row md:items-center gap-6 overflow-y-auto bg-[#F2F6F8] rounded-3xl shadow-lg relative">
+                            <div className="w-full h-auto max-h-[224px]  min-w-[220px] md:w-1/2 lg:w-1/3">
                                 <Image
                                     src={data}
                                     alt={alt}
                                     width={900}
                                     height={900}
-                                    className="w-full h-full absolute object-cover"
+                                    className="w-full h-full md:h-auto aspect-video object-center object-cover"
                                 />
                             </div>
 
-                            <div className="flex h-full flex-col gap-6">
-                                <h1 className="font-bold text-h2">{name}</h1>
-                                <p className="!font-bold par-1 text-primary">
+                            <div className="h-full md:h-auto w-full md:w-1/2 lg:w-2/3 md:self-start">
+                                <h1 className="font-bold text-h2 text-primary pb-2">{name}</h1>
+                                <p className="par-1 md:text-lg h-full max-h-[280px] md:max-h-[300px] text-[#03151F]">
                                     {info}
                                 </p>
                             </div>
 
                             <button
-                                className="absolute top-2 right-4 heading-2 cursor-pointer hover:text-primaryColor duration-200 rounded-full bg-white shadow-gray-400 hover:bg-primary hover:text-white shadow-md w-8 h-8"
+                                className="absolute top-2 right-2 heading-2 cursor-pointer hover:text-primaryColor duration-200 rounded-full bg-white shadow-gray-400 hover:bg-primary hover:text-white shadow-md w-8 h-8"
                                 onClick={() => setModal(false)}
                                 aria-label="Cerrar modal"
                             >
