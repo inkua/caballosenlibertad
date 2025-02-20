@@ -31,7 +31,6 @@ export function Type1({ item }) {
 }
 
 export function Type2({ item }) {
-    console.log(item)
     return (
         <Card title={item.title} data={item.imgUrl} date={item.date} info={item.info} location={item.location} url={item.url} />
     );
