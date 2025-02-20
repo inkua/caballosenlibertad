@@ -1,6 +1,7 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { featuresLinks } from '../../links/links';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
@@ -29,10 +30,11 @@ const MenuBar = () => {
     }, [pathname])
 
   return (
-    <div className='flex lg:hidden'>
+    <div className='w-full flex lg:hidden'>
+        <div className='w-full flex !justify-between'>
         <span
             onClick={() => menuSwitch()}
-            className='p-3 z-50'
+            className='self-center z-50 w-[30%]'
         >
             {
                 startAnimation ?
@@ -41,10 +43,28 @@ const MenuBar = () => {
                 <Bars3Icon strokeWidth={1.75} className='w-9 h-9 text-whitePrimary'/>
             }
         </span>
+        <span className='flex justify-center items-center z-50'>
+            <Link href={'/'}>
+                <Image
+                    src="/caballos-en-libertad-logo-texto-blanco.svg"
+                    alt="Imagen logo caballos en libertad"
+                    width={80}
+                    height={50}
+                    className={`block w-[112px] h-[50px]`}
+                />
+            </Link>
+        </span>
+        <span className='self-center z-50 w-[30%] flex justify-end'>
+            <Link href={'/donar'} className='button-primary text-[18px] !px-4 pr-3'>
+                    DONAR
+            </Link>
+        </span>
+        </div>
+        
         {
             showMenu && 
             <nav 
-                className={`absolute top-[68px] left-0 right-0 bg-primary pb-10 ${startAnimation ? 'animated-in-nav': 'animated-out-nav'}`}
+                className={`absolute top-[68px] left-0 right-0 bg-primary pt-4 pb-4 ${startAnimation ? 'animated-in-nav': 'animated-out-nav'}`}
             >
                 <ul className={`flex flex-col gap-4 items-center justify-start ${startAnimation ? 'animated-in-opacity': 'animated-out-opacity'}`}>
                     <li key={`home-inicio`} className='whitespace-nowrap'>
@@ -79,11 +99,6 @@ const MenuBar = () => {
                         ))
                     }
                 </ul>
-                <div className='w-full flex items-center justify-center mt-8'>
-                    <Link href={'/donar'} className={`button-primary text-[18px]  ${startAnimation ? 'animated-in-opacity': 'animated-out-opacity'}`}>
-                        DONAR
-                    </Link>
-                </div>
             </nav>
         }
     </div>

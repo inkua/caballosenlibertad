@@ -154,7 +154,7 @@ const Nosotros = () => {
 
             <Image
                 className="hidden md:block w-full h-auto object-cover mt-[2rem] max-w-banner mx-auto aspect-[9/3]"
-                src="/assets/equipoONG.webP"
+                src="/assets/equipoONG.webp"
                 alt="Equipo de la ONG"
                 loading='lazy'
                 width={1500}

@@ -8,7 +8,7 @@ import Image from 'next/image';
 export const Header = () => {
 
     return (
-        <header className={`flex w-full items-center justify-start lg:justify-center bg-primary text-whitePrimary px-4 lg:px-10 z-50 fixed top-0 h-[70px] lg:h-[90px] shadow-lg shadow-[rgba(0,0,0,0.35)] transition-all duration-500`}>
+        <header className={`flex w-full items-center justify-between md:justify-center bg-primary text-whitePrimary px-4 lg:px-10 z-50 fixed top-0 h-[70px] lg:h-[90px] shadow-lg shadow-[rgba(0,0,0,0.35)] transition-all duration-500`}>
             <MenuBar />
             <div className='hidden lg:flex max-screen-layout w-full items-center justify-between'>
                 <Link href={'/'}>

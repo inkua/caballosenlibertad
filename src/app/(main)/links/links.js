@@ -1,7 +1,7 @@
 export const featuresLinks = [
   { textContent: 'Nosotros', href: '/nosotros' },
   {
-    textContent: 'Caballos',
+    textContent: 'Rescatados',
     children: [
       { textContent: 'Historias de éxito', href: '/historias' },
       { textContent: 'En adopción', href: '/adopciones' },

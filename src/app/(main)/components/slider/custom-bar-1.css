@@ -1,9 +1,9 @@
 .swiper::before {
     content: "";
-    @apply flex absolute w-12 h-full left-0 bg-whitePrimary;
+    @apply flex absolute w-0 h-full left-0 bg-whitePrimary;
 }
 
 .swiper::after {
     content: "";
-    @apply flex absolute w-12 h-full top-0 right-0 bg-whitePrimary;
+    @apply flex absolute w-0 h-full top-0 right-0 bg-whitePrimary;
 }

@@ -1,6 +1,6 @@
 .swiper-button-next,
 .swiper-button-prev {
-    @apply !w-8 !h-8 rounded-full border-[1px] border-primary text-primary bg-green-100;
+    @apply !w-8 !h-8 rounded-full border-[1px] border-primary text-primary bg-blue-100;
 }
 
 .swiper-button-next::after,
