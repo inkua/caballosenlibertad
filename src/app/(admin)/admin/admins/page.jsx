@@ -15,9 +15,15 @@ async function Administradores({searchParams}) {
     }
     return (
         <>
-            <header className="bg-white shadow">
+            <header className="bg-[#B4EFAF] shadow">
                 <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-                    <h1 className="text-3xl font-bold tracking-tight text-gray-900">Administradores</h1>
+                <div className="w-full flex flex-row items-center">
+                        <div
+                            className="w-10 md:w-14 aspect-square bg-no-repeat bg-contain bg-center mr-4 inline-block"
+                            style={{ backgroundImage: "url('/admin/admin.png')" }}
+                        ></div>
+                        <h1 className="text-3xl font-bold tracking-tight text-primary inline-block">Administradores</h1>
+                    </div>
                 </div>
             </header>
 

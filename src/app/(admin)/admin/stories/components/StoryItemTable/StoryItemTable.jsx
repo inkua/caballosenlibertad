@@ -1,3 +1,4 @@
+import { truncateString } from "@/utils/textLimit"
 import ItemTableImg from "../../../componets/ItemTableImg/ItemTableImg"
 import StoryActionDropdown from "../StoryActionDropdown/StoryActionDropdown"
 
@@ -13,7 +14,7 @@ const StoryItemTable = ({ data }) => {
 
                         <div>
                             <h2 className="font-normal text-gray-800">
-                                {data?.name}
+                                {truncateString(data?.name)}
                             </h2>
                             <p className="text-xs font-normal text-gray-500">
                                 {data?.id}
@@ -23,7 +24,7 @@ const StoryItemTable = ({ data }) => {
                 </div>
             </td>
             <td className="px-12 max-w-[20%] overflow-hidden py-4 text-sm font-normal text-gray-700">
-                {data.text}
+                {truncateString(data.text, 200)}
             </td>
             <td className="px-12 max-w-[20%] overflow-hidden py-4 text-sm font-normal text-gray-700">
                 {data.status}

@@ -1,3 +1,4 @@
+import { truncateString } from "@/utils/textLimit"
 import ItemTableImg from "../../../componets/ItemTableImg/ItemTableImg"
 import AdoptionActionDropdown from "../AdoptionActionDropdown/AdoptionActionDropdown"
 
@@ -13,7 +14,7 @@ function AdoptionItemTable({ data }) {
 
                         <div>
                             <h2 className="font-normal text-gray-800">
-                                {data?.name}
+                                {truncateString(data?.name)}
                             </h2>
                             <p className="text-xs font-normal text-gray-500">
                                 {data?.id}
