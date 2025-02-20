@@ -1,6 +1,7 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { featuresLinks } from '../../links/links';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
@@ -32,7 +33,7 @@ const MenuBar = () => {
     <div className='flex lg:hidden'>
         <span
             onClick={() => menuSwitch()}
-            className='p-3 z-50'
+            className='p-3 z-50 absolute left-2 self-center'
         >
             {
                 startAnimation ?
@@ -41,6 +42,18 @@ const MenuBar = () => {
                 <Bars3Icon strokeWidth={1.75} className='w-9 h-9 text-whitePrimary'/>
             }
         </span>
+        <span className='self-center'>
+            <Link href={'/'}>
+                <Image
+                    src="/caballos-en-libertad-logo-texto-blanco.svg"
+                    alt="Imagen logo caballos en libertad"
+                    width={80}
+                    height={50}
+                    className={`block w-[112px] h-[50px]`}
+                />
+            </Link>
+        </span>
+        
         {
             showMenu && 
             <nav 
