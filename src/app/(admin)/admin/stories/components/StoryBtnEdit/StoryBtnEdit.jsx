@@ -1,27 +1,49 @@
+import { useRouter } from "next/navigation";
 import StoryForm from "../StoryForm/StoryForm"
+import { useState } from "react";
+import { reloadPage } from "../../../utils";
+import { useToast } from "@/utils/toast";
+import BlockingOverlay from "@/app/components/BlockingOverlay/BlockingOverlay";
 
 
 function StoryBtnEdit({ open, setOpen, data, disabled = false }) {
+    const router = useRouter();
+    const [isLoading, setIsLoading] = useState(false);
+    const { showToast } = useToast()
+
     const setData = async (newData, sid) => {
-        const URL = `/api/stories`
-        const response = await fetch(URL, {
-            method: "PUT",
-            body: JSON.stringify({
-                data: newData,
-                id: sid
-            }),
-        });
+        setIsLoading(true)
 
-        const data = await response.json();
+        try {
+            const URL = `/api/stories`
+            const response = await fetch(URL, {
+                method: "PUT",
+                body: JSON.stringify({
+                    data: newData,
+                    id: sid
+                }),
+            });
 
-        if (data.data) {
-            alert("Operación Exitosa!");
-        } else {
-            alert("No se pudo realizar la operación!");
+            const data = await response.json();
+
+            if (data.data) {
+                showToast({ type: "success", message: 'Operación exitosa' })
+            } else {
+                showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
+            }
+        } catch (error) {
+            showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
+            console.error(error)
+        } finally {
+            setIsLoading(false)
+            reloadPage(router)
         }
     }
+    
     return (
         <>
+            <BlockingOverlay isLoading={isLoading} />
+
             <button
                 onClick={() => setOpen(true)}
                 className={`block px-4 py-2 text-sm ${disabled ? "text-gray-400" : "text-gray-700 hover:underline"} `}

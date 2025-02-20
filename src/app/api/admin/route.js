@@ -70,7 +70,6 @@ export async function DELETE(req) {
         const { id } = await req.json();
 
         const res = await deleteAdmin(id);
-        console.log('res de router',res)
 
         if (res) {
             return Response.json({ status: 200, msg:"operación Exitosa",  data: res });

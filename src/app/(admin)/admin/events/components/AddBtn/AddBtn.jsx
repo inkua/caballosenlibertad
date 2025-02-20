@@ -4,32 +4,47 @@ import { useState } from "react"
 import FormEvent from "../FormEvent/FormEvent"
 import { useRouter } from "next/navigation"
 import { useToast } from "@/utils/toast";
+import { reloadPage } from "../../../utils";
+import BlockingOverlay from "@/app/components/BlockingOverlay/BlockingOverlay";
+
 
 function AddBtn() {
     const router = useRouter()
     const [isOpen, setIsOpen] = useState(false)
+    const [isLoading, setIsLoading] = useState(false);
     const { showToast } = useToast()
 
     const saveEvent = async (newData) => {
-        const response = await fetch('/api/events', {
-            method: 'POST',
-            body: JSON.stringify({
-                token: '',
-                data: newData,
-            }),
-        });
-        const data = await response.json();
+        setIsLoading(true)
 
-        if (data.data) {
-            showToast({type:'success', message:'Evento registrado!'})
-            router.refresh()
-        } else {
-            showToast({type:'error', message:'No se pudo realizar la operación!'})
+        try {
+            const response = await fetch('/api/events', {
+                method: 'POST',
+                body: JSON.stringify({
+                    data: newData,
+                }),
+            });
+
+            const data = await response.json();
+
+            if (data.data) {
+                showToast({ type: "success", message: 'Operación exitosa' })
+            } else {
+                showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
+            }
+        } catch (error) {
+            showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
+            console.error(error)
+        } finally {
+            setIsLoading(false)
+            reloadPage(router)
         }
     }
 
     return (
         <>
+            <BlockingOverlay isLoading={isLoading} />
+
             <div className="flex items-center mt-4 gap-x-3">
                 <button className="flex items-center justify-center w-1/2 px-5 py-2 text-sm tracking-wide text-white transition-colors duration-200 bg-blue-500 rounded-lg sm:w-auto gap-x-2 hover:bg-blue-600 dark:hover:bg-blue-500 dark:bg-blue-600"
                     onClick={() => setIsOpen(true)}>

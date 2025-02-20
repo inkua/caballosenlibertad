@@ -22,7 +22,7 @@ const user = {
 };
 
 const navigation = [
-  { name: "Dashboard", href: "/admin", current: true },
+  { name: "Panel", href: "/admin", current: true },
   { name: "Adopciones", href: "/admin/adoptions", current: false },
   { name: "Historias", href: "/admin/stories", current: false },
   { name: "Eventos", href: "/admin/events", current: false },
