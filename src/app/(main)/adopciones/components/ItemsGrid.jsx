@@ -1,6 +1,9 @@
+import { getUrlBase } from "@/utils/urlRoute";
 
 const getData = async () => {
-    const url = `${process.env.NEXT_PUBLIC_URL}/api/adoptions`
+    const urlBase = getUrlBase()
+    const url = `${urlBase}/api/adoptions`
+
     const response = await fetch(url, {
         next: {
             revalidate: 60

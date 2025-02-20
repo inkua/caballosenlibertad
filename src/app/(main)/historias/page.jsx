@@ -1,8 +1,12 @@
+import { getUrlBase } from "@/utils/urlRoute";
 
 import { TitleSection } from "../components/TitleSection";
 import CardWrapper from "./components/CardWrapper";
+
 const getData = async()=>{
-    const url = `${process.env.NEXT_PUBLIC_URL}/api/stories`
+    const urlBase = getUrlBase()
+    const url = `${urlBase}/api/stories`
+
     const response = await fetch(url,{
         next:{
             revalidate:60

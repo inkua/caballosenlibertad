@@ -1,9 +1,13 @@
+import { getUrlBase } from "@/utils/urlRoute";
+
 import Slider from "../components/slider/Slider";
 import { TitleSection } from "../components/TitleSection";
 import CardWrapper from "./components/CardWrapper";
 
 const getData = async()=>{
-    const url = `${process.env.NEXT_PUBLIC_URL}/api/events`
+    const urlBase = getUrlBase()
+    const url = `${urlBase}/api/events`
+
     const response = await fetch(url,{
         next:{
             revalidate:60
