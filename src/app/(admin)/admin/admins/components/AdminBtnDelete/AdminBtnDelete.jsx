@@ -5,7 +5,7 @@ import { useToast } from "@/utils/toast";
 import { useRouter } from "next/navigation";
 import { reloadPage } from "../../../utils";
 import { useState } from "react";
-import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay";
+import BlockingOverlay from "@/app/components/BlockingOverlay/BlockingOverlay";
 
 function AdminBtnDelete({ data, disabled = false }) {
     const [isLoading, setIsLoading] = useState(false);

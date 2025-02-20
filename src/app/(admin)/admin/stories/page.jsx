@@ -4,7 +4,7 @@ import StoryAddBtn from "./components/StoryAddBtn/StoryAddBtn"
 import StoryTable from "./components/StoryTable/StoryTable"
 import Pagination from "../componets/Pagination/Pagination"
 
-const Stories = async ({searchParams}) => {
+const Stories = async ({ searchParams }) => {
     const { page } = searchParams
     let data = {}
     if (page) {
@@ -14,9 +14,15 @@ const Stories = async ({searchParams}) => {
     }
     return (
         <>
-    <header className="bg-white shadow">
+            <header className="bg-[#4EB5EB] shadow">
                 <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-                    <h1 className="text-3xl font-bold tracking-tight text-gray-900">Historias</h1>
+                    <div className="w-full flex flex-row items-center">
+                        <div
+                            className="w-10 md:w-14 aspect-square bg-no-repeat bg-contain bg-center mr-4 inline-block"
+                            style={{ backgroundImage: "url('/admin/story.png')" }}
+                        ></div>
+                        <h1 className="text-3xl font-bold tracking-tight text-primary inline-block"> Historias</h1>
+                    </div>
                 </div>
             </header>
 
@@ -28,7 +34,7 @@ const Stories = async ({searchParams}) => {
 
                 <StoryTable data={data.list} />
 
-                <Pagination data={data}/>
+                <Pagination data={data} />
 
             </main>
         </>

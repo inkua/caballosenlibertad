@@ -4,8 +4,8 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import StoryForm from "../StoryForm/StoryForm";
 import { reloadPage } from "../../../utils";
-import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay";
 import { useToast } from "@/utils/toast";
+import BlockingOverlay from "@/app/components/BlockingOverlay/BlockingOverlay";
 
 
 const StoryAddBtn = () => {

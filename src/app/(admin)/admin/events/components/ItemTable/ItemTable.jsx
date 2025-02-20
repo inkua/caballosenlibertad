@@ -27,10 +27,10 @@ function ItemTable({ data }) {
                 {data.date ? new Date(data.date.seconds * 1000).toLocaleDateString('en-GB') : 'Fecha no disponible'}
             </td>
             <td className="px-12 max-w-[20%] overflow-hidden py-4 text-sm font-normal text-gray-700">
-                {truncateString(data.info, 200)}
+                {truncateString(data.info, 100)}
             </td>
             <td className="px-12 max-w-[20%] overflow-hidden py-4 text-sm font-normal text-gray-700">
-                {data.location}
+                {truncateString(data.location, 50)}
             </td>
             <td className="px-12 max-w-[20%] overflow-hidden py-4 text-sm font-normal text-gray-700">
                 {data.url?"si":"No"}

@@ -3,9 +3,9 @@
 
 import { useToast } from "@/utils/toast"
 import { useRouter } from "next/navigation"
-import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay";
 import { useState } from "react";
 import { useConfirmDialog } from "@/utils/hooks/useConfirmDialog";
+import BlockingOverlay from "@/app/components/BlockingOverlay/BlockingOverlay";
 
 function BtnDeleteEvent({ data }) {
     const router = useRouter()

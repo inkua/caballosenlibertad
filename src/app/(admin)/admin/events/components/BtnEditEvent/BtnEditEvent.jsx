@@ -2,10 +2,10 @@
 
 import { useToast } from "@/utils/toast";
 import FormEvent from "../FormEvent/FormEvent";
-import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay";
 import { reloadPage } from "../../../utils";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import BlockingOverlay from "@/app/components/BlockingOverlay/BlockingOverlay";
 
 function BtnEditEvent({ data, open, setOpen }) {
     const [isLoading, setIsLoading] = useState(false);

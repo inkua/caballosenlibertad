@@ -1,11 +1,11 @@
 "use client"
 
 import { useRouter } from "next/navigation";
-import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay";
 import { useState } from "react";
 import { reloadPage } from "../../../utils";
 import { useConfirmDialog } from "@/utils/hooks/useConfirmDialog";
 import { useToast } from "@/utils/toast";
+import BlockingOverlay from "@/app/components/BlockingOverlay/BlockingOverlay";
 
 const StoryBtnDelete = ({ sid }) => {
     const router = useRouter()
@@ -49,6 +49,7 @@ const StoryBtnDelete = ({ sid }) => {
         <>
             {ConfirmDialogComponent}
             <BlockingOverlay isLoading={isLoading} />
+            
             <button
                 onClick={() => handlerDelete()}
                 className={`block px-4 py-2 text-sm text-gray-700 hover:underline `}

@@ -3,9 +3,9 @@
 import { useRouter } from "next/navigation";
 import AdminFrom from "../AdminForm/AdminForm";
 import { reloadPage } from "../../../utils";
-import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay";
 import { useState } from "react";
 import { useToast } from "@/utils/toast";
+import BlockingOverlay from "@/app/components/BlockingOverlay/BlockingOverlay";
 
 function AdminBtnEdit({ data, open, setOpen, disabled=false }) {
     const [isLoading, setIsLoading] = useState(false);

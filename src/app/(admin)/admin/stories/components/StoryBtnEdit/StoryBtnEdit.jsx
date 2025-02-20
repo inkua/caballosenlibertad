@@ -1,9 +1,9 @@
 import { useRouter } from "next/navigation";
 import StoryForm from "../StoryForm/StoryForm"
 import { useState } from "react";
-import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay";
 import { reloadPage } from "../../../utils";
 import { useToast } from "@/utils/toast";
+import BlockingOverlay from "@/app/components/BlockingOverlay/BlockingOverlay";
 
 
 function StoryBtnEdit({ open, setOpen, data, disabled = false }) {

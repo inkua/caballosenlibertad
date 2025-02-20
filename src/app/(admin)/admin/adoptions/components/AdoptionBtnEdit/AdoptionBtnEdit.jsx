@@ -4,8 +4,8 @@ import { useRouter } from "next/navigation";
 import AdoptionForm from "../AdoptionForm/AdoptionForm";
 import { useState } from "react";
 import { reloadPage } from "../../../utils";
-import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay";
 import { useToast } from "@/utils/toast";
+import BlockingOverlay from "@/app/components/BlockingOverlay/BlockingOverlay";
 
 function AdoptionBtnEdit({ data, open, setOpen, disabled = false }) {
     const router = useRouter();

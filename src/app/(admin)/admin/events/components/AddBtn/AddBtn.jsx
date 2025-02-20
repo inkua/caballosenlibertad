@@ -5,7 +5,8 @@ import FormEvent from "../FormEvent/FormEvent"
 import { useRouter } from "next/navigation"
 import { useToast } from "@/utils/toast";
 import { reloadPage } from "../../../utils";
-import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay";
+import BlockingOverlay from "@/app/components/BlockingOverlay/BlockingOverlay";
+
 
 function AddBtn() {
     const router = useRouter()

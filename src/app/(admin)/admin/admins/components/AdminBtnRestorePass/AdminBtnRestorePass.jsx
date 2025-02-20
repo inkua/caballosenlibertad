@@ -1,7 +1,7 @@
+import BlockingOverlay from "@/app/components/BlockingOverlay/BlockingOverlay";
 import { useConfirmDialog } from "@/utils/hooks/useConfirmDialog";
 import { useToast } from "@/utils/toast";
 import { useState } from "react";
-import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay";
 
 export default function AdminBtnRestorePass({ admin, disabled=false }) {
     const [isLoading, setIsLoading] = useState(false);

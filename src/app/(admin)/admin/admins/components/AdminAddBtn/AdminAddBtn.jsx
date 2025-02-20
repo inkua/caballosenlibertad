@@ -4,8 +4,8 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import AdminFrom from "../AdminForm/AdminForm";
 import { reloadPage } from "../../../utils";
-import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay";
 import { useToast } from "@/utils/toast";
+import BlockingOverlay from "@/app/components/BlockingOverlay/BlockingOverlay";
 
 function AdminAddBtn() {
     const router = useRouter();

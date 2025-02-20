@@ -2,8 +2,8 @@ import { useState } from "react"
 
 import UploadImages from "../../../componets/UploadImages/UploadImages"
 import { useRouter } from "next/navigation"
-import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay"
 import { useToast } from "@/utils/toast"
+import BlockingOverlay from "@/app/components/BlockingOverlay/BlockingOverlay"
 
 const EventImgModal = ({ data }) => {
 

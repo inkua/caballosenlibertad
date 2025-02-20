@@ -14,9 +14,15 @@ async function Adoption({searchParams}) {
     }
     return (
         <>
-            <header className="bg-white shadow">
+            <header className="bg-primary2 shadow">
                 <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-                    <h1 className="text-3xl font-bold tracking-tight text-gray-900">Adopciones</h1>
+                    <div className="w-full flex flex-row items-center">
+                        <div
+                            className="w-10 md:w-14 aspect-square bg-no-repeat bg-contain bg-center mr-4 inline-block"
+                            style={{ backgroundImage: "url('/admin/adoption.png')" }}
+                        ></div>
+                        <h1 className="text-3xl font-bold tracking-tight text-primary inline-block">Adopciones</h1>
+                    </div>
                 </div>
             </header>
             <main className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" >
