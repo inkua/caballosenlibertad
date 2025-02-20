@@ -34,7 +34,7 @@ const MenuBar = () => {
         <div className='w-full flex !justify-between'>
         <span
             onClick={() => menuSwitch()}
-            className='p-3 z-50 w-[30%]'
+            className='self-center z-50 w-[30%]'
         >
             {
                 startAnimation ?
