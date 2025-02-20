@@ -18,7 +18,7 @@ const HelpSection = ( { codigo, text, image } ) => {
         text={text} 
         image={image} 
         handleItemClick={handleItemClick}
-        buttonText={'Leer mas'}
+        buttonText={'Leer más'}
       />
 
       {

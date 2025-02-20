@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import { TeamBtn } from './TeamBtn'
 
 import { featuresLinks } from '../../links/links'
 
@@ -91,7 +92,13 @@ export const Footer = () => {
                 </section>
             </div>
             <hr className='border-b-[1px] border-whitePrimary' />
-            <span className='m-auto py-5 text-[12px] sm:text-[16px] font-medium'>Diseño y Programación: <strong>InkuA</strong></span>
+            <span className='m-auto py-5 text-[12px] sm:text-[16px] font-medium flex gap-2'>Diseño y Programación: <span className="!font-bold flex gap-2">
+                <Link href="https://inkua.de/" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                    InkuA
+                </Link>
+                {' - '}
+                <TeamBtn />
+            </span></span>
         </footer>
     )
 }

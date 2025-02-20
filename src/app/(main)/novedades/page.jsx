@@ -39,7 +39,7 @@ async function Novedades() {
 
                 <div className="w-full">
                     <h2 className="text-primary text-h2 font-bold leading-120 mt-12 mb-12">Eventos anteriores</h2>
-                    <Slider items={data} type={1} def={1} lg={3} md={2} loop={true} />
+                    <Slider items={data} type={1} def={1} lg={3} md={2} nav={false} loop={true} />
                 </div>
             </section>
         </main>

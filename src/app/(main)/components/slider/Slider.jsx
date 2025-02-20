@@ -8,7 +8,7 @@ import "./custom-swiper-bullet.css";
 import { Type0, Type1, Type2 } from './components/Card'
 
 function Slider({ items, type = 0, def, lg, md, nav = true, loop = false }) {
-    const customBar = type != 2 ? type == 0 ? import("./custom-bar-0.css") : import("./custom-bar-1.css") : null;
+    const customBar = type == 0 ? import("./custom-bar-0.css") : import("./custom-bar-1.css");
 
     console.log(items)
     return (
@@ -20,7 +20,7 @@ function Slider({ items, type = 0, def, lg, md, nav = true, loop = false }) {
             breakpoints={{ 1024: { slidesPerView: lg }, 768: { slidesPerView: md } }}
             spaceBetween={type == 0 ? 10 : type == 1 ? 100 : 20}
             loop={loop}
-            className={`!relative w-full cursor-grab h-auto ${type != 2 ? type == 0 ? '!pb-0 !px-4' : '!pb-12 !px-16' : '!pb-0 !px-0 !mx-0'}`} >
+            className={`!relative w-full cursor-grab h-auto ${type != 2 ? type == 0 ? '!pb-0 !px-4' : '!pb-12 !px-0' : '!pb-0 !px-0 !mx-0'}`} >
             {items.map((item) => (
                 <SwiperSlide key={item.id} className={`!h-auto overflow-hidden ${type != 2 ? type == 0 ? 'rounded-none' + ' aspect-[3/2]' : 'rounded-2xl' + ' aspect-square' : '!px-0'}`}>
                     {type === 0 ?
