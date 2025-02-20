@@ -15,24 +15,26 @@ function AddBtn() {
 
     const saveEvent = async (newData) => {
         setIsLoading(true)
+
         try {
             const response = await fetch('/api/events', {
                 method: 'POST',
                 body: JSON.stringify({
-                    token: '',
                     data: newData,
                 }),
             });
+
             const data = await response.json();
-    
+
             if (data.data) {
-                showToast({type:'success', message:'Evento registrado!'})
+                showToast({ type: "success", message: 'Operación exitosa' })
             } else {
-                showToast({type:'error', message:'No se pudo realizar la operación!'})
+                showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
             }
         } catch (error) {
-            showToast({type:'error', message:'No se pudo realizar la operación!'})
-        }finally {
+            showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
+            console.error(error)
+        } finally {
             setIsLoading(false)
             reloadPage(router)
         }

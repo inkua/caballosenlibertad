@@ -5,11 +5,13 @@ import { useRouter } from "next/navigation";
 import AdminFrom from "../AdminForm/AdminForm";
 import { reloadPage } from "../../../utils";
 import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay";
+import { useToast } from "@/utils/toast";
 
 function AdminAddBtn() {
     const router = useRouter();
     const [isOpen, setIsOpen] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
+    const { showToast } = useToast()
 
     const saveUser = async (newData) => {
         setIsLoading(true);
@@ -25,12 +27,12 @@ function AdminAddBtn() {
             const data = await response.json();
             
             if (data.data) {
-                alert("Operación Exitosa!");
+                showToast({ type: "success", message: 'Operación exitosa' })
             } else {
-                alert("No se pudo realizar la operación!");
+                showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
             }
         } catch (error) {
-            alert("No se pudo realizar la operación!");
+            showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
         }finally {
             setIsLoading(false);
             reloadPage(router)

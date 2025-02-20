@@ -3,6 +3,7 @@ import UploadImages from '../../../componets/UploadImages/UploadImages'
 import { useRouter } from 'next/navigation'
 import { reloadPage } from '../../../utils'
 import BlockingOverlay from '../../../componets/BlockingOverlay/BlockingOverlay'
+import { useToast } from '@/utils/toast'
 
 function AdoptionImgModal({ data }) {
 
@@ -10,7 +11,7 @@ function AdoptionImgModal({ data }) {
     const [image, setImage] = useState(null)
     const [url, setUrl] = useState(imgUrl)
     const [loading, setLoading] = useState(false)
-
+    const { showToast } = useToast()
     const [isLoading, setIsLoading] = useState(false); // block overlay
     const router = useRouter()
 
@@ -33,13 +34,14 @@ function AdoptionImgModal({ data }) {
             if (response.status == 200) {
                 const result = await response.json();
                 setUrl(result.data)
-                alert('Imagen añadida correctamente')
+                showToast({ type: "success", message: 'Operación exitosa' })
                 setOpen(false)
             } else {
-                alert('No se pudo realizar la operación')
+                showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
             }
         } catch (error) {
-            alert('No se pudo realizar la operación')
+            showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
+            console.error(error)
         }finally {
             setIsLoading(false);
             reloadPage(router)

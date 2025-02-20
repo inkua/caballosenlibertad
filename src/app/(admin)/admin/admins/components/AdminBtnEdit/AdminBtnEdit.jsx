@@ -4,9 +4,12 @@ import { useRouter } from "next/navigation";
 import AdminFrom from "../AdminForm/AdminForm";
 import { reloadPage } from "../../../utils";
 import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay";
+import { useState } from "react";
+import { useToast } from "@/utils/toast";
 
 function AdminBtnEdit({ data, open, setOpen, disabled=false }) {
     const [isLoading, setIsLoading] = useState(false);
+    const { showToast } = useToast()
     const router = useRouter();
 
     const updateData = async (newData) => {
@@ -23,13 +26,12 @@ function AdminBtnEdit({ data, open, setOpen, disabled=false }) {
             const data = await response.json();
     
             if (data.data) {
-                alert("Operación Exitosa!");
-                router.refresh();
+                showToast({ type: "success", message: 'Operación exitosa' })
             } else {
-                alert("No se pudo realizar la operación!");
+                showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
             }
         } catch (error) {
-            alert("No se pudo realizar la operación!");
+            showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
         } finally {
             setIsLoading(false);
             reloadPage(router)

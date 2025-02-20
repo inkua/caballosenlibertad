@@ -4,13 +4,19 @@ import { useRouter } from "next/navigation";
 import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay";
 import { useState } from "react";
 import { reloadPage } from "../../../utils";
+import { useConfirmDialog } from "@/utils/hooks/useConfirmDialog";
+import { useToast } from "@/utils/toast";
 
 const StoryBtnDelete = ({ sid }) => {
     const router = useRouter()
     const [isLoading, setIsLoading] = useState(false);
+    const { confirm, ConfirmDialogComponent } = useConfirmDialog();
+    const { showToast } = useToast()
 
     const handlerDelete = async () => {
-        if (confirm("Desea eliminar el registro?")) {
+        const isConfirmed = await confirm("Desea eliminar el registro?");
+
+        if (isConfirmed) {
             
             try {
                 const URL = `/api/stories`
@@ -24,12 +30,13 @@ const StoryBtnDelete = ({ sid }) => {
                 const data = await response.json();
 
                 if (data.data) {
-                    alert("Operación Exitosa!");
+                    showToast({ type: "success", message: 'Operación exitosa' })
                 } else {
-                    alert("No se pudo realizar la operación!");
+                    showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
                 }
             } catch (error) {
-                alert("No se pudo realizar la operación!");
+                showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
+                console.error(error)
             } finally {
                 setIsLoading(false);
                 reloadPage(router)
@@ -40,6 +47,7 @@ const StoryBtnDelete = ({ sid }) => {
 
     return (
         <>
+            {ConfirmDialogComponent}
             <BlockingOverlay isLoading={isLoading} />
             <button
                 onClick={() => handlerDelete()}

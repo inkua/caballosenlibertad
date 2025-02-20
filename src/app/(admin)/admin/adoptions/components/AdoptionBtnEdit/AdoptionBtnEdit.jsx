@@ -5,10 +5,12 @@ import AdoptionForm from "../AdoptionForm/AdoptionForm";
 import { useState } from "react";
 import { reloadPage } from "../../../utils";
 import BlockingOverlay from "../../../componets/BlockingOverlay/BlockingOverlay";
+import { useToast } from "@/utils/toast";
 
 function AdoptionBtnEdit({ data, open, setOpen, disabled = false }) {
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(false);
+    const { showToast } = useToast()
 
     const setData = async (newData, aid) => {
         setIsLoading(true)
@@ -26,12 +28,13 @@ function AdoptionBtnEdit({ data, open, setOpen, disabled = false }) {
             const data = await response.json();
 
             if (data.data) {
-                alert("Operación Exitosa!");
+                showToast({ type: "success", message: 'Operación exitosa' })
             } else {
-                alert("No se pudo realizar la operación!");
+                showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
             }
         } catch (error) {
-            alert("No se pudo realizar la operación!");
+            showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
+            console.error(error)
         } finally {
             setIsLoading(false)
             reloadPage(router)

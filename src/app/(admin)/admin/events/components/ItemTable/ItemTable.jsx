@@ -1,3 +1,4 @@
+import { truncateString } from "@/utils/textLimit";
 import ItemTableImg from "../../../componets/ItemTableImg/ItemTableImg";
 import ActionDropdown from "../ActionDropdown/ActionDropdown";
 
@@ -13,7 +14,7 @@ function ItemTable({ data }) {
 
                         <div>
                             <h2 className="font-normal text-gray-800">
-                                {data?.title}
+                                {truncateString(data?.title)}
                             </h2>
                             <p className="text-xs font-normal text-gray-500">
                                 {data?.id}
@@ -26,7 +27,7 @@ function ItemTable({ data }) {
                 {data.date ? new Date(data.date.seconds * 1000).toLocaleDateString('en-GB') : 'Fecha no disponible'}
             </td>
             <td className="px-12 max-w-[20%] overflow-hidden py-4 text-sm font-normal text-gray-700">
-                {data.info}
+                {truncateString(data.info, 200)}
             </td>
             <td className="px-12 max-w-[20%] overflow-hidden py-4 text-sm font-normal text-gray-700">
                 {data.location}
