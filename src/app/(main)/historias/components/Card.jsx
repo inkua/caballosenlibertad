@@ -5,7 +5,7 @@ import { useState } from "react";
 function Card({ name, data, alt, info }) {
     const [modal, setModal] = useState(false);
     return (
-        <div className="relative w-full h-auto mb-4 cursor-pointer">
+        <div className="relative w-full h-auto mb-2 md:mb-4 cursor-pointer">
             <Image
                 src={data}
                 alt={alt}
@@ -28,7 +28,7 @@ function Card({ name, data, alt, info }) {
                 >
                     <div className="flex fixed max-w-content m-auto  px-mobile md:px-tablet lg:px-desktop inset-0 justify-center items-center gap-8" role="dialog" aria-modal="true">
                         
-                        <div className="w-full h-auto m-auto max-w-[1280px] max-h-[90%] md:max-h-[70%] p-8 flex flex-col md:flex-row md:items-center gap-6 overflow-y-auto bg-[#F2F6F8] rounded-3xl shadow-lg relative">
+                        <div className="w-full h-auto m-auto max-w-[1280px] max-h-[80%] md:max-h-[70%] p-8 flex flex-col md:flex-row md:items-center gap-6 overflow-y-auto bg-[#F2F6F8] rounded-3xl shadow-lg relative">
                             <div className="w-full h-auto min-w-[220px] md:w-1/2 lg:w-1/3">
                                 <Image
                                     src={data}

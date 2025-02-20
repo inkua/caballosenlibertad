@@ -16,7 +16,7 @@ export const TeamBtn = () => {
                 <div className="flex fixed inset-0 w-full h-full bg-black bg-opacity-50 backdrop-blur-sm z-50">
                     <div className="flex fixed inset-0 max-w-screen-2xl mx-auto justify-center items-center gap-8 z-50" role="section">
                         <div className="flex flex-col w-[90%] md:w-[70%] lg:w-[50%] gap-6 p-6 lg:p-10 bg-white rounded-3xl shadow-lg relative overflow-hidden overflow-y-auto no-scrollbar">
-                            <h1 className="text-[25px] lg:text-[25px] text-primary !font-extrabold">EQUIPO DE DESARROLLO</h1>
+                            <h1 className="text-[20px] lg:text-[25px] text-primary !font-extrabold">EQUIPO DE DESARROLLO</h1>
 
                             <div className="flex flex-col md:flex-row w-full justify-center items-start">
                                 <div className="flex flex-col w-[100%] md:w-[50%] gap-6">
@@ -54,7 +54,7 @@ export const TeamBtn = () => {
 
                                 <div className="flex flex-col w-full md:w-[50%] gap-6">
                                     <div className='w-full'>
-                                        <h2 className="text-[16px] lg:text-[20px] text-left text-[#202020] !font-bold mb-2">Tech Leader:</h2>
+                                        <h2 className="text-[16px] lg:text-[20px] text-left text-[#202020] !font-bold mb-2 mt-6 md:mt-0">Tech Leader:</h2>
                                         <ul className="flex flex-col gap-2">
                                             <li className="flex w-full gap-2">
                                                 <Image src={'/assets/Footer/linkedin.svg'} width={100} height={100} className="w-4 md:w-5" alt="logo LinkedIn" />
