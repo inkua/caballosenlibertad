@@ -9,8 +9,15 @@ const schema = yup
     .object({
         email: yup.string().email('Debe ingresar un email válido').required('Debe ingresar un email válido'),
         currentPass: yup.string().required('Debe ingresar una contraseña'),
-        newPass: yup.string().required('Debe ingresar una contraseña'),
-        confPass: yup.string().required('Debe ingresar una contraseña'),
+        newPass: yup
+            .string()
+            .required('Debe ingresar una contraseña')
+            .test('isValidPassword', 'La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un número',
+                (value) => value && /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/.test(value)),
+        confPass: yup
+            .string()
+            .required('Debe ingresar una contraseña')
+            .oneOf([yup.ref('newPass')], 'Las contraseñas no coinciden'),
     })
     .required()
 
@@ -110,7 +117,7 @@ function ResetPasswordForm() {
                     className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                     {...register("newPass")}
                 />
-                    {errors.newPass && <p className="mt-1 text-sm text-red-500">{errors.newPass.message}</p>}
+                {errors.newPass && <p className="mt-1 text-sm text-red-500">{errors.newPass.message}</p>}
 
             </div>
 
