@@ -6,6 +6,7 @@ import { useState, useRef } from "react";
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
+import DOMPurify from 'dompurify';
 
 const schema = yup
     .object({
@@ -38,8 +39,8 @@ function PasswordForm() {
 
     const onSubmit = async (formData) => {
         const data = {
-            currentPass: formData.currentPass,
-            newPass: formData.newPass,
+            currentPass: DOMPurify.sanitize(formData.currentPass),
+            newPass: DOMPurify.sanitize(formData.newPass),
         }
 
         try {

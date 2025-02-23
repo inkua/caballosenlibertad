@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
+import DOMPurify from 'dompurify';
 
 const schema = yup
     .object({
@@ -37,10 +38,10 @@ export default function ContactForm() {
 
         try {
             const data = {
-                name: formData.name,
-                phone: formData.phone,
-                email: formData.email,
-                content: formData.text,
+                name: DOMPurify.sanitize(formData.name),
+                phone: DOMPurify.sanitize(formData.phone),
+                email: DOMPurify.sanitize(formData.email),
+                content: DOMPurify.sanitize(formData.text),
             }
 
             const response = await fetch('/api/mail', {

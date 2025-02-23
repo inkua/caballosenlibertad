@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
+import DOMPurify from 'dompurify';
 
 const schema = yup
     .object({
@@ -36,10 +37,10 @@ function ResetPasswordForm() {
         console.log(errors);
 
         const data = {
-            email: formData.email,
-            currentPass: formData.currentPass,
-            newPass: formData.newPass,
-            confPass: formData.confPass
+            email: DOMPurify.sanitize(formData.email),
+            currentPass: DOMPurify.sanitize(formData.currentPass),
+            newPass: DOMPurify.sanitize(formData.newPass),
+            confPass: DOMPurify.sanitize(formData.confPass)
         }
 
         const response = await fetch("/api/admin/pass/change", {

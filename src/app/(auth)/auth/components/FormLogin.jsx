@@ -7,6 +7,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
+import DOMPurify from 'dompurify';
 
 const schema = yup
     .object({
@@ -32,8 +33,8 @@ function FormLogin() {
     const onSubmit = async (formData) => {
         try {
             const data = {
-                email: formData.email,
-                password: formData.password,
+                email: DOMPurify.sanitize(formData.email),
+                password: DOMPurify.sanitize(formData.password),
             }
 
             const response = await fetch('/api/auth', {
