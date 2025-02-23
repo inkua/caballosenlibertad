@@ -1,81 +1,60 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useRef, useState } from "react";
+import { useForm } from "react-hook-form"
+import { yupResolver } from "@hookform/resolvers/yup"
+import * as yup from "yup"
+
+const schema = yup
+    .object({
+        email: yup.string().email('Debe ingresar un email válido').required('Debe ingresar un email válido'),
+        currentPass: yup.string().required('Debe ingresar una contraseña'),
+        newPass: yup.string().required('Debe ingresar una contraseña'),
+        confPass: yup.string().required('Debe ingresar una contraseña'),
+    })
+    .required()
 
 function ResetPasswordForm() {
-    const emailRef = useRef(null);
-    const currentPswRef = useRef(null);
-
-    const [password, setPassword] = useState("");
-    const [confirmPassword, setConfirmPassword] = useState("");
-    const [errors, setErrors] = useState("");
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm({
+        resolver: yupResolver(schema),
+    })
 
     const router = useRouter();
 
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    const onSubmit = async (formData) => {
+        console.log(errors);
 
-    const validateForm = () => {
-        let newErrors = "";
-        let isValid = true;
-
-        const email = emailRef.current?.value;
-        const currentPassword = currentPswRef.current?.value;
-
-        if (!email || !/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
-            newErrors = "Debe ingresar un correo válido.";
-            isValid = false;
+        const data = {
+            email: formData.email,
+            currentPass: formData.currentPass,
+            newPass: formData.newPass,
+            confPass: formData.confPass
         }
 
-        if (!currentPassword) {
-            newErrors = "Debe ingresar su contraseña actual/provisional.";
-            isValid = false;
+        const response = await fetch("/api/admin/pass/change", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        });
+
+        const result = await response.json();
+
+        if (result.data) {
+            alert("Operación Exitosa, puedes ingresar a la plataforma desde el login con tu nueva contraseña");
+            router.push("/auth");
+        } else {
+            alert("No se pudo cambiar la contraseña, verifique los campos.");
         }
-
-        if (!passwordRegex.test(password)) {
-            newErrors =
-                "La nueva contraseña debe tener al menos 8 caracteres, incluir una letra mayúscula, una letra minúscula y un número.";
-            isValid = false;
-        } else if (password !== confirmPassword) {
-            newErrors = "Las contraseñas no coinciden.";
-            isValid = false;
-        }
-
-        setErrors(newErrors);
-        return isValid;
-    };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-
-        if (validateForm()) {
-            const data = {
-                email: emailRef.current.value,
-                currentPass: currentPswRef.current.value,
-                newPass: password,
-            };
-
-            const response = await fetch("/api/admin/pass/change", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(data),
-            });
-
-            const result = await response.json();
-
-            if (result.data) {
-                alert("Operación Exitosa, puedes ingresar a la plataforma desde el login con tu nueva contraseña");
-                router.push("/auth");
-            } else {
-                alert("No se pudo cambiar la contraseña, verifique los campos.");
-            }
-        }
-    };
+    }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit(onSubmit)}>
             <div className="mb-6">
                 <label
                     htmlFor="email"
@@ -84,13 +63,16 @@ function ResetPasswordForm() {
                     Correo
                 </label>
                 <input
-                    type="email"
+                    type="text"
                     name="email"
                     id="email"
+                    maxLength={30}
                     placeholder="Correo asociado a su cuenta"
-                    ref={emailRef}
                     className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                    {...register("email")}
                 />
+                {errors.email && <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>}
+
             </div>
 
             <div className="mb-6">
@@ -105,9 +87,11 @@ function ResetPasswordForm() {
                     name="currentPassword"
                     id="currentPassword"
                     placeholder="Su contraseña"
-                    ref={currentPswRef}
                     className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                    {...register("currentPass")}
                 />
+                {errors.currentPass && <p className="mt-1 text-sm text-red-500">{errors.currentPass.message}</p>}
+
             </div>
 
             <div className="mb-6">
@@ -121,11 +105,13 @@ function ResetPasswordForm() {
                     type="text"
                     name="password"
                     id="password"
+                    minLength={8}
                     placeholder="Ingrese su nueva contraseña"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
                     className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                    {...register("newPass")}
                 />
+                    {errors.newPass && <p className="mt-1 text-sm text-red-500">{errors.newPass.message}</p>}
+
             </div>
 
             <div className="mb-6">
@@ -137,14 +123,15 @@ function ResetPasswordForm() {
                 </label>
                 <input
                     type="text"
-                    name="confirmPassword"
-                    id="confirmPassword"
+                    name="confPass"
+                    id="confPass"
+                    minLength={8}
                     placeholder="Confirme su nueva contraseña"
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
                     className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                    {...register("confPass")}
                 />
-                {errors && <p className="mt-1 text-sm text-red-500">{errors}</p>}
+                {errors.confPass && <p className="mt-1 text-sm text-red-500">{errors.confPass.message}</p>}
+
             </div>
 
             <div className="mt-6">
