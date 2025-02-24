@@ -4,76 +4,65 @@ import BlockingOverlay from "@/app/components/BlockingOverlay/BlockingOverlay";
 import { useToast } from "@/utils/toast";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useForm } from "react-hook-form"
+import { yupResolver } from "@hookform/resolvers/yup"
+import * as yup from "yup"
+import DOMPurify from 'dompurify';
+
+const schema = yup
+    .object({
+        email: yup.string().email('Debe ingresar un email válido').required('Debe ingresar un email válido'),
+        password: yup.string().required('Debe ingresar una contraseña'),
+    })
+    .required()
 
 function FormLogin() {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [errors, setErrors] = useState({ email: "", password: "" });
+    const {
+        register,
+        reset,
+        handleSubmit,
+        formState: { errors },
+    } = useForm({
+        resolver: yupResolver(schema),
+    })
 
     const [isLoading, setIsLoading] = useState(false);
     const { showToast } = useToast()
-
     const router = useRouter();
-    const validateForm = () => {
-        const newErrors = { email: "", password: "" };
-        let isValid = true;
 
-        if (!email) {
-            newErrors.email = "El correo electrónico es requerido";
-            isValid = false;
-        } else if (!/\S+@\S+\.\S+/.test(email)) {
-            newErrors.email = "El correo electrónico no es valido";
-            isValid = false;
-        }
-
-        if (!password) {
-            newErrors.password = "La contraseña es requerida";
-            isValid = false;
-        } else if (password.length < 6) {
-            newErrors.password = "La contraseña debe tener al menos 6 caracteres";
-            isValid = false;
-        }
-
-        setErrors(newErrors);
-        return isValid;
-    };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-
-        if (validateForm()) {
-            setIsLoading(true)
-
-            const formData = new FormData();
-            formData.append("email", email);
-            formData.append("password", password);
-            try {
-                const response = await fetch('/api/auth', {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        email: email, password: password,
-                    }),
-                });
-
-                if (response.ok) {
-                    setIsLoading(false)
-                    router.push("/admin");
-                } else {
-                    showToast({ type: 'error', message: 'Credenciales incorrectas!' })
-                    setIsLoading(false)
-                }
-            } catch (error) {
-                showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
-                setIsLoading(false)
-                console.error(error)
+    const onSubmit = async (formData) => {
+        try {
+            const data = {
+                email: DOMPurify.sanitize(formData.email),
+                password: DOMPurify.sanitize(formData.password),
             }
+
+            const response = await fetch('/api/auth', {
+                method: 'POST',
+                body: JSON.stringify({
+                    email: data.email, password: data.password,
+                }),
+            });
+
+            if (response.ok) {
+                setIsLoading(false)
+                router.push("/admin");
+                reset()
+            } else {
+                showToast({ type: 'error', message: 'Credenciales incorrectas!' })
+                setIsLoading(false)
+            }
+        } catch (error) {
+            showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
+            setIsLoading(false)
+            console.error(error)
         }
-    };
+    }
 
     return (
         <>
             <BlockingOverlay isLoading={isLoading} />
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit(onSubmit)}>
                 <div>
                     <label htmlFor="email" className="block mb-2 text-sm text-gray-600 dark:text-gray-200" >
                         Correo electrónico
@@ -84,13 +73,10 @@ function FormLogin() {
                         name="email"
                         id="email"
                         placeholder="ejemplo@ejemplo.com"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
                         className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                        {...register("email")}
                     />
-                    {errors.email && (
-                        <p className="mt-1 text-sm text-red-500">{errors.email}</p>
-                    )}
+                    {errors.email && <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>}
                 </div>
 
                 <div className="mt-6">
@@ -109,13 +95,10 @@ function FormLogin() {
                         name="password"
                         id="password"
                         placeholder="Tu contraseña"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
                         className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                        {...register("password")}
                     />
-                    {errors.password && (
-                        <p className="mt-1 text-sm text-red-500">{errors.password}</p>
-                    )}
+                    {errors.password && <p className="mt-1 text-sm text-red-500">{errors.password.message}</p>}
                 </div>
 
                 <div className="mt-6">

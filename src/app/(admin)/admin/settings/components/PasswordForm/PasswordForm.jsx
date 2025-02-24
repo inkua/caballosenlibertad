@@ -3,69 +3,65 @@ import BlockingOverlay from "@/app/components/BlockingOverlay/BlockingOverlay";
 import { useToast } from "@/utils/toast";
 import { useRouter } from "next/navigation";
 import { useState, useRef } from "react";
+import { useForm } from "react-hook-form"
+import { yupResolver } from "@hookform/resolvers/yup"
+import * as yup from "yup"
+import DOMPurify from 'dompurify';
+
+const schema = yup
+    .object({
+        currentPass: yup.string().required('Debe ingresar una contraseña'),
+        newPass: yup
+            .string()
+            .required('Debe ingresar una contraseña')
+            .test('isValidPassword', 'La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un número',
+                (value) => value && /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/.test(value)),
+        repPass: yup
+            .string()
+            .required('Debe ingresar una contraseña')
+            .oneOf([yup.ref('newPass')], 'Las contraseñas no coinciden'),
+    })
+    .required()
 
 function PasswordForm() {
-    const currentPswRef = useRef(null)
-    const [newPassword, setNewPassword] = useState("");
-    const [repeatPassword, setRepeatPassword] = useState("");
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm({
+        resolver: yupResolver(schema),
+    })
 
     const { showToast } = useToast()
     const [isLoading, setIsLoading] = useState(false);
 
-    const [errors, setErrors] = useState({
-        newPassword: "",
-        repeatPassword: "",
-    });
-
     const router = useRouter();
 
-    const validatePassword = (password) => {
-        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
-        return passwordRegex.test(password);
-    };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-
-        let validationErrors = {};
-
-        if (!validatePassword(newPassword)) {
-            validationErrors.newPassword =
-                "La contraseña debe tener al menos 8 caracteres, incluir una mayúscula, una minúscula y un número.";
+    const onSubmit = async (formData) => {
+        const data = {
+            currentPass: DOMPurify.sanitize(formData.currentPass),
+            newPass: DOMPurify.sanitize(formData.newPass),
         }
 
-        if (newPassword !== repeatPassword) {
-            validationErrors.repeatPassword = "Las contraseñas no coinciden.";
-        }
-
-        setErrors(validationErrors);
-
-        if (Object.keys(validationErrors).length === 0) {
-            const data = {
-                currentPass: currentPswRef.current.value,
-                newPass: newPassword,
+        try {
+            setIsLoading(true)
+            const response = await fetch('/api/admin/pass/change', {
+                method: 'PUT',
+                body: JSON.stringify(data),
+            });
+            const result = await response.json();
+            if (result.data) {
+                showToast({ type: "success", message: 'Operación exitosa' })
+                router.push("/admin")
+            } else {
+                showToast({ type: 'error', message: 'No se pudo cambiar la contraseña, verifique los campos' })
             }
 
-            try {
-                setIsLoading(true)
-                const response = await fetch('/api/admin/pass/change', {
-                    method: 'PUT',
-                    body: JSON.stringify(data),
-                });
-                const result = await response.json();
-                if (result.data) {
-                    showToast({ type: "success", message: 'Operación exitosa' })
-                    router.push("/admin")
-                } else {
-                    showToast({ type: 'error', message: 'No se pudo cambiar la contraseña, verifique los campos' })
-                }
-
-            } catch (error) {
-                showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
-                console.error(error)
-            } finally {
-                setIsLoading(false)
-            }
+        } catch (error) {
+            showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
+            console.error(error)
+        } finally {
+            setIsLoading(false)
         }
     };
 
@@ -73,7 +69,7 @@ function PasswordForm() {
         <>
             <BlockingOverlay isLoading={isLoading} />
 
-            <form className="w-full max-w-md" onSubmit={handleSubmit}>
+            <form className="w-full max-w-md" onSubmit={handleSubmit(onSubmit)}>
                 <h1 className="text-center mt-4 font-bold text-2xl">Cambiar Contraseña</h1>
 
                 <div className="relative flex items-center mt-4">
@@ -97,10 +93,10 @@ function PasswordForm() {
                         type="text"
                         className="block w-full px-10 py-3 text-xs md:text-base text-gray-700 bg-white border rounded-lg focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                         placeholder="Contraseña actual / Provisional"
-                        ref={currentPswRef}
-                        required
+                        {...register("currentPass")}
                     />
                 </div>
+                {errors.currentPass && <p className="mt-1 text-sm text-red-500">{errors.currentPass.message}</p>}
 
                 <div className="relative flex items-center mt-4">
                     <span className="absolute">
@@ -123,13 +119,10 @@ function PasswordForm() {
                         type="text"
                         className="block w-full px-10 py-3 text-xs md:text-base text-gray-700 bg-white border rounded-lg  focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                         placeholder="Nueva Contraseña"
-                        value={newPassword}
-                        onChange={(e) => setNewPassword(e.target.value)}
+                        {...register("newPass")}
                     />
                 </div>
-                {errors.newPassword && (
-                    <p className="text-red-500 text-sm">{errors.newPassword}</p>
-                )}
+                {errors.newPass && <p className="mt-1 text-sm text-red-500">{errors.newPass.message}</p>}
 
                 <div className="relative flex items-center mt-4">
                     <span className="absolute">
@@ -152,13 +145,11 @@ function PasswordForm() {
                         type="text"
                         className="block w-full px-10 py-3 text-xs md:text-base text-gray-700 bg-white border rounded-lg  focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                         placeholder="Repite la nueva contraseña"
-                        value={repeatPassword}
-                        onChange={(e) => setRepeatPassword(e.target.value)}
+                        {...register("repPass")}
                     />
                 </div>
-                {errors.repeatPassword && (
-                    <p className="text-red-500 text-sm">{errors.repeatPassword}</p>
-                )}
+                {errors.repPass && <p className="mt-1 text-sm text-red-500">{errors.repPass.message}</p>}
+
 
                 <div className="mt-6">
                     <button
