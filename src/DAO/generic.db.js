@@ -77,8 +77,14 @@ const uploadTeamImg = async (buffer, teamId)=>{
     }
     return result
 }
-const setTeamImg = async (buffer, imgUrl)=>{
+
+const setTeamImg = async (buffer, imgUrl, teamId)=>{
     const result = await updateImage(buffer, imgUrl, "generic")
+
+    if (result && result !== imgUrl) {
+        await updateTeam({ imgUrl: result }, teamId)
+    }
+
     return result
 }
 const deleteTeamImg = async (imgUrl)=>{
@@ -86,10 +92,32 @@ const deleteTeamImg = async (imgUrl)=>{
     return result
 }
 
+// -------------------------- stats --------------------------
+const addStats = async (newData) => {
+    newData.type = "stats"
+    return await addGenericEntity(newData)
+}
+const getStats = async () => {
+    try {
+        const allEntityes = await getGenericEntities()
+        const team = allEntityes.find((item) => item.type === "stats");
+        if (team) {
+            return team;
+        } else {
+            return false;
+        }
+    } catch (e) {
+        console.error("Error getStats data (generic.db.js): ", e);
+        return false;
+    }
+}
+const updateStats = async (newData, sid) => {
+    return await setGenericEntity(newData, sid)
+}
+
 export {
     addPayments,
     getPayments,
-    getPaymentsById,
     updatePayments,
     addTeam,
     getTeam,
@@ -98,5 +126,8 @@ export {
     uploadTeamImg,
     setTeamImg,
     deleteTeamImg,
+    addStats,
+    getStats,
+    updateStats,
 }
 
