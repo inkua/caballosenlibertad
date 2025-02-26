@@ -73,8 +73,13 @@ const uploadAdoptionImg = async (buffer, adoptionId)=>{
 }
 
 // update an adoption image | requires the image buffer and existing image URL | returns the updated image URL
-const setAdoptionImg = async (buffer, imgUrl)=>{
+const setAdoptionImg = async (buffer, imgUrl, adoptionId)=>{
     const result = await updateImage(buffer, imgUrl, "adoptions")
+
+    if (result && result !== imgUrl) {
+        await setAdoption({ imgUrl: result }, adoptionId)
+    }
+    
     return result
 }
 

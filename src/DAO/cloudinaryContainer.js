@@ -36,7 +36,7 @@ const uploadImage = async (buffer, entity = "general") => {
 
 // update an image in Cloudinary with the same name and URL | requires image buffer, existing URL, and optional entity name (default: "general") | returns the secure URL of the updated image
 const updateImage = async (buffer, url, entity = "general") => {
-    const imageName = getPublic_id(url)
+    const imageName = `${entity}-${Date.now()}`
 
     const uploadOptions = {
         public_id: imageName,
@@ -44,17 +44,28 @@ const updateImage = async (buffer, url, entity = "general") => {
         format: "webp",
     }
 
-    const uploadResult = await new Promise((resolve, reject) => {
-        cloudinary.uploader.upload_stream(uploadOptions, (error, uploadResult) => {
-            if (error) {
-                console.error("cloudinaryContainer.js, uploadImage ", error)
-                return reject(false)
-            }
-
-            return resolve(uploadResult.secure_url);
-        }).end(buffer);
-    });
-    return uploadResult
+    try {
+        const uploadResult = await new Promise((resolve, reject) => {
+            cloudinary.uploader.upload_stream(uploadOptions, (error, uploadResult) => {
+                if (error) {
+                    console.error("cloudinaryContainer.js, uploadImage ", error)
+                    return reject(false)
+                }
+    
+                return resolve(uploadResult.secure_url);
+            }).end(buffer);
+            
+        });
+    
+        if(uploadResult){
+            await deleteImage(url)
+        }
+        return uploadResult
+        
+    } catch (error) {
+        console.error(error)
+        return url
+    }
 }
 
 // delete an image from Cloudinary | requires the image URL | returns the delete operation result or false if failed

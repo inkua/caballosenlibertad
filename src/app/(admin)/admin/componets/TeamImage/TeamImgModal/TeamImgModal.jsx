@@ -1,31 +1,31 @@
-import { useState } from "react"
+import { useState } from 'react'
+import { useToast } from '@/utils/toast'
+import BlockingOverlay from '@/app/components/BlockingOverlay/BlockingOverlay'
+import UploadImages from '../../UploadImages/UploadImages'
 
-import UploadImages from "../../../componets/UploadImages/UploadImages"
-import { useRouter } from "next/navigation"
-import { useToast } from "@/utils/toast"
-import BlockingOverlay from "@/app/components/BlockingOverlay/BlockingOverlay"
-import { reloadPage } from "../../../utils"
 
-const EventImgModal = ({ data }) => {
+function TeamImgModal({ data }) {
+    const { open, setOpen, imgUrl, teamId, reload } = data
 
-    const { open, setOpen, imgUrl, eventId } = data
     const [image, setImage] = useState(null)
     const [url, setUrl] = useState(imgUrl)
     const [loading, setLoading] = useState(false)
-
-    const [isLoading, setIsLoading] = useState(false); // block overlay
-    const router = useRouter()
     const { showToast } = useToast()
+    const [isLoading, setIsLoading] = useState(false); // block overlay
+
+
 
     const handlerSubmit = async (e) => {
         e.preventDefault()
         setIsLoading(true)
+
         try {
+
             const formData = new FormData()
             formData.append('file', image)
-            formData.append('id', eventId)
+            formData.append('id', teamId)
 
-            const response = await fetch('/api/events/image', {
+            const response = await fetch('/api/team', {
                 method: 'POST',
                 body: formData,
             });
@@ -41,9 +41,12 @@ const EventImgModal = ({ data }) => {
         } catch (error) {
             showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
             console.error(error)
-        } finally {
+        }finally {
             setIsLoading(false);
-            reloadPage(router)
+            
+            setTimeout(()=>{
+                reload()
+            },2000)
         }
     }
 
@@ -93,4 +96,4 @@ const EventImgModal = ({ data }) => {
     )
 }
 
-export default EventImgModal
+export default TeamImgModal

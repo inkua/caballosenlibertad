@@ -9,9 +9,9 @@ async function Administradores({searchParams}) {
     const { page } = searchParams
     let data = {}
     if (page) {
-        data = await getAdminsPerPage(Number(page))
+        data = await getAdminsPerPage(Number(page), 10)
     } else {
-        data = await getAdminsPerPage()
+        data = await getAdminsPerPage(1, 10)
     }
     return (
         <>

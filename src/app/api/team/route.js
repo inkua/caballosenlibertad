@@ -1,5 +1,20 @@
 import { getSession } from "@/app/(auth)/auth/lib";
-import { setAdoptionImg, uploadAdoptionImg, getAdoptionById } from "@/DAO/adoptions.db";
+import { addTeam, getTeam, getTeamById, setTeamImg } from "@/DAO/generic.db";
+
+export async function GET() {
+    try {
+        const res = await getTeam()
+
+        if (res) {
+            return Response.json({ status: 200, msg: "operación Exitosa", data: res });
+        } else {
+            return Response.json({ status: 500, msg: "No se pudo realizar la operación", data: res });
+        }
+    } catch (e) {
+        console.log(e);
+        return Response.json({ status: 500, msg: "No se pudo realizar la operación", data: e });
+    }
+}
 
 export async function POST(request) {
     const session = await getSession()
@@ -11,10 +26,10 @@ export async function POST(request) {
     try {
         const data = await request.formData()
         const image = data.get('file')
-        const adoptionId = data.get('id')
-        const adoption = await getAdoptionById(adoptionId)
+        const teamId = data.get('id')
+        const team = await getTeamById(teamId)
 
-        if (!image || !adoption) {
+        if (!image || !team) {
             return Response.json("No se pudo guardar la imagen", { status: 400, data: null });
         }
         const bytes = await image.arrayBuffer()
@@ -22,10 +37,10 @@ export async function POST(request) {
 
         let response
 
-        if (adoption.data.imgUrl) {
-            response = await setAdoptionImg(buffer, adoption.data.imgUrl, adoptionId)
+        if (team.data.imgUrl) {
+            response = await setTeamImg(buffer, team.data.imgUrl, teamId)
         } else {
-            response = await uploadAdoptionImg(buffer, adoptionId)
+            response = await uploadStoryImg(buffer, teamId)
         }
 
         if (response) {

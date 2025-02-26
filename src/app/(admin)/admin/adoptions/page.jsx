@@ -8,9 +8,9 @@ async function Adoption({searchParams}) {
     const { page } = searchParams
     let data = {}
     if (page) {
-        data = await getAdoptionsPerPage(Number(page))
+        data = await getAdoptionsPerPage(Number(page), 10)
     } else {
-        data = await getAdoptionsPerPage()
+        data = await getAdoptionsPerPage(1, 10)
     }
     return (
         <>

@@ -8,9 +8,9 @@ const Stories = async ({ searchParams }) => {
     const { page } = searchParams
     let data = {}
     if (page) {
-        data = await getStoriesPerPage(Number(page))
+        data = await getStoriesPerPage(Number(page), 10)
     } else {
-        data = await getStoriesPerPage()
+        data = await getStoriesPerPage(1, 10)
     }
     return (
         <>

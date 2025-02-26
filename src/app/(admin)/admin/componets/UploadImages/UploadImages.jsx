@@ -2,6 +2,7 @@
 
 import { handleImageUpload } from "@/utils/imageCompressionFunctions";
 import DisplayImage from "./components/DisplayImage";
+import { useEffect } from "react";
 
 const UploadImages = ({ props }) => {
     const { image, setImage, url, loading, setLoading } = props;
@@ -27,6 +28,9 @@ const UploadImages = ({ props }) => {
             setLoading(false);
         }
     };
+
+    useEffect(()=>{
+    },[url])
 
     return (
         <>
