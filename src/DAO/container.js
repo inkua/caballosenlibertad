@@ -1,4 +1,4 @@
-import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, updateDoc } from "firebase/firestore";
+import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, updateDoc, setDoc } from "firebase/firestore";
 
 import { db } from "./firebaseConfig";
 
@@ -73,12 +73,7 @@ const getAllElements = async (collectionName) => {
 const updateElement = async (newData, id, collectionName) => {
     try {
         const docRef = doc(db, collectionName, id);
-        const docBefore = await getDoc(docRef);
-
-        await updateDoc(docRef, {
-            ...docBefore.data(),
-            ...newData,
-        });
+        await setDoc(docRef, newData, { merge: true });
         return true
     } catch (e) {
         console.error(`${collectionName}, updateElement, container, DAO: `, e);

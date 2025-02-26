@@ -23,6 +23,7 @@ const user = {
 
 const navigation = [
   { name: "Panel", href: "/admin", current: true },
+  { name: "Pagos", href: "/admin/payments", current: false },
   { name: "Adopciones", href: "/admin/adoptions", current: false },
   { name: "Historias", href: "/admin/stories", current: false },
   { name: "Eventos", href: "/admin/events", current: false },
@@ -74,7 +75,7 @@ function AdminNav() {
                       isCurrentPath(pathname, item.href)
                         ? "bg-gray-900 text-white"
                         : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                      "rounded-md px-3 py-2 text-sm font-medium"
+                      "rounded-md px-2 py-2 text-sm font-medium lg:px-3"
 
                     )}
                   >
