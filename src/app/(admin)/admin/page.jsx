@@ -2,6 +2,7 @@ import Link from "next/link"
 
 import TeamImage from "./componets/TeamImage/TeamImage"
 import Tutorials from "./componets/Tutorials/Tutorials"
+import HomeStats from "./componets/HomeStats/HomeStats"
 
 function Index() {
     return (
@@ -25,8 +26,8 @@ function Index() {
                 </div>
             </header>
             <main className="container mx-auto mt-1 max-w-7xl px-4 sm:px-6 lg:px-8">
+                <HomeStats />
                 <TeamImage />
-                
                 <Tutorials />
             </main>
         </>

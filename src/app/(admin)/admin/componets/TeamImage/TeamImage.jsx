@@ -32,7 +32,7 @@ const TeamImage = () => {
     }, [])
 
     return (
-        <section className="w-full py-6 md:py-12 bg-primary2 rounded-md">
+        <section className="w-full mt-4 py-6 md:pb-12 bg-primary2 rounded-md">
             <div className="container px-4 md:px-6">
                 <h2 className="pb-4 md:pt-0 text-[20px] font-light text-white md:text-darkBlue md:text-3xl">
                     Imagen del equipo - Página Nosotros

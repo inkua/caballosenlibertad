@@ -1,10 +1,9 @@
 import Image from 'next/image';
-import React from 'react';
+import FooterTeam from './FooterTeam/FooterTeam';
 
 const Nosotros = () => {
     return (
         <main className=''>
-            {/* <header className="hidden md:block bg-hero-nosotros bg-cover bg-no-repeat bg-center w-full max-w-banner mx-auto aspect-[2/1]" style={{ aspectRatio: '1440 / 670' }}> */}
             <header className="hidden md:block bg-hero-nosotros bg-cover bg-center bg-no-repeat w-full max-w-banner mx-auto aspect-[9/3] ">
             </header>
 
@@ -152,14 +151,7 @@ const Nosotros = () => {
 
             </section>
 
-            <Image
-                className="hidden md:block w-full h-auto object-cover mt-[2rem] max-w-banner mx-auto aspect-[9/3]"
-                src="/assets/equipoONG.webp"
-                alt="Equipo de la ONG"
-                loading='lazy'
-                width={1500}
-                height={1000}
-            />
+            <FooterTeam />
         </main>
     );
 };

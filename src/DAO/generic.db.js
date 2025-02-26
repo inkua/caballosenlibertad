@@ -70,15 +70,15 @@ const updateTeam = async (newData, tid) => {
     return await setGenericEntity(newData, tid)
 }
 
-const uploadTeamImg = async (buffer, teamId)=>{
+const uploadTeamImg = async (buffer, teamId) => {
     const result = await uploadImage(buffer, "generic")
-    if(result){
-        updateTeam({imgUrl:result}, teamId)
+    if (result) {
+        updateTeam({ imgUrl: result }, teamId)
     }
     return result
 }
 
-const setTeamImg = async (buffer, imgUrl, teamId)=>{
+const setTeamImg = async (buffer, imgUrl, teamId) => {
     const result = await updateImage(buffer, imgUrl, "generic")
 
     if (result && result !== imgUrl) {
@@ -87,7 +87,7 @@ const setTeamImg = async (buffer, imgUrl, teamId)=>{
 
     return result
 }
-const deleteTeamImg = async (imgUrl)=>{
+const deleteTeamImg = async (imgUrl) => {
     const result = await deleteImage(imgUrl)
     return result
 }
@@ -111,6 +111,9 @@ const getStats = async () => {
         return false;
     }
 }
+const getStatsById = async (id) => {
+    return await getGenericEntityById(id)
+}
 const updateStats = async (newData, sid) => {
     return await setGenericEntity(newData, sid)
 }
@@ -128,6 +131,7 @@ export {
     deleteTeamImg,
     addStats,
     getStats,
+    getStatsById,
     updateStats,
 }
 
