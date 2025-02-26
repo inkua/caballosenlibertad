@@ -4,6 +4,7 @@ import UploadImages from "../../../componets/UploadImages/UploadImages"
 import { useRouter } from "next/navigation"
 import { useToast } from "@/utils/toast"
 import BlockingOverlay from "@/app/components/BlockingOverlay/BlockingOverlay"
+import { reloadPage } from "../../../utils"
 
 const EventImgModal = ({ data }) => {
 

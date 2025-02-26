@@ -72,8 +72,13 @@ const uploadStoryImg = async (buffer, storyId)=>{
 }
 
 // update a story image | requires the image buffer and existing image URL | returns the updated image URL
-const setStoryImg = async (buffer, imgUrl)=>{
+const setStoryImg = async (buffer, imgUrl, storyId)=>{
     const result = await updateImage(buffer, imgUrl, "stories")
+
+    if (result && result !== imgUrl) {
+        await setStory({ imgUrl: result }, storyId)
+    }
+
     return result
 }
 

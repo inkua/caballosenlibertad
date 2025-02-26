@@ -23,7 +23,7 @@ export async function POST(request) {
         let response
 
         if (adoption.data.imgUrl) {
-            response = await setAdoptionImg(buffer, adoption.data.imgUrl)
+            response = await setAdoptionImg(buffer, adoption.data.imgUrl, adoptionId)
         } else {
             response = await uploadAdoptionImg(buffer, adoptionId)
         }

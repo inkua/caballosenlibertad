@@ -23,7 +23,7 @@ export async function POST(request) {
         let response
         
         if (event.data.imgUrl) {
-            response = await setEventImg(buffer, event.data.imgUrl)
+            response = await setEventImg(buffer, event.data.imgUrl, eventId)
         } else {
             response = await uploadEventImg(buffer, eventId)
         }

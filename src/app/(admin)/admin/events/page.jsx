@@ -10,9 +10,9 @@ async function Events({ searchParams }) {
     let data = {}
 
     if (page) {
-        data = await getEventsPerPage(Number(page))
+        data = await getEventsPerPage(Number(page), 10)
     } else {
-        data = await getEventsPerPage()
+        data = await getEventsPerPage(1, 10)
     }
 
     return (

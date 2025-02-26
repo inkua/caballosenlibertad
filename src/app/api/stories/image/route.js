@@ -24,7 +24,7 @@ export async function POST(request) {
         let response
 
         if (story.data.imgUrl) {
-            response = await setStoryImg(buffer, story.data.imgUrl)
+            response = await setStoryImg(buffer, story.data.imgUrl, storyId)
         } else {
             response = await uploadStoryImg(buffer, storyId)
         }
