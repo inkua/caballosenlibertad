@@ -14,7 +14,7 @@ function Denuncias() {
                 <div>
                     <h2 className="text-primary text-h2 font-bold leading-120 mt-12 mb-12">¿Cómo reportar una situación de maltrato?</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-20 gap-y-20 md:gap-y-24 items-start">
-                        <div className="flex flex-col w-full justify-center items-center gap-5 lg:gap-8">
+                        <div role="group" className="flex flex-col w-full justify-center items-center gap-5 lg:gap-8">
                             <div className="flex justify-center items-center w-[45%] lg:w-[38%] aspect-square bg-primary2 rounded-full overflow-hidden">
                                 <Image
                                     src={'/assets/denuncias/denuncia_01.png'}
@@ -31,7 +31,7 @@ function Denuncias() {
                             </p>
                         </div>
 
-                        <div className="flex flex-col w-full justify-center items-center gap-8">
+                        <div role="group" className="flex flex-col w-full justify-center items-center gap-8">
                             <div className="flex justify-center items-center w-[45%] lg:w-[38%] aspect-square bg-primary2 rounded-full overflow-hidden">
                                 <Image
                                     src={'/assets/denuncias/denuncia_02.png'}
@@ -48,7 +48,7 @@ function Denuncias() {
                             </p>
                         </div>
 
-                        <div className="flex flex-col w-full justify-center items-center gap-8">
+                        <div role="group" className="flex flex-col w-full justify-center items-center gap-8">
                             <div className="flex justify-center items-center w-[45%] lg:w-[38%] aspect-square bg-primary2 rounded-full overflow-hidden">
                                 <Image
                                     src={'/assets/denuncias/denuncia_03.png'}
@@ -65,7 +65,7 @@ function Denuncias() {
                             </p>
                         </div>
 
-                        <div className="flex flex-col w-full justify-center items-center gap-8">
+                        <div role="group" className="flex flex-col w-full justify-center items-center gap-8">
                             <div className="flex justify-center items-center w-[45%] lg:w-[38%] aspect-square bg-primary2 rounded-full overflow-hidden">
                                 <Image
                                     src={'/assets/denuncias/denuncia_04.png'}
