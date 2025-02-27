@@ -28,9 +28,9 @@ async function Novedades() {
                 />
 
             <section className="m-auto max-w-content px-mobile md:px-tablet lg:px-desktop">
-                <div>
+                <div role="region">
                     <h2 className="text-primary text-h2 font-bold leading-120 mt-12 mb-12">Proximos eventos</h2>
-                    <div className="flex flex-col gap-8">
+                    <div role='region' className="flex flex-col gap-8">
                         <div className='block md:hidden'>
                             <Slider items={data} type={2} def={1} lg={1} md={1} loop={true} />
                         </div>
@@ -41,7 +41,7 @@ async function Novedades() {
                     </div>
                 </div>
 
-                <div className="w-full">
+                <div role="region" className="w-full">
                     <h2 className="text-primary text-h2 font-bold leading-120 mt-12 mb-12">Eventos anteriores</h2>
                     <Slider items={data} type={1} def={1} lg={3} md={2} nav={false} loop={true} />
                 </div>

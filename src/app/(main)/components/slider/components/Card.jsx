@@ -4,7 +4,24 @@ import Card from "../../../novedades/components/Card"
 
 export function Type0({ item }) {
     return (
-        <Link href="/historias" alt="página de historias" >
+        <article>
+            <Link href="/historias" alt="página de historias" >
+                <Image
+                    src={item.imgUrl}
+                    alt={item.alt ? item.alt : 'Evento'}
+                    width={700}
+                    height={700}
+                    className="absolute w-full h-full object-cover"
+                    loading="eager"
+                />
+            </Link>
+        </article>
+    );
+}
+
+export function Type1({ item }) {
+    return (
+        <article role="article">
             <Image
                 src={item.imgUrl}
                 alt={item.alt ? item.alt : 'Evento'}
@@ -13,20 +30,7 @@ export function Type0({ item }) {
                 className="absolute w-full h-full object-cover"
                 loading="eager"
             />
-        </Link>
-    );
-}
-
-export function Type1({ item }) {
-    return (
-        <Image
-            src={item.imgUrl}
-            alt={item.alt ? item.alt : 'Evento'}
-            width={700}
-            height={700}
-            className="absolute w-full h-full object-cover"
-            loading="eager"
-        />
+        </article>
     );
 }
 
