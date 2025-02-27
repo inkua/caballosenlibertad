@@ -17,20 +17,14 @@ export const ItemsGrid = async () => {
     const data = await getData()
 
     return (
-        <section
-            aria-labelledby="items-grid"
-            className='w-full mx-auto pb-6 md:pb-12 lg:pb-14 px-mobile md:px-tablet lg:px-desktop max-w-content'
-        >
-            <h2
-                id="items-grid"
-                className="text-2xl lg:text-3xl font-normal text-primary leading-120"
-            >
+        <section className='w-full mx-auto pb-6 md:pb-12 lg:pb-14 px-mobile md:px-tablet lg:px-desktop max-w-content'>
+            <h2 id="items-grid" className="text-2xl lg:text-3xl font-normal text-primary leading-120">
                 Descubre a nuestros caballos rescatados en busca de un hogar
             </h2>
-            <div className="mt-12 mx-auto flex">
+            <div role='region' className="mt-12 mx-auto flex">
                 <div className='w-full grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 max-w-content'>
                     {data.map((item) => (
-                        <div
+                        <article
                             key={item.id}
                             className="relative group rounded-sm overflow-hidden w-full aspect-[4/6] "
                         >
@@ -44,7 +38,7 @@ export const ItemsGrid = async () => {
                                     {item.name}
                                 </span>
                             </div>
-                        </div>
+                        </article>
                     ))}
                 </div>
             </div>

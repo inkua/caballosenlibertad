@@ -4,14 +4,12 @@ import React from 'react'
 
 export const Contribution = () => {
     return (
-        <article className='flex flex-col text-primary gap-8 md:gap-12 lg:gap-16 self-center w-full items-center justify-center'>
+        <div role='region' className='flex flex-col text-primary gap-8 md:gap-12 lg:gap-16 self-center w-full items-center justify-center'>
             <h3 className='text-center text-[20px] md:text-[32px] lg:text-[42px] xl:text-[50px] leading-120 font-extrabold'>
                 Tu apoyo también importa, ¡Ayudanos!
             </h3>
             <div className='flex items-center justify-center w-screen md:w-auto gap-[5vw]'>
-                <div
-                    className='flex flex-col text-primary items-center justify-center gap-4 md:gap-8'
-                >
+                <div role="group" className='flex flex-col text-primary items-center justify-center gap-4 md:gap-8'>
                     <Image
                         src="/svg/Vector-donaciones.svg"
                         alt="Imagen donaciones"
@@ -23,9 +21,7 @@ export const Contribution = () => {
                         QUIERO DONAR
                     </Link>
                 </div>
-                <div
-                    className='flex flex-col text-primary items-center justify-center gap-4 md:gap-8'
-                >
+                <div role="group" className='flex flex-col text-primary items-center justify-center gap-4 md:gap-8'>
                     <Image
                         src="/svg/Group-hands-heart.svg"
                         alt="Imagen donaciones"
@@ -38,6 +34,6 @@ export const Contribution = () => {
                     </Link>
                 </div>
             </div>
-        </article>
+        </div>
     )
 }

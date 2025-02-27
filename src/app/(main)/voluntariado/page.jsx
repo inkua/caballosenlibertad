@@ -45,41 +45,45 @@ function Voluntariado() {
                 spanTextContent="Sumate a nuestro equipo. Dado que no contamos con ningún subsidio de parte del Estado, realizamos las tareas gracias al apoyo de nuestros voluntarios."
             />
             <section className=" m-auto max-w-content mt-6 px-mobile md:px-tablet lg:px-desktop">
-                <h1 className="text-primary text-xl sm:text-[28px] md:text-[32px] lg:text-[40px] font-bold leading-120">
-                    ¿Qué tipo de voluntariado puedo realizar?
-                </h1>
-                <div className="my-[4rem] flex flex-col gap-6 md:gap-[6rem] md:flex-row items-baseline ">
-                    {items.map((item, index) => (
-                        <div key={index} className="flex flex-col items-center w-full">
-                            <div className="aspect-square w-[130px] lg:w-[150px] bg-no-repeat bg-center bg-contain" style={{ backgroundImage: `url(${item.image})` }}>
-                            </div>
+                <div role="region">
+                    <h1 className="text-primary text-xl sm:text-[28px] md:text-[32px] lg:text-[40px] font-bold leading-120">
+                        ¿Qué tipo de voluntariado puedo realizar?
+                    </h1>
+                    <div className="my-[4rem] flex flex-col gap-6 md:gap-[6rem] md:flex-row items-baseline ">
+                        {items.map((item, index) => (
+                            <div role="group" key={index} className="flex flex-col items-center w-full">
+                                <div className="aspect-square w-[130px] lg:w-[150px] bg-no-repeat bg-center bg-contain" style={{ backgroundImage: `url(${item.image})` }}>
+                                </div>
 
-                            <h3 className="text-primary text-xl my-[2rem] sm:text-[28px] md:text-[20px] lg:text-[32px] font-bold leading-120 text-center">
-                                {item.title}
-                            </h3>
-                            <ul className="list-inside md:list-outside self-start">
-                                {item.listItems.map((listItem, index) => (
-                                    <li key={index} className="text-pretty mb-2">
-                                        <div className="flex flex-row gap-4 items-start">
-                                            <div className="aspect-square w-[16px] min-w-[16px] bg-no-repeat bg-center bg-contain bg-arrow mt-1" ></div>
-                                            <p>
-                                                {listItem}
-                                            </p>
-                                        </div>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    ))}
+                                <h3 className="text-primary text-xl my-[2rem] sm:text-[28px] md:text-[20px] lg:text-[32px] font-bold leading-120 text-center">
+                                    {item.title}
+                                </h3>
+                                <ul className="list-inside md:list-outside self-start">
+                                    {item.listItems.map((listItem, index) => (
+                                        <li key={index} className="text-pretty mb-2">
+                                            <div className="flex flex-row gap-4 items-start">
+                                                <div className="aspect-square w-[16px] min-w-[16px] bg-no-repeat bg-center bg-contain bg-arrow mt-1" ></div>
+                                                <p>
+                                                    {listItem}
+                                                </p>
+                                            </div>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        ))}
+                    </div>
                 </div>
 
-                <h2 className="text-primary text-xl my-[3rem] sm:text-[28px] md:text-[32px] lg:text-[40px] font-bold leading-120 ">
-                    Si quieres ser voluntario
-                </h2>
+                <div role="region">
+                    <h2 className="text-primary text-xl my-[3rem] sm:text-[28px] md:text-[32px] lg:text-[40px] font-bold leading-120 ">
+                        Si quieres ser voluntario
+                    </h2>
 
-                <AdopcionesCard
-                    titleCard={titleForContactCard}
-                />
+                    <AdopcionesCard
+                        titleCard={titleForContactCard}
+                    />
+                </div>
             </section>
         </main>
     );

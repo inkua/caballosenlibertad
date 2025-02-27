@@ -4,8 +4,8 @@ import FooterTeam from './FooterTeam/FooterTeam';
 const Nosotros = () => {
     return (
         <main className=''>
-            <header className="hidden md:block bg-hero-nosotros bg-cover bg-center bg-no-repeat w-full max-w-banner mx-auto aspect-[9/3] ">
-            </header>
+            <section role='banner' className="hidden md:block bg-hero-nosotros bg-cover bg-center bg-no-repeat w-full max-w-banner mx-auto aspect-[9/3] ">
+            </section>
 
             <section className="w-full h-auto bg-[#00638C] md:bg-whitePrimary items-center pt-[70px] max-w-content px-mobile md:px-tablet lg:px-desktop mx-auto">
 

@@ -9,11 +9,11 @@ export const TitleSection = ({titleTextContent, spanTextContent, children}) => {
       </h1>
       {
         spanTextContent &&
-        <span
+        <p
           className='text-[20px] sm:text-[28px] md:text-[33px] lg:text-[38px] xl:text-[40px] leading-140 font-light opacity-90 col-span-full md:col-start-1 md:col-end-10 lg:col-end-10'
         >
           {spanTextContent}
-        </span>        
+        </p>        
       }
       {children}
     </section>

@@ -65,7 +65,7 @@ export default function ContactForm() {
     };
 
     return (
-        <div className="flex flex-col w-full md:w-[50%] gap-4">
+        <div role="region" className="flex flex-col w-full md:w-[50%] gap-4">
             <h2 className="font-extrabold text-primary text-h2 duration-200">
                 Consultanos
             </h2>

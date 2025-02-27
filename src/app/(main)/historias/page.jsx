@@ -31,7 +31,7 @@ async function Historias() {
                 <CardWrapper items={stories} />
 
                 <div>
-                    <h2 className="text-primary text-h2 font-bold leading-120 mt-16 text-center">¡Esto no sería posible sin tu ayuda y la de nuestros voluntarios!</h2>
+                    <p className="text-primary text-h2 font-bold leading-120 mt-16 text-center">¡Esto no sería posible sin tu ayuda y la de nuestros voluntarios!</p>
                 </div>
             </section>
         </main>

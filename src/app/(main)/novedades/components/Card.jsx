@@ -3,7 +3,7 @@ import Link from "next/link";
 
 function Card({ title, data, date, info, location, url }) {
     return (
-        <div className="flex flex-col lg:flex-row bg-white rounded-2xl p-8 lg:p-16 gap-6 md:gap-14 relative z-99">
+        <article className="flex flex-col lg:flex-row bg-white rounded-2xl p-8 lg:p-16 gap-6 md:gap-14 relative z-99">
             <div className="aspect-[8/10] overflow-hidden rounded-2xl w-full lg:w-[40%]">
                 <Image
                     src={data}
@@ -14,7 +14,7 @@ function Card({ title, data, date, info, location, url }) {
                     loading="eager"
                 />
             </div>
-            <div className="flex flex-col gap-4 md:gap-8 justify-between w-full lg:w-[60%]">
+            <div role="region" className="flex flex-col gap-4 md:gap-8 justify-between w-full lg:w-[60%]">
                 <h2 className="text-primary text-h2 font-bold leading-120">{title}</h2>
                 <p className="text-p2">
                     {info}
@@ -35,7 +35,7 @@ function Card({ title, data, date, info, location, url }) {
                 </Link>
             </div>
 
-        </div>
+        </article>
     )
 }
 

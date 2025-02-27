@@ -66,7 +66,7 @@ export const Footer = () => {
                     </ul>
                 </nav>
                 <section className='flex flex-col w-full items-center justify-center gap-6 col-span-2'>
-                    <span className='text-[14px] sm:text-[16px] font-semibold text-center'>Síguenos en nuestras redes sociales</span>
+                    <h3 className='text-[14px] sm:text-[16px] font-semibold text-center'>Síguenos en nuestras redes sociales</h3>
                     <ul className='flex gap-8'>
                         {
                             socialGroup.map((socialItem) => (
@@ -92,13 +92,13 @@ export const Footer = () => {
                 </section>
             </div>
             <hr className='border-b-[1px] border-whitePrimary' />
-            <span className='m-auto py-5 text-[12px] sm:text-[16px] font-medium flex gap-2'>Diseño y Programación: <span className="!font-bold flex gap-2">
+            <h3 className='m-auto py-5 text-[12px] sm:text-[16px] font-medium flex gap-2'>Diseño y Programación: <span className="!font-bold flex gap-2">
                 <Link href="https://inkua.de/" target="_blank" rel="noopener noreferrer" className="hover:underline">
                     InkuA
                 </Link>
                 {' - '}
                 <TeamBtn />
-            </span></span>
+            </span></h3>
         </footer>
     )
 }

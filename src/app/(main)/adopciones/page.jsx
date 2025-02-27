@@ -15,8 +15,7 @@ function Adopciones() {
             spanTextContent="Adoptá un caballo rescatado y transformá vidas"
         />
         <ItemsGrid />
-        <div
-            className="w-full mx-auto py-6 md:py-12 lg:py-14 px-mobile md:px-tablet lg:px-desktop max-w-content"
+        <div role="region" className="w-full mx-auto py-6 md:py-12 lg:py-14 px-mobile md:px-tablet lg:px-desktop max-w-content"
         >
             <AdopcionesCard />            
         </div>

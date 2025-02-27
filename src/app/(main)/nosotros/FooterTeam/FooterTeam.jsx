@@ -34,13 +34,15 @@ const FooterTeam = () => {
             {loading ?
                 <div className="hidden md:block w-full p-16"><spam className="text-center text-black animate-pulse">Cargando imágen ... </spam></div>
                 :
-                <Image
-                    className="hidden md:block w-full h-auto object-cover mt-[2rem] max-w-banner mx-auto aspect-[9/3]"
-                    src={imgUrl}
-                    alt="Equipo de la ONG"
-                    width={1500}
-                    height={1000}
-                />
+                <div role="region">
+                    <Image
+                        className="hidden md:block w-full h-auto object-cover mt-[2rem] max-w-banner mx-auto aspect-[9/3]"
+                        src={imgUrl}
+                        alt="Equipo de la ONG"
+                        width={1500}
+                        height={1000}
+                    />
+                </div>
             }
         </>
     )
