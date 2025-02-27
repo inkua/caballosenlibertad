@@ -12,12 +12,12 @@ export const ContactItem = ( { contact } ) => {
             />
         </figure>
         <div className='space-y-2'>
-            <span tabIndex={0} className='block text-sm lg:text-lg'>
+            <h3 tabIndex={0} className='block text-sm lg:text-lg'>
                 {contact.itemName}
-            </span>
-            <small tabIndex={0} className='block text-primary text-[12px] lg:text-sm '>
+            </h3>
+            <p tabIndex={0} className='block text-primary text-[12px] lg:text-sm '>
                 {contact.value}
-            </small>
+            </p>
         </div>
     </li>
   )

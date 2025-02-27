@@ -5,7 +5,7 @@ import { useState } from "react";
 function Card({ name, data, alt, info }) {
     const [modal, setModal] = useState(false);
     return (
-        <div role='group' className="relative w-full h-auto mb-2 md:mb-4 cursor-pointer">
+        <article className="relative w-full h-auto mb-2 md:mb-4 cursor-pointer">
             <Image
                 src={data}
                 alt={alt}
@@ -55,7 +55,7 @@ function Card({ name, data, alt, info }) {
                     </div>
                 </div>
             )}
-        </div>
+        </article>
     )
 }
 
