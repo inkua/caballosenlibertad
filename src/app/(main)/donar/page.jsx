@@ -32,11 +32,12 @@ async function Donar() {
             <section className="m-auto max-w-content mt-6 px-mobile md:px-tablet lg:px-desktop">
                 <HowToHelp />
                 <div className="w-full my-12 md:my-20 lg:my-28">
-                    <h3 className='text-[20px] text-primary font-bold leading-140 md:text-[32px] lg:text-[45px] lg:font-extrabold mx-auto'>
+                    <h2 className='text-[20px] text-primary font-bold leading-140 md:text-[32px] lg:text-[45px] lg:font-extrabold mx-auto'>
                         Conocé lo que logramos con tu contribución
-                    </h3>
+                    </h2>
                 </div>
             </section>
+
             <section className="m-auto max-w-banner mt-6 px-mobile md:px-tablet lg:px-desktop">
                     <Slider 
                     items={stories}

@@ -9,7 +9,7 @@ export const TypeSection = {
 export const HowToHelp = () => {
 
     return (
-        <section
+        <div
             className="w-full mx-auto my-6"
         >
             <h2 className='mb-14 md:mb-20 lg:mb-24 text-start text-[28px] text-primary font-bold leading-140 md:text-[36px] lg:text-[42px] xl:text-[50px] lg:font-extrabold'>¿Cómo ayudar?</h2>
@@ -26,6 +26,6 @@ export const HowToHelp = () => {
                     image={'/assets/donar/medicina.svg'}
                 />
             </div>
-        </section>
+        </div>
     )
 }
