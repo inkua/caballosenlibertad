@@ -2,6 +2,11 @@ import Image from "next/image";
 
 import { TitleSection } from "../components/TitleSection"
 
+export const metadata = {
+    title: "Denuncias",
+    description: "Enterate de como actuar si ves una situación de maltrato animal."
+}
+
 function Denuncias() {
     return (
         <main className="py-[70px] lg:py-[90px]">

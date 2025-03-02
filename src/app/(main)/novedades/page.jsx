@@ -4,6 +4,11 @@ import Slider from "../components/slider/Slider";
 import { TitleSection } from "../components/TitleSection";
 import CardWrapper from "./components/CardWrapper";
 
+export const metadata = {
+    title: "Novedades",
+    description: "Conocé todas las actividades y concursos que nos ayudan a seguir creciendo."
+}
+
 const getData = async()=>{
     const urlBase = getUrlBase()
     const url = `${urlBase}/api/events`

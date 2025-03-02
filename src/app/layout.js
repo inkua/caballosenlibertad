@@ -12,13 +12,22 @@ export const metadata = {
     template: '%s | Caballos en Libertad',
     default: "Caballos en Libertad",
   },
-  description: "Asociación civil sin fines de lucro encargada de la protección, cuidado y rescate de equinos.",
+  description: {
+    template: "%s",
+    default: "Asociación civil sin fines de lucro encargada de la protección, cuidado y rescate de equinos.",
+  },
   openGraph: {
-    title: "Caballos en Libertad",
-    description: "Protección, cuidado y rescate de equinos.",
+    title: {
+      template: '%s | Caballos en Libertad',
+      default: "Caballos en Libertad",
+    },
+    description: {
+      template: "%s",
+      default: "Asociación civil sin fines de lucro encargada de la protección, cuidado y rescate de equinos.",
+    },
     images: [
       {
-        url: "/next.svg",
+        url: "/assets/nosotros/hero.jpg",
         width: 1200,
         height: 630,
         alt: "Logo descripción de la asociación",
@@ -29,9 +38,15 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Caballos en Libertad",
-    description: "Protección, cuidado y rescate de equinos.",
-    images: "/next.svg",
+    title: {
+      template: '%s | Caballos en Libertad',
+      default: "Caballos en Libertad",
+    },
+    description: {
+      template: "%s",
+      default: "Asociación civil sin fines de lucro encargada de la protección, cuidado y rescate de equinos.",
+    },
+    images: "/assets/nosotros/hero.jpg",
     site: "@caballosenlibertad",
   },
 };
