@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation"
 import { useState } from "react";
 import { useConfirmDialog } from "@/utils/hooks/useConfirmDialog";
 import BlockingOverlay from "@/app/components/BlockingOverlay/BlockingOverlay";
+import { reloadPage } from "../../../utils";
 
 function BtnDeleteEvent({ data }) {
     const router = useRouter()

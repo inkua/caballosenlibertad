@@ -7,7 +7,7 @@ export function Type0({ item }) {
         <article>
             <Link href="/historias" alt="página de historias" >
                 <Image
-                    src={item.imgUrl}
+                    src={item.imgUrl || "/notFoundImage.webp"}
                     alt={item.alt ? item.alt : 'Evento'}
                     width={700}
                     height={700}
@@ -23,7 +23,7 @@ export function Type1({ item }) {
     return (
         <article role="article">
             <Image
-                src={item.imgUrl}
+                src={item.imgUrl || "/notFoundImage.webp"}
                 alt={item.alt ? item.alt : 'Evento'}
                 width={700}
                 height={700}

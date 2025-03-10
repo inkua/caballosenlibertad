@@ -1,6 +1,7 @@
 import { truncateString } from "@/utils/textLimit";
 import ItemTableImg from "../../../componets/ItemTableImg/ItemTableImg";
 import ActionDropdown from "../ActionDropdown/ActionDropdown";
+import { formatDateForUser } from "@/utils/getDate";
 
 function ItemTable({ data }) {
     return (
@@ -24,7 +25,7 @@ function ItemTable({ data }) {
                 </div>
             </td>
             <td className="px-12 max-w-[20%] overflow-hidden py-4 text-sm font-normal text-gray-700">
-                {data.date ? new Date(data.date.seconds * 1000).toLocaleDateString('en-GB') : 'Fecha no disponible'}
+                {formatDateForUser(data.date)}
             </td>
             <td className="px-12 max-w-[20%] overflow-hidden py-4 text-sm font-normal text-gray-700">
                 {truncateString(data.info, 100)}

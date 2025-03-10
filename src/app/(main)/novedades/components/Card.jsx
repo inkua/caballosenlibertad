@@ -1,3 +1,4 @@
+import { formatDateForUser } from "@/utils/getDate";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -6,7 +7,7 @@ function Card({ title, data, date, info, location, url }) {
         <article className="flex flex-col lg:flex-row bg-white rounded-2xl p-8 lg:p-16 gap-6 md:gap-14 relative z-99">
             <div className="aspect-[8/10] overflow-hidden rounded-2xl w-full lg:w-[40%]">
                 <Image
-                    src={data}
+                    src={data || "/notFoundImage.webp"}
                     alt={"No disponible"}
                     width={700}
                     height={700}
@@ -21,7 +22,7 @@ function Card({ title, data, date, info, location, url }) {
                 </p>
                 <div>
                     <h3 className="text-h3">¿Cuando?</h3>
-                    <p className="text-p3">{new Intl.DateTimeFormat('es-ES', { weekday: 'long', day: 'numeric', month: 'long' }).format(new Date(date?.seconds * 1000)).replace(/^\w/, c => c.toUpperCase())}</p>
+                    <p className="text-p3">{formatDateForUser(date)}</p>
 
                 </div>
                 <div>
@@ -29,10 +30,12 @@ function Card({ title, data, date, info, location, url }) {
                     <p className="text-p3">{location}</p>
                 </div>
 
-
-                <Link href={url ? url : ''} target="_blank" rel="noopener noreferrer">
-                    <button className="button-primary lg:!w-[50%]">VER PUBLICACIÓN</button>
-                </Link>
+                {
+                    url &&
+                    <Link href={url} target="_blank" rel="noopener noreferrer">
+                        <button className="button-primary lg:!w-[50%]">VER PUBLICACIÓN</button>
+                    </Link>
+                }
             </div>
 
         </article>

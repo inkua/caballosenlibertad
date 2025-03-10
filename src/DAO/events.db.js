@@ -13,7 +13,24 @@ const getEventById = async (eid) => {
 
 // get all events | does not require parameters | returns a list of all events
 const getEvents = async () => {
-    return await getAllElements('events')
+    const allEvents = await getAllElements('events');
+    // Obtener la fecha de hoy sin la parte de la hora (para comparar solo YYYY-MM-DD)
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Eliminar horas para hacer comparación correcta
+
+    // Filtrar eventos futuros o actuales
+    const upcomingEvents = allEvents.filter(event => {
+        const eventDate = new Date(event.date + "T00:00:00"); // Convertir a Date
+        return eventDate >= today;
+    });
+
+    // Filtrar eventos pasados
+    const pastEvents = allEvents.filter(event => {
+        const eventDate = new Date(event.date + "T00:00:00"); // Convertir a Date
+        return eventDate < today;
+    });
+
+    return { upcomingEvents, pastEvents };
 }
 
 // get events per page | requires page and pageSize (default: 1 and 5) | returns paginated events
