@@ -8,7 +8,7 @@ import { TitleSection } from "./components/TitleSection";
 export const metadata = {
     title: "Inicio",
     description: "Protección, cuidado y rescate de equinos."
-  }
+}
 
 export default function Home() {
     return (
