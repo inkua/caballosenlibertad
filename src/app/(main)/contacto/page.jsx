@@ -1,6 +1,12 @@
 import ContactForm from "./components/ContactForm";
 import ContactMap from "./components/ContactMap";
 
+export const metadata = {
+    title: "Contacto",
+    description: "Dejanos tu consulta mediante el formulario o llamanos por telefono."
+}
+
+
 export default function page() {
     return (
         <main className='py-[70px] lg:py-[90px]'>

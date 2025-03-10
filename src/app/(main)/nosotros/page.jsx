@@ -1,6 +1,11 @@
 import Image from 'next/image';
 import FooterTeam from './FooterTeam/FooterTeam';
 
+export const metadata = {
+    title: "Nosotros",
+    description: "Caballos en libertad nace hace más de 10 años como una Asociación civil sin fines de lucro encargada de la protección, cuidado y rescate de equinos, siendo una de las más importantes de la Provincia de Buenos Aires."
+}
+
 const Nosotros = () => {
     return (
         <main className=''>

@@ -5,6 +5,11 @@ import { Statistics } from "./components/home/Statistics";
 import { TitleSection } from "./components/TitleSection";
 import VideoThumbnail from "./components/home/VideoThumbnail";
 
+export const metadata = {
+    title: "Inicio",
+    description: "Protección, cuidado y rescate de equinos."
+  }
+
 export default function Home() {
     return (
         <main className='pt-[70px] lg:pt-[90px] '>

@@ -3,7 +3,8 @@ import { AdopcionesCard } from "./components/AdopcionesCard";
 import { ItemsGrid } from "./components/ItemsGrid";
 
 export const metadata = {
-  title: "Adopciones"
+  title: "Adopciones",
+  description: "Adoptá un caballo rescatado y transformá vidas."
 }
 
 function Adopciones() {

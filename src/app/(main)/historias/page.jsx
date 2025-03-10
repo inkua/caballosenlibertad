@@ -3,6 +3,11 @@ import { getUrlBase } from "@/utils/urlRoute";
 import { TitleSection } from "../components/TitleSection";
 import CardWrapper from "./components/CardWrapper";
 
+export const metadata = {
+    title: "Historias",
+    description: "Conocé las historias de nuestros rescatados."
+}
+
 const getData = async()=>{
     const urlBase = getUrlBase()
     const url = `${urlBase}/api/stories`
