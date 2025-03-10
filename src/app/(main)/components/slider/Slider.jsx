@@ -10,7 +10,6 @@ import { Type0, Type1, Type2 } from './components/Card'
 function Slider({ items, type = 0, def, lg, md, nav = true, loop = false }) {
     const customBar = type == 0 ? import("./custom-bar-0.css") : import("./custom-bar-1.css");
 
-    console.log(items)
     return (
         <Swiper
             modules={[Navigation, Pagination]}

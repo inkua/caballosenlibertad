@@ -192,7 +192,7 @@ const DonationOption = ({ value, label, image, name, selectedOption, onChange, i
                     alt={label || value}
                     width={184}
                     height={48}
-                    className={`${value === "paypal" ? 'max-w-[80px] xl:max-w-[118px]' : 'max-w-[121px] xl:max-w-[184px]'}  mb-2 h-[32px] xl:h-[48px]`}
+                    className={`${value === "paypal" ? 'max-w-[80px] xl:max-w-[118px] h-auto' : 'max-w-[121px] xl:max-w-[184px] h-[32px] xl:h-[48px]'}  mb-2 `}
                 />
             }
             <input

@@ -1,11 +1,34 @@
-import React from 'react'
-import { TypeSection } from './HowToHelp'
 import Link from 'next/link'
+
+import { TypeSection } from './HowToHelp'
 
 export const DonationModalContent = ({ codigo }) => {
 
     return (
         <div>
+            {
+                codigo === TypeSection.APADRINAR &&
+                <>
+                    <p className='text-[16px] md:text-[18px] lg:text-[24px]'>
+                        Para apadrinar, es necesario tomar el compromiso de depositar todos los meses, lo que pueda, no hay un monto mínimo. Se puede realizar mediante Paypal, mercado pago o nuestra cuenta bancaria (deposito o transferencia)
+                    </p>
+                    <br />
+                    <div className='w-full lg:mt-6 flex space-x-2 md:space-x-4 lg:space-x-8'>
+                        <Link
+                            className='button-primary w-full md:max-w-[248px] leading-4 h-[40px] lg:h-[50px] !px-2 lg:!px-0 flex items-center justify-center text-nowrap  text-[13px] lg:text-[16px] font-semibold'
+                            href="/donar/contribuciones"
+                            alt="Mercado Pago - Paypal"
+                        >Métodos de Pago</Link>
+
+                        <Link
+                            className='button-primary w-full md:max-w-[248px] leading-4 h-[40px] lg:h-[50px] !px-2 lg:!px-0 flex items-center justify-center text-nowrap  text-[13px] lg:text-[16px] font-semibold'
+                            href="/donar/contribuciones#CuentaBancaria"
+                            alt="cuentas"
+                        >Cuenta Bancaria</Link>
+
+                    </div>
+                </>
+            }
             {
                 codigo === TypeSection.ALIMENTO &&
                 <>
