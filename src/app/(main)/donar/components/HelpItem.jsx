@@ -18,7 +18,7 @@ export const HelpItem = ( { text, image, handleItemClick, buttonText, priority }
       </span>
       <button
         onClick={ () => handleItemClick() }
-        className='button-primary uppercase w-full max-w-[180px] lg:max-w-[260px] h-[40px] lg:h-[54px] text-[13px] lg:text-[20px] font-semibold text-nowrap'
+        className='button-primary md:!px-1 md:!text-xs lg:!text-sm xl:!text-lg uppercase w-full max-w-[180px] lg:max-w-[260px] h-[40px] lg:h-[54px] text-[13px] lg:text-[20px] font-semibold text-nowrap'
       >
         {buttonText}
       </button>

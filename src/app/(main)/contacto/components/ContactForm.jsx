@@ -142,8 +142,11 @@ export default function ContactForm() {
                 </button>
             </form>
 
-            <h2 className='font-extrabold text-primary text-h2 duration-200 mt-8 md:mt-4 md:hidden block'>Teléfono</h2>
-            <p className='text-primary text-p3 duration-200 md:hidden block'>+54 9 221 638-3686</p>
+            <h2 className='font-extrabold text-primary text-h2 duration-200 mt-8 md:mt-4 md:hidden block'>Teléfonos</h2>
+            <p className='text-primary text-p3 duration-200 md:hidden block'>+54 9 221 638 3686</p>
+            <p className='text-primary text-p3 duration-200 md:hidden block'>+54 9 11 310 66232</p>
+            <p className='text-primary text-p3 duration-200 md:hidden block'>+54 9 280 468 0326</p>
+            <p className='text-primary text-p3 duration-200 md:hidden block'>+54 9 2213 59 0511</p>
         </div>
     );
 }

@@ -66,7 +66,7 @@ export const Footer = () => {
                     </ul>
                 </nav>
                 <section className='flex flex-col w-full items-center justify-center gap-6 col-span-2'>
-                    <h3 className='text-[14px] sm:text-[16px] font-semibold text-center'>Síguenos en nuestras redes sociales</h3>
+                    <h3 className='text-[14px] sm:text-[16px] font-semibold text-center'>Seguinos en nuestras redes sociales</h3>
                     <ul className='flex gap-8'>
                         {
                             socialGroup.map((socialItem) => (

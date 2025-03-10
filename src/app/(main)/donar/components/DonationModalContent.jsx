@@ -10,7 +10,10 @@ export const DonationModalContent = ({ codigo }) => {
                 codigo === TypeSection.APADRINAR &&
                 <>
                     <p className='text-[16px] md:text-[18px] lg:text-[24px]'>
-                        Para apadrinar, es necesario tomar el compromiso de depositar todos los meses, lo que pueda, no hay un monto mínimo. Se puede realizar mediante Paypal, mercado pago o nuestra cuenta bancaria (deposito o transferencia)
+                        Para ser madrina o padrino de un rescatado, solo se requiere una donación mensual del monto que elijas. Eso va a ir destinado a la alimentación y medicación de tu ahijado/a. No hay un monto mínimo ni máximo, es a voluntad.
+                    </p>
+                    <p className='text-[16px] md:text-[18px] lg:text-[24px] pt-4'>
+                        Se puede realizar mediante Paypal, mercado pago o nuestra cuenta bancaria (deposito o transferencia)
                     </p>
                     <br />
                     <div className='w-full lg:mt-6 flex space-x-2 md:space-x-4 lg:space-x-8'>

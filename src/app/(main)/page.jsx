@@ -2,8 +2,8 @@ import Link from "next/link";
 
 import { Contribution } from "./components/home/Contribution";
 import { Statistics } from "./components/home/Statistics";
-import { TitleSection } from "./components/TitleSection";
 import VideoThumbnail from "./components/home/VideoThumbnail";
+import { TitleSection } from "./components/TitleSection";
 
 export const metadata = {
     title: "Inicio",
@@ -16,7 +16,7 @@ export default function Home() {
             <section id="hero" role="banner">
                 <TitleSection
                     titleTextContent='Caballos en Libertad'
-                    spanTextContent='Protección, cuidado y rescate de equinos'
+                    spanTextContent='Somos una organización sin fines de lucro, encargada de la protección, cuidado y rescate de equinos.'
                 >
                     <Link href={'/nosotros'} className='button-primary font-semibold md:text-xl mt-4 lg:mt-8 md:w-[360px] md:h-[64px] col-start-1 w-fit'>
                         CONOCENOS

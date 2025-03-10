@@ -82,7 +82,7 @@ function Voluntariado() {
 
                 <div role="region">
                     <h2 className="text-primary text-xl my-[3rem] sm:text-[28px] md:text-[32px] lg:text-[40px] font-bold leading-120 ">
-                        Si quieres ser voluntario
+                        Sumate al voluntariado
                     </h2>
 
                     <AdopcionesCard

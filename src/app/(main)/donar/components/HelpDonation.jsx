@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+
 import { HelpItem } from './HelpItem'
 import { useRouter } from 'next/navigation'
 
@@ -17,7 +17,7 @@ export const HelpDonation = () => {
         priority={true} 
         text={`Donación \nmonetaria`} 
         image={'/assets/donar/Aporte-monetario.svg'}
-        buttonText={'Haz tu aporte'}
+        buttonText={'Hace tu aporte'}
         handleItemClick={handleItemClick}
       />
     </>
