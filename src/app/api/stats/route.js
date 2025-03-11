@@ -4,7 +4,7 @@ import { getStats, updateStats } from "@/DAO/generic.db";
 export async function GET() {
     try {
         const res = await getStats();
-
+        console.dir(res, { depth: null });
         if (res) {
             return Response.json({ status: 200, msg: "operación Exitosa", data: res });
         } else {

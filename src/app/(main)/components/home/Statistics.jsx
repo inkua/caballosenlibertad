@@ -1,7 +1,6 @@
 import { getStats } from '@/DAO/generic.db'
 import Image from 'next/image'
 
-
 export const Statistics = async () => {
     const { statistics } = await getStats()
     
@@ -12,6 +11,7 @@ export const Statistics = async () => {
             </p>
             <div role='group' className='max-w-[300px] sm:max-w-none w-full xl:w-[55%] grid grid-cols-2 sm:grid-cols-4 gap-2'>
                 {
+                    statistics &&
                     statistics.map((item) => (
                         <div role='group' key={`statistic-id-${item.name}`} className='flex flex-col items-center w-full text-primary p-2 rounded-md'>
                             <Image
