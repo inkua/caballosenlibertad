@@ -9,7 +9,7 @@ const passwordTemplate = (name='voluntario', password)=>{
             <p>Tu cuenta en nuestra plataforma ha sido configurada con éxito. Para que puedas acceder, hemos generado una contraseña provisional. Si solicitaste la restauración de tu contraseña, también puedes usar esta para iniciar sesión o puedes personalizarla según tu preferencia.</p>
             <h2 style="font-size: 18px;">Tu contraseña provisional: ${password}</h2>
             <p>Para mayor seguridad, te pedimos que cambies esta contraseña. Haz clic en el siguiente enlace para acceder a la página donde podrás establecer una nueva contraseña personalizada:</p>
-            <a href="http://localhost:3000/auth/updatePassword" style="display: inline-block; padding: 10px 20px; background-color: #007BFF; color: #ffffff; text-decoration: none; border-radius: 5px; font-weight: bold;">Cambiar mi contraseña</a>
+            <a href="https://www.caballosenlibertad.org/auth/updatePassword" style="display: inline-block; padding: 10px 20px; background-color: #007BFF; color: #ffffff; text-decoration: none; border-radius: 5px; font-weight: bold;">Cambiar mi contraseña</a>
             <br><br>
             <p>Si no solicitaste esta cuenta o la restauración de tu contraseña, por favor contáctanos de inmediato respondiendo a este correo.</p>
             <p>Atentamente,<br>El equipo de Caballos En Libertad</p>
@@ -17,11 +17,11 @@ const passwordTemplate = (name='voluntario', password)=>{
         <div style="background-color: #f4f4f4; text-align: center; padding: 15px; font-size: 12px; color: #666666;">
             <p>&copy; Caballos En Libertad</p>
             <p>Síguenos en:
-                <a href="https://facebook.com/tu_fundacion" style="color: #007BFF; text-decoration: none; margin: 0 5px;">Facebook</a> |
-                <a href="https://twitter.com/tu_fundacion" style="color: #007BFF; text-decoration: none; margin: 0 5px;">Twitter</a> |
-                <a href="https://instagram.com/tu_fundacion" style="color: #007BFF; text-decoration: none; margin: 0 5px;">Instagram</a>
+                <a href="https://www.facebook.com/caballos.enlibertad" style="color: #007BFF; text-decoration: none; margin: 0 5px;">Facebook</a> |
+                <a href="https://api.whatsapp.com/send/?phone=5492216383686&text&type=phone_number&app_absent=0" style="color: #007BFF; text-decoration: none; margin: 0 5px;">Whatsapp</a> |
+                <a href="https://www.instagram.com/caballosenlibertadlp" style="color: #007BFF; text-decoration: none; margin: 0 5px;">Instagram</a>
             </p>
-            <p>Visita nuestra página: <a href="https://www.inkua.de" style="color: #007BFF; text-decoration: none;">www.tu-fundacion.org</a></p>
+            <p>Visita nuestra página: <a href="https://www.caballosenlibertad.org" style="color: #007BFF; text-decoration: none;">www.caballosenlibertad.org</a></p>
         </div>
     </div>
     `

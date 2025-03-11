@@ -29,7 +29,7 @@ export const ItemsGrid = async () => {
                             className="relative group rounded-sm overflow-hidden w-full aspect-[4/6] "
                         >
                             <img
-                                src={item.imgUrl || "https://res.cloudinary.com/diiavhlq4/image/upload/v1736874938/general-1736874938068.webp"}
+                                src={item.imgUrl || "/notFoundImage.webp"}
                                 alt={item.name}
                                 className="w-full h-full object-cover object-center"
                             />

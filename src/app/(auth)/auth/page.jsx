@@ -14,12 +14,6 @@ function Login() {
                             <h2 className="text-2xl font-bold text-white sm:text-3xl">
                                 Autenticación - Caballos En Libertad
                             </h2>
-
-                            <p className="max-w-xl mt-3 text-gray-300">
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. In
-                                autem ipsa, nulla laboriosam dolores, repellendus perferendis
-                                libero suscipit nam temporibus molestiae
-                            </p>
                         </div>
                     </div>
                 </div>
@@ -30,8 +24,8 @@ function Login() {
                             <div className="flex justify-center mx-auto">
                                 <img
                                     className="w-auto h-7 sm:h-8"
-                                    src="https://merakiui.com/images/logo.svg"
-                                    alt=""
+                                    src="/logo-blanco.png"
+                                    alt="Caballos en Libertad Logo"
                                 />
                             </div>
 

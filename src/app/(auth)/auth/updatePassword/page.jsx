@@ -1,5 +1,4 @@
 import Link from "next/link";
-
 import ResetPasswordForm from "./components/ResetPasswordForm";
 import Image from "next/image";
 

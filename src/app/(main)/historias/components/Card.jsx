@@ -7,7 +7,7 @@ function Card({ name, data, alt, info }) {
     return (
         <article className="relative w-full h-auto mb-2 md:mb-4 cursor-pointer">
             <Image
-                src={data}
+                src={data|| "/notFoundImage.webp"}
                 alt={alt}
                 width={700}
                 height={700}
@@ -29,7 +29,7 @@ function Card({ name, data, alt, info }) {
                         <div className="w-full h-auto m-auto max-w-[1280px] max-h-[80%] md:max-h-[70%] p-8 flex flex-col md:flex-row md:items-center gap-6 overflow-y-auto bg-[#F2F6F8] rounded-3xl shadow-lg relative">
                             <div className="w-full h-auto min-w-[220px] md:w-1/2 lg:w-1/3">
                                 <Image
-                                    src={data}
+                                    src={data|| "/notFoundImage.webp"}
                                     alt={alt}
                                     width={900}
                                     height={900}

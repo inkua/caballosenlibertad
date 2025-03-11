@@ -120,7 +120,7 @@ function Denuncias() {
                     <div role="group" className="flex flex-col md:flex-row w-full justify-center items-center gap-5 md:gap-8 lg:gap-12 xl:gap-20">
                         <div className="flex justify-center items-center w-[45%] md:w-[128px] lg:w-[160px] aspect-square bg-primary2 rounded-full overflow-hidden flex-shrink-0">
                             <Image
-                                src={'/assets/denuncias/denuncia_01.png'}
+                                src={'/assets/denuncias/denuncia_06.png'}
                                 alt={'No disponible'}
                                 width={700}
                                 height={700}
