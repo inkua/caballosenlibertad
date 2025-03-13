@@ -1,4 +1,5 @@
 import { getUrlBase } from "@/utils/urlRoute";
+import Link from "next/link";
 
 import Slider from "../components/slider/Slider";
 import { TitleSection } from "../components/TitleSection";
@@ -27,7 +28,6 @@ const getData = async () => {
 
 async function Novedades() {
     const data = await getData()
-    console.log(data)
 
     return (
         <main className="py-[70px] lg:py-[90px]">
@@ -40,12 +40,12 @@ async function Novedades() {
                 <div role="region">
                     <h2 className="text-primary text-h2 font-bold leading-120 mt-12 mb-12">Proximos eventos</h2>
                     <div role='region' className="flex flex-col gap-8">
-                        {(!data.upcomingEvents || data.upcomingEvents.length == 1) ?
-                            <p className="text-base md:text-xl xl:text-2xl font-light">Quedate atento a nuestro próximos eventos. e invitamos a seguirnos en nuestras redes sociales para que estés al tanto.</p>
+                        {(!data.upcomingEvents || data.upcomingEvents.length <= 0) ?
+                            <p className="text-base md:text-xl xl:text-2xl font-light">Actualmente no hay eventos programados, pero siempre puedes apoyar a nuestros caballos de otras maneras. Conoce cómo puedes ayudar haciendo click <Link href="/donar" alt="donar" className="text-primary font-semibold italic">aquí</Link> y seguinos en redes sociales para no perderte nuestros próximos eventos.</p>
                             :
                             <>
                                 <div className='block md:hidden'>
-                                    <Slider items={data.upcomingEvents} type={2} def={1} lg={1} md={1} loop={data.upcomingEvents.length == 2} />
+                                    <Slider items={data.upcomingEvents} type={2} def={1} lg={1} md={1} loop={(data.upcomingEvents.length >= 2)} />
                                 </div>
 
                                 <div className='hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-8'>
@@ -59,7 +59,7 @@ async function Novedades() {
                 {(data.pastEvents || data.pastEvents.length >= 1) &&
                     <div role="region" className="w-full">
                         <h2 className="text-primary text-h2 font-bold leading-120 mt-12 mb-12">Eventos anteriores</h2>
-                        <Slider items={data.pastEvents} type={1} def={1} lg={3} md={2} nav={false} loop={data.pastEvents.length >= 3} />
+                        <Slider items={data.pastEvents} type={1} def={1} lg={3} md={2} nav={false} loop={(data.pastEvents.length >= 3)} />
                     </div>
                 }
             </section>

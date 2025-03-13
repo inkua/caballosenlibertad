@@ -12,7 +12,7 @@ export const Header = () => {
             <div className='hidden lg:flex max-screen-layout w-full items-center justify-between'>
                 <Link href={'/'}>
                     <Image
-                        src="/caballos-en-libertad-logo-texto-blanco.svg"
+                        src="/logoSmall.webp"
                         alt="Imagen logo caballos en libertad"
                         width={80}
                         height={50}

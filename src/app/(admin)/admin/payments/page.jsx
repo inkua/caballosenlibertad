@@ -1,34 +1,6 @@
 import { getPayments } from "@/DAO/generic.db"
 import PaymentsForm from "./components/PaymentsForm/PaymentsForm"
 
-const paymentMethod = {
-    mercadoPago: {
-        one_timePayment: {
-            amountOne: {
-                quantity: "",
-                link: "",
-            },
-            amountTwo: {
-                quantity: "",
-                link: "",
-            },
-            amountThree: {
-                quantity: "",
-                link: "",
-            },
-            otherAmount: {
-                quantity: "otro",
-                link: "",
-            },
-        },
-        monthlySubscription: "",
-    },
-    paypal: {
-        link: ""
-    }
-}
-
-
 const Payments = async() => {
     const payments = await getPayments()
     return (

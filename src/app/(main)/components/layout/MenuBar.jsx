@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -46,11 +46,11 @@ const MenuBar = () => {
         <span className='flex justify-center items-center z-50'>
             <Link href={'/'}>
                 <Image
-                    src="/caballos-en-libertad-logo-texto-blanco.svg"
+                    src="/logoSmall.webp"
                     alt="Imagen logo caballos en libertad"
-                    width={80}
-                    height={50}
-                    className={`block w-[112px] h-[50px]`}
+                    width={200}
+                    height={100}
+                    className={`block w-[85px] h-auto`}
                 />
             </Link>
         </span>
@@ -66,7 +66,7 @@ const MenuBar = () => {
             <nav 
                 className={`absolute top-[68px] left-0 right-0 bg-primary pt-4 pb-4 ${startAnimation ? 'animated-in-nav': 'animated-out-nav'}`}
             >
-                <ul className={`flex flex-col gap-4 items-center justify-start ${startAnimation ? 'animated-in-opacity': 'animated-out-opacity'}`}>
+                <ul className={`flex flex-col gap-4 items-center justify-start pb-4 ${startAnimation ? 'animated-in-opacity': 'animated-out-opacity'}`}>
                     <li key={`home-inicio`} className='whitespace-nowrap'>
                         <Link
                             href={'/'} 

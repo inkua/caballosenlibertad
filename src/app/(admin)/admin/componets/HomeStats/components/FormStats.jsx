@@ -33,8 +33,15 @@ const FormStats = ({ stats, statsId }) => {
 
             if (!response.ok) throw new Error("Error updating stats");
 
-            showToast({ type: "success", message: 'Estadística actualizada exitosamente!' })
-            reset(); // Clear the form after successful update
+            const result = await response.json();
+            if (result.status == 200) {
+                showToast({ type: "success", message: 'Estadística actualizada exitosamente!' })
+                reset(); // Clear the form after successful update
+
+            } else {
+                showToast({ type: 'error', message: 'Hubo un error al actualizar' })
+                console.error("status: " + result.status)
+            }
         } catch (error) {
             console.error("Update failed:", error);
             showToast({ type: 'error', message: 'Hubo un error al actualizar' })

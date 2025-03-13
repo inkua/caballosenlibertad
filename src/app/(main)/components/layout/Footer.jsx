@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
 import { TeamBtn } from './TeamBtn'
 
 import { featuresLinks } from '../../links/links'
@@ -29,13 +28,15 @@ export const Footer = () => {
         <footer className="w-full bg-primary text-whitePrimary flex flex-col">
             <div className='max-screen-layout w-full lg:grid lg:grid-cols-5 py-10 sm:py-12 md:py-14 items-center'>
                 <figure className='hidden lg:block w-full col-span-2'>
-                    <img
-                        src="/caballo-logo-.svg"
-                        alt="Imagen logo caballos en libertad"
-                        width={190}
-                        height={145}
-                        className={`hidden lg:block w-[210px] h-[158px] m-auto`}
-                    />
+                    <Link href="/" alt="Caballos en Libertad | inicio" scroll={true}>
+                        <Image
+                            src="/logoBig.png"
+                            alt="Imagen logo caballos en libertad"
+                            width={200}
+                            height={200}
+                            className={`hidden lg:block w-[210px] h-[158px] m-auto`}
+                        />
+                    </Link>
                 </figure>
 
                 <nav className='hidden lg:block col-span-1'>
@@ -81,7 +82,6 @@ export const Footer = () => {
                                             alt={`Icono representativo de ${socialItem.name}`}
                                             width={33}
                                             height={33}
-                                            // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 300px"
                                             className={`w-[24px] h-[24px] sm:w-[28px] sm:h-[28px] md:w-[33px] md:h-[33px] bg-transparent mt-[2px] socialAnimated`}
                                         />
                                     </Link>

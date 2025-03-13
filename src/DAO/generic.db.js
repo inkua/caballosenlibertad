@@ -19,6 +19,10 @@ const deleteGenericEntity = async (gid) => {
 
 // -------------------------- payments --------------------------
 const addPayments = async (newData) => {
+    const payments = await getPayments()
+    if(payments){
+        return true
+    }
     newData.type = "payments"
     return await addGenericEntity(newData)
 }
@@ -94,6 +98,10 @@ const deleteTeamImg = async (imgUrl) => {
 
 // -------------------------- stats --------------------------
 const addStats = async (newData) => {
+    const stats = await getStats()
+    if(stats){
+        return true
+    }
     newData.type = "stats"
     return await addGenericEntity(newData)
 }

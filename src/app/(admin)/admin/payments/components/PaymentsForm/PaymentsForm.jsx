@@ -52,13 +52,13 @@ const PaymentsForm = ({ data }) => {
         }
 
         const isConfirmed = await confirm("Está seguro que quiere modificar los datos de los metodos de pago?");
-        if(!isConfirmed){
+        if (!isConfirmed) {
             return false
         }
 
         try {
             setIsLoading(true);
-            
+
             const response = await fetch("/api/payments", {
                 method: "PUT",
                 body: JSON.stringify({
@@ -76,7 +76,7 @@ const PaymentsForm = ({ data }) => {
             }
         } catch (error) {
             showToast({ type: 'error', message: 'No se pudo realizar la operación!' })
-        }finally {
+        } finally {
             setIsLoading(false);
             reloadPage(router)
         }
@@ -133,29 +133,97 @@ const PaymentsForm = ({ data }) => {
                         <h2 className="text-lg font-medium">Pago Único - Mercado pago</h2>
                         <hr className="border-blue-600 border-dotted pt-2" />
 
-                        {Object.keys(paymentMethod.mercadoPago.one_timePayment).map((key) => (
-                            <div key={key} className="space-y-2 mb-4">
-                                <label className="block font-light">{"-->"} {key}</label>
-                                <input
-                                    type="text"
-                                    className="border p-2 w-full rounded-lg"
-                                    placeholder="Monto"
-                                    value={paymentMethod.mercadoPago.one_timePayment[key].quantity}
-                                    onChange={(e) =>
-                                        handleChange(`mercadoPago.one_timePayment.${key}.quantity`, e.target.value)
-                                    }
-                                />
-                                <input
-                                    type="text"
-                                    className="border p-2 w-full rounded-lg"
-                                    placeholder="Enlace de pago"
-                                    value={paymentMethod.mercadoPago.one_timePayment[key].link}
-                                    onChange={(e) =>
-                                        handleChange(`mercadoPago.one_timePayment.${key}.link`, e.target.value)
-                                    }
-                                />
-                            </div>
-                        ))}
+                        {/* Amount One */}
+                        <div className="space-y-2 mb-4">
+                            <label className="block font-light">{"-->"} Cantidad 1</label>
+                            <input
+                                type="text"
+                                className="border p-2 w-full rounded-lg"
+                                placeholder="Monto"
+                                value={paymentMethod.mercadoPago.one_timePayment.amountOne.quantity}
+                                onChange={(e) =>
+                                    handleChange("mercadoPago.one_timePayment.amountOne.quantity", e.target.value)
+                                }
+                            />
+                            <input
+                                type="text"
+                                className="border p-2 w-full rounded-lg"
+                                placeholder="Enlace de pago"
+                                value={paymentMethod.mercadoPago.one_timePayment.amountOne.link}
+                                onChange={(e) =>
+                                    handleChange("mercadoPago.one_timePayment.amountOne.link", e.target.value)
+                                }
+                            />
+                        </div>
+
+                        {/* Amount Two */}
+                        <div className="space-y-2 mb-4">
+                            <label className="block font-light">{"-->"} Cantidad 2</label>
+                            <input
+                                type="text"
+                                className="border p-2 w-full rounded-lg"
+                                placeholder="Monto"
+                                value={paymentMethod.mercadoPago.one_timePayment.amountTwo.quantity}
+                                onChange={(e) =>
+                                    handleChange("mercadoPago.one_timePayment.amountTwo.quantity", e.target.value)
+                                }
+                            />
+                            <input
+                                type="text"
+                                className="border p-2 w-full rounded-lg"
+                                placeholder="Enlace de pago"
+                                value={paymentMethod.mercadoPago.one_timePayment.amountTwo.link}
+                                onChange={(e) =>
+                                    handleChange("mercadoPago.one_timePayment.amountTwo.link", e.target.value)
+                                }
+                            />
+                        </div>
+
+                        {/* Amount Three */}
+                        <div className="space-y-2 mb-4">
+                            <label className="block font-light">{"-->"} Cantidad 3</label>
+                            <input
+                                type="text"
+                                className="border p-2 w-full rounded-lg"
+                                placeholder="Monto"
+                                value={paymentMethod.mercadoPago.one_timePayment.amountThree.quantity}
+                                onChange={(e) =>
+                                    handleChange("mercadoPago.one_timePayment.amountThree.quantity", e.target.value)
+                                }
+                            />
+                            <input
+                                type="text"
+                                className="border p-2 w-full rounded-lg"
+                                placeholder="Enlace de pago"
+                                value={paymentMethod.mercadoPago.one_timePayment.amountThree.link}
+                                onChange={(e) =>
+                                    handleChange("mercadoPago.one_timePayment.amountThree.link", e.target.value)
+                                }
+                            />
+                        </div>
+
+                        {/* Other Amount */}
+                        <div className="space-y-2 mb-4">
+                            <label className="block font-light">{"-->"} Otra cantidad</label>
+                            <input
+                                type="text"
+                                className="border p-2 w-full rounded-lg"
+                                placeholder="Monto"
+                                value={paymentMethod.mercadoPago.one_timePayment.otherAmount.quantity}
+                                onChange={(e) =>
+                                    handleChange("mercadoPago.one_timePayment.otherAmount.quantity", e.target.value)
+                                }
+                            />
+                            <input
+                                type="text"
+                                className="border p-2 w-full rounded-lg"
+                                placeholder="Enlace de pago"
+                                value={paymentMethod.mercadoPago.one_timePayment.otherAmount.link}
+                                onChange={(e) =>
+                                    handleChange("mercadoPago.one_timePayment.otherAmount.link", e.target.value)
+                                }
+                            />
+                        </div>
                     </div>
 
                 </div>

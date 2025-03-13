@@ -5,7 +5,6 @@ import { validatePaymentMethod } from "@/utils/zod.lib";
 export async function GET() {
     try {
         const res = await getPayments();
-        console.dir(res, { depth: null });
         if (res) {
             return Response.json({ status: 200, msg: "operación Exitosa", data: res });
         } else {

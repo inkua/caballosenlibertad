@@ -3,7 +3,7 @@ import { jwtVerify, SignJWT } from "jose";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 
-const secretKey = "secret";
+const secretKey = process.env.TOKEN_SECRET;
 const key = new TextEncoder().encode(secretKey);
 
 //creacion del JWT

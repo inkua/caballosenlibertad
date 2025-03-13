@@ -1,5 +1,8 @@
 import { ToastProvider } from "@/utils/ToastProvider"
 
+export const metadata = {
+    title: "Auth",
+}
 
 function layout({ children }) {
     return (
