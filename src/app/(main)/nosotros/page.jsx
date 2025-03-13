@@ -3,7 +3,13 @@ import FooterTeam from './FooterTeam/FooterTeam';
 
 export const metadata = {
     title: "Nosotros",
-    description: "Caballos en libertad nace hace más de 10 años como una Asociación civil sin fines de lucro encargada de la protección, cuidado y rescate de equinos, siendo una de las más importantes de la Provincia de Buenos Aires."
+    description: "Caballos en libertad nace hace más de 10 años como una Asociación civil sin fines de lucro encargada de la protección, cuidado y rescate de equinos, siendo una de las más importantes de la Provincia de Buenos Aires.",
+    openGraph: {
+        title: 'Nosotros',
+    },
+    twitter: {
+        title: 'Nosotros',
+    },
 }
 
 const Nosotros = () => {

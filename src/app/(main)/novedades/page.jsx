@@ -7,7 +7,13 @@ import CardWrapper from "./components/CardWrapper";
 
 export const metadata = {
     title: "Novedades",
-    description: "Conocé todas las actividades y concursos que nos ayudan a seguir creciendo."
+    description: "Conocé todas las actividades y concursos que nos ayudan a seguir creciendo.",
+    openGraph: {
+        title: 'Novedades',
+    },
+    twitter: {
+        title: 'Novedades',
+    },
 }
 
 const getData = async () => {

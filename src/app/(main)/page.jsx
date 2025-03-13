@@ -6,8 +6,8 @@ import VideoThumbnail from "./components/home/VideoThumbnail";
 import { TitleSection } from "./components/TitleSection";
 
 export const metadata = {
-    title: "Inicio",
-    description: "Protección, cuidado y rescate de equinos."
+    title: "Inicio | Caballos en Libertad",
+    description: "Protección, cuidado y rescate de equinos.",
 }
 
 export default function Home() {

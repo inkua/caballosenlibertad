@@ -21,7 +21,7 @@ const FormStats = ({ stats, statsId }) => {
 
         try {
             const response = await fetch('/api/stats', {
-                method: 'PUT',
+                method: 'POST',
                 body: JSON.stringify({
                     data: {
                         name: data.statName,

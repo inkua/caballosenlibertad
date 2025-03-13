@@ -5,6 +5,17 @@ import SearchBar from "../componets/SearchBar/SearchBar";
 import AddBtn from "./components/AddBtn/AddBtn";
 import Table from "./components/Table/Table";
 
+export const metadata = {
+    title: "Eventos",
+    description: "Panel de eventos.",
+    openGraph: {
+        title: 'Eventos',
+    },
+    twitter: {
+        title: 'Eventos',
+    },
+}
+
 async function Events({ searchParams }) {
     const { page } = searchParams
     let data = {}

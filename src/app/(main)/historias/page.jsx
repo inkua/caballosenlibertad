@@ -5,7 +5,13 @@ import CardWrapper from "./components/CardWrapper";
 
 export const metadata = {
     title: "Historias",
-    description: "Conocé las historias de nuestros rescatados."
+    description: "Conocé las historias de nuestros rescatados.",
+    openGraph: {
+        title: 'Historias',
+    },
+    twitter: {
+        title: 'Historias',
+    },
 }
 
 const getData = async()=>{

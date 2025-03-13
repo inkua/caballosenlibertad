@@ -6,7 +6,13 @@ import { HowToHelp } from "./components/HowToHelp";
 
 export const metadata = {
     title: "Donar",
-    description: "Doná hoy, tu contribución puede marcar la diferencia en la vida de nuestros rescatados."
+    description: "Doná hoy, tu contribución puede marcar la diferencia en la vida de nuestros rescatados.",
+    openGraph: {
+        title: 'Donar',
+    },
+    twitter: {
+        title: 'Donar',
+    },
 }
 
 const getData = async()=>{
@@ -41,6 +47,7 @@ async function Donar() {
 
             <section className="m-auto max-w-banner mt-6 px-mobile md:px-tablet lg:px-desktop">
                     <Slider 
+                    nav={false}
                     items={stories}
                     type={0}
                     def={1}
