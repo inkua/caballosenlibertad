@@ -1,6 +1,7 @@
 'use client'
+
 import Link from 'next/link';
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import { usePathname } from 'next/navigation';
 

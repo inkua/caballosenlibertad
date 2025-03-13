@@ -1,5 +1,6 @@
 'use client'
-import React, { useState } from 'react'
+
+import { useState } from 'react'
 import { HelpItem } from './HelpItem'
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { DonationModalContent } from './DonationModalContent';

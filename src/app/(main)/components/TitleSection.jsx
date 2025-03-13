@@ -1,7 +1,7 @@
 
 export const TitleSection = ({titleTextContent, spanTextContent, children}) => {
   return (
-    <section className='px-mobile md:px-tablet lg:px-desktop grid grid-cols-4 md:grid-cols-12 w-full mx-auto items-start gap-2 py-6 md:py-12 lg:py-14 max-w-content'>
+    <section id="title" className='px-mobile md:px-tablet lg:px-desktop grid grid-cols-4 md:grid-cols-12 w-full mx-auto items-start gap-2 py-6 md:py-12 lg:py-14 max-w-content'>
       <h1
         className='text-[40px] sm:text-[56px] md:text-[84px] lg:text-[100px] xl:text-[110px] leading-120 font-extrabold text-primary col-span-full md:mb-4 lg:mb-6'
       >

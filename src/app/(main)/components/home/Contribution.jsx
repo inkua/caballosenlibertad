@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
 
 export const Contribution = () => {
     return (
@@ -29,7 +28,7 @@ export const Contribution = () => {
                         height={109}
                         className="w-[50px] md:w-[80px] aspect-square"
                     />
-                    <Link href={'/'} className='button-primary font-semibold md:text-lg flex items-center justify-center p-0 md:px-4 whitespace-nowrap w-[143px] h-[40px] md:w-[300px] md:h-[58px]'>
+                    <Link href={'/voluntariado'} className='button-primary font-semibold md:text-lg flex items-center justify-center p-0 md:px-4 whitespace-nowrap w-[143px] h-[40px] md:w-[300px] md:h-[58px]'>
                         <span className='hidden md:flex'>QUIERO&nbsp;</span><span>SER VOLUNTARIO</span>
                     </Link>
                 </div>
