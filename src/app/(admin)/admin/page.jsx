@@ -4,6 +4,17 @@ import TeamImage from "./componets/TeamImage/TeamImage"
 import Tutorials from "./componets/Tutorials/Tutorials"
 import HomeStats from "./componets/HomeStats/HomeStats"
 
+export const metadata = {
+    title: "Panel Principal | Admin",
+    description: "Panel de administrador.",
+    openGraph: {
+        title: 'Panel Principal',
+    },
+    twitter: {
+        title: 'Panel Principal',
+    },
+}
+
 function Index() {
     return (
         < >

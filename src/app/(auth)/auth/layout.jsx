@@ -1,7 +1,14 @@
 import { ToastProvider } from "@/utils/ToastProvider"
 
 export const metadata = {
-    title: "Auth",
+    title: "Iniciar sesión",
+    description: "Iniciar sesión en tu cuenta.",
+    openGraph: {
+        title: 'Iniciar sesión',
+    },
+    twitter: {
+        title: 'Iniciar sesión',
+    },
 }
 
 function layout({ children }) {

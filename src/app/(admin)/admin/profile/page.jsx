@@ -2,6 +2,16 @@ import { getAdminByEmail } from "@/DAO/admins.db";
 import ProfileImage from "./components/ProfileImage";
 import ChangePassword from "./components/ChangePassword";
 
+export const metadata = {
+    title: "Perfil",
+    description: "Perfil de administrador.",
+    openGraph: {
+        title: 'Perfil',
+    },
+    twitter: {
+        title: 'Perfil',
+    },
+}
 
 async function ProductDetail({ searchParams }) {
     const { user } = searchParams

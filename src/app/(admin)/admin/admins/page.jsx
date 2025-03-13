@@ -4,6 +4,17 @@ import AdminAddBtn from "./components/AdminAddBtn/AdminAddBtn"
 import AdminTable from "./components/AdminTable/AdminTable"
 import Pagination from "../componets/Pagination/Pagination"
 
+export const metadata = {
+    title: "Administradores",
+    description: "Panel de administradores.",
+    openGraph: {
+        title: 'Administradores',
+    },
+    twitter: {
+        title: 'Administradores',
+    },
+}
+
 
 async function Administradores({searchParams}) {
     const { page } = searchParams
