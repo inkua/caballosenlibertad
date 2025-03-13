@@ -47,6 +47,7 @@ async function Donar() {
 
             <section className="m-auto max-w-banner mt-6 px-mobile md:px-tablet lg:px-desktop">
                     <Slider 
+                    nav={false}
                     items={stories}
                     type={0}
                     def={1}
