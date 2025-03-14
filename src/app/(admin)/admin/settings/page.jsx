@@ -1,5 +1,15 @@
 import PasswordForm from "./components/PasswordForm/PasswordForm"
 
+export const metadata = {
+    title: "Cambiar contraseña",
+    description: "Panel de cambio de contraseña.",
+    openGraph: {
+        title: 'Cambiar contraseña',
+    },
+    twitter: {
+        title: 'Cambiar contraseña',
+    },
+}
 
 function Settings() {
     return (

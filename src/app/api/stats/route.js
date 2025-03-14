@@ -15,8 +15,8 @@ export async function GET() {
     }
 }
 
-export async function PUT(req) {
-    console.log('entra a la ruta /api/stats con el método PUT')
+
+export async function POST(req) {
     const session = await getSession()
     
     if (!session) {

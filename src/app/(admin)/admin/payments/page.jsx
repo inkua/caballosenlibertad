@@ -1,5 +1,17 @@
 import { getPayments } from "@/DAO/generic.db"
+
 import PaymentsForm from "./components/PaymentsForm/PaymentsForm"
+
+export const metadata = {
+    title: "Pagos",
+    description: "Panel de pagos.",
+    openGraph: {
+        title: 'Pagos',
+    },
+    twitter: {
+        title: 'Pagos',
+    },
+}
 
 const Payments = async() => {
     const payments = await getPayments()

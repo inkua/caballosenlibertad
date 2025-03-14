@@ -5,7 +5,7 @@
 
 .swiper-button-next::after,
 .swiper-button-prev::after {
-    @apply text-[0.8rem]
+    @apply text-[0.8rem];
 }
 
 .swiper-button-next {
@@ -22,7 +22,7 @@
 }
 
 .swiper-pagination {
-    @apply bottom-0;
+    @apply !bottom-0;
 }
 
 .swiper-pagination-bullet-active {
