@@ -8,18 +8,19 @@ export const metadata = {
     description: "Conocé las historias de nuestros rescatados.",
 }
 
-const getData = async()=>{
+const getData = async () => {
     const urlBase = getUrlBase()
     const url = `${urlBase}/api/stories`
 
-    const response = await fetch(url,{
-        next:{
-            revalidate:60
+    const response = await fetch(url, {
+        next: {
+            revalidate: 3600
         }
     });
+
     const result = await response.json();
     return result.data
-}   
+}
 
 async function Historias() {
     const stories = await getData()

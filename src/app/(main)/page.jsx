@@ -7,7 +7,7 @@ import { TitleSection } from "./components/TitleSection";
 
 export const metadata = {
     title: "Inicio | Caballos en Libertad",
-    description: "Protección, cuidado y rescate de equinos.",
+    description: "Fundación Caballos en Libertad, un refugio dedicado al rescate y protección de equinos en situación de vulnerabilidad. Descubre nuestra labor y cómo ser parte del cambio.",
 }
 
 export default function Home() {

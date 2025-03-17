@@ -4,7 +4,7 @@ import { TitleSection } from "../components/TitleSection"
 
 export const metadata = {
     title: "Denuncias",
-    description: "Enterate de como actuar si ves una situación de maltrato animal.",
+    description: "Enterate de como actuar si ves una situación de maltrato animal. Juntos podemos proteger y salvar más vidas.",
 }
 
 function Denuncias() {

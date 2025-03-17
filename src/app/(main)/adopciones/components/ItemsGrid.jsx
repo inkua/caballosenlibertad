@@ -6,9 +6,10 @@ const getData = async () => {
 
     const response = await fetch(url, {
         next: {
-            revalidate: 60
+            revalidate: 3600
         }
     });
+
     const result = await response.json();
     return result.data
 }

@@ -3,7 +3,7 @@ import ContactMap from "./components/ContactMap";
 
 export const metadata = {
     title: "Contacto",
-    description: "Dejanos tu consulta mediante el formulario o llamanos por telefono.",
+    description: "¿Tienes dudas o quieres colaborar? Escríbenos a través de nuestro formulario de contacto y redes sociales. Estamos aquí para ayudarte.",
 }
 
 export default function page() {

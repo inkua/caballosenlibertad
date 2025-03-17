@@ -9,18 +9,20 @@ export const metadata = {
     description: "Doná hoy, tu contribución puede marcar la diferencia en la vida de nuestros rescatados.",
 }
 
-const getData = async()=>{
+const getData = async () => {
     const urlBase = getUrlBase()
     const url = `${urlBase}/api/stories`
 
-    const response = await fetch(url,{
-        next:{
-            revalidate:60
+    const response = await fetch(url, {
+        next: {
+            revalidate: 3600
         }
     });
+
     const result = await response.json();
     return result.data
-}   
+}
+
 async function Donar() {
     const stories = await getData()
 
@@ -40,7 +42,7 @@ async function Donar() {
             </section>
 
             <section className="m-auto max-w-banner mt-6 px-mobile md:px-tablet lg:px-desktop">
-                    <Slider 
+                <Slider
                     nav={false}
                     items={stories}
                     type={0}
@@ -48,9 +50,9 @@ async function Donar() {
                     lg={2}
                     md={2}
                     loop={true}
-                    />
+                />
             </section>
-            
+
         </main>
     );
 }
