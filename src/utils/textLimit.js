@@ -21,8 +21,20 @@ const truncateString = (text, maxLength = 30) => {
     return truncated + truncationIndicator;
 };
 
+function paragrahFormat(texto, estilo) {
+    if (typeof texto !== 'string') {
+      return ""; // O podrías lanzar un error si esperas estrictamente un string
+    }
+    const lineas = texto.split('\n');
+    let resultado = '';
+    for (const linea of lineas) {
+        resultado += `<p class="${estilo}">${linea}</p>\n`;
+    }
+    return resultado;
+}
 export {
     truncateDescription,
     truncateString,
+    paragrahFormat,
 }
 

@@ -4,12 +4,6 @@ import { TitleSection } from "../components/TitleSection";
 export const metadata = {
     title: "Voluntariado",
     description: "Sumate a nuestro equipo. Dado que no contamos con ningún subsidio de parte del Estado, realizamos las tareas gracias al apoyo de nuestros voluntarios.",
-    openGraph: {
-        title: 'Voluntariado',
-    },
-    twitter: {
-        title: 'Voluntariado',
-    },
 }
 
 function Voluntariado() {

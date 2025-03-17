@@ -21,7 +21,7 @@ function Slider({ items, type = 0, def, lg, md, nav = true, loop = false }) {
             loop={loop}
             className={`!relative w-full cursor-grab h-auto ${type != 2 ? type == 0 ? '!pb-0 !px-4' : '!pb-12 !px-0' : '!pb-0 !px-0 !mx-0'}`} >
             {items.map((item) => (
-                <SwiperSlide key={item.id} className={`!h-auto overflow-hidden ${type != 2 ? type == 0 ? 'rounded-none mb-12' + ' aspect-[3/2]' : 'rounded-2xl' + ' aspect-square' : '!px-0'}`}>
+                <SwiperSlide key={item.id} className={`overflow-hidden ${type != 2 ? type == 0 ? 'rounded-none mb-12' + ' aspect-[3/2]' : 'rounded-2xl' + ' aspect-square' : '!px-0'}`}>
                     {type === 0 ?
                         <Type0 item={item} />
                         : type === 1 ?

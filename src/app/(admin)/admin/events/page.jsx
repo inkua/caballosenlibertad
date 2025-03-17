@@ -8,12 +8,6 @@ import Table from "./components/Table/Table";
 export const metadata = {
     title: "Eventos",
     description: "Panel de eventos.",
-    openGraph: {
-        title: 'Eventos',
-    },
-    twitter: {
-        title: 'Eventos',
-    },
 }
 
 async function Events({ searchParams }) {

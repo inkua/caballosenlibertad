@@ -5,12 +5,6 @@ import { TitleSection } from "../components/TitleSection"
 export const metadata = {
     title: "Denuncias",
     description: "Enterate de como actuar si ves una situación de maltrato animal.",
-    openGraph: {
-        title: 'Denuncias',
-    },
-    twitter: {
-        title: 'Denuncias',
-    },
 }
 
 function Denuncias() {

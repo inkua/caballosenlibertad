@@ -1,9 +1,11 @@
 "use client";
+import { paragrahFormat } from "@/utils/textLimit";
 import Image from "next/image";
 import { useState } from "react";
 
 function Card({ name, data, alt, info }) {
     const [modal, setModal] = useState(false);
+    
     return (
         <article className="relative w-full h-auto mb-2 md:mb-4 cursor-pointer">
             <Image
@@ -39,9 +41,9 @@ function Card({ name, data, alt, info }) {
 
                             <div className="h-full md:h-auto w-full md:w-1/2 lg:w-2/3 md:self-start">
                                 <h1 className="font-bold text-h2 text-primary pb-2">{name}</h1>
-                                <p className="par-1 md:text-lg h-full text-[#03151F]">
-                                    {info}
-                                </p>
+                                <div dangerouslySetInnerHTML={{ __html: paragrahFormat(info, "par-1 md:text-lg h-full text-[#03151F] mb-4")}}>
+
+                                </div>
                             </div>
 
                             <button

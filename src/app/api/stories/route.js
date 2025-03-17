@@ -1,10 +1,9 @@
 import { getSession } from "@/app/(auth)/auth/lib";
-import { addStory, deleteStory, getStoriesPerPage, setStory } from "@/DAO/stories.db";
+import { addStory, deleteStory, setStory, getActiveStories } from "@/DAO/stories.db";
 
 export async function GET() {
     try {
-        const data = await getStoriesPerPage();
-        const res = data?.list
+        const res = await getActiveStories();
 
         if (res) {
             return Response.json({ status: 200, msg: "operación Exitosa", data: res });

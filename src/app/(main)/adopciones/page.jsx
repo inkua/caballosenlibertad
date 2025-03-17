@@ -5,12 +5,6 @@ import { ItemsGrid } from "./components/ItemsGrid";
 export const metadata = {
   title: "Adopciones",
   description: "Adoptá un caballo rescatado y transformá vidas.",
-  openGraph: {
-    title: 'Adopciones',
-  },
-  twitter: {
-    title: 'Adopciones',
-  },
 }
 
 function Adopciones() {

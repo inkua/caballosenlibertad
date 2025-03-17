@@ -4,12 +4,6 @@ import ContactMap from "./components/ContactMap";
 export const metadata = {
     title: "Contacto",
     description: "Dejanos tu consulta mediante el formulario o llamanos por telefono.",
-    openGraph: {
-        title: 'Contacto',
-    },
-    twitter: {
-        title: 'Contacto',
-    },
 }
 
 export default function page() {

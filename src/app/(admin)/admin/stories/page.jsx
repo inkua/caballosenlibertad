@@ -1,18 +1,13 @@
 import { getStoriesPerPage } from "@/DAO/stories.db"
+
+import Pagination from "../componets/Pagination/Pagination"
 import SearchBar from "../componets/SearchBar/SearchBar"
 import StoryAddBtn from "./components/StoryAddBtn/StoryAddBtn"
 import StoryTable from "./components/StoryTable/StoryTable"
-import Pagination from "../componets/Pagination/Pagination"
 
 export const metadata = {
     title: "Historias",
     description: "Panel de historias.",
-    openGraph: {
-        title: 'Historias',
-    },
-    twitter: {
-        title: 'Historias',
-    },
 }
 
 const Stories = async ({ searchParams }) => {

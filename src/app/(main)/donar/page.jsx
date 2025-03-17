@@ -7,12 +7,6 @@ import { HowToHelp } from "./components/HowToHelp";
 export const metadata = {
     title: "Donar",
     description: "Doná hoy, tu contribución puede marcar la diferencia en la vida de nuestros rescatados.",
-    openGraph: {
-        title: 'Donar',
-    },
-    twitter: {
-        title: 'Donar',
-    },
 }
 
 const getData = async()=>{

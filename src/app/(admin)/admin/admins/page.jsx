@@ -1,18 +1,13 @@
 import { getAdminsPerPage } from "@/DAO/admins.db"
+
+import Pagination from "../componets/Pagination/Pagination"
 import SearchBar from "../componets/SearchBar/SearchBar"
 import AdminAddBtn from "./components/AdminAddBtn/AdminAddBtn"
 import AdminTable from "./components/AdminTable/AdminTable"
-import Pagination from "../componets/Pagination/Pagination"
 
 export const metadata = {
     title: "Administradores",
     description: "Panel de administradores.",
-    openGraph: {
-        title: 'Administradores',
-    },
-    twitter: {
-        title: 'Administradores',
-    },
 }
 
 

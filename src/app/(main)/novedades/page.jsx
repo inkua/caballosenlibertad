@@ -8,12 +8,6 @@ import CardWrapper from "./components/CardWrapper";
 export const metadata = {
     title: "Novedades",
     description: "Conocé todas las actividades y concursos que nos ayudan a seguir creciendo.",
-    openGraph: {
-        title: 'Novedades',
-    },
-    twitter: {
-        title: 'Novedades',
-    },
 }
 
 const getData = async () => {
@@ -54,7 +48,7 @@ async function Novedades() {
                                     <Slider items={data.upcomingEvents} type={2} def={1} lg={1} md={1} loop={(data.upcomingEvents.length >= 2)} />
                                 </div>
 
-                                <div className='hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-8'>
+                                <div className='hidden md:grid grid-cols-1 gap-8'>
                                     <CardWrapper items={data.upcomingEvents} />
                                 </div>
                             </>

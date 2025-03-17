@@ -1,18 +1,13 @@
 import { getAdoptionsPerPage } from "@/DAO/adoptions.db"
+
+import Pagination from "../componets/Pagination/Pagination"
 import SearchBar from "../componets/SearchBar/SearchBar"
 import AdoptionAddBtn from "./components/AdoptionAddBtn/AdoptionAddBtn"
 import AdoptionTable from "./components/AdoptionTable/AdoptionTable"
-import Pagination from "../componets/Pagination/Pagination"
 
 export const metadata = {
     title: "Adopciones",
     description: "Panel de adopciones.",
-    openGraph: {
-        title: 'Adopciones',
-    },
-    twitter: {
-        title: 'Adopciones',
-    },
 }
 
 async function Adoption({searchParams}) {
