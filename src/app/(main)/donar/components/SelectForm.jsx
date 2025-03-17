@@ -105,7 +105,7 @@ export const SelectForm = ({data}) => {
                     />
                     <DonationOption
                         value="monthlySubscription"
-                        label="Subscripción mensual"
+                        label="Suscripción mensual"
                         name='monthlySubscription'
                         selectedOption={type}
                         onChange={(e) => setType(e.target.value)}
@@ -121,14 +121,14 @@ export const SelectForm = ({data}) => {
                     <button
                         type='button'
                         onClick={() => setAmount("amountOne")}
-                        disabled={type=="monthlySubscription"}
+                        disabled={type=="monthlySubscription" || platform == "paypal"}
                         className={`text[14px] lg:text-[15px] font-semibold w-full rounded-full py-2 border-2 border-primary ${amount === "amountOne" ? 'bg-primary text-white' : 'text-primary bg-white'} ${(type!=="monthlySubscription")&& "hover:bg-primary hover:text-white"}e transition-colors duration-75`}
                         >
                         {data.mercadoPago.one_timePayment.amountOne.quantity || "..."}
                     </button>
                     <button
                         type='button'
-                        disabled={type=="monthlySubscription"}
+                        disabled={type=="monthlySubscription" || platform == "paypal"}
                         onClick={() => setAmount("amountTwo")}
                         className={`text[14px] lg:text-[15px] font-semibold w-full rounded-full py-2 border-2 border-primary ${amount === "amountTwo" ? 'bg-primary text-white' : 'text-primary bg-white'} ${(type!=="monthlySubscription")&& "hover:bg-primary hover:text-white"} transition-colors duration-75`}
                         >
@@ -137,7 +137,7 @@ export const SelectForm = ({data}) => {
                     <button
                         type='button'
                         onClick={() => setAmount("amountThree")}
-                        disabled={type=="monthlySubscription"}
+                        disabled={type=="monthlySubscription" || platform == "paypal"}
                         className={`text[14px] lg:text-[15px] font-semibold w-full rounded-full py-2 border-2 border-primary ${amount === "amountThree" ? 'bg-primary text-white' : 'text-primary bg-white'} ${(type!=="monthlySubscription")&& "hover:bg-primary hover:text-white"} transition-colors duration-75`}
                         >
                         {data.mercadoPago.one_timePayment.amountThree.quantity || "..."}
@@ -145,14 +145,13 @@ export const SelectForm = ({data}) => {
                     <button
                         type='button'
                         onClick={() => setAmount("otherAmount")}
-                        disabled={type=="monthlySubscription"}
+                        disabled={type=="monthlySubscription" || platform == "paypal"}
                         className={`text[14px] lg:text-[15px] font-semibold w-full rounded-full py-2 border-2 border-primary ${amount === "otherAmount" ? 'bg-primary text-white' : 'text-primary bg-white'} ${(type!=="monthlySubscription")&& "hover:bg-primary hover:text-white"} transition-colors duration-75`}
                     >
                         {data.mercadoPago.one_timePayment.otherAmount.quantity || "..."}
                     </button>
                 </div>
             </fieldset>
-            {/* <small className='text-[14px] lg:text-[15px] text-end mt-4 text-primary'>Seleccionado: {verifySelection()}</small> */}
 
             <button
                 type='submit'

@@ -2,7 +2,8 @@ import { DonationCard } from "../components/DonationCard";
 import { BankAccountCard } from "../components/BankAccountCard";
 
 export const metadata = {
-  title: "Contribuciones"
+  title: "Contribuciones",
+  description: "Facilita tu donación a través de nuestros métodos de pago. Conoce los datos de nuestra cuenta bancaria y otros medios disponibles para apoyar nuestra causa.",
 }
 
 function Contribuciones() {

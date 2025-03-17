@@ -131,7 +131,7 @@ function Denuncias() {
                         <div className="">
                             <h4 className="font-bold text-2xl xl:text-3xl text-primary text-center md:text-left md:mb-4">Procedimientos según la situación</h4>
                             <p className="text-base md:text-xl xl:text-2xl font-light text-center md:text-left">
-                                Conocé los pasos específicos a seguir <span className="font-bold">según el tipo de maltrato animal</span>. Accedé al documento con los procedimientos detallados haciendo clic <a className="text-primary font-semibold" href="https://drive.google.com/drive/folders/1NsZ-8PJKt5p4zL0SojHhAcgSaETyoKSP" target="_blank" rel="noopener noreferrer">aquí</a>.
+                                Conocé los pasos específicos a seguir <span className="font-bold">según el tipo de maltrato animal</span>. Accedé al documento con los procedimientos detallados haciendo click <a className="text-primary font-semibold" href="https://drive.google.com/drive/folders/1NsZ-8PJKt5p4zL0SojHhAcgSaETyoKSP" target="_blank" rel="noopener noreferrer">aquí</a>.
                             </p>
                         </div>
                     </div>
