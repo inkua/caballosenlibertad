@@ -8,7 +8,7 @@ function TutorialItem({ title, videoUrl }) {
     return (
         <div className="p-8 bg-gray-100 rounded-lg ">
             <button className="flex items-center justify-between w-full" onClick={() => setopen(!open)}>
-                <h1 className="font-semibold text-gray-700 capitalize">{title}</h1>
+                <h1 className="font-semibold text-gray-700">{title}</h1>
 
                 <span className="text-gray-400 bg-gray-200 rounded-full">
                     <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

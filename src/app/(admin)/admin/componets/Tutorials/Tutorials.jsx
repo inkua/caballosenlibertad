@@ -11,23 +11,23 @@ const Tutorials = () => {
                 <div className="mt-8 space-y-8 lg:mt-12">
                     <TutorialItem 
                         title="Lógica administradores" 
-                        videoUrl="https://www.youtube.com/embed/5F6buwus3hg?si=SXWRYYItM1vc8gMH"
+                        videoUrl="https://youtube.com/embed/OD7VUkfWDJQ"
                     />
                     <TutorialItem 
                         title="Estadisticas e imágen de equipo" 
-                        videoUrl="https://www.youtube.com/embed/nzJ-2DWM84M"
+                        videoUrl="https://youtube.com/embed/UZqX9Sl1eRY "
                     />
                     <TutorialItem 
                         title="Métodos de pagos" 
-                        videoUrl="https://www.youtube.com/embed/EZcODNxIbfM"
+                        videoUrl="https://youtube.com/embed/aJA6oi1ZtIE"
                     />
                     <TutorialItem 
                         title="Adopciones e historias" 
-                        videoUrl="https://www.youtube.com/embed/EZcODNxIbfM"
+                        videoUrl="https://youtube.com/embed/YcT18ZmeXr4"
                     />
                     <TutorialItem 
-                        title="Novedades / Eventos" 
-                        videoUrl="https://www.youtube.com/embed/EZcODNxIbfM"
+                        title="Eventos / Novedades" 
+                        videoUrl="https://youtube.com/embed/1i4pxcZfO4E"
                     />
 
 
