@@ -123,7 +123,7 @@ export default function ContactForm() {
                     </div>
                     <div className="relative flex flex-col gap-4 flex-1">
                         <label htmlFor="message" className="block text-primary text-p3">
-                            Déjanos tu consulta
+                            Dejanos tu consulta
                         </label>
                         <textarea
                             placeholder="Consulta..."

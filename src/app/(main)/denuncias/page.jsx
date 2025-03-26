@@ -33,7 +33,7 @@ function Denuncias() {
                         <span className="font-bold text-2xl text-primary  text-center">PRIMER PASO:</span>
                         <h4 className="text-primary text-2xl italic font-medium text-center mb-2">Denunciar</h4>
                         <p className="text-base md:text-xl xl:text-2xl font-light text-center">
-                            Podés llamar al <span className="font-bold">911</span> o dirigirte a la <span className="font-bold">Fiscalía más cercana</span> de la zona en donde ocurre el delito.
+                            Podés llamar al <span className="font-bold">911</span> o dirigirte a la <span className="font-bold">Fiscalía o Comisaría</span>  más cercana de la zona en donde ocurre el delito.
                         </p>
                     </div>
                     <div role="group" className="flex flex-col w-full justify-center items-center gap-1">
@@ -91,9 +91,9 @@ function Denuncias() {
                             />
                         </div>
                         <div>
-                            <h4 className="font-bold text-2xl xl:text-3xl text-primary text-center md:text-left md:mb-4">Dónde es un delito</h4>
+                            <h4 className="font-bold text-2xl xl:text-3xl text-primary text-center md:text-left md:mb-4">¿Dónde es un delito?</h4>
                             <p className="text-base md:text-xl xl:text-2xl font-light text-center md:text-left">
-                                La tracción a sangre a tiro animal <span className="font-bold">sólo esta prohibida en CABA.</span> Los Municipios que tienen ordenanzas de prohibición son los de <span className="font-bold">La Plata, San Martín y Quilmes.</span>
+                                La tracción a sangre <span className="font-bold">sólo esta prohibida en CABA.</span> Los Municipios que tienen ordenanzas de prohibición son los de <span className="font-bold">San Martín, Quilmes y La Plata {"(solo casco urbano)"}.</span>
                             </p>
                         </div>
                     </div>
@@ -110,7 +110,7 @@ function Denuncias() {
                             />
                         </div>
                         <div>
-                            <h4 className="font-bold text-2xl xl:text-3xl text-primary text-center md:text-left md:mb-4">Cuándo puedo denunciar</h4>
+                            <h4 className="font-bold text-2xl xl:text-3xl text-primary text-center md:text-left md:mb-4">¿Cuándo puedo denunciar?</h4>
                             <p className="text-base md:text-xl xl:text-2xl font-light text-center md:text-left">
                                 Todas las leyes se aplican cuando el delito fue cometido. <span className="font-bold">No se puede denunciar de forma preventiva</span> y sin pruebas concretas.
                             </p>

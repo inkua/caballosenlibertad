@@ -36,10 +36,10 @@ async function Novedades() {
 
             <section className="m-auto max-w-content px-mobile md:px-tablet lg:px-desktop">
                 <div role="region">
-                    <h2 className="text-primary text-h2 font-bold leading-120 mt-12 mb-12">Proximos eventos</h2>
+                    <h2 className="text-primary text-h2 font-bold leading-120 mt-12 mb-12">Próximos eventos</h2>
                     <div role='region' className="flex flex-col gap-8">
                         {(!data.upcomingEvents || data.upcomingEvents.length <= 0) ?
-                            <p className="text-base md:text-xl xl:text-2xl font-light">Actualmente no hay eventos programados, pero siempre puedes apoyar a nuestros caballos de otras maneras. Conoce cómo puedes ayudar haciendo click <Link href="/donar" alt="donar" className="text-primary font-semibold italic">aquí</Link> y seguinos en redes sociales para no perderte nuestros próximos eventos.</p>
+                            <p className="text-base md:text-xl xl:text-2xl font-light">Actualmente no hay eventos programados, pero siempre podés apoyar a nuestros caballos de otras maneras. Conocé cómo puedes ayudar haciendo click <Link href="/donar" alt="donar" className="text-primary font-semibold italic">aquí</Link> y seguinos en redes sociales para no perderte nuestros próximos eventos.</p>
                             :
                             <>
                                 <div className='block md:hidden'>

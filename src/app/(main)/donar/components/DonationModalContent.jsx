@@ -63,7 +63,7 @@ export const DonationModalContent = ({ codigo }) => {
                 codigo === TypeSection.INSUMOS_MEDICOS &&
                 <>
                     <p className='text-[16px] md:text-[18px] lg:text-[24px]'>
-                        Si consideras que puedes donar alguno de los insumos listados debajo ponte en contacto con nosotros para que te informemos de qué manera colaborar.
+                        Si querés donar alguno de los insumos del listado ponte en contacto con nosotros para que te informemos de qué manera colaborar.
                     </p>
                     <br />
                     <div className='w-full lg:mt-6 flex space-x-2 md:space-x-4 lg:space-x-8'>
@@ -93,7 +93,7 @@ export const DonationModalContent = ({ codigo }) => {
                             <li>Omeprazol</li>
                             <li>Xilacina</li>
                             <li>Diazepam</li>
-                            <li>Tramado</li>
+                            <li>Tramadol</li>
                             <li>Acepromacina</li>
                             <li>Metocarbamol</li>
                             <li>Lidocaína</li>
@@ -115,10 +115,10 @@ export const DonationModalContent = ({ codigo }) => {
                             <li>Enteropectin / Smectite</li>
                             <li>Curabichera en pasta/Aerosol</li>
                             <li>Vaselina líquida</li>
-                            <li>Platul, propóleo, crema de ordeñe</li>
-                            <li>Nitrofurasona</li>
+                            <li>Platsul, propóleo, crema de ordeñe</li>
+                            <li>Nitrofurazona</li>
                             <li>Sulfato de cobre</li>
-                            <li>Azul de metileno / Cicatrizo</li>
+                            <li>Azul de metileno / Cicatrizol</li>
                             <li>Catéter 14G - 16G - Arrow</li>
                             <li>Agujas 18G - 21G</li>
                             <li>Jeringas 5 - 10 - 20 - 60ml</li>

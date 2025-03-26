@@ -7,7 +7,7 @@ export const Statistics = async () => {
     return (
         <div role='region' className='flex flex-col xl:flex-row w-full items-center justify-between text-primary gap-4'>
             <p className='w-full text-center sm:text-start xl:w-[45%] font-medium text-[18px] sm:text-[30px]'>
-                Nuestro trabajo ha ayudado a mejorar la calidad de vida de cientos de caballos
+                Nuestro trabajo ayudó a mejorar la calidad de vida de cientos de caballos
             </p>
             <div role='group' className='max-w-[300px] sm:max-w-none w-full xl:w-[55%] grid grid-cols-2 sm:grid-cols-4 gap-2'>
                 {

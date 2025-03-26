@@ -20,7 +20,7 @@ export const ItemsGrid = async () => {
     return (
         <section className='w-full mx-auto pb-6 md:pb-12 lg:pb-14 px-mobile md:px-tablet lg:px-desktop max-w-content'>
             <h2 id="items-grid" className="text-2xl lg:text-3xl font-normal text-primary leading-120">
-                Conoce a nuestros caballos rescatados en busca de un hogar
+                Conocé a nuestros caballos rescatados en busca de un hogar
             </h2>
             <div role='region' className="mt-12 mx-auto flex">
                 <div className='w-full grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 max-w-content'>

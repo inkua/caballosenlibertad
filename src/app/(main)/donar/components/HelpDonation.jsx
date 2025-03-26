@@ -17,7 +17,7 @@ export const HelpDonation = () => {
         priority={true} 
         text={`Donación \nmonetaria`} 
         image={'/assets/donar/Aporte-monetario.svg'}
-        buttonText={'Hace tu aporte'}
+        buttonText={'Hacé tu aporte'}
         handleItemClick={handleItemClick}
       />
     </>

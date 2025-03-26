@@ -11,11 +11,15 @@ const poppins = Poppins({
 export const metadata = {
   title: "Caballos en Libertad",
   description: "Somos una organización sin fines de lucro, encargada de la protección, cuidado y rescate de equinos.",
+  applicationName: 'Caballos En Libertad',
+  themeColor: "#00638C",
+  type: 'website',
+  locale: "es_AR",
 }
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={poppins.className}>
+    <html lang="es" className={poppins.className}>
       {children}
     </html>
   );

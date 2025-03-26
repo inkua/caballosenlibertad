@@ -116,7 +116,7 @@ export const SelectForm = ({data}) => {
 
             {/* Monto */}
             <fieldset className={`${(platform == "paypal" || type=="monthlySubscription") && "grayscale"}`}>
-                <LegendElement label={'Elige el monto'} image={"/assets/donar/Group3.svg"} />
+                <LegendElement label={'Elegí el monto'} image={"/assets/donar/Group3.svg"} />
                 <div className="grid grid-cols-2 gap-2 mt-8">
                     <button
                         type='button'
